@@ -3,10 +3,11 @@
 //                 rs2d.sequence.onpulseslc.OnePulse_Slc_dev
 //  
 // ---------------------------------------------------------------------
-//
+//GRADIENT_REF_TIME to GRADIENT_REFOC_TIME
+//  V5.1   -  30 / 10 / 2017 - JR
+//       sequenceVersion
 //  V5   -  30 / 10 / 2017 - JR
-// 			New format for V213
-//  V4_1  -  03 / 08 / 2017 - 
+//  V4_1  -  03 / 08 / 2017 -
 // 		remove TX_SAVE_IN_INSTRUMENT  TX_RF_POWER
 //        Add trigger
 //  V4_0  -  PECIMEN to SUBJECT - 
@@ -17,23 +18,16 @@
 //  18 mai 2016 add slice selection
 //  19 Jul 2016 add Spoiler and nutation curve
 package rs2d.sequence.onpulseslc;
+
+import rs2d.commons.log.Log;
+
 import java.util.*;
-//import java.util.ArrayList;
-//import java.util.List;
+
 import rs2d.spinlab.hardware.controller.HardwareHandler;
 import rs2d.spinlab.instrument.Instrument;
-import rs2d.spinlab.instrument.probe.ProbeChannelPower;
-import rs2d.spinlab.instrument.util.CurvePoint;
 import rs2d.spinlab.instrument.util.GradientMath;
-import rs2d.spinlab.plugins.loaders.LoaderFactory;
-import rs2d.spinlab.plugins.loaders.PluginLoaderInterface;
-import rs2d.spinlab.sequence.element.TimeElement; // 
-import rs2d.spinlab.sequence.table.generator.*;
+import rs2d.spinlab.sequence.element.TimeElement;
 import rs2d.spinlab.sequence.table.*;
-//import rs2d.spinlab.sequence.table.Shape;
-//import rs2d.spinlab.sequence.table.Table;
-//import rs2d.spinlab.sequence.table.Utility;
-//import rs2d.spinlab.sequence.table.generator.TableGeneratorInterface;
 import rs2d.spinlab.sequenceGenerator.SequenceGeneratorAbstract;
 import rs2d.spinlab.tools.param.*;
 import rs2d.spinlab.tools.role.RoleEnum;
@@ -47,6 +41,7 @@ import static rs2d.sequence.onpulseslc.OnepulseSlcSequenceParams.*;
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
+    private String sequenceVersion = " Version5.1";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -73,13 +68,8 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
     private boolean isSW;
     private double tr;
     private double te;
-    private double echo_spacing;
 
     private double sliceThickness;
-    private double pixelDimension;
-    private double fov;
-    private double fovPhase;
-    private boolean isFovDoubled;
     private double off_center_distance_1D;
     private double off_center_distance_2D;
     private double off_center_distance_3D;
@@ -89,23 +79,9 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
     private boolean is_tx_amp_att_auto;
     private boolean is_tx_nutation;
 
-    private boolean isDynamic;
-    private int numberOfDynamicAcquisition;
-
-    private boolean isInversionRecovery;
-    private ListNumberParam inversionRecoveryTime;
-    private int numberOfInversionRecovery;
-
     private boolean isTrigger;
     private ListNumberParam triggerTime;
     private int numberOfTrigger;
-
-    private boolean isKSCenterMode;
-
-    private boolean isEnablePhase;
-    private boolean isEnablePhase3D;
-    private boolean isEnableSlice;
-    private boolean isEnableRead;
 
     private double observation_time;
 
@@ -172,7 +148,6 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         te = ((NumberParam) getParam(ECHO_TIME)).getValue().doubleValue();
 
         sliceThickness = ((NumberParam) getParam(SLICE_THICKNESS)).getValue().doubleValue();
-        fov = ((NumberParam) getParam(FIELD_OF_VIEW)).getValue().doubleValue();
 
         txLength = ((NumberParam) getParam(TX_LENGTH)).getValue().doubleValue();
         is_tx_amp_att_auto = ((BooleanParam) getParam(TX_AMP_ATT_AUTO)).getValue();
@@ -207,11 +182,10 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
 
     private void beforeRouting() throws Exception {
 
-        boolean b_comment = false; // Show the comments
-        if (b_comment) {
-            System.out.println("------------ BEFORE ROUTING -------------");
-        }
-        setParamValue(SEQUENCE_VERSION, "Version5.0");
+        Log.debug(getClass(), "------------ BEFORE ROUTING -------------");
+
+        setParamValue(SEQUENCE_VERSION, sequenceVersion);
+        setParamValue(MODALITY, "MRI");
         // -----------------------------------------------
         // RX parameters : nucleus, RX gain & frequencies
         // -----------------------------------------------
@@ -280,13 +254,10 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // -----------------------------------------------
         // 4D managment:  Dynamic, MultiEcho, External triggering
         // -----------------------------------------------   
-        boolean is_trigger = (((BooleanParam) getParam(TRIGGER_EXTERNAL)).getValue());
 
-        ListNumberParam trigger_time = (ListNumberParam) getParam(TRIGGER_TIME);
-        int number_of_trigger_acquisition = is_trigger ? trigger_time.getValue().size() : 1;
 
-        int nb_scan_4d = number_of_trigger_acquisition;
-        double acquisitionMatrixDimension4D = nb_scan_4d;
+        int nb_scan_4d = numberOfTrigger;
+        acquisitionMatrixDimension4D = nb_scan_4d;
         setParamValue(USER_MATRIX_DIMENSION_4D, nb_scan_4d);
 
         // -----------------------------------------------
@@ -338,7 +309,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
     // --------------------------------------------------------------------------------------------------------------------------------------------
 
     private void afterRouting() throws Exception {
-        boolean b_comment = false; // Show the comments       // -----------------------------------------------
+        Log.debug(getClass(), "------------ AFTER ROUTING -------------");
 
         // -----------------------------------------------
         // enable gradient lines
@@ -498,7 +469,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // ------------------------------------------
         // calculate actual delays between Rf-pulses and ADC
         double time1 = getTimeBetweenEvents(eventPulse + 1, eventAcq - 1);
-        time1 = time1 + txLength / 2 ;// Actual_TE
+        time1 = time1 + txLength / 2;// Actual_TE
         time1 = removeTimeForEvents(time1, eventDelay); // Actual_TE without delay1
 
         // get minimal TE value & search for incoherence
@@ -537,19 +508,16 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         getSequence().getPublicParam(Synchro_trigger).setValue(isTrigger ? TimeElement.Trigger.External : TimeElement.Trigger.Timer);
         getSequence().getPublicParam(Synchro_trigger).setLocked(true);
 
-        boolean is_trigger = (((BooleanParam) getParam(TRIGGER_EXTERNAL)).getValue());
         double time_external_trigger_delay_max = minInstructionDelay;
-        ListNumberParam trigger_time = (ListNumberParam) getParam(TRIGGER_TIME);
-        int number_of_trigger_acquisition = (is_trigger ? trigger_time.getValue().size() : 1);
 
         Table triggerdelay = getSequence().getTable(Time_trigger_delay);
         triggerdelay.clear();
 
-        if ((!is_trigger)) {
+        if ((!isTrigger)) {
             triggerdelay.add(minInstructionDelay);
         } else {
-            for (int i = 0; i < number_of_trigger_acquisition; i++) {
-                double time_external_trigger_delay = Math.round(trigger_time.getValue().get(i).doubleValue() * Math.pow(10, 7)) / Math.pow(10, 7);
+            for (int i = 0; i < numberOfTrigger; i++) {
+                double time_external_trigger_delay = Math.round(triggerTime.getValue().get(i).doubleValue() * Math.pow(10, 7)) / Math.pow(10, 7);
                 time_external_trigger_delay = time_external_trigger_delay < minInstructionDelay ? minInstructionDelay : time_external_trigger_delay;
                 triggerdelay.add(time_external_trigger_delay);
                 time_external_trigger_delay_max = Math.max(time_external_trigger_delay_max, time_external_trigger_delay);
@@ -618,6 +586,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         }
         return table;
     }
+
     private double getOff_center_distance_1D_2D_3D(int dim) {
         ListNumberParam image_orientation = (ListNumberParam) getParam(IMAGE_ORIENTATION_SUBJECT);
         double[] direction_index = new double[9];
@@ -684,103 +653,6 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         return (Number) getParamFromName(name).getValue();
     }
 
-    /**
-     * Generate a table of element with a Sinus Cardinal generator
-     *
-     * @param table   The table to be set
-     * @param nbpoint The number of point of the generated sinus cardinal
-     * @param nblobe  The number of lob of the generated sinus cardinal
-     * @param amp     The amplitude of the generated sinus cardinal (in %)
-     * @param abs     true if you want the absolute values and false otherwise
-     */
-    private void setTableValuesFromSincGen(Table table, int nbpoint, int nblobe, double amp, Boolean abs, String window) throws Exception {
-        TableGeneratorInterface gen = null;
-        gen = loadTableGenerator("Sinus Cardinal with Apodisation");
-        gen.getParams().get(0).setValue(nbpoint);
-        gen.getParams().get(1).setValue(nblobe);
-        gen.getParams().get(2).setValue(amp);
-        gen.getParams().get(3).setValue(abs);//abs
-        gen.getParams().get(4).setValue(window);//abs
-
-        table.setGenerator(gen);
-        if (gen == null) {
-            table.clear();
-            table.setFirst(100);
-        } else {
-            gen.generate();
-        }
-    }
-
-    /**
-     * Generate a table of element with a Gaussian generator
-     *
-     * @param table   The table to be set
-     * @param nbpoint The number of point of the generated gaussian
-     * @param width   The width of the generated gaussian
-     * @param amp     The amplitude of the generated gaussian (in %)
-     * @param abs     true if you want the absolute values and false otherwise
-     */
-    private void setTableValuesFromGaussGen(Table table, int nbpoint, double width, double amp, Boolean abs) throws Exception {
-        TableGeneratorInterface gen = null;
-        gen = loadTableGenerator("Gaussian");
-        gen.getParams().get(0).setValue(nbpoint);
-        gen.getParams().get(1).setValue(width);
-        gen.getParams().get(2).setValue(amp);
-        gen.getParams().get(3).setValue(abs);//abs
-        table.setGenerator(gen);
-        if (gen == null) {
-            table.clear();
-            table.setFirst(100);
-        } else {
-            gen.generate();
-        }
-
-    }
-
-    private TableGeneratorInterface loadTableGenerator(String generatorName) throws Exception {
-        TableGeneratorInterface gen = null;
-        PluginLoaderInterface loader = LoaderFactory.getTableGeneratorPluginLoader();
-        if (loader.containsPlugin(generatorName)) {
-            gen = (TableGeneratorInterface) loader.getPluginByName(generatorName);
-        }
-        return gen;
-    }
-
-    public void writePulseInfo(double pulsePower90Watt, double pulsePower180Watt, boolean save_in_instrument) {
-        ProbeChannelPower pchp = Instrument.instance().getTransmitProbe().getPower(null).getMap().get(Nucleus.H1.name());
-        CurvePoint hardPulse90 = pchp.getHardPulse90();
-        hardPulse90.y = pulsePower90Watt;
-        pchp.setHardPulse90(hardPulse90);
-
-        CurvePoint hardPulse180 = pchp.getHardPulse180();
-        hardPulse180.y = pulsePower180Watt;
-        pchp.setHardPulse180(hardPulse180);
-
-        if (save_in_instrument) {
-            Instrument.instance().getTransmitProbe().save();
-        }
-    }
-
-    public void writePulseInfo90(double pulsePower90Watt, boolean save_in_instrument) {
-        ProbeChannelPower pchp = Instrument.instance().getTransmitProbe().getPower(null).getMap().get(Nucleus.H1.name());
-        CurvePoint hardPulse90 = pchp.getHardPulse90();
-        hardPulse90.y = pulsePower90Watt;
-        pchp.setHardPulse90(hardPulse90);
-        if (save_in_instrument) {
-            Instrument.instance().getTransmitProbe().save();
-        }
-    }
-
-    public void writePulseInfo180(double pulsePower180Watt, boolean save_in_instrument) {
-        ProbeChannelPower pchp = Instrument.instance().getTransmitProbe().getPower(null).getMap().get(Nucleus.H1.name());
-
-        CurvePoint hardPulse180 = pchp.getHardPulse180();
-        hardPulse180.y = pulsePower180Watt;
-        pchp.setHardPulse180(hardPulse180);
-        if (save_in_instrument) {
-            Instrument.instance().getTransmitProbe().save();
-        }
-    }
 
     //<editor-fold defaultstate="collapsed" desc="Generated Code (RS2D)">
     public void initParam() {

@@ -1128,7 +1128,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version5.0");
+            param.setValue(" Version5.1");
             param.setDefaultValue("");
             return param;
         }
