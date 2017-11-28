@@ -4,6 +4,7 @@
 //  
 // ---------------------------------------------------------------------
 //GRADIENT_REF_TIME to GRADIENT_REFOC_TIME
+//  V5.3   -  28 / 11 / 2017 - JR extTrigSource
 //  V5.2   -  28 / 11 / 2017 - JR bug SW
 //  V5.1   -  30 / 10 / 2017 - JR
 //       sequenceVersion
@@ -19,12 +20,15 @@
 //  18 mai 2016 add slice selection
 //  19 Jul 2016 add Spoiler and nutation curve
 package rs2d.sequence.onpulseslc;
+
 import rs2d.commons.log.Log;
+
 import java.util.*;
 
 import rs2d.spinlab.hardware.controller.HardwareHandler;
 import rs2d.spinlab.instrument.Instrument;
 import rs2d.spinlab.instrument.util.GradientMath;
+import rs2d.spinlab.sequence.SequenceTool;
 import rs2d.spinlab.sequence.element.TimeElement;
 import rs2d.spinlab.sequence.table.*;
 import rs2d.spinlab.sequenceGenerator.SequenceGeneratorAbstract;
@@ -33,14 +37,15 @@ import rs2d.spinlab.tools.role.RoleEnum;
 import rs2d.spinlab.tools.table.Order;
 import rs2d.spinlab.tools.utility.Nucleus;
 
-import static rs2d.sequence.onpulseslc.OnepulseSlcParams.*;
+import static java.util.Arrays.asList;
 
+import static rs2d.sequence.onpulseslc.OnepulseSlcParams.*;
 import static rs2d.sequence.onpulseslc.OnepulseSlcSequenceParams.*;
 
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
-    private String sequenceVersion = " Version5.2";
+    private String sequenceVersion = "Version5.3";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -99,6 +104,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
 
         super();
         initParam();
+
         init();
     }
 
@@ -112,6 +118,14 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
     public void init() {
         super.init();
         // Define default, min, max and suggested values regarding the instrument.
+        List<String> extTrigSource = asList(
+                SequenceTool.ExtTrigSource.Ext1.name(),
+                SequenceTool.ExtTrigSource.Ext2.name(),
+                SequenceTool.ExtTrigSource.Ext1_AND_Ext2.name(),
+                SequenceTool.ExtTrigSource.Ext1_XOR_Ext2.name());
+        //List<String> tx_shape = Arrays.asList("HARD", "GAUSSIAN", "SIN3", "xSINC5");
+        ((TextParam) getParam(TRIGGER_CHANEL)).setSuggestedValues(extTrigSource);
+        ((TextParam) getParam(TRIGGER_CHANEL)).setRestrictedToSuggested(true);
 
         //fitSWToHardware(12.5e3);
         getParam(DIGITAL_FILTER_REMOVED).setDefaultValue(Instrument.instance().getDevices().getCameleon().isRemoveAcquDeadPoint());
@@ -183,7 +197,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
 
         Log.debug(getClass(), "------------ BEFORE ROUTING -------------");
 
-        setParamValue(SEQUENCE_VERSION,sequenceVersion);
+        setParamValue(SEQUENCE_VERSION, sequenceVersion);
         setParamValue(MODALITY, "MRI");
         // -----------------------------------------------
         // RX parameters : nucleus, RX gain & frequencies
@@ -473,7 +487,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // ------------------------------------------
         // calculate actual delays between Rf-pulses and ADC
         double time1 = getTimeBetweenEvents(eventPulse + 1, eventAcq - 1);
-        time1 = time1 + txLength / 2 ;// Actual_TE
+        time1 = time1 + txLength / 2;// Actual_TE
         time1 = removeTimeForEvents(time1, eventDelay); // Actual_TE without delay1
 
         // get minimal TE value & search for incoherence
@@ -529,7 +543,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             triggerdelay.setOrder(Order.Four);
         }
 
-
+        setSequenceParamValue(Ext_trig_source, TRIGGER_CHANEL);
         // ---------------------------------------------------------------
         // calculate TR , Time_last_delay  Time_TR_delay & search for incoherence
         // ---------------------------------------------------------------
@@ -539,12 +553,12 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         double time_seq_to_end_spoiler = getTimeBetweenEvents(eventStart, eventEnd - 1);
         double tr_min = time_seq_to_end_spoiler + min_flush_delay;// 2 +( 2 minInstructionDelay: event 22 +(20&21
         if (tr < tr_min) {
-            System.out.println(tr + " < " +tr_min);
+            System.out.println(tr + " < " + tr_min);
             tr_min = Math.ceil(tr_min * Math.pow(10, 4)) / Math.pow(10, 4);
             this.getUnreachParamExceptionManager().addParam(REPETITION_TIME.name(), tr, tr_min, ((NumberParam) getParam(REPETITION_TIME)).getMaxValue(), "TR too short to reach");
             tr = tr_min;
         }
-        System.out.println( " tr =  " +tr);
+        System.out.println(" tr =  " + tr);
         // ------------------------------------------
         // set calculated TR
         // ------------------------------------------
@@ -591,6 +605,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         }
         return table;
     }
+
     private double getOff_center_distance_1D_2D_3D(int dim) {
         ListNumberParam image_orientation = (ListNumberParam) getParam(IMAGE_ORIENTATION_SUBJECT);
         double[] direction_index = new double[9];
@@ -658,7 +673,6 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
     }
 
 
-
     //<editor-fold defaultstate="collapsed" desc="Generated Code (RS2D)">
     public void initParam() {
         for (OnepulseSlcParams param : OnepulseSlcParams.values()) {
@@ -682,4 +696,6 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         return 0.0f;
     }
     //</editor-fold>
+
+
 }

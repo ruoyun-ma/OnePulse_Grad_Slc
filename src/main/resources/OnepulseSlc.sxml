@@ -913,7 +913,6 @@
                 <displayedName>Observed Nucleus</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <group>Reception</group>
                 <category>Acquisition</category>
                 <rolesEnum>User</rolesEnum>
                 <value>1H</value>
@@ -5343,13 +5342,14 @@
             <count>1</count>
             <key>key303</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
-                <name>ExtTrigSource</name>
+                <name>Ext_trig_source</name>
                 <description>Source of external trigger</description>
                 <displayedName>ExtTrigSource</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
+                <group>Delay</group>
                 <rolesEnum>User</rolesEnum>
-                <value>Ext1</value>
+                <value>Ext1_XOR_Ext2</value>
                 <defaultValue>Ext1</defaultValue>
                 <suggestedValues>Ext1</suggestedValues>
                 <suggestedValues>Ext2</suggestedValues>
@@ -6729,7 +6729,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>7.999999999999988E-5</list>
+                <list>7.999999999999999E-5</list>
             </value>
         </Entry>
         <Entry>

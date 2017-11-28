@@ -18,6 +18,11 @@ public interface OnepulseSlcSequenceParams {
     String enabled_spoiler = "enabled_spoiler";
 
     /**
+     * Group: Delay, Type: TextParam
+     */
+    String Ext_trig_source = "Ext_trig_source";
+
+    /**
      * Group: Miscellaneous, Type: NumberParam - Angle (°)
      */
     String Gradient_angle_phi = "Gradient_angle_phi";
@@ -96,11 +101,6 @@ public interface OnepulseSlcSequenceParams {
      * Group: Miscellaneous, Type: TextParam
      */
     String Tx_nucleus = "Tx_nucleus";
-
-    /**
-     * Group: Reception, Type: TextParam
-     */
-    String Tx_nucleus1 = "Tx_nucleus1";
 
 
     //-- public tables

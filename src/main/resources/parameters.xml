@@ -1153,7 +1153,7 @@
                 <group>User</group>
                 <category>Acquisition</category>
                 <rolesEnum>User</rolesEnum>
-                <value> Version5.2</value>
+                <value> Version5.3</value>
                 <defaultValue></defaultValue>
                 <restrictedToSuggested>false</restrictedToSuggested>
             </value>
@@ -1320,6 +1320,26 @@
                 <suggestedValues>Sequential4DBackAndForth</suggestedValues>
                 <suggestedValues>Sequential4DCine</suggestedValues>
                 <restrictedToSuggested>false</restrictedToSuggested>
+            </value>
+        </entry>
+        <entry>
+            <key>TRIGGER_CHANEL</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                <name>TRIGGER_CHANEL</name>
+                <description></description>
+                <displayedName>Trigger Channel</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Delay</group>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>Ext1_XOR_Ext2</value>
+                <defaultValue>Ext1_XOR_Ext2</defaultValue>
+                <suggestedValues>Ext1</suggestedValues>
+                <suggestedValues>Ext2</suggestedValues>
+                <suggestedValues>Ext1_AND_Ext2</suggestedValues>
+                <suggestedValues>Ext1_XOR_Ext2</suggestedValues>
+                <restrictedToSuggested>true</restrictedToSuggested>
             </value>
         </entry>
         <entry>

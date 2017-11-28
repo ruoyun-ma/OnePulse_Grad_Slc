@@ -742,7 +742,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-1.7976931348623157E308);
             param.setMaxValue(1.7976931348623157E308);
             param.setNumberEnum(NumberEnum.Location);
-            param.setValue(asList(0.0, 0.0, 0.0));
+            param.setValue(asList(0.003, 0.0, 0.0));
             param.setDefaultValue(asList(0.0, 0.0, 0.0));
             return param;
         }
@@ -1208,6 +1208,23 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setValue("none");
             param.setDefaultValue("none");
             param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Sequential2D", "Sequential2D_EPI", "Sequential2D_EPI_Cal", "Sequential2D_EPI_Int", "Sequential4D", "Sequential4DBackAndForth", "Sequential4DCine"));
+            return param;
+        }
+    },
+
+    TRIGGER_CHANEL {
+        Param build() {
+            TextParam param = new TextParam();
+            param.setName("TRIGGER_CHANEL");
+            param.setDisplayedName("Trigger Channel");
+            param.setDescription("");
+            param.setRoles(new RoleEnum[] {RoleEnum.User});
+            param.setGroup(EnumGroup.Delay);
+            param.setCategory(Category.Acquisition);
+            param.setValue("Ext1_XOR_Ext2");
+            param.setDefaultValue("Ext1_XOR_Ext2");
+            param.setSuggestedValues(asList("Ext1", "Ext2", "Ext1_AND_Ext2", "Ext1_XOR_Ext2"));
+            param.setRestrictedToSuggested(true);
             return param;
         }
     },
