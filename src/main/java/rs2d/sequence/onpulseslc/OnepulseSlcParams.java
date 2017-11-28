@@ -244,24 +244,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
-    ECHO_NUMBER {
-        Param build() {
-            NumberParam param = new NumberParam();
-            param.setName("ECHO_NUMBER");
-            param.setDisplayedName("NE");
-            param.setDescription("The number of echo");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
-            param.setGroup(EnumGroup.Dimension);
-            param.setCategory(Category.Acquisition);
-            param.setNumberEnum(NumberEnum.Integer);
-            param.setMinValue(-2147483648);
-            param.setMaxValue(2147483647);
-            param.setValue(5);
-            param.setDefaultValue(5);
-            return param;
-        }
-    },
-
     ECHO_TIME {
         Param build() {
             NumberParam param = new NumberParam();
@@ -276,24 +258,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMaxValue(1.0E9);
             param.setValue(6.0E-4);
             param.setDefaultValue(0.005);
-            return param;
-        }
-    },
-
-    EFFECTIVE_DURATION {
-        Param build() {
-            NumberParam param = new NumberParam();
-            param.setName("EFFECTIVE_DURATION");
-            param.setDisplayedName("Effective Duration");
-            param.setDescription("The effective duration of the sequence");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
-            param.setGroup(EnumGroup.Delay);
-            param.setCategory(Category.Acquisition);
-            param.setNumberEnum(NumberEnum.Time);
-            param.setMinValue(0.0);
-            param.setMaxValue(1.0E9);
-            param.setValue(5.0);
-            param.setDefaultValue(5.0);
             return param;
         }
     },
@@ -334,10 +298,10 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
-    GRAD_AMP_SPOILER {
+    GRADIENT_AMP_SPOILER {
         Param build() {
             NumberParam param = new NumberParam();
-            param.setName("GRAD_AMP_SPOILER");
+            param.setName("GRADIENT_AMP_SPOILER");
             param.setDisplayedName("GRAD_AMP_SPOILER");
             param.setDescription("");
             param.setRoles(new RoleEnum[] {RoleEnum.User});
@@ -346,7 +310,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.GradAmp);
             param.setMinValue(-100.0);
             param.setMaxValue(100.0);
-            param.setValue(30.0);
+            param.setValue(0.0);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -367,11 +331,11 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
-    GRADIENT_REF_TIME {
+    GRADIENT_REFOC_TIME {
         Param build() {
             NumberParam param = new NumberParam();
-            param.setName("GRADIENT_REF_TIME");
-            param.setDisplayedName("GRADIENT_REF_TIME");
+            param.setName("GRADIENT_REFOC_TIME");
+            param.setDisplayedName("GRADIENT_REFOC_TIME");
             param.setDescription("");
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
@@ -778,7 +742,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-1.7976931348623157E308);
             param.setMaxValue(1.7976931348623157E308);
             param.setNumberEnum(NumberEnum.Location);
-            param.setValue(asList(0.003, 0.0, 0.0));
+            param.setValue(asList(0.0, 0.0, 0.0));
             param.setDefaultValue(asList(0.0, 0.0, 0.0));
             return param;
         }
@@ -941,38 +905,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
-    Phase {
-        Param build() {
-            NumberParam param = new NumberParam();
-            param.setName("Phase");
-            param.setDisplayedName("Phase");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
-            param.setCategory(Category.Process);
-            param.setNumberEnum(NumberEnum.Double);
-            param.setMinValue(-1.7976931348623157E308);
-            param.setMaxValue(1.7976931348623157E308);
-            param.setValue(0.0);
-            param.setDefaultValue(0.0);
-            return param;
-        }
-    },
-
-    Phase1 {
-        Param build() {
-            NumberParam param = new NumberParam();
-            param.setName("Phase1");
-            param.setDisplayedName("Phase1");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
-            param.setCategory(Category.Process);
-            param.setNumberEnum(NumberEnum.Double);
-            param.setMinValue(-1.7976931348623157E308);
-            param.setMaxValue(1.7976931348623157E308);
-            param.setValue(0.0);
-            param.setDefaultValue(0.0);
-            return param;
-        }
-    },
-
     PHASE_0 {
         Param build() {
             ListNumberParam param = new ListNumberParam();
@@ -1128,7 +1060,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue(" Version5.1");
+            param.setValue(" Version5.2");
             param.setDefaultValue("");
             return param;
         }

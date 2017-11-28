@@ -1618,7 +1618,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Spectral_width</name>
                 <displayedName>SW0</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Reception</group>
                 <rolesEnum>User</rolesEnum>
@@ -6582,7 +6582,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>5.484E-4</list>
+                <list>5.0E-6</list>
             </value>
         </Entry>
         <Entry>
@@ -6729,7 +6729,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>7.999999999999999E-5</list>
+                <list>7.999999999999988E-5</list>
             </value>
         </Entry>
         <Entry>
@@ -6757,7 +6757,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.2889169600000001</list>
+                <list>0.28946036000000014</list>
             </value>
         </Entry>
         <Entry>
@@ -7473,7 +7473,7 @@
                 <group>Gradient</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>30.0</list>
+                <list>0.0</list>
             </value>
         </Entry>
         <Entry>

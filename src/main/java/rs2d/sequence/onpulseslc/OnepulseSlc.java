@@ -4,6 +4,7 @@
 //  
 // ---------------------------------------------------------------------
 //GRADIENT_REF_TIME to GRADIENT_REFOC_TIME
+//  V5.2   -  28 / 11 / 2017 - JR bug SW
 //  V5.1   -  30 / 10 / 2017 - JR
 //       sequenceVersion
 //  V5   -  30 / 10 / 2017 - JR
@@ -18,9 +19,7 @@
 //  18 mai 2016 add slice selection
 //  19 Jul 2016 add Spoiler and nutation curve
 package rs2d.sequence.onpulseslc;
-
 import rs2d.commons.log.Log;
-
 import java.util.*;
 
 import rs2d.spinlab.hardware.controller.HardwareHandler;
@@ -41,7 +40,7 @@ import static rs2d.sequence.onpulseslc.OnepulseSlcSequenceParams.*;
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
-    private String sequenceVersion = " Version5.1";
+    private String sequenceVersion = " Version5.2";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -184,7 +183,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
 
         Log.debug(getClass(), "------------ BEFORE ROUTING -------------");
 
-        setParamValue(SEQUENCE_VERSION, sequenceVersion);
+        setParamValue(SEQUENCE_VERSION,sequenceVersion);
         setParamValue(MODALITY, "MRI");
         // -----------------------------------------------
         // RX parameters : nucleus, RX gain & frequencies
@@ -294,7 +293,12 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         setParamValue(OFF_CENTER_FIELD_OF_VIEW_2D, off_center_distance_2D);
         setParamValue(OFF_CENTER_FIELD_OF_VIEW_1D, off_center_distance_1D);
 
+        ArrayList<Number> off_center_distanceList = new ArrayList<>();
+        off_center_distanceList.add(0);
+        off_center_distanceList.add(0);
+        off_center_distanceList.add(off_center_distance_3D);
 
+        setParamValue(OFF_CENTER_FIELD_OF_VIEW_EFF, off_center_distanceList);
         // -----------------------------------------------
         // activate gradient rotation matrix
         // -----------------------------------------------
@@ -419,7 +423,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         gradSlice.applyAmplitude();
 
         // calculate SLICE_refocusing
-        double grad_ref_application_time = ((NumberParam) getParam(GRADIENT_REF_TIME)).getValue().doubleValue();
+        double grad_ref_application_time = ((NumberParam) getParam(GRADIENT_REFOC_TIME)).getValue().doubleValue();
         setSequenceTableFirstValue(Time_grad_ref, isMultiplanar ? grad_ref_application_time : minInstructionDelay);
         Gradient gradSliceRefPhase3D = Gradient.createGradient(getSequence(), Grad_amp_slice_ref, Time_grad_ref, Grad_shape_up, Grad_shape_down, Time_grad_ramp);
         if (isMultiplanar) {
@@ -432,7 +436,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         double observation_time = ((NumberParam) getParam(ACQUISITION_TIME_PER_SCAN)).getValue().doubleValue();
 
         setSequenceTableFirstValue(Time_rx, observation_time);
-
+        setSequenceParamValue(Spectral_width, spectralWidth);
         // ---------------------------------------------------------------------
         // calculate SPOILER gradient amplitudes
         // ---------------------------------------------------------------------
@@ -443,7 +447,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
 
         setSequenceTableFirstValue(Time_grad_spoil_ramp, is_spoiler ? grad_rise_time : minInstructionDelay);
 
-        double grad_spoiler_amp = ((NumberParam) getParam(GRAD_AMP_SPOILER)).getValue().doubleValue();
+        double grad_spoiler_amp = ((NumberParam) getParam(GRADIENT_AMP_SPOILER)).getValue().doubleValue();
 
         Gradient gradSpoiler = Gradient.createGradient(getSequence(), Grad_amp_spoiler, Time_grad_spoil, Grad_shape_up, Grad_shape_down, Time_grad_spoil_ramp);
         if (((BooleanParam) getParam(GRADIENT_ENABLE_SPOILER)).getValue())
@@ -469,7 +473,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // ------------------------------------------
         // calculate actual delays between Rf-pulses and ADC
         double time1 = getTimeBetweenEvents(eventPulse + 1, eventAcq - 1);
-        time1 = time1 + txLength / 2;// Actual_TE
+        time1 = time1 + txLength / 2 ;// Actual_TE
         time1 = removeTimeForEvents(time1, eventDelay); // Actual_TE without delay1
 
         // get minimal TE value & search for incoherence
@@ -488,17 +492,17 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // ------------------------------------------
         // delays for FIR
         // ------------------------------------------
-        double spectral_width = ((NumberParam) getSequence().getParam(Spectral_width)).getValue().doubleValue();
-        double lo_FIR_dead_point = Instrument.instance().getDevices().getCameleon().getAcquDeadPointCount();
-        double FIR_delay = lo_FIR_dead_point / spectral_width;
-        System.out.println(lo_FIR_dead_point + " * " + 1 / spectral_width);
+
+        boolean is_FIR = Instrument.instance().getDevices().getCameleon().isRemoveAcquDeadPoint();
+        double lo_FIR_dead_point = is_FIR ? Instrument.instance().getDevices().getCameleon().getAcquDeadPointCount() : 0;
+        double min_FIR_delay = (lo_FIR_dead_point + 2) / spectralWidth;
+        double min_FIR_4pts_delay = 4 / spectralWidth;
 
         double time_fir = getTimeBetweenEvents(eventAcq + 1, eventEnd - 1);
-        time_fir =
-
-                removeTimeForEvents(time_fir, eventFIRDelay); // Actual_TE without delay1
+        time_fir = removeTimeForEvents(time_fir, eventFIRDelay); // Actual_TE without delay1
         System.out.println("time_fir " + time_fir);
-        double time_fir_delay = Math.max(minInstructionDelay, FIR_delay - time_fir);
+        double time_fir_delay = Math.max(minInstructionDelay, min_FIR_4pts_delay - time_fir);
+        time_fir = getTimeBetweenEvents(eventAcq + 1, eventEnd - 1);
 
         setSequenceTableFirstValue(Time_FIR_delay, time_fir_delay);
 
@@ -529,17 +533,18 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // ---------------------------------------------------------------
         // calculate TR , Time_last_delay  Time_TR_delay & search for incoherence
         // ---------------------------------------------------------------
-        double min_flush_delay = min_time_per_acq_point * acquisitionMatrixDimension1D;   // minimal time to flush Chameleon buffer (this time is doubled to avoid hidden delays);
-        min_flush_delay = Math.max(min_flush_delay, minInstructionDelay);
+        double min_flush_delay = minInstructionDelay;   // minimal time to flush Chameleon buffer (this time is doubled to avoid hidden delays);
+        min_flush_delay = Math.max(min_FIR_delay - time_fir, minInstructionDelay);
 
         double time_seq_to_end_spoiler = getTimeBetweenEvents(eventStart, eventEnd - 1);
         double tr_min = time_seq_to_end_spoiler + min_flush_delay;// 2 +( 2 minInstructionDelay: event 22 +(20&21
         if (tr < tr_min) {
-            tr_min = Math.ceil(tr_min * Math.pow(10, 3)) / Math.pow(10, 3);
+            System.out.println(tr + " < " +tr_min);
+            tr_min = Math.ceil(tr_min * Math.pow(10, 4)) / Math.pow(10, 4);
             this.getUnreachParamExceptionManager().addParam(REPETITION_TIME.name(), tr, tr_min, ((NumberParam) getParam(REPETITION_TIME)).getMaxValue(), "TR too short to reach");
             tr = tr_min;
         }
-
+        System.out.println( " tr =  " +tr);
         // ------------------------------------------
         // set calculated TR
         // ------------------------------------------
@@ -586,7 +591,6 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         }
         return table;
     }
-
     private double getOff_center_distance_1D_2D_3D(int dim) {
         ListNumberParam image_orientation = (ListNumberParam) getParam(IMAGE_ORIENTATION_SUBJECT);
         double[] direction_index = new double[9];
@@ -652,6 +656,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
     private Number getNumber(String name) {
         return (Number) getParamFromName(name).getValue();
     }
+
 
 
     //<editor-fold defaultstate="collapsed" desc="Generated Code (RS2D)">
