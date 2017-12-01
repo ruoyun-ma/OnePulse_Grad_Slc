@@ -984,7 +984,7 @@
                     <group>Dimension</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
-                    <value>0.003</value>
+                    <value>0.0</value>
                     <value>0.0</value>
                     <value>0.0</value>
                     <defaultValue>0.0</defaultValue>
@@ -1250,7 +1250,7 @@
                     <group>User</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
-                    <value> Version5.2</value>
+                    <value> Version5.3</value>
                     <defaultValue></defaultValue>
                     <restrictedToSuggested>false</restrictedToSuggested>
                 </value>

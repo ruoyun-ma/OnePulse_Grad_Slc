@@ -1,4 +1,4 @@
-package rs2d.sequence.onpulseslc;
+package rs2d.sequence.common;
 
 import rs2d.spinlab.data.transformPlugin.TransformPlugin;
 import rs2d.spinlab.instrument.Instrument;
@@ -8,7 +8,6 @@ import rs2d.spinlab.instrument.probe.ProbeChannelPower;
 import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.instrument.util.TxMath;
 import rs2d.spinlab.plugins.loaders.LoaderFactory;
-import rs2d.spinlab.plugins.loaders.PluginLoaderInterface;
 import rs2d.spinlab.sequence.Sequence;
 import rs2d.spinlab.sequence.table.Shape;
 import rs2d.spinlab.sequence.table.Table;
@@ -24,8 +23,6 @@ import java.util.List;
 /**
  * Class RFPulse
  * V2.1- 2017-10-24 JR
- *
- *
  */
 public class RFPulse {
     private Table amplitudeTable = null;
@@ -101,7 +98,7 @@ public class RFPulse {
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    //                  general  methodes get set
+    //                  general  methodes: get set
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     public double getPulseDuration() {
         return pulseDuration;
@@ -148,10 +145,11 @@ public class RFPulse {
         setSequenceTableSingleValue(amplitudeTable, tx_amp);
         flipAngle = tx_amp * 90 / tx_amp90;
     }
+
     public void setAmp(Order order, double... amps) {
-        setSequenceTableValues(amplitudeTable,order, amps);
-        if (amps.length>0){
-            tx_amp =  amps[0];
+        setSequenceTableValues(amplitudeTable, order, amps);
+        if (amps.length > 0) {
+            tx_amp = amps[0];
         }
     }
 
@@ -195,8 +193,7 @@ public class RFPulse {
         // Calculate amp with the new and real Att
         tx_amp90 = calculateTxAmp90(txCh);
         tx_amp180 = attParamTxAmp180(txCh);
-        tx_amp = tx_amp90 * flipAngle / 90
-;
+        tx_amp = tx_amp90 * flipAngle / 90;
         setSequenceTableSingleValue(amplitudeTable, tx_amp);
         attParam.setValue(txAtt);
         // set calculated parameters to display values & sequence
@@ -404,7 +401,8 @@ public class RFPulse {
      */
     private void setShapeTableValuesFromSincGen(Table table, int nbpoint, int nblobe, double amp, Boolean abs, String window) throws Exception {
         String name = "Sinus Cardinal with Apodisation";
-        TableGeneratorInterface gen = loadTableGenerator(name);
+        TableGeneratorInterface gen;
+        gen = LoaderFactory.getTableGeneratorPluginLoader().getPluginByName(name);
         if (gen == null) {
             throw new IllegalStateException("Table generator not found: " + name);
         }
@@ -414,6 +412,7 @@ public class RFPulse {
         gen.getParams().get(2).setValue(amp);
         gen.getParams().get(3).setValue(abs);//abs
         gen.getParams().get(4).setValue(window);//abs
+        table.setGenerator(gen);
         gen.generate();
     }
 
@@ -427,31 +426,22 @@ public class RFPulse {
      * @param abs     true if you want the absolute values and false otherwise
      */
     private void setShapeTableValuesFromGaussGen(Table table, int nbpoint, double width, double amp, Boolean abs) throws Exception {
-        TableGeneratorInterface gen = null;
-        gen = loadTableGenerator("Gaussian");
+        String name = "Gaussian";
+        TableGeneratorInterface gen;
+        gen = LoaderFactory.getTableGeneratorPluginLoader().getPluginByName(name);
+        if (gen == null) {
+            throw new IllegalStateException("Table generator not found: " + name);
+        }
+        table.setGenerator(gen);
         gen.getParams().get(0).setValue(nbpoint);
         gen.getParams().get(1).setValue(width);
         gen.getParams().get(2).setValue(amp);
         gen.getParams().get(3).setValue(abs);//abs
 
-        table.setGenerator(gen);
-        if (gen == null) {
-            table.clear();
-            table.setFirst(100);
-        } else {
-            gen.generate();
-        }
-    }
-
-    private TableGeneratorInterface loadTableGenerator(String generatorName) throws Exception {
-        TableGeneratorInterface gen = null;
-        PluginLoaderInterface loader = LoaderFactory.getTableGeneratorPluginLoader();
-        if (loader.containsPlugin(generatorName)) {
-            gen = (TableGeneratorInterface) loader.getPluginByName(generatorName);
-        }
-        return gen;
+        gen.generate();
 
     }
+
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     //                  Offset Fequency
@@ -523,7 +513,7 @@ public class RFPulse {
             for (int k = 0; k < numberOfFreqOffset; k++) {
                 FrequencyOffsetTable.add(txFrequencyOffsetTable[k]);
             }
-        }else{
+        } else {
             FrequencyOffsetTable.add(0);
         }
     }
@@ -541,7 +531,7 @@ public class RFPulse {
     public void setCompensationFrequencyOffset(RFPulse pulse, double ratio) {
         FrequencyOffsetOrder = pulse.getFrequencyOffsetOrder();
         numberOfFreqOffset = pulse.getNumberOfFreqOffset();
-        if (numberOfFreqOffset !=-1) {
+        if (numberOfFreqOffset != -1) {
             txFrequencyOffsetTable = new double[numberOfFreqOffset];
             for (int k = 0; k < numberOfFreqOffset; k++) {
                 txFrequencyOffsetTable[k] = -((pulse.getFrequencyOffset(k) * pulse.getPulseDuration() * ratio) % 1) / pulseDuration;
@@ -621,4 +611,4 @@ public class RFPulse {
         }
     }
 
-}
+}

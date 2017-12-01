@@ -742,7 +742,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-1.7976931348623157E308);
             param.setMaxValue(1.7976931348623157E308);
             param.setNumberEnum(NumberEnum.Location);
-            param.setValue(asList(0.003, 0.0, 0.0));
+            param.setValue(asList(0.0, 0.0, 0.0));
             param.setDefaultValue(asList(0.0, 0.0, 0.0));
             return param;
         }
@@ -1060,7 +1060,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue(" Version5.2");
+            param.setValue(" Version5.3");
             param.setDefaultValue("");
             return param;
         }
