@@ -26,8 +26,10 @@ import rs2d.commons.log.Log;
 import java.util.*;
 
 import rs2d.sequence.common.Gradient;
+import rs2d.sequence.common.HardwareB0comp;
 import rs2d.sequence.common.RFPulse;
 import rs2d.spinlab.hardware.controller.HardwareHandler;
+import rs2d.spinlab.hardware.controller.peripherique.GradientHandlerInterface;
 import rs2d.spinlab.instrument.Instrument;
 import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.sequence.SequenceTool;
@@ -47,7 +49,7 @@ import static rs2d.sequence.onpulseslc.OnepulseSlcSequenceParams.*;
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
-    private String sequenceVersion = "Version5.3";
+    private String sequenceVersion = "Version5.3-Field-Oscilation";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -579,7 +581,14 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             frequency_center_3D_90 = 0;
         }
         setSequenceTableFirstValue(Tx_freq_offset, frequency_center_3D_90);
-    }
+
+        // ------------------------------------------------------------------
+        // load preemphasis
+        // ------------------------------------------------------------------
+        HardwareB0comp hardwareB0comp = new HardwareB0comp();
+        setParamValue(HARDWARE_B0_COMP_AMP,hardwareB0comp.getAmp());;
+        setParamValue(HARDWARE_B0_COMP_PHASE,hardwareB0comp.getB0compPhase());
+  }
 
 
     private double ceilToSubDecimal(double numberToBeRounded, double Order) {

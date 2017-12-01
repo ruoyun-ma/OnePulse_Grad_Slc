@@ -6,21 +6,21 @@
   <artifactId>onepulse-slc</artifactId>
   <version>OnePulse_Slc_Git</version>
   <properties>
-    <seqdev.update-dependencies>false</seqdev.update-dependencies>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <seqdev.update-dependencies>true</seqdev.update-dependencies>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   <dependencies>
     <dependency>
       <groupId>rs2d</groupId>
       <artifactId>spinlab</artifactId>
-      <version>1.213</version>
+      <version>1.214-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>rs2d</groupId>
       <artifactId>rs2d-commons</artifactId>
-      <version>1.213</version>
+      <version>1.214-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <build>

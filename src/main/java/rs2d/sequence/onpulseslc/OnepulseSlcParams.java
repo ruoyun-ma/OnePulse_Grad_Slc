@@ -100,6 +100,21 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
+    ACQUISITION_MODE {
+        Param build() {
+            ListTextParam param = new ListTextParam();
+            param.setName("ACQUISITION_MODE");
+            param.setDisplayedName("ACQUISITION_MODE");
+            param.setLocked(true);
+            param.setRoles(new RoleEnum[] {RoleEnum.User});
+            param.setGroup(EnumGroup.Miscellaneous);
+            param.setCategory(Category.Acquisition);
+            param.setValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
+            param.setDefaultValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
+            return param;
+        }
+    },
+
     ACQUISITION_TIME_PER_SCAN {
         Param build() {
             NumberParam param = new NumberParam();
@@ -186,6 +201,21 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMaxValue(3.0E9);
             param.setValue(0.0);
             param.setDefaultValue(0.0);
+            return param;
+        }
+    },
+
+    DATA_REPRESENTATION {
+        Param build() {
+            ListTextParam param = new ListTextParam();
+            param.setName("DATA_REPRESENTATION");
+            param.setDisplayedName("DATA_REPRESENTATION");
+            param.setLocked(true);
+            param.setRoles(new RoleEnum[] {RoleEnum.User});
+            param.setGroup(EnumGroup.Dimension);
+            param.setCategory(Category.Miscellaneous);
+            param.setValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
+            param.setDefaultValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
             return param;
         }
     },
@@ -379,6 +409,42 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMaxValue(1.0E9);
             param.setValue(1.5E-4);
             param.setDefaultValue(9.999999999999999E-5);
+            return param;
+        }
+    },
+
+    HARDWARE_B0_COMP_AMP {
+        Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("HARDWARE_B0_COMP_AMP");
+            param.setDisplayedName("HARDWARE_B0_COMP_AMP");
+            param.setDescription("");
+            param.setRoles(new RoleEnum[] {RoleEnum.User});
+            param.setGroup(EnumGroup.Gradient);
+            param.setCategory(Category.Acquisition);
+            param.setNumberEnum(NumberEnum.Double);
+            param.setMinValue(-1.7976931348623157E308);
+            param.setMaxValue(1.7976931348623157E308);
+            param.setValue(0.0);
+            param.setDefaultValue(0.0);
+            return param;
+        }
+    },
+
+    HARDWARE_B0_COMP_PHASE {
+        Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("HARDWARE_B0_COMP_PHASE");
+            param.setDisplayedName("HARDWARE_B0_COMP_PHASE");
+            param.setDescription("");
+            param.setRoles(new RoleEnum[] {RoleEnum.User});
+            param.setGroup(EnumGroup.Gradient);
+            param.setCategory(Category.Acquisition);
+            param.setNumberEnum(NumberEnum.Phase);
+            param.setMinValue(0.0);
+            param.setMaxValue(360.0);
+            param.setValue(0.0);
+            param.setDefaultValue(0.0);
             return param;
         }
     },
@@ -1060,7 +1126,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue(" Version5.3");
+            param.setValue("Version5.3");
             param.setDefaultValue("");
             return param;
         }

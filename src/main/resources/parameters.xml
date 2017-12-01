@@ -97,6 +97,26 @@
             </value>
         </entry>
         <entry>
+            <key>ACQUISITION_MODE</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listTextParam">
+                <name>ACQUISITION_MODE</name>
+                <displayedName>ACQUISITION_MODE</displayedName>
+                <locked>true</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Miscellaneous</group>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>COMPLEX</value>
+                <value>REAL</value>
+                <value>REAL</value>
+                <value>REAL</value>
+                <defaultValue>COMPLEX</defaultValue>
+                <defaultValue>REAL</defaultValue>
+                <defaultValue>REAL</defaultValue>
+                <defaultValue>REAL</defaultValue>
+            </value>
+        </entry>
+        <entry>
             <key>ACQUISITION_TIME_PER_SCAN</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ACQUISITION_TIME_PER_SCAN</name>
@@ -189,6 +209,26 @@
                 <maxValue>3.0E9</maxValue>
                 <minValue>0.0</minValue>
                 <numberEnum>Frequency</numberEnum>
+            </value>
+        </entry>
+        <entry>
+            <key>DATA_REPRESENTATION</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listTextParam">
+                <name>DATA_REPRESENTATION</name>
+                <displayedName>DATA_REPRESENTATION</displayedName>
+                <locked>true</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Dimension</group>
+                <category>Miscellaneous</category>
+                <rolesEnum>User</rolesEnum>
+                <value>COMPLEX</value>
+                <value>REAL</value>
+                <value>REAL</value>
+                <value>REAL</value>
+                <defaultValue>COMPLEX</defaultValue>
+                <defaultValue>REAL</defaultValue>
+                <defaultValue>REAL</defaultValue>
+                <defaultValue>REAL</defaultValue>
             </value>
         </entry>
         <entry>
@@ -388,6 +428,44 @@
                 <maxValue>1.0E9</maxValue>
                 <minValue>0.0</minValue>
                 <numberEnum>Time</numberEnum>
+            </value>
+        </entry>
+        <entry>
+            <key>HARDWARE_B0_COMP_AMP</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>HARDWARE_B0_COMP_AMP</name>
+                <description></description>
+                <displayedName>HARDWARE_B0_COMP_AMP</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Gradient</group>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>0.0</value>
+                <defaultValue>0.0</defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <maxValue>1.7976931348623157E308</maxValue>
+                <minValue>-1.7976931348623157E308</minValue>
+                <numberEnum>Double</numberEnum>
+            </value>
+        </entry>
+        <entry>
+            <key>HARDWARE_B0_COMP_PHASE</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>HARDWARE_B0_COMP_PHASE</name>
+                <description></description>
+                <displayedName>HARDWARE_B0_COMP_PHASE</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Gradient</group>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>0.0</value>
+                <defaultValue>0.0</defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <maxValue>360.0</maxValue>
+                <minValue>0.0</minValue>
+                <numberEnum>Phase</numberEnum>
             </value>
         </entry>
         <entry>
