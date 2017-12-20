@@ -4,7 +4,9 @@
 //  
 // ---------------------------------------------------------------------
 //GRADIENT_REF_TIME to GRADIENT_REFOC_TIME
+//  V5.4   -  20 / 12 / 2017 - Adjust_Window + Hardware shim
 //  V5.3   -  28 / 11 / 2017 - JR extTrigSource
+//                              Version5.3 - Field-Oscilatio
 //  V5.2   -  28 / 11 / 2017 - JR bug SW
 //  V5.1   -  30 / 10 / 2017 - JR
 //       sequenceVersion
@@ -25,9 +27,7 @@ import rs2d.commons.log.Log;
 
 import java.util.*;
 
-import rs2d.sequence.common.Gradient;
-import rs2d.sequence.common.HardwareB0comp;
-import rs2d.sequence.common.RFPulse;
+import rs2d.sequence.common.*;
 import rs2d.spinlab.hardware.controller.HardwareHandler;
 import rs2d.spinlab.hardware.controller.peripherique.GradientHandlerInterface;
 import rs2d.spinlab.instrument.Instrument;
@@ -49,7 +49,7 @@ import static rs2d.sequence.onpulseslc.OnepulseSlcSequenceParams.*;
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
-    private String sequenceVersion = "Version5.3-Field-Oscilation";
+    private String sequenceVersion = "Version5.5";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -209,8 +209,15 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         nucleus = Nucleus.getNucleusForName((String) getParam(NUCLEUS_1).getValue());
         protonFrequency = Instrument.instance().getDevices().getMagnet().getProtonFrequency();
         double freq_offset1 = ((NumberParam) getParam(OFFSET_FREQ_1)).getValue().doubleValue();
-        observeFrequency = nucleus.getFrequency(protonFrequency) + freq_offset1;
-        setParamValue(BASE_FREQ_1, nucleus.getFrequency(protonFrequency));
+        boolean adjustWindow = (((BooleanParam) getParam(ADJUST_WINDOW)).getValue());
+        double  baseFreq1 ;
+        if (adjustWindow){
+            baseFreq1 =  ((NumberParam) getParam(BASE_FREQ_1)).getValue().doubleValue();
+        }else{
+            baseFreq1= nucleus.getFrequency(protonFrequency);
+        }
+        observeFrequency = baseFreq1 + freq_offset1;
+        setParamValue(BASE_FREQ_1, baseFreq1);
 
         min_time_per_acq_point = HardwareHandler.getInstance().getSequenceHandler().getCompiler().getTransfertTimePerDataPt();
         gMax = GradientMath.getMaxGradientStrength();
@@ -317,6 +324,24 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         off_center_distanceList.add(off_center_distance_3D);
 
         setParamValue(OFF_CENTER_FIELD_OF_VIEW_EFF, off_center_distanceList);
+
+
+        HardwarePreemphasis hardwarePreemphasis = new HardwarePreemphasis();
+        setParamValue(HARDWARE_PREEMPHASIS_A, hardwarePreemphasis.getAmplitude());
+        setParamValue(HARDWARE_PREEMPHASIS_T, hardwarePreemphasis.getTime());
+        setParamValue(HARDWARE_DC, hardwarePreemphasis.getDC());
+        setParamValue(HARDWARE_A0, hardwarePreemphasis.getA0());
+
+        HardwareShim hardwareShim = new HardwareShim();
+        setParamValue(HARDWARE_SHIM, hardwareShim.getValue());
+        setParamValue(HARDWARE_SHIM_LABEL, hardwareShim.getLabel());
+        // ------------------------------------------------------------------
+        // load preemphasis
+        // ------------------------------------------------------------------
+        HardwareB0comp hardwareB0comp = new HardwareB0comp();
+        setParamValue(HARDWARE_B0_COMP,hardwareB0comp.getStatus());;
+        setParamValue(HARDWARE_B0_COMP_AMP,hardwareB0comp.getAmp());;
+        setParamValue(HARDWARE_B0_COMP_PHASE,hardwareB0comp.getB0compPhase());
         // -----------------------------------------------
         // activate gradient rotation matrix
         // -----------------------------------------------
@@ -582,12 +607,6 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         }
         setSequenceTableFirstValue(Tx_freq_offset, frequency_center_3D_90);
 
-        // ------------------------------------------------------------------
-        // load preemphasis
-        // ------------------------------------------------------------------
-        HardwareB0comp hardwareB0comp = new HardwareB0comp();
-        setParamValue(HARDWARE_B0_COMP_AMP,hardwareB0comp.getAmp());;
-        setParamValue(HARDWARE_B0_COMP_PHASE,hardwareB0comp.getB0compPhase());
   }
 
 

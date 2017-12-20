@@ -10,86 +10,51 @@
     <processQueue>
         <enabled>true</enabled>
         <commands>
-            <name>BC</name>
+            <name>PythonScript</name>
             <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
-                <name>Noise location</name>
-                <description>The noise location : End=the last 1/4 points ; Start=the first 1/4 points ;  Both=the first and last 1/8 points</description>
-                <displayedName>Noise location</displayedName>
+                <name>module</name>
+                <description>Python module name (without .py)</description>
+                <displayedName>module</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <rolesEnum>User</rolesEnum>
-                <value>End</value>
-                <defaultValue>End</defaultValue>
-                <suggestedValues>End</suggestedValues>
-                <suggestedValues>Start</suggestedValues>
-                <suggestedValues>Both</suggestedValues>
-                <restrictedToSuggested>true</restrictedToSuggested>
+                <value></value>
+                <defaultValue></defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
+            </parameters>
+            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>reload</name>
+                <description>reload module each execution (development)</description>
+                <displayedName>reload</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <rolesEnum>User</rolesEnum>
+                <value>true</value>
+                <defaultValue>true</defaultValue>
             </parameters>
         </commands>
         <commands>
-            <name>FFT</name>
-            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
-                <name>Shift</name>
-                <description>Shift data after fft</description>
-                <displayedName>Shift</displayedName>
+            <name>FieldOscilation</name>
+            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                <name>Field_Oscilation Data Directory</name>
+                <description> Directory where will be saved the data</description>
+                <displayedName>Field_Oscilation Data Directory</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <rolesEnum>User</rolesEnum>
-                <value>true</value>
-                <defaultValue>true</defaultValue>
+                <value>C:\Users\jrivoire\Spinlab Data\FieldOscilationData</value>
+                <defaultValue>C:\Users\jrivoire\Spinlab Data\FieldOscilationData</defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
             </parameters>
             <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
-                <name>Sweep data</name>
-                <description>Sweep data to fit nmr standard</description>
-                <displayedName>Sweep data</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
-                <value>true</value>
-                <defaultValue>true</defaultValue>
-            </parameters>
-            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
-                <name>Phase Correction</name>
-                <description>Applied order 1 phase correction</description>
-                <displayedName>Phase Correction</displayedName>
+                <name>Save output</name>
+                <description>save 512 points time curves into text file</description>
+                <displayedName>Save output</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <rolesEnum>User</rolesEnum>
                 <value>false</value>
-                <defaultValue>true</defaultValue>
-            </parameters>
-        </commands>
-        <commands>
-            <name>PhaseCorrection</name>
-            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Phase</name>
-                <description></description>
-                <displayedName>Phase</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <category>Process</category>
-                <rolesEnum>User</rolesEnum>
-                <value>0.0</value>
-                <defaultValue>0.0</defaultValue>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <maxValue>1.7976931348623157E308</maxValue>
-                <minValue>-1.7976931348623157E308</minValue>
-                <numberEnum>Double</numberEnum>
-            </parameters>
-            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Phase1</name>
-                <description></description>
-                <displayedName>Phase1</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <category>Process</category>
-                <rolesEnum>User</rolesEnum>
-                <value>0.0</value>
-                <defaultValue>0.0</defaultValue>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <maxValue>1.7976931348623157E308</maxValue>
-                <minValue>-1.7976931348623157E308</minValue>
-                <numberEnum>Double</numberEnum>
+                <defaultValue>false</defaultValue>
             </parameters>
         </commands>
     </processQueue>
@@ -230,6 +195,21 @@
                     <maxValue>1.0E9</maxValue>
                     <minValue>0.0</minValue>
                     <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>ADJUST_WINDOW</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>ADJUST_WINDOW</name>
+                    <description>Get the Frequency from instrument or from BASE_FREQ_1 Adjust Window</description>
+                    <displayedName>Adjust_Window</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
                 </value>
             </entry>
             <entry>
@@ -528,12 +508,44 @@
                 </value>
             </entry>
             <entry>
+                <key>HARDWARE_A0</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>HARDWARE_A0</name>
+                    <description></description>
+                    <displayedName>nparam</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <maxValue>2.147483647E9</maxValue>
+                    <minValue>-2.147483648E9</minValue>
+                    <numberEnum>PERCENT</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>HARDWARE_B0_COMP</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>HARDWARE_B0_COMP</name>
+                    <description></description>
+                    <displayedName>HARDWARE_B0_COMP</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
+                </value>
+            </entry>
+            <entry>
                 <key>HARDWARE_B0_COMP_AMP</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>HARDWARE_B0_COMP_AMP</name>
                     <description></description>
                     <displayedName>HARDWARE_B0_COMP_AMP</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <group>Gradient</group>
                     <category>Acquisition</category>
@@ -552,7 +564,7 @@
                     <name>HARDWARE_B0_COMP_PHASE</name>
                     <description></description>
                     <displayedName>HARDWARE_B0_COMP_PHASE</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <group>Gradient</group>
                     <category>Acquisition</category>
@@ -563,6 +575,124 @@
                     <maxValue>360.0</maxValue>
                     <minValue>0.0</minValue>
                     <numberEnum>Phase</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>HARDWARE_DC</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>HARDWARE_DC</name>
+                    <description></description>
+                    <displayedName>nparam</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <maxValue>2.147483647E9</maxValue>
+                    <minValue>-2.147483648E9</minValue>
+                    <numberEnum>PERCENT</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>HARDWARE_PREEMPHASIS_A</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>HARDWARE_PREEMPHASIS_A</name>
+                    <description></description>
+                    <displayedName>nparam</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <maxValue>2.147483647E9</maxValue>
+                    <minValue>-2.147483648E9</minValue>
+                    <numberEnum>PERCENT</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>HARDWARE_PREEMPHASIS_T</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>HARDWARE_PREEMPHASIS_T</name>
+                    <description></description>
+                    <displayedName>nparam</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <maxValue>1.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>HARDWARE_SHIM</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>HARDWARE_SHIM</name>
+                    <description></description>
+                    <displayedName>nparam</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <maxValue>2.147483647E9</maxValue>
+                    <minValue>-2.147483648E9</minValue>
+                    <numberEnum>PERCENT</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>HARDWARE_SHIM_LABEL</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>HARDWARE_SHIM_LABEL</name>
+                    <description></description>
+                    <displayedName>tparam</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>NotConnected</value>
+                    <defaultValue></defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
                 </value>
             </entry>
             <entry>
@@ -1328,7 +1458,7 @@
                     <group>User</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
-                    <value>Version5.3</value>
+                    <value>Version5.3-Field-Oscillation</value>
                     <defaultValue></defaultValue>
                     <restrictedToSuggested>false</restrictedToSuggested>
                 </value>
