@@ -1245,7 +1245,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(0.0);
+            param.setValue(0.7000000000000001);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1260,7 +1260,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version5.3-Field-Oscillation");
+            param.setValue("Version5.4");
             param.setDefaultValue("");
             return param;
         }
@@ -1407,7 +1407,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setCategory(Category.Acquisition);
             param.setValue("none");
             param.setDefaultValue("none");
-            param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Sequential2D", "Sequential2D_EPI", "Sequential2D_EPI_Cal", "Sequential2D_EPI_Int", "Sequential4D", "Sequential4DBackAndForth", "Sequential4DCine"));
+            param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Centered2D_FSERot", "Centered2DRot", "Sequential", "Sequential2D", "Sequential2D_EPI", "Sequential2D_EPI_Cal", "Sequential2D_EPI_Int", "Sequential4D", "Sequential4DBackAndForth", "Sequential4DCine"));
             return param;
         }
     },

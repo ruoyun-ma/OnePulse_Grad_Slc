@@ -210,11 +210,11 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         protonFrequency = Instrument.instance().getDevices().getMagnet().getProtonFrequency();
         double freq_offset1 = ((NumberParam) getParam(OFFSET_FREQ_1)).getValue().doubleValue();
         boolean adjustWindow = (((BooleanParam) getParam(ADJUST_WINDOW)).getValue());
-        double  baseFreq1 ;
-        if (adjustWindow){
-            baseFreq1 =  ((NumberParam) getParam(BASE_FREQ_1)).getValue().doubleValue();
-        }else{
-            baseFreq1= nucleus.getFrequency(protonFrequency);
+        double baseFreq1;
+        if (adjustWindow) {
+            baseFreq1 = ((NumberParam) getParam(BASE_FREQ_1)).getValue().doubleValue();
+        } else {
+            baseFreq1 = nucleus.getFrequency(protonFrequency);
         }
         observeFrequency = baseFreq1 + freq_offset1;
         setParamValue(BASE_FREQ_1, baseFreq1);
@@ -279,8 +279,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // 4D managment:  Dynamic, MultiEcho, External triggering
         // -----------------------------------------------   
 
-
-        int nb_scan_4d = numberOfTrigger;
+        nb_scan_4d = numberOfTrigger;
         acquisitionMatrixDimension4D = nb_scan_4d;
         setParamValue(USER_MATRIX_DIMENSION_4D, nb_scan_4d);
 
@@ -299,12 +298,12 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         setSequenceParamValue(Nb_2d, nb_scan_2d);
         setSequenceParamValue(Nb_3d, nb_scan_3d);
         setSequenceParamValue(Nb_4d, nb_scan_4d);
-        //Offset according to animal position 
-        double off_center_distance_3D = ((NumberParam) getParam(OFF_CENTER_FIELD_OF_VIEW_3D)).getValue().doubleValue();
         // -----------------------------------------------
         // Image Orientation
         // -----------------------------------------------
         //READ PHASE and SLICE matrix
+        //Offset according to animal position
+        off_center_distance_3D = ((NumberParam) getParam(OFF_CENTER_FIELD_OF_VIEW_3D)).getValue().doubleValue();
         off_center_distance_1D = getOff_center_distance_1D_2D_3D(1);
         off_center_distance_2D = getOff_center_distance_1D_2D_3D(2);
         off_center_distance_3D = getOff_center_distance_1D_2D_3D(3);
@@ -339,9 +338,11 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // load preemphasis
         // ------------------------------------------------------------------
         HardwareB0comp hardwareB0comp = new HardwareB0comp();
-        setParamValue(HARDWARE_B0_COMP,hardwareB0comp.getStatus());;
-        setParamValue(HARDWARE_B0_COMP_AMP,hardwareB0comp.getAmp());;
-        setParamValue(HARDWARE_B0_COMP_PHASE,hardwareB0comp.getB0compPhase());
+        setParamValue(HARDWARE_B0_COMP, hardwareB0comp.getStatus());
+        ;
+        setParamValue(HARDWARE_B0_COMP_AMP, hardwareB0comp.getAmp());
+        ;
+        setParamValue(HARDWARE_B0_COMP_PHASE, hardwareB0comp.getB0compPhase());
         // -----------------------------------------------
         // activate gradient rotation matrix
         // -----------------------------------------------
@@ -476,7 +477,6 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // -----------------------------------------------
         // calculate ADC observation time
         // -----------------------------------------------
-        double observation_time = ((NumberParam) getParam(ACQUISITION_TIME_PER_SCAN)).getValue().doubleValue();
 
         setSequenceTableFirstValue(Time_rx, observation_time);
         setSequenceParamValue(Spectral_width, spectralWidth);
@@ -607,7 +607,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         }
         setSequenceTableFirstValue(Tx_freq_offset, frequency_center_3D_90);
 
-  }
+    }
 
 
     private double ceilToSubDecimal(double numberToBeRounded, double Order) {

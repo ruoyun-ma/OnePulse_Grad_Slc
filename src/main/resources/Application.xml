@@ -1439,7 +1439,7 @@
                     <lockedToDefault>false</lockedToDefault>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
-                    <value>0.0</value>
+                    <value>0.7000000000000001</value>
                     <defaultValue>0.0</defaultValue>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <maxValue>1.0E9</maxValue>
@@ -1458,7 +1458,7 @@
                     <group>User</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
-                    <value>Version5.3-Field-Oscillation</value>
+                    <value>Version5.4</value>
                     <defaultValue></defaultValue>
                     <restrictedToSuggested>false</restrictedToSuggested>
                 </value>
@@ -1617,6 +1617,9 @@
                     <suggestedValues>Bordered2D_FSE</suggestedValues>
                     <suggestedValues>Centered2D</suggestedValues>
                     <suggestedValues>Centered2D_FSE</suggestedValues>
+                    <suggestedValues>Centered2D_FSERot</suggestedValues>
+                    <suggestedValues>Centered2DRot</suggestedValues>
+                    <suggestedValues>Sequential</suggestedValues>
                     <suggestedValues>Sequential2D</suggestedValues>
                     <suggestedValues>Sequential2D_EPI</suggestedValues>
                     <suggestedValues>Sequential2D_EPI_Cal</suggestedValues>
