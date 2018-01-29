@@ -1,0 +1,1768 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<application>
+    <name>OnePulse_Slc_git</name>
+    <description></description>
+    <generatorName>OnePulse_Slc</generatorName>
+    <durationTime>1</durationTime>
+    <setUpQueue>
+        <enabled>true</enabled>
+    </setUpQueue>
+    <processQueue>
+        <enabled>true</enabled>
+        <commands>
+            <name>BC</name>
+            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                <name>Noise location</name>
+                <description>The noise location : End=the last 1/4 points ; Start=the first 1/4 points ;  Both=the first and last 1/8 points</description>
+                <displayedName>Noise location</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <rolesEnum>User</rolesEnum>
+                <value>End</value>
+                <defaultValue>End</defaultValue>
+                <suggestedValues>End</suggestedValues>
+                <suggestedValues>Start</suggestedValues>
+                <suggestedValues>Both</suggestedValues>
+                <restrictedToSuggested>true</restrictedToSuggested>
+            </parameters>
+        </commands>
+        <commands>
+            <name>FFT</name>
+            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>Shift</name>
+                <description>Shift data after fft</description>
+                <displayedName>Shift</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <rolesEnum>User</rolesEnum>
+                <value>true</value>
+                <defaultValue>true</defaultValue>
+            </parameters>
+            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>Sweep data</name>
+                <description>Sweep data to fit nmr standard</description>
+                <displayedName>Sweep data</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <rolesEnum>User</rolesEnum>
+                <value>true</value>
+                <defaultValue>true</defaultValue>
+            </parameters>
+            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>Phase Correction</name>
+                <description>Applied order 1 phase correction</description>
+                <displayedName>Phase Correction</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <rolesEnum>User</rolesEnum>
+                <value>false</value>
+                <defaultValue>true</defaultValue>
+            </parameters>
+        </commands>
+        <commands>
+            <name>PhaseCorrection</name>
+            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>Phase</name>
+                <description></description>
+                <displayedName>Phase</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <category>Process</category>
+                <rolesEnum>User</rolesEnum>
+                <value>0.0</value>
+                <defaultValue>0.0</defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <maxValue>1.7976931348623157E308</maxValue>
+                <minValue>-1.7976931348623157E308</minValue>
+                <numberEnum>Double</numberEnum>
+            </parameters>
+            <parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>Phase1</name>
+                <description></description>
+                <displayedName>Phase1</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <category>Process</category>
+                <rolesEnum>User</rolesEnum>
+                <value>0.0</value>
+                <defaultValue>0.0</defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <maxValue>1.7976931348623157E308</maxValue>
+                <minValue>-1.7976931348623157E308</minValue>
+                <numberEnum>Double</numberEnum>
+            </parameters>
+        </commands>
+    </processQueue>
+    <probes>
+        <name>Volume Mouse TX-RX</name>
+    </probes>
+    <probes>
+        <name>Volume Rat TX-RX</name>
+    </probes>
+    <probes>
+        <name>1h13c</name>
+    </probes>
+    <probes>
+        <name>3T mouse 2</name>
+    </probes>
+    <probes>
+        <name>3T Rat 2</name>
+    </probes>
+    <probes>
+        <name>Surface Coil</name>
+    </probes>
+    <userParams>
+        <params>
+            <entry>
+                <key>ACCU_DIM</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>ACCU_DIM</name>
+                    <description>ACCU_DIM.description</description>
+                    <displayedName>ACCU_DIM.name</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1</value>
+                    <defaultValue>1</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>3</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Integer</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>ACQUISITION_MATRIX_DIMENSION_1D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>ACQUISITION_MATRIX_DIMENSION_1D</name>
+                    <description>The acquisition size of the first dimension</description>
+                    <displayedName>Acquisition 1D</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>8192</value>
+                    <defaultValue>128</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>ACQUISITION_MATRIX_DIMENSION_2D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>ACQUISITION_MATRIX_DIMENSION_2D</name>
+                    <description>The acquisition size of the second dimension</description>
+                    <displayedName>Acquisition 2D</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1</value>
+                    <defaultValue>128</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>ACQUISITION_MATRIX_DIMENSION_3D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>ACQUISITION_MATRIX_DIMENSION_3D</name>
+                    <description>The acquisition size of the third dimension</description>
+                    <displayedName>Acquisition 3D</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1</value>
+                    <defaultValue>1</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>ACQUISITION_MATRIX_DIMENSION_4D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>ACQUISITION_MATRIX_DIMENSION_4D</name>
+                    <description>The acquisition size of the fourth dimension</description>
+                    <displayedName>Acquisition 4D</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1</value>
+                    <defaultValue>1</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>ACQUISITION_TIME_PER_SCAN</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>ACQUISITION_TIME_PER_SCAN</name>
+                    <description>The acquisition time per scan</description>
+                    <displayedName>Acq Time</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.40894464</value>
+                    <defaultValue>1.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>BASE_FREQ_1</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>BASE_FREQ_1</name>
+                    <description>The base frequency of the first sequence channel</description>
+                    <displayedName>Base Freq 1</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1.2818100000000001E8</value>
+                    <defaultValue>1.27194553E8</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>3.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Frequency</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>BASE_FREQ_2</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>BASE_FREQ_2</name>
+                    <description>The base frequency of the second sequence channel</description>
+                    <displayedName>Base Freq 2</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>3.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Frequency</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>BASE_FREQ_3</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>BASE_FREQ_3</name>
+                    <description>The base frequency of the third sequence channel</description>
+                    <displayedName>Base Freq 3</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>3.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Frequency</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>BASE_FREQ_4</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>BASE_FREQ_4</name>
+                    <description>The base frequency of the fourth sequence channel</description>
+                    <displayedName>Base Freq 4</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>3.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Frequency</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>DIGITAL_FILTER_REMOVED</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>DIGITAL_FILTER_REMOVED</name>
+                    <description>Data shift due to the digital filter are removed</description>
+                    <displayedName>Digital filter removed</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>true</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>true</value>
+                    <defaultValue>true</defaultValue>
+                </value>
+            </entry>
+            <entry>
+                <key>DIGITAL_FILTER_SHIFT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>DIGITAL_FILTER_SHIFT</name>
+                    <description>DIGITAL_FILTER_SHIFT.description</description>
+                    <displayedName>Digital filter shift</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>true</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>20</value>
+                    <defaultValue>20</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>50</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Integer</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>DUMMY_SCAN</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>DUMMY_SCAN</name>
+                    <description>Dummy Scan</description>
+                    <displayedName>DS</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0</value>
+                    <defaultValue>128</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>ECHO_TIME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>ECHO_TIME</name>
+                    <description>The echo time</description>
+                    <displayedName>TE</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Delay</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>6.0E-4</value>
+                    <defaultValue>0.005</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>FIELD_OF_VIEW</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>FIELD_OF_VIEW</name>
+                    <description>The field of view</description>
+                    <displayedName>FOV</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Dimension</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.06</value>
+                    <defaultValue>0.6</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Length</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>FLIP_ANGLE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>FLIP_ANGLE</name>
+                    <description></description>
+                    <displayedName>Flip angle</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>90.0</value>
+                    <defaultValue>30.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>360.0</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Phase</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>GRADIENT_AMP_SPOILER</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>GRADIENT_AMP_SPOILER</name>
+                    <description></description>
+                    <displayedName>GRAD_AMP_SPOILER</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>100.0</maxValue>
+                    <minValue>-100.0</minValue>
+                    <numberEnum>GradAmp</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>GRADIENT_ENABLE_SPOILER</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>GRADIENT_ENABLE_SPOILER</name>
+                    <description></description>
+                    <displayedName>GRADIENT_ENABLE_SPOILER</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>true</value>
+                    <defaultValue>false</defaultValue>
+                </value>
+            </entry>
+            <entry>
+                <key>GRADIENT_REFOC_TIME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>GRADIENT_REFOC_TIME</name>
+                    <description></description>
+                    <displayedName>GRADIENT_REFOC_TIME</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1.9999999999999998E-4</value>
+                    <defaultValue>1.9999999999999998E-4</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>GRADIENT_RISE_TIME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>GRADIENT_RISE_TIME</name>
+                    <description></description>
+                    <displayedName>GRADIENT_RISE_TIME</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1.5E-4</value>
+                    <defaultValue>9.999999999999999E-5</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>GRADIENT_SPOILER_TIME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>GRADIENT_SPOILER_TIME</name>
+                    <description></description>
+                    <displayedName>GRADIENT_SPOILER_TIME</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Delay</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1.5E-4</value>
+                    <defaultValue>9.999999999999999E-5</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>IMAGE_ORIENTATION_SUBJECT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>IMAGE_ORIENTATION_SUBJECT</name>
+                    <description>Direction cosines of the first row and the first column with respect to the subject</description>
+                    <displayedName>IMAGE_ORIENTATION_SUBJECT</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Dimension</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>-1.0</value>
+                    <value>0.0</value>
+                    <defaultValue>1.0</defaultValue>
+                    <defaultValue>0.0</defaultValue>
+                    <defaultValue>0.0</defaultValue>
+                    <defaultValue>0.0</defaultValue>
+                    <defaultValue>1.0</defaultValue>
+                    <defaultValue>0.0</defaultValue>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Double</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>IMAGE_POSITION_SUBJECT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>IMAGE_POSITION_SUBJECT</name>
+                    <description>x, y, and z coordinates of the upper left hand corner of the image</description>
+                    <displayedName>IMAGE_POSITION_SUBJECT</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Dimension</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <defaultValue>0.0</defaultValue>
+                    <defaultValue>0.0</defaultValue>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Location</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>INTERMEDIATE_FREQUENCY</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>INTERMEDIATE_FREQUENCY</name>
+                    <description>INTERMEDIATE_FREQUENCY.description</description>
+                    <displayedName>INTERMEDIATE_FREQUENCY.name</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>2.051E7</value>
+                    <defaultValue>2.051E7</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>3.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Frequency</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>LAST_PUT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>LAST_PUT</name>
+                    <description>LAST_PUT.description</description>
+                    <displayedName>LAST_PUT</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0</value>
+                    <value>0</value>
+                    <value>0</value>
+                    <defaultValue>0</defaultValue>
+                    <defaultValue>0</defaultValue>
+                    <defaultValue>0</defaultValue>
+                    <maxValue>2147483647</maxValue>
+                    <minValue>-2147483648</minValue>
+                    <numberEnum>Integer</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>MAGNETIC_FIELD_STRENGTH</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>MAGNETIC_FIELD_STRENGTH</name>
+                    <description>The magnetic field tregth</description>
+                    <displayedName>B0</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>5</value>
+                    <defaultValue>5</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>2147483647</maxValue>
+                    <minValue>-2147483648</minValue>
+                    <numberEnum>Integer</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>MANUFACTURER</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>MANUFACTURER</name>
+                    <description>Manufacturer</description>
+                    <displayedName>MANUFACTURER</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Miscellaneous</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>Manufacturer</value>
+                    <defaultValue>Manufacturer</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>MIN_RISE_TIME_FACTOR</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>MIN_RISE_TIME_FACTOR</name>
+                    <description></description>
+                    <displayedName>MIN_RISE_TIME_FACTOR</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>90.0</value>
+                    <defaultValue>90.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>100.0</maxValue>
+                    <minValue>5.0</minValue>
+                    <numberEnum>PERCENT</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>MODALITY</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>MODALITY</name>
+                    <description>The modality for the acquisition</description>
+                    <displayedName>Modality</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>MRI</value>
+                    <defaultValue>MRI</defaultValue>
+                    <suggestedValues>NMR</suggestedValues>
+                    <suggestedValues>MRI</suggestedValues>
+                    <suggestedValues>DEFAULT</suggestedValues>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>MODEL_NAME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>MODEL_NAME</name>
+                    <description>Model name</description>
+                    <displayedName>MODEL_NAME</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Miscellaneous</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>Nanoscan MR 3T</value>
+                    <defaultValue>Model name</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>MULTI_PLANAR_EXCITATION</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>MULTI_PLANAR_EXCITATION</name>
+                    <description></description>
+                    <displayedName>MULTI_PLANAR_EXCITATION</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Dimension</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>false</value>
+                    <defaultValue>true</defaultValue>
+                </value>
+            </entry>
+            <entry>
+                <key>NUCLEUS_1</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>NUCLEUS_1</name>
+                    <description>The nucleus used for the first sequence channel</description>
+                    <displayedName>Nucleus 1</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1H</value>
+                    <defaultValue>1H</defaultValue>
+                    <suggestedValues>1H</suggestedValues>
+                    <suggestedValues>13C</suggestedValues>
+                    <suggestedValues>15N</suggestedValues>
+                    <suggestedValues>2H</suggestedValues>
+                    <suggestedValues>31P</suggestedValues>
+                    <suggestedValues>35Cl</suggestedValues>
+                    <suggestedValues>23Na</suggestedValues>
+                    <suggestedValues>19F</suggestedValues>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>NUCLEUS_2</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>NUCLEUS_2</name>
+                    <description>The nucleus used for the second sequence channel</description>
+                    <displayedName>Nucleus 2</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1H</value>
+                    <defaultValue>1H</defaultValue>
+                    <suggestedValues>1H</suggestedValues>
+                    <suggestedValues>13C</suggestedValues>
+                    <suggestedValues>15N</suggestedValues>
+                    <suggestedValues>2H</suggestedValues>
+                    <suggestedValues>31P</suggestedValues>
+                    <suggestedValues>35Cl</suggestedValues>
+                    <suggestedValues>23Na</suggestedValues>
+                    <suggestedValues>19F</suggestedValues>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>NUCLEUS_3</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>NUCLEUS_3</name>
+                    <description>The nucleus used for the third sequence channel</description>
+                    <displayedName>Nucleus 3</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1H</value>
+                    <defaultValue>1H</defaultValue>
+                    <suggestedValues>1H</suggestedValues>
+                    <suggestedValues>13C</suggestedValues>
+                    <suggestedValues>15N</suggestedValues>
+                    <suggestedValues>2H</suggestedValues>
+                    <suggestedValues>31P</suggestedValues>
+                    <suggestedValues>35Cl</suggestedValues>
+                    <suggestedValues>23Na</suggestedValues>
+                    <suggestedValues>19F</suggestedValues>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>NUCLEUS_4</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>NUCLEUS_4</name>
+                    <description>The nucleus used for the fourth sequence channel</description>
+                    <displayedName>Nucleus 4</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1H</value>
+                    <defaultValue>1H</defaultValue>
+                    <suggestedValues>1H</suggestedValues>
+                    <suggestedValues>13C</suggestedValues>
+                    <suggestedValues>15N</suggestedValues>
+                    <suggestedValues>2H</suggestedValues>
+                    <suggestedValues>31P</suggestedValues>
+                    <suggestedValues>35Cl</suggestedValues>
+                    <suggestedValues>23Na</suggestedValues>
+                    <suggestedValues>19F</suggestedValues>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>NUMBER_OF_AVERAGES</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>NUMBER_OF_AVERAGES</name>
+                    <description>The number of average</description>
+                    <displayedName>NEX</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1</value>
+                    <defaultValue>1</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OBSERVED_FREQUENCY</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OBSERVED_FREQUENCY</name>
+                    <description>The frequency of the acquisition</description>
+                    <displayedName>Observed frequency</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1.2818100000000001E8</value>
+                    <defaultValue>6.3E7</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>3.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Frequency</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OBSERVED_NUCLEUS</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>OBSERVED_NUCLEUS</name>
+                    <description>The observed nucleus</description>
+                    <displayedName>Observed Nucleus</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1H</value>
+                    <defaultValue>1H</defaultValue>
+                    <suggestedValues>1H</suggestedValues>
+                    <suggestedValues>13C</suggestedValues>
+                    <suggestedValues>15N</suggestedValues>
+                    <suggestedValues>2H</suggestedValues>
+                    <suggestedValues>31P</suggestedValues>
+                    <suggestedValues>35Cl</suggestedValues>
+                    <suggestedValues>23Na</suggestedValues>
+                    <suggestedValues>19F</suggestedValues>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>OFFSET_FREQ_1</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFFSET_FREQ_1</name>
+                    <description>The offset frequency of the first sequence channel</description>
+                    <displayedName>Offset 1</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.5E9</maxValue>
+                    <minValue>-1.5E9</minValue>
+                    <numberEnum>FrequencyOffset</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFFSET_FREQ_2</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFFSET_FREQ_2</name>
+                    <description>The offset frequency of the second sequence channel</description>
+                    <displayedName>Offset 2</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.5E9</maxValue>
+                    <minValue>-1.5E9</minValue>
+                    <numberEnum>FrequencyOffset</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFFSET_FREQ_3</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFFSET_FREQ_3</name>
+                    <description>The offset frequency of the third sequence channel</description>
+                    <displayedName>Offset 3</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.5E9</maxValue>
+                    <minValue>-1.5E9</minValue>
+                    <numberEnum>FrequencyOffset</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFFSET_FREQ_4</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFFSET_FREQ_4</name>
+                    <description>The offset frequency of the fourth sequence channel</description>
+                    <displayedName>Offset 4</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.5E9</maxValue>
+                    <minValue>-1.5E9</minValue>
+                    <numberEnum>FrequencyOffset</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFF_CENTER_FIELD_OF_VIEW_1D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFF_CENTER_FIELD_OF_VIEW_1D</name>
+                    <description>Location in the R/L direction</description>
+                    <displayedName>Location X</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Location</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFF_CENTER_FIELD_OF_VIEW_2D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFF_CENTER_FIELD_OF_VIEW_2D</name>
+                    <description>Location in the A/P direction</description>
+                    <displayedName>Location Y</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Location</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFF_CENTER_FIELD_OF_VIEW_3D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFF_CENTER_FIELD_OF_VIEW_3D</name>
+                    <description>Location in the I/S direction</description>
+                    <displayedName>Location Z</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Location</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFF_CENTER_FIELD_OF_VIEW_EFF</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>OFF_CENTER_FIELD_OF_VIEW_EFF</name>
+                    <description>Offcenter effective in 1D 2D and 3D (read phase slice)</description>
+                    <displayedName>OFF_CENTER_FIELD_OF_VIEW_EFF</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Dimension</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <defaultValue>0.0</defaultValue>
+                    <defaultValue>0.0</defaultValue>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Location</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFF_CENTER_FIELD_OF_VIEW_X</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFF_CENTER_FIELD_OF_VIEW_X</name>
+                    <description>Location in the R/L direction</description>
+                    <displayedName>Location X</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Location</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFF_CENTER_FIELD_OF_VIEW_Y</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFF_CENTER_FIELD_OF_VIEW_Y</name>
+                    <description>Location in the A/P direction</description>
+                    <displayedName>Location Y</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Location</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>OFF_CENTER_FIELD_OF_VIEW_Z</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>OFF_CENTER_FIELD_OF_VIEW_Z</name>
+                    <description>Location in the I/S direction</description>
+                    <displayedName>Location Z</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Location</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>ORIENTATION</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>ORIENTATION</name>
+                    <description>Field of view orientation</description>
+                    <displayedName>Orientation</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Dimension</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>AXIAL</value>
+                    <defaultValue>AXIAL</defaultValue>
+                    <suggestedValues>AXIAL</suggestedValues>
+                    <suggestedValues>CORONAL</suggestedValues>
+                    <suggestedValues>SAGITTAL</suggestedValues>
+                    <suggestedValues>OBLIQUE</suggestedValues>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>PAROPT_PARAM</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>PAROPT_PARAM</name>
+                    <description>Name of the current optimised parameter</description>
+                    <displayedName>Parameter optimised</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value></value>
+                    <defaultValue>PULSE_LENGTH</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>PHASE_0</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>PHASE_0</name>
+                    <description>PHASE_0.description</description>
+                    <displayedName>PHASE_0</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Process</category>
+                    <rolesEnum>User</rolesEnum>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Double</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>PHASE_1</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>PHASE_1</name>
+                    <description>PHASE_1.description</description>
+                    <displayedName>PHASE_1</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Process</category>
+                    <rolesEnum>User</rolesEnum>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Double</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>PHASE_APPLIED</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>PHASE_APPLIED</name>
+                    <description>PHASE_APPLIED</description>
+                    <displayedName>PHASE_APPLIED</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Process</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
+                </value>
+            </entry>
+            <entry>
+                <key>PROBE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>PROBE</name>
+                    <description>The probe used for the mr acquisition</description>
+                    <displayedName>Probe</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value></value>
+                    <defaultValue></defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>RECEIVER_COUNT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>RECEIVER_COUNT</name>
+                    <description>The number of receivers</description>
+                    <displayedName>Receiver Count</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1</value>
+                    <defaultValue>1</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>32</maxValue>
+                    <minValue>1</minValue>
+                    <numberEnum>Integer</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>RECEIVER_GAIN</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>RECEIVER_GAIN</name>
+                    <description>The receiver gain</description>
+                    <displayedName>RG</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1.0</value>
+                    <defaultValue>1.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>120.0</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>RxGain</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>REPETITION_TIME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>REPETITION_TIME</name>
+                    <description>The repetition time</description>
+                    <displayedName>TR</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Delay</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.7000000000000001</value>
+                    <defaultValue>0.2</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>SEQUENCE_NAME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>SEQUENCE_NAME</name>
+                    <description>The name of the sequence</description>
+                    <displayedName>Seq</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <rolesEnum>User</rolesEnum>
+                    <value>OnePulse_Slc</value>
+                    <defaultValue>OnePulse_Slc</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>SEQUENCE_TIME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>SEQUENCE_TIME</name>
+                    <description></description>
+                    <displayedName>SEQUENCE_TIME</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>SEQUENCE_VERSION</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>SEQUENCE_VERSION</name>
+                    <description></description>
+                    <displayedName>SEQUENCE_VERSION</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>User</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value> Version5.3</value>
+                    <defaultValue></defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>SETUP_MODE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>SETUP_MODE</name>
+                    <description>True during setup process</description>
+                    <displayedName>Setup</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <rolesEnum>User</rolesEnum>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
+                </value>
+            </entry>
+            <entry>
+                <key>SLICE_THICKNESS</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>SLICE_THICKNESS</name>
+                    <description></description>
+                    <displayedName>SLICE_THICKNESS</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Dimension</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.02</value>
+                    <defaultValue>0.005</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Length</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>SOFTWARE_VERSION</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>SOFTWARE_VERSION</name>
+                    <description>The version of the software</description>
+                    <displayedName>SOFTWARE_VERSION</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Miscellaneous</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>Software version</value>
+                    <defaultValue>Software version</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>SPECTRAL_WIDTH</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>SPECTRAL_WIDTH</name>
+                    <description>The spectral width of the reception</description>
+                    <displayedName>SW</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>20032.05128205128</value>
+                    <defaultValue>12520.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>3906000.0</maxValue>
+                    <minValue>119.3</minValue>
+                    <numberEnum>SW</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>SPECTRAL_WIDTH_OPT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>SPECTRAL_WIDTH_OPT</name>
+                    <description>Use SW to calculate SW_PER_PIXEL (true) Use SW_PER_PIXEL to calculate SW (false)</description>
+                    <displayedName>SPECTRAL_WIDTH_OPT</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>true</value>
+                    <defaultValue>false</defaultValue>
+                </value>
+            </entry>
+            <entry>
+                <key>SPECTRAL_WIDTH_PER_PIXEL</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>SPECTRAL_WIDTH_PER_PIXEL</name>
+                    <description>Spectral Width per pixel in Hz / Pix</description>
+                    <displayedName>SPECTRAL_WIDTH_PER_PIXEL</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Reception</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>2.4453187600160255</value>
+                    <defaultValue>100.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.0E8</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>SW</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>STATION_NAME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>STATION_NAME</name>
+                    <description>Station name</description>
+                    <displayedName>STATION_NAME</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Miscellaneous</group>
+                    <category>Miscellaneous</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>Station name</value>
+                    <defaultValue>Station name</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>SUBJECT_POSITION</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>SUBJECT_POSITION</name>
+                    <description>Subject position relative to the magnet.</description>
+                    <displayedName>SUBJECT_POSITION</displayedName>
+                    <locked>true</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Dimension</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>HeadFirstProne</value>
+                    <defaultValue>FeetFirstProne</defaultValue>
+                    <suggestedValues>HeadFirstProne</suggestedValues>
+                    <suggestedValues>HeadFirstSupine</suggestedValues>
+                    <suggestedValues>FeetFirstProne</suggestedValues>
+                    <suggestedValues>FeetFirstSupine</suggestedValues>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>TRANSFORM_PLUGIN</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>TRANSFORM_PLUGIN</name>
+                    <description>Transform the acquisition space to the k space</description>
+                    <displayedName>Transform plugin</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>none</value>
+                    <defaultValue>none</defaultValue>
+                    <suggestedValues>Bordered2D</suggestedValues>
+                    <suggestedValues>Bordered2D_FSE</suggestedValues>
+                    <suggestedValues>Centered2D</suggestedValues>
+                    <suggestedValues>Centered2D_FSE</suggestedValues>
+                    <suggestedValues>Sequential2D</suggestedValues>
+                    <suggestedValues>Sequential2D_EPI</suggestedValues>
+                    <suggestedValues>Sequential2D_EPI_Cal</suggestedValues>
+                    <suggestedValues>Sequential2D_EPI_Int</suggestedValues>
+                    <suggestedValues>Sequential4D</suggestedValues>
+                    <suggestedValues>Sequential4DBackAndForth</suggestedValues>
+                    <suggestedValues>Sequential4DCine</suggestedValues>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>TRIGGER_CHANEL</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>TRIGGER_CHANEL</name>
+                    <description></description>
+                    <displayedName>Trigger Channel</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Delay</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>Ext1_XOR_Ext2</value>
+                    <defaultValue>Ext1_XOR_Ext2</defaultValue>
+                    <suggestedValues>Ext1</suggestedValues>
+                    <suggestedValues>Ext2</suggestedValues>
+                    <suggestedValues>Ext1_AND_Ext2</suggestedValues>
+                    <suggestedValues>Ext1_XOR_Ext2</suggestedValues>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>TRIGGER_EXTERNAL</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>TRIGGER_EXTERNAL</name>
+                    <description>Enable the synchronization of the sequence with the trigger</description>
+                    <displayedName>TRIGGER_EXTERNAL</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Delay</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
+                </value>
+            </entry>
+            <entry>
+                <key>TRIGGER_TIME</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>TRIGGER_TIME</name>
+                    <description>TRIGGER_TIME.description</description>
+                    <displayedName>TRIGGER_TIME</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Delay</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.0</value>
+                    <value>0.1</value>
+                    <value>0.2</value>
+                    <value>0.3</value>
+                    <defaultValue>0.01</defaultValue>
+                    <maxValue>1.0E9</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_AMP</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_AMP</name>
+                    <description>The emission amplitude</description>
+                    <displayedName>TX_AMP</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>40.087732488176094</value>
+                    <defaultValue>40.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>100.0</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>PERCENT</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_AMP_ATT_AUTO</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>TX_AMP_ATT_AUTO</name>
+                    <description>Use the ATT and AMP set from the calibration </description>
+                    <displayedName>TX_AMP_ATT_AUTO</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>false</value>
+                    <defaultValue>true</defaultValue>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_AMP_NUMBER</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_AMP_NUMBER</name>
+                    <description>number of step</description>
+                    <displayedName>TX_AMP_NUMBER</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>15</value>
+                    <defaultValue>1</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>2048</maxValue>
+                    <minValue>1</minValue>
+                    <numberEnum>Integer</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_AMP_START</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_AMP_START</name>
+                    <description>Starting value of the Amp ramp</description>
+                    <displayedName>TX_AMP_START</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>5.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <minValue>-1.7976931348623157E308</minValue>
+                    <numberEnum>Double</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_AMP_STEP</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_AMP_STEP</name>
+                    <description>Step between two amp</description>
+                    <displayedName>TX_AMP_STEP</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>100.0</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>TxAmp</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_ATT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_ATT</name>
+                    <description>The emission attenuation</description>
+                    <displayedName>TX_ATT</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>40.0</value>
+                    <defaultValue>36.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>63.0</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>TxAtt</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_LENGTH</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_LENGTH</name>
+                    <description>RF time duration</description>
+                    <displayedName>TX_LENGTH</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Delay</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.001</value>
+                    <defaultValue>0.3</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>1.0</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Time</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_NUTATION</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>TX_NUTATION</name>
+                    <description>allows to acquire nutation curve</description>
+                    <displayedName>TX_NUTATION</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_POWER</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_POWER</name>
+                    <description></description>
+                    <displayedName>TX_POWER</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0.010206163258074037</value>
+                    <defaultValue>0.0</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>10000.0</maxValue>
+                    <minValue>0.0</minValue>
+                    <numberEnum>Power</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_ROUTE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>TX_ROUTE</name>
+                    <description>LogCh-&gt;PhysCh</description>
+                    <displayedName>TX route</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>0</value>
+                    <maxValue>2147483647</maxValue>
+                    <minValue>-2147483648</minValue>
+                    <numberEnum>Integer</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_SHAPE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>TX_SHAPE</name>
+                    <description></description>
+                    <displayedName>TX_SHAPE</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>GAUSSIAN</value>
+                    <defaultValue>GAUSSIAN</defaultValue>
+                    <suggestedValues>GAUSSIAN</suggestedValues>
+                    <suggestedValues>SINC3</suggestedValues>
+                    <suggestedValues>HARD</suggestedValues>
+                    <suggestedValues>SINC5</suggestedValues>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                </value>
+            </entry>
+            <entry>
+                <key>USER_MATRIX_DIMENSION_1D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>USER_MATRIX_DIMENSION_1D</name>
+                    <description>The matrix size of the first dimension</description>
+                    <displayedName>Matrix 1D</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>8192</value>
+                    <defaultValue>128</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>USER_MATRIX_DIMENSION_2D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>USER_MATRIX_DIMENSION_2D</name>
+                    <description>The matrix size of the second dimension</description>
+                    <displayedName>Matrix 2D</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1</value>
+                    <defaultValue>128</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>USER_MATRIX_DIMENSION_3D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>USER_MATRIX_DIMENSION_3D</name>
+                    <description>The matrix size of the third dimension</description>
+                    <displayedName>Matrix 3D</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1</value>
+                    <defaultValue>1</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+            <entry>
+                <key>USER_MATRIX_DIMENSION_4D</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>USER_MATRIX_DIMENSION_4D</name>
+                    <description>The matrix size of the fourth dimension</description>
+                    <displayedName>Matrix 4D</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Scan</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>1</value>
+                    <defaultValue>1</defaultValue>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <maxValue>65536</maxValue>
+                    <minValue>0</minValue>
+                    <numberEnum>Scan</numberEnum>
+                </value>
+            </entry>
+        </params>
+    </userParams>
+</application>
