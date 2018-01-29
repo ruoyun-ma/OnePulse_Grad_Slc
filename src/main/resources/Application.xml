@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <application>
-    <name>OnePulse_Slc_OnePulse_Slc_Git</name>
+    <name>OnePulse_Slc_OnePulse_Slc-git</name>
     <description></description>
     <generatorName>OnePulse_Slc</generatorName>
     <durationTime>0</durationTime>
@@ -1458,7 +1458,7 @@
                     <group>User</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
-                    <value>Version5.4</value>
+                    <value>Version5.5</value>
                     <defaultValue></defaultValue>
                     <restrictedToSuggested>false</restrictedToSuggested>
                 </value>
