@@ -151,6 +151,11 @@ public interface OnepulseSlcSequenceParams {
     String Time_grad_ramp = "Time_grad_ramp";
 
     /**
+     * Group: Delay, Order: 4D+Loop - Time (s)
+     */
+    String Time_grad_ramp_blanking = "Time_grad_ramp_blanking";
+
+    /**
      * Group: Delay, Order: 1D - Time (s)
      */
     String Time_grad_ref = "Time_grad_ref";
@@ -166,7 +171,7 @@ public interface OnepulseSlcSequenceParams {
     String Time_grad_spoil_ramp = "Time_grad_spoil_ramp";
 
     /**
-     * Group: Delay, Order: 1D - Time (s)
+     * Group: Delay, Order: 2D - Time (s)
      */
     String Time_last_delay = "Time_last_delay";
 
@@ -176,7 +181,7 @@ public interface OnepulseSlcSequenceParams {
     String Time_rx = "Time_rx";
 
     /**
-     * Group: Delay, Order: 4D+Loop - Time (s)
+     * Group: Delay, Order: 2D - Time (s)
      */
     String Time_te_delay = "Time_te_delay";
 
@@ -186,7 +191,7 @@ public interface OnepulseSlcSequenceParams {
     String Time_trigger_delay = "Time_trigger_delay";
 
     /**
-     * Group: Transmit, Order: 1D - Time (s)
+     * Group: Transmit, Order: 2D - Time (s)
      */
     String Time_tx = "Time_tx";
 

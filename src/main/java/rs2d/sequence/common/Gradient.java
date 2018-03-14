@@ -109,6 +109,14 @@ public class Gradient {
         }
     }
 
+    public double getAmplitudeArray_mTpm(int pos) {
+        if (amplitudeArray == null || pos >= steps) {
+            return Double.NaN;
+        } else {
+            return amplitudeArray[pos] * gMax / 100.0;
+        }
+    }
+
     public double getSliceThickness() {
         return sliceThicknessExcitation;
     }
@@ -164,6 +172,22 @@ public class Gradient {
         amplitude = staticArea / (equivalentTime);
         return amplitude;
     }
+
+    public void setAmplitude(double... values) {
+        if (values.length == 1) {
+            amplitude = values[0];
+        } else {
+            amplitudeArray = new double[values.length];
+            int i = 0;
+            for (double value : values) {
+                //  System.out.println(i +" "+value);
+                amplitudeArray[i] = value;
+                i += 1;
+            }
+            steps = i;
+        }
+    }
+
 
     /**
      * write the prepared amplitude into the Sequence_parameter
@@ -255,6 +279,25 @@ public class Gradient {
         calculateStaticAmplitude();
     }
 
+    public boolean refocalizeGradientWithAmplitude(Gradient grad, double ratio, double amplitude) {
+        if (grad_shape_rise_time == Double.NaN) {
+            computeShapeRiseTime();
+        }
+        staticArea = -grad.getStaticArea() * ratio;
+        boolean test_Amplitude = true;
+        equivalentTime = staticArea / amplitude;
+        double topTime = equivalentTime - grad_shape_rise_time;
+        if (topTime < 0.000004) {
+            topTime = 0.000004;
+            flatTimeTable.set(0, topTime);
+            prepareEquivalentTime();
+            calculateStaticAmplitude();
+            test_Amplitude = false;
+        }
+        flatTimeTable.set(0, topTime);
+        return test_Amplitude;
+    }
+
     public void rePrepare() {
         prepareEquivalentTime();
         if (bPhaseEncoding)
@@ -295,8 +338,11 @@ public class Gradient {
      * @return sw
      */
     public double solveSpectralWidthMax(double fov) throws Exception {
-        double spectralWidth = getInferiorSpectralWidth(gMax * GradientMath.GAMMA * fov);
-        spectralWidth = 3906250.0 / (Math.ceil(3906250.0 / spectralWidth) + 1); // to get the nearest SW bellow the limit
+        double spectralWidth_init = (gMax * GradientMath.GAMMA * fov);
+        double spectralWidth = spectralWidth_init;
+        while (HardwareHandler.getInstance().getSequenceHandler().getCompiler().getNearestSW(spectralWidth) >= spectralWidth_init) {
+            spectralWidth = getInferiorSpectralWidth(spectralWidth);
+        }
         spectralWidth = HardwareHandler.getInstance().getSequenceHandler().getCompiler().getNearestSW(spectralWidth);
         return spectralWidth;
     }
@@ -344,6 +390,23 @@ public class Gradient {
         calculateStaticAmplitude();
     }
 
+    /*
+    * calculate READOUT refocusing
+    *
+    * @param grad : Readout Gradient
+    * @param ratio : ratio to compensate
+    */
+    public void refocalizeReadoutGradients(Gradient grad, double ratio) {
+        steps = grad.getSteps();
+        amplitudeArray = new double[steps];
+        for (int i = 0; i < steps; i++) {
+            // flatTimeTable.get(0).doubleValue() + grad_shape_rise_time
+            amplitudeArray[i] = -grad.getAmplitudeArray(i) * grad.getEquivalentTime() / this.getEquivalentTime() * ratio;
+        }
+
+        order = grad.getOrder();
+    }
+
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     //     Slc             Slice Selection             Slc
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -353,8 +416,8 @@ public class Gradient {
         this.sliceThicknessExcitation = slice_thickness_excitation;
         amplitude = (tx_bandwidth / ((GradientMath.GAMMA) * sliceThicknessExcitation)) * 100.0 / gMax;                 // amplitude in T/m
         if (amplitude > 100.0) {
-            sliceThicknessExcitation = (tx_bandwidth / ((GradientMath.GAMMA) * gMax));
-            amplitude = 100;
+            sliceThicknessExcitation = ceilToSubDecimal(tx_bandwidth / ((GradientMath.GAMMA) * gMax), 6);
+            amplitude = (tx_bandwidth / ((GradientMath.GAMMA) * sliceThicknessExcitation)) * 100.0 / gMax;                 // amplitude in T/m
             testSliceThickness = false;
         }
         calculateStaticArea();
@@ -465,6 +528,10 @@ public class Gradient {
     // ----------------- General Methode----------------------------------------------
     private double getInferiorSpectralWidth(double spectral_width) {
         return 3906250.0 / (Math.ceil(3906250.0 / spectral_width) + 1);
+    }
+
+    private double ceilToSubDecimal(double numberToBeRounded, double Order) {
+        return Math.ceil(numberToBeRounded * Math.pow(10, Order)) / Math.pow(10, Order);
     }
 
     private void setSequenceTableValues(Table table, Order order, double... values) {

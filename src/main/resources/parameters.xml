@@ -50,7 +50,7 @@
                 <group>Scan</group>
                 <category>Acquisition</category>
                 <rolesEnum>User</rolesEnum>
-                <value>1</value>
+                <value>3</value>
                 <defaultValue>128</defaultValue>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <maxValue>65536</maxValue>
@@ -247,6 +247,40 @@
             </value>
         </entry>
         <entry>
+            <key>DELAY_ECHO</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>DELAY_ECHO</name>
+                <description>Allow to define DELAY_ECHO instead of ECHO_TIME</description>
+                <displayedName>DELAY_ECHO</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Delay</group>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>false</value>
+                <defaultValue>false</defaultValue>
+            </value>
+        </entry>
+        <entry>
+            <key>DELAY_ECHO_TIME</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>DELAY_ECHO_TIME</name>
+                <description></description>
+                <displayedName>DELAY_ECHO_TIME</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Delay</group>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>6.399999999999999E-4</value>
+                <defaultValue>0.0</defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <maxValue>1.0E9</maxValue>
+                <minValue>0.0</minValue>
+                <numberEnum>Time</numberEnum>
+            </value>
+        </entry>
+        <entry>
             <key>DIGITAL_FILTER_REMOVED</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>DIGITAL_FILTER_REMOVED</name>
@@ -310,7 +344,7 @@
                 <group>Delay</group>
                 <category>Acquisition</category>
                 <rolesEnum>User</rolesEnum>
-                <value>6.0E-4</value>
+                <value>0.00193</value>
                 <defaultValue>0.005</defaultValue>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <maxValue>1.0E9</maxValue>
@@ -1066,8 +1100,8 @@
             <key>OFF_CENTER_FIELD_OF_VIEW_1D</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>OFF_CENTER_FIELD_OF_VIEW_1D</name>
-                <description>Location in the R/L direction</description>
-                <displayedName>Location X</displayedName>
+                <description>Location in the Readout direction</description>
+                <displayedName>Location 1D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Gradient</group>
@@ -1085,8 +1119,8 @@
             <key>OFF_CENTER_FIELD_OF_VIEW_2D</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>OFF_CENTER_FIELD_OF_VIEW_2D</name>
-                <description>Location in the A/P direction</description>
-                <displayedName>Location Y</displayedName>
+                <description>Location in the PE direction</description>
+                <displayedName>Location  2D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Gradient</group>
@@ -1104,8 +1138,8 @@
             <key>OFF_CENTER_FIELD_OF_VIEW_3D</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>OFF_CENTER_FIELD_OF_VIEW_3D</name>
-                <description>Location in the I/S direction</description>
-                <displayedName>Location Z</displayedName>
+                <description>Location in the Slice encoding direction</description>
+                <displayedName>Location 3D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Gradient</group>
@@ -1377,7 +1411,7 @@
                 <lockedToDefault>false</lockedToDefault>
                 <category>Acquisition</category>
                 <rolesEnum>User</rolesEnum>
-                <value>0.7000000000000001</value>
+                <value>2.1</value>
                 <defaultValue>0.0</defaultValue>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <maxValue>1.0E9</maxValue>
@@ -1396,7 +1430,7 @@
                 <group>User</group>
                 <category>Acquisition</category>
                 <rolesEnum>User</rolesEnum>
-                <value>Version5.5</value>
+                <value>Version5.6</value>
                 <defaultValue></defaultValue>
                 <restrictedToSuggested>false</restrictedToSuggested>
             </value>
@@ -1557,6 +1591,8 @@
                 <suggestedValues>Centered2D_FSE</suggestedValues>
                 <suggestedValues>Centered2D_FSERot</suggestedValues>
                 <suggestedValues>Centered2DRot</suggestedValues>
+                <suggestedValues>Centric4D</suggestedValues>
+                <suggestedValues>Respiratory_FSE</suggestedValues>
                 <suggestedValues>Sequential</suggestedValues>
                 <suggestedValues>Sequential2D</suggestedValues>
                 <suggestedValues>Sequential2D_EPI</suggestedValues>
@@ -1565,6 +1601,7 @@
                 <suggestedValues>Sequential4D</suggestedValues>
                 <suggestedValues>Sequential4DBackAndForth</suggestedValues>
                 <suggestedValues>Sequential4DCine</suggestedValues>
+                <suggestedValues>SequentialMPRAGE</suggestedValues>
                 <restrictedToSuggested>false</restrictedToSuggested>
             </value>
         </entry>
@@ -1752,17 +1789,88 @@
             </value>
         </entry>
         <entry>
-            <key>TX_NUTATION</key>
+            <key>TX_LENGTH_NUMBER</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>TX_LENGTH_NUMBER</name>
+                <description>number of step</description>
+                <displayedName>TX_LENGTH_NUMBER</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Emission</group>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>3</value>
+                <defaultValue>1</defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <maxValue>2048</maxValue>
+                <minValue>1</minValue>
+                <numberEnum>Integer</numberEnum>
+            </value>
+        </entry>
+        <entry>
+            <key>TX_LENGTH_START</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>TX_LENGTH_START</name>
+                <description>Starting value of the TX_LENGTH ramp</description>
+                <displayedName>TX_LENGTH_START</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Delay</group>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>0.001</value>
+                <defaultValue>0.001</defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <maxValue>1.0E9</maxValue>
+                <minValue>9.999999999999999E-6</minValue>
+                <numberEnum>Time</numberEnum>
+            </value>
+        </entry>
+        <entry>
+            <key>TX_LENGTH_STEP</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>TX_LENGTH_STEP</name>
+                <description>Step between two TX_LENGTH</description>
+                <displayedName>TX_LENGTH_STEP</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Emission</group>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>0.001</value>
+                <defaultValue>1.9999999999999998E-4</defaultValue>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <maxValue>1.0E9</maxValue>
+                <minValue>9.999999999999999E-6</minValue>
+                <numberEnum>Time</numberEnum>
+            </value>
+        </entry>
+        <entry>
+            <key>TX_NUTATION_AMP</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
-                <name>TX_NUTATION</name>
+                <name>TX_NUTATION_AMP</name>
                 <description>allows to acquire nutation curve</description>
-                <displayedName>TX_NUTATION</displayedName>
+                <displayedName>TX_NUTATION_AMP</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Emission</group>
                 <category>Acquisition</category>
                 <rolesEnum>User</rolesEnum>
                 <value>false</value>
+                <defaultValue>false</defaultValue>
+            </value>
+        </entry>
+        <entry>
+            <key>TX_NUTATION_LENGTH</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>TX_NUTATION_LENGTH</name>
+                <description></description>
+                <displayedName>TX_NUTATION_LENGTH</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <category>Acquisition</category>
+                <rolesEnum>User</rolesEnum>
+                <value>true</value>
                 <defaultValue>false</defaultValue>
             </value>
         </entry>
@@ -1851,7 +1959,7 @@
                 <group>Scan</group>
                 <category>Acquisition</category>
                 <rolesEnum>User</rolesEnum>
-                <value>1</value>
+                <value>3</value>
                 <defaultValue>128</defaultValue>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <maxValue>65536</maxValue>

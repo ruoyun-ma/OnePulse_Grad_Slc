@@ -15,12 +15,12 @@
     <dependency>
       <groupId>rs2d</groupId>
       <artifactId>spinlab</artifactId>
-      <version>1.213.2</version>
+      <version>1.214.5</version>
     </dependency>
     <dependency>
       <groupId>rs2d</groupId>
       <artifactId>rs2d-commons</artifactId>
-      <version>1.213.2</version>
+      <version>1.214.5</version>
     </dependency>
   </dependencies>
   <build>
