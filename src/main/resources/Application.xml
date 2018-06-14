@@ -289,26 +289,6 @@
                 </value>
             </entry>
             <entry>
-                <key>DATA_REPRESENTATION</key>
-                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listTextParam">
-                    <name>DATA_REPRESENTATION</name>
-                    <displayedName>DATA_REPRESENTATION</displayedName>
-                    <locked>true</locked>
-                    <lockedToDefault>false</lockedToDefault>
-                    <group>Dimension</group>
-                    <category>Miscellaneous</category>
-                    <rolesEnum>User</rolesEnum>
-                    <value>COMPLEX</value>
-                    <value>REAL</value>
-                    <value>REAL</value>
-                    <value>REAL</value>
-                    <defaultValue>COMPLEX</defaultValue>
-                    <defaultValue>REAL</defaultValue>
-                    <defaultValue>REAL</defaultValue>
-                    <defaultValue>REAL</defaultValue>
-                </value>
-            </entry>
-            <entry>
                 <key>DELAY_ECHO</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>DELAY_ECHO</name>
@@ -1377,6 +1357,21 @@
                 </value>
             </entry>
             <entry>
+                <key>PHASE_RESET</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>PHASE_RESET</name>
+                    <description></description>
+                    <displayedName>PHASE_RESET</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                    <rolesEnum>User</rolesEnum>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
+                </value>
+            </entry>
+            <entry>
                 <key>PROBE</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>PROBE</name>
@@ -1492,7 +1487,7 @@
                     <group>User</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
-                    <value>Version5.6</value>
+                    <value>Version5.7</value>
                     <defaultValue></defaultValue>
                     <restrictedToSuggested>false</restrictedToSuggested>
                 </value>

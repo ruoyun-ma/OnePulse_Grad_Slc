@@ -49,7 +49,7 @@ import static rs2d.sequence.onpulseslc.OnepulseSlcSequenceParams.*;
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
-    private String sequenceVersion = "Version5.6";
+    private String sequenceVersion = "Version5.7";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -664,6 +664,10 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
 
         double total_acquisition_time = tr * nb_scan_4d * nb_scan_3d * nb_scan_2d;
         setParamValue(SEQUENCE_TIME, total_acquisition_time);
+        // -----------------------------------------------
+        // Phase Reset
+        // -----------------------------------------------
+        setSequenceParamValue(Phase_reset, PHASE_RESET);
 
         // ------------------------------------------------------------------
         // calculate TX FREQUENCY offsets tables for multi-slice acquisitions and

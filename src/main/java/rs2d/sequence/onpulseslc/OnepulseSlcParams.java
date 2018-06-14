@@ -220,21 +220,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
-    DATA_REPRESENTATION {
-        Param build() {
-            ListTextParam param = new ListTextParam();
-            param.setName("DATA_REPRESENTATION");
-            param.setDisplayedName("DATA_REPRESENTATION");
-            param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
-            param.setGroup(EnumGroup.Dimension);
-            param.setCategory(Category.Miscellaneous);
-            param.setValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
-            param.setDefaultValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
-            return param;
-        }
-    },
-
     DELAY_ECHO {
         Param build() {
             BooleanParam param = new BooleanParam();
@@ -1185,6 +1170,21 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
+    PHASE_RESET {
+        Param build() {
+            BooleanParam param = new BooleanParam();
+            param.setName("PHASE_RESET");
+            param.setDisplayedName("PHASE_RESET");
+            param.setDescription("");
+            param.setRoles(new RoleEnum[] {RoleEnum.User});
+            param.setGroup(EnumGroup.Emission);
+            param.setCategory(Category.Acquisition);
+            param.setValue(false);
+            param.setDefaultValue(false);
+            return param;
+        }
+    },
+
     PROBE {
         Param build() {
             TextParam param = new TextParam();
@@ -1293,7 +1293,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version5.6");
+            param.setValue("Version5.7");
             param.setDefaultValue("");
             return param;
         }

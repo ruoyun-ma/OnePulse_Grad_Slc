@@ -68,6 +68,11 @@ public interface OnepulseSlcSequenceParams {
     String Nb_point = "Nb_point";
 
     /**
+     * Group: Transmit, Type: BooleanParam
+     */
+    String Phase_reset = "Phase_reset";
+
+    /**
      * Group: Dimension, Type: NumberParam - Scan
      */
     String Pre_scan = "Pre_scan";
