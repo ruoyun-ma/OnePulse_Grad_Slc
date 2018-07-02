@@ -7,6 +7,7 @@ import rs2d.spinlab.tools.table.*;
 import rs2d.spinlab.tools.role.RoleEnum;
 import rs2d.spinlab.sequenceGenerator.GeneratorParamEnum;
 
+import java.util.List;
 import static java.util.Arrays.asList;
 
 public enum OnepulseSlcParams implements GeneratorParamEnum {
@@ -58,7 +59,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(3);
+            param.setValue(1);
             param.setDefaultValue(128);
             return param;
         }
@@ -127,7 +128,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(0.40894464);
+            param.setValue(0.40894568690095845);
             param.setDefaultValue(1.0);
             return param;
         }
@@ -220,6 +221,21 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
+    DATA_REPRESENTATION {
+        Param build() {
+            ListTextParam param = new ListTextParam();
+            param.setName("DATA_REPRESENTATION");
+            param.setDisplayedName("DATA_REPRESENTATION");
+            param.setLocked(true);
+            param.setRoles(new RoleEnum[] {RoleEnum.User});
+            param.setGroup(EnumGroup.Dimension);
+            param.setCategory(Category.Miscellaneous);
+            param.setValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
+            param.setDefaultValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
+            return param;
+        }
+    },
+
     DELAY_ECHO {
         Param build() {
             BooleanParam param = new BooleanParam();
@@ -247,7 +263,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(6.399999999999999E-4);
+            param.setValue(7.999999999999988E-5);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -319,7 +335,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(0.00193);
+            param.setValue(6.0E-4);
             param.setDefaultValue(0.005);
             return param;
         }
@@ -458,7 +474,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
             param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asList(0.0, 0.0, 0.0));
+            param.setValue(asListNumber(0.0, 0.0, 0.0));
             return param;
         }
     },
@@ -528,7 +544,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
             param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asList(0.0, 0.0, 0.0, 0.0));
+            param.setValue(asListNumber(0.0, 0.0, 0.0, 0.0));
             return param;
         }
     },
@@ -546,7 +562,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
             param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
+            param.setValue(asListNumber(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
             return param;
         }
     },
@@ -564,7 +580,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
             param.setNumberEnum(NumberEnum.Time);
-            param.setValue(asList(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
+            param.setValue(asListNumber(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
             return param;
         }
     },
@@ -581,7 +597,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
             param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asList(0.0));
+            param.setValue(asListNumber(0.0));
             return param;
         }
     },
@@ -613,8 +629,8 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-1.7976931348623157E308);
             param.setMaxValue(1.7976931348623157E308);
             param.setNumberEnum(NumberEnum.Double);
-            param.setValue(asList(1.0, 0.0, 0.0, 0.0, -1.0, 0.0));
-            param.setDefaultValue(asList(1.0, 0.0, 0.0, 0.0, 1.0, 0.0));
+            param.setValue(asListNumber(1.0, 0.0, 0.0, 0.0, -1.0, 0.0));
+            param.setDefaultValue(asListNumber(1.0, 0.0, 0.0, 0.0, 1.0, 0.0));
             return param;
         }
     },
@@ -631,8 +647,8 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-1.7976931348623157E308);
             param.setMaxValue(1.7976931348623157E308);
             param.setNumberEnum(NumberEnum.Location);
-            param.setValue(asList(0.0, 0.0, 0.0));
-            param.setDefaultValue(asList(0.0, 0.0, 0.0));
+            param.setValue(asListNumber(0.0, 0.0, 0.0));
+            param.setDefaultValue(asListNumber(0.0, 0.0, 0.0));
             return param;
         }
     },
@@ -667,8 +683,8 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-2147483648);
             param.setMaxValue(2147483647);
             param.setNumberEnum(NumberEnum.Integer);
-            param.setValue(asList(0, 0, 0));
-            param.setDefaultValue(asList(0, 0, 0));
+            param.setValue(asListNumber(0, 0, 0));
+            param.setDefaultValue(asListNumber(0, 0, 0));
             return param;
         }
     },
@@ -960,8 +976,8 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-1.7976931348623157E308);
             param.setMaxValue(1.7976931348623157E308);
             param.setNumberEnum(NumberEnum.Location);
-            param.setValue(asList(0.0, 0.0, 0.0));
-            param.setDefaultValue(asList(0.0, 0.0, 0.0));
+            param.setValue(asListNumber(0.0, 0.0, 0.0));
+            param.setDefaultValue(asListNumber(0.0, 0.0, 0.0));
             return param;
         }
     },
@@ -1200,6 +1216,20 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
+    PROBES {
+        Param build() {
+            ListTextParam param = new ListTextParam();
+            param.setName("PROBES");
+            param.setDisplayedName("Probes");
+            param.setDescription("The probes used for the acquisition");
+            param.setLocked(true);
+            param.setRoles(new RoleEnum[] {RoleEnum.User});
+            param.setGroup(EnumGroup.Miscellaneous);
+            param.setCategory(Category.Acquisition);
+            return param;
+        }
+    },
+
     RECEIVER_COUNT {
         Param build() {
             NumberParam param = new NumberParam();
@@ -1278,7 +1308,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(2.1);
+            param.setValue(0.7000000000000001);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1293,7 +1323,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version5.7");
+            param.setValue("Version5.8");
             param.setDefaultValue("");
             return param;
         }
@@ -1324,7 +1354,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Length);
             param.setMinValue(0.0);
             param.setMaxValue(1.7976931348623157E308);
-            param.setValue(0.02);
+            param.setValue(0.04);
             param.setDefaultValue(0.005);
             return param;
         }
@@ -1357,7 +1387,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.SW);
             param.setMinValue(119.3);
             param.setMaxValue(3906000.0);
-            param.setValue(20032.05128205128);
+            param.setValue(20032.0);
             param.setDefaultValue(12520.0);
             return param;
         }
@@ -1390,7 +1420,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.SW);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E8);
-            param.setValue(2.4453187600160255);
+            param.setValue(2.4453125);
             param.setDefaultValue(100.0);
             return param;
         }
@@ -1440,7 +1470,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setCategory(Category.Acquisition);
             param.setValue("none");
             param.setDefaultValue("none");
-            param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Centered2D_FSERot", "Centered2DRot", "Centric4D", "Respiratory_FSE", "Sequential", "Sequential2D", "Sequential2D_EPI", "Sequential2D_EPI_Cal", "Sequential2D_EPI_Int", "Sequential4D", "Sequential4DBackAndForth", "Sequential4DCine", "SequentialMPRAGE"));
+            param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Centered2D_FSERot", "Centered2DRot", "Centric4D", "Respiratory_FSE", "Sequential", "Sequential2D", "Sequential4D", "Sequential4DBackAndForth", "Sequential4DCine", "SequentialMPRAGE"));
             return param;
         }
     },
@@ -1489,8 +1519,8 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
             param.setNumberEnum(NumberEnum.Time);
-            param.setValue(asList(0.0, 0.1, 0.2, 0.3));
-            param.setDefaultValue(asList(0.01));
+            param.setValue(asListNumber(0.0, 0.1, 0.2, 0.3));
+            param.setDefaultValue(asListNumber(0.01));
             return param;
         }
     },
@@ -1693,7 +1723,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDescription("");
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
-            param.setValue(true);
+            param.setValue(false);
             param.setDefaultValue(false);
             return param;
         }
@@ -1729,7 +1759,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMinValue(-2147483648);
             param.setMaxValue(2147483647);
             param.setNumberEnum(NumberEnum.Integer);
-            param.setValue(asList(0));
+            param.setValue(asListNumber(0));
             return param;
         }
     },
@@ -1779,7 +1809,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(3);
+            param.setValue(1);
             param.setDefaultValue(128);
             return param;
         }
@@ -1822,4 +1852,8 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
     };
 
     abstract Param build();
+
+    private static List<Number> asListNumber(Number ... numbers) {
+        return asList(numbers);
+    }
 }

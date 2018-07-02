@@ -126,7 +126,7 @@ public interface OnepulseSlcSequenceParams {
     String Grad_amp_slice = "Grad_amp_slice";
 
     /**
-     * Group: Gradient, Order: 1D - GradAmp (%)
+     * Group: Gradient, Order: 4D+Loop - GradAmp (%)
      */
     String Grad_amp_slice_ref = "Grad_amp_slice_ref";
 

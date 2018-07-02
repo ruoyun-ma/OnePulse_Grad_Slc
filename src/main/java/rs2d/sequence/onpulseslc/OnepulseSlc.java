@@ -49,7 +49,7 @@ import static rs2d.sequence.onpulseslc.OnepulseSlcSequenceParams.*;
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
-    private String sequenceVersion = "Version5.7";
+    private String sequenceVersion = "Version5.8";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -512,7 +512,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         if (isMultiplanar) {
             gradSliceRefPhase3D.refocalizeGradient(gradSlice, 0.5);
         }
-
+	   gradSliceRefPhase3D.applyAmplitude();
         // -----------------------------------------------
         // calculate ADC observation time
         // -----------------------------------------------
@@ -795,7 +795,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
     }
 
     public float getVersion() {
-        return 0.0f;
+        return 213.2f;
     }
     //</editor-fold>
 
