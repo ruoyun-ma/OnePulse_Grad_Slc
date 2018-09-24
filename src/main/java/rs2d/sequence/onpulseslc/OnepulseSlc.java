@@ -49,7 +49,7 @@ import static rs2d.sequence.onpulseslc.OnepulseSlcSequenceParams.*;
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
-    private String sequenceVersion = "Version5.5";
+    private String sequenceVersion = "Version5.6";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -273,6 +273,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // ------------------------------------------------
         // MATRIX
 
+        acquisitionMatrixDimension3D = userMatrixDimension3D;
         nb_scan_3d = userMatrixDimension3D;
 
         // -----------------------------------------------
