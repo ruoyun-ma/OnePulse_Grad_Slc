@@ -1510,7 +1510,7 @@
                 <key>SEQUENCE_VERSION</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>SEQUENCE_VERSION</name>
-                    <value>Version5.8</value>
+                    <value>Version5.9</value>
                     <defaultValue></defaultValue>
                     <description></description>
                     <displayedName>SEQUENCE_VERSION</displayedName>
@@ -1539,7 +1539,7 @@
                 <key>SLICE_THICKNESS</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SLICE_THICKNESS</name>
-                    <value>0.04</value>
+                    <value>0.02</value>
                     <defaultValue>0.005</defaultValue>
                     <description></description>
                     <displayedName>SLICE_THICKNESS</displayedName>
