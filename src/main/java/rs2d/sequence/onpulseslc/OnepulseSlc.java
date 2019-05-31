@@ -66,6 +66,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
     private int userMatrixDimension2D;
     private int userMatrixDimension3D;
 
+    private int nb_scan_1d;
     private int nb_scan_2d;
     private int nb_scan_3d;
     private int nb_scan_4d;
@@ -161,6 +162,8 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         userMatrixDimension1D = ((NumberParam) getParam(USER_MATRIX_DIMENSION_1D)).getValue().intValue();
         userMatrixDimension2D = ((NumberParam) getParam(USER_MATRIX_DIMENSION_2D)).getValue().intValue();
         userMatrixDimension3D = ((NumberParam) getParam(USER_MATRIX_DIMENSION_3D)).getValue().intValue();
+        nb_scan_1d = ((NumberParam) getParam(NUMBER_OF_AVERAGES)).getValue().intValue();
+
 
         spectralWidth = ((NumberParam) getParam(SPECTRAL_WIDTH)).getValue().doubleValue();            // get user defined spectral width
         isSW = (((BooleanParam) getParam(SPECTRAL_WIDTH_OPT)).getValue());
@@ -662,7 +665,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         }
 
 
-        double total_acquisition_time = tr * nb_scan_4d * nb_scan_3d * nb_scan_2d;
+        double total_acquisition_time = tr * nb_scan_4d * nb_scan_3d * nb_scan_2d* nb_scan_1d;
         setParamValue(SEQUENCE_TIME, total_acquisition_time);
         // -----------------------------------------------
         // Phase Reset
