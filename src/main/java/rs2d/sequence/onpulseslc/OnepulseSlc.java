@@ -465,7 +465,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             list_tx_amps.add(tx_amp);
       
         }
-        setParamValue(TX_AMP_STEP_VALUES, list_tx_amps);
+        setParamValue(TX_AMP_VALUES, list_tx_amps);
      
         double txLengthMax = txLength;
         double[] tx_lengths = new double[acquisitionMatrixDimension2D];

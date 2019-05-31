@@ -1516,11 +1516,11 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
-    TX_AMP_STEP_VALUES {
+    TX_AMP_VALUES {
         Param build() {
             ListNumberParam param = new ListNumberParam();
-            param.setName("TX_AMP_STEP_VALUES");
-            param.setDisplayedName("TX_AMP_STEP_VALUES");
+            param.setName("TX_AMP_VALUES");
+            param.setDisplayedName("TX_AMP_VALUES");
             param.setDescription("");
             param.setLocked(true);
             param.setCategory(Category.Acquisition);

@@ -2141,12 +2141,12 @@
             </value>
         </entry>
         <entry>
-            <key>TX_AMP_STEP_VALUES</key>
+            <key>TX_AMP_VALUES</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
-                <name>TX_AMP_STEP_VALUES</name>
+                <name>TX_AMP_VALUES</name>
                 <value>40.052483358517755</value>
                 <description></description>
-                <displayedName>TX_AMP_STEP_VALUES</displayedName>
+                <displayedName>TX_AMP_VALUES</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>PERCENT</numberEnum>
