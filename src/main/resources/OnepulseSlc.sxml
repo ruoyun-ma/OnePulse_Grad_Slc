@@ -762,7 +762,6 @@
                 <minValue>0.0</minValue>
                 <maxValue>3.0E9</maxValue>
                 <group>Reception</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -780,7 +779,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>4</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -798,7 +796,6 @@
                 <minValue>0.0</minValue>
                 <maxValue>63.0</maxValue>
                 <group>Emission</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -813,7 +810,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -828,7 +824,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -842,7 +837,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -855,7 +849,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -872,7 +865,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -887,7 +879,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -901,7 +892,6 @@
                 <displayedName>enabled47</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -925,7 +915,6 @@
                 <suggestedValues>23Na</suggestedValues>
                 <suggestedValues>19F</suggestedValues>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -943,7 +932,6 @@
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
                 <group>Dimension</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -960,7 +948,6 @@
                 <numberEnum>TxAtt</numberEnum>
                 <minValue>0.0</minValue>
                 <maxValue>63.0</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -975,132 +962,131 @@
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>true</restrictedToSuggested>
-                <suggestedValues>Other</suggestedValues>
                 <suggestedValues>Y</suggestedValues>
+                <suggestedValues>Other</suggestedValues>
                 <suggestedValues>X</suggestedValues>
-                <suggestedValues>3H</suggestedValues>
                 <suggestedValues>1H</suggestedValues>
-                <suggestedValues>19F</suggestedValues>
-                <suggestedValues>3He</suggestedValues>
-                <suggestedValues>205Tl</suggestedValues>
-                <suggestedValues>203Tl</suggestedValues>
-                <suggestedValues>31P</suggestedValues>
-                <suggestedValues>7Li</suggestedValues>
-                <suggestedValues>119Sn</suggestedValues>
-                <suggestedValues>117Sn</suggestedValues>
-                <suggestedValues>87Rb</suggestedValues>
-                <suggestedValues>115Sn</suggestedValues>
-                <suggestedValues>11B</suggestedValues>
-                <suggestedValues>125Te</suggestedValues>
-                <suggestedValues>141Pr</suggestedValues>
-                <suggestedValues>71Ga</suggestedValues>
-                <suggestedValues>65Cu</suggestedValues>
-                <suggestedValues>129Xe</suggestedValues>
-                <suggestedValues>81Br</suggestedValues>
-                <suggestedValues>63Cu</suggestedValues>
-                <suggestedValues>23Na</suggestedValues>
-                <suggestedValues>51V</suggestedValues>
-                <suggestedValues>123Te</suggestedValues>
-                <suggestedValues>27Al</suggestedValues>
-                <suggestedValues>13C</suggestedValues>
-                <suggestedValues>79Br</suggestedValues>
-                <suggestedValues>151Eu</suggestedValues>
-                <suggestedValues>55Mn</suggestedValues>
-                <suggestedValues>93Nb</suggestedValues>
-                <suggestedValues>45Sc</suggestedValues>
-                <suggestedValues>159Tb</suggestedValues>
-                <suggestedValues>69Ga</suggestedValues>
-                <suggestedValues>121Sb</suggestedValues>
-                <suggestedValues>59Co</suggestedValues>
-                <suggestedValues>187Re</suggestedValues>
-                <suggestedValues>185Re</suggestedValues>
-                <suggestedValues>99Tc</suggestedValues>
-                <suggestedValues>113Cd</suggestedValues>
-                <suggestedValues>115In</suggestedValues>
-                <suggestedValues>113In</suggestedValues>
-                <suggestedValues>195Pt</suggestedValues>
-                <suggestedValues>165Ho</suggestedValues>
-                <suggestedValues>111Cd</suggestedValues>
-                <suggestedValues>207Pb</suggestedValues>
-                <suggestedValues>127I</suggestedValues>
-                <suggestedValues>29Si</suggestedValues>
-                <suggestedValues>77Se</suggestedValues>
-                <suggestedValues>199Hg</suggestedValues>
-                <suggestedValues>171Yb</suggestedValues>
-                <suggestedValues>75As</suggestedValues>
-                <suggestedValues>209Bi</suggestedValues>
                 <suggestedValues>2H</suggestedValues>
+                <suggestedValues>3H</suggestedValues>
+                <suggestedValues>3He</suggestedValues>
                 <suggestedValues>6Li</suggestedValues>
-                <suggestedValues>139La</suggestedValues>
+                <suggestedValues>7Li</suggestedValues>
                 <suggestedValues>9Be</suggestedValues>
-                <suggestedValues>17O</suggestedValues>
-                <suggestedValues>138La</suggestedValues>
-                <suggestedValues>133Cs</suggestedValues>
-                <suggestedValues>123Sb</suggestedValues>
-                <suggestedValues>181Ta</suggestedValues>
-                <suggestedValues>175Lu</suggestedValues>
-                <suggestedValues>137Ba</suggestedValues>
-                <suggestedValues>153Eu</suggestedValues>
                 <suggestedValues>10B</suggestedValues>
-                <suggestedValues>15N</suggestedValues>
-                <suggestedValues>50V</suggestedValues>
-                <suggestedValues>135Ba</suggestedValues>
-                <suggestedValues>35Cl</suggestedValues>
-                <suggestedValues>85Rb</suggestedValues>
-                <suggestedValues>91Zr</suggestedValues>
-                <suggestedValues>61Ni</suggestedValues>
-                <suggestedValues>169Tm</suggestedValues>
-                <suggestedValues>131Xe</suggestedValues>
-                <suggestedValues>37Cl</suggestedValues>
-                <suggestedValues>176Lu</suggestedValues>
-                <suggestedValues>21Ne</suggestedValues>
-                <suggestedValues>189Os</suggestedValues>
-                <suggestedValues>33S</suggestedValues>
+                <suggestedValues>11B</suggestedValues>
+                <suggestedValues>13C</suggestedValues>
                 <suggestedValues>14N</suggestedValues>
-                <suggestedValues>43Ca</suggestedValues>
-                <suggestedValues>97Mo</suggestedValues>
-                <suggestedValues>201Hg</suggestedValues>
-                <suggestedValues>95Mo</suggestedValues>
-                <suggestedValues>67Zn</suggestedValues>
+                <suggestedValues>15N</suggestedValues>
+                <suggestedValues>17O</suggestedValues>
+                <suggestedValues>19F</suggestedValues>
+                <suggestedValues>21Ne</suggestedValues>
+                <suggestedValues>23Na</suggestedValues>
                 <suggestedValues>25Mg</suggestedValues>
-                <suggestedValues>40K</suggestedValues>
-                <suggestedValues>53Cr</suggestedValues>
-                <suggestedValues>49Ti</suggestedValues>
-                <suggestedValues>47Ti</suggestedValues>
-                <suggestedValues>143Nd</suggestedValues>
-                <suggestedValues>101Ru</suggestedValues>
-                <suggestedValues>89Y</suggestedValues>
-                <suggestedValues>173Yb</suggestedValues>
-                <suggestedValues>163Dy</suggestedValues>
+                <suggestedValues>27Al</suggestedValues>
+                <suggestedValues>29Si</suggestedValues>
+                <suggestedValues>31P</suggestedValues>
+                <suggestedValues>33S</suggestedValues>
+                <suggestedValues>35Cl</suggestedValues>
+                <suggestedValues>37Cl</suggestedValues>
                 <suggestedValues>39K</suggestedValues>
-                <suggestedValues>109Ag</suggestedValues>
-                <suggestedValues>99Ru</suggestedValues>
-                <suggestedValues>105Pd</suggestedValues>
-                <suggestedValues>87Sr</suggestedValues>
-                <suggestedValues>147Sm</suggestedValues>
-                <suggestedValues>183W</suggestedValues>
-                <suggestedValues>107Ag</suggestedValues>
-                <suggestedValues>157Gd</suggestedValues>
-                <suggestedValues>177Hf</suggestedValues>
-                <suggestedValues>83Kr</suggestedValues>
-                <suggestedValues>73Ge</suggestedValues>
-                <suggestedValues>149Sm</suggestedValues>
-                <suggestedValues>161Dy</suggestedValues>
-                <suggestedValues>145Nd</suggestedValues>
-                <suggestedValues>57Fe</suggestedValues>
-                <suggestedValues>103Rh</suggestedValues>
-                <suggestedValues>155Gd</suggestedValues>
-                <suggestedValues>167Er</suggestedValues>
+                <suggestedValues>40K</suggestedValues>
                 <suggestedValues>41K</suggestedValues>
+                <suggestedValues>43Ca</suggestedValues>
+                <suggestedValues>45Sc</suggestedValues>
+                <suggestedValues>47Ti</suggestedValues>
+                <suggestedValues>49Ti</suggestedValues>
+                <suggestedValues>50V</suggestedValues>
+                <suggestedValues>51V</suggestedValues>
+                <suggestedValues>53Cr</suggestedValues>
+                <suggestedValues>55Mn</suggestedValues>
+                <suggestedValues>57Fe</suggestedValues>
+                <suggestedValues>59Co</suggestedValues>
+                <suggestedValues>61Ni</suggestedValues>
+                <suggestedValues>63Cu</suggestedValues>
+                <suggestedValues>65Cu</suggestedValues>
+                <suggestedValues>67Zn</suggestedValues>
+                <suggestedValues>69Ga</suggestedValues>
+                <suggestedValues>71Ga</suggestedValues>
+                <suggestedValues>73Ge</suggestedValues>
+                <suggestedValues>75As</suggestedValues>
+                <suggestedValues>77Se</suggestedValues>
+                <suggestedValues>79Br</suggestedValues>
+                <suggestedValues>81Br</suggestedValues>
+                <suggestedValues>83Kr</suggestedValues>
+                <suggestedValues>85Rb</suggestedValues>
+                <suggestedValues>87Rb</suggestedValues>
+                <suggestedValues>87Sr</suggestedValues>
+                <suggestedValues>89Y</suggestedValues>
+                <suggestedValues>91Zr</suggestedValues>
+                <suggestedValues>93Nb</suggestedValues>
+                <suggestedValues>95Mo</suggestedValues>
+                <suggestedValues>97Mo</suggestedValues>
+                <suggestedValues>99Tc</suggestedValues>
+                <suggestedValues>99Ru</suggestedValues>
+                <suggestedValues>101Ru</suggestedValues>
+                <suggestedValues>103Rh</suggestedValues>
+                <suggestedValues>105Pd</suggestedValues>
+                <suggestedValues>107Ag</suggestedValues>
+                <suggestedValues>109Ag</suggestedValues>
+                <suggestedValues>111Cd</suggestedValues>
+                <suggestedValues>113Cd</suggestedValues>
+                <suggestedValues>113In</suggestedValues>
+                <suggestedValues>115Sn</suggestedValues>
+                <suggestedValues>115In</suggestedValues>
+                <suggestedValues>117Sn</suggestedValues>
+                <suggestedValues>119Sn</suggestedValues>
+                <suggestedValues>121Sb</suggestedValues>
+                <suggestedValues>123Te</suggestedValues>
+                <suggestedValues>123Sb</suggestedValues>
+                <suggestedValues>125Te</suggestedValues>
+                <suggestedValues>127I</suggestedValues>
+                <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>133Cs</suggestedValues>
+                <suggestedValues>135Ba</suggestedValues>
+                <suggestedValues>137Ba</suggestedValues>
+                <suggestedValues>138La</suggestedValues>
+                <suggestedValues>139La</suggestedValues>
+                <suggestedValues>141Pr</suggestedValues>
+                <suggestedValues>143Nd</suggestedValues>
+                <suggestedValues>145Nd</suggestedValues>
+                <suggestedValues>147Sm</suggestedValues>
+                <suggestedValues>149Sm</suggestedValues>
+                <suggestedValues>151Eu</suggestedValues>
+                <suggestedValues>153Eu</suggestedValues>
+                <suggestedValues>155Gd</suggestedValues>
+                <suggestedValues>157Gd</suggestedValues>
+                <suggestedValues>159Tb</suggestedValues>
+                <suggestedValues>161Dy</suggestedValues>
+                <suggestedValues>163Dy</suggestedValues>
+                <suggestedValues>165Ho</suggestedValues>
+                <suggestedValues>167Er</suggestedValues>
+                <suggestedValues>169Tm</suggestedValues>
+                <suggestedValues>171Yb</suggestedValues>
+                <suggestedValues>173Yb</suggestedValues>
+                <suggestedValues>175Lu</suggestedValues>
+                <suggestedValues>176Lu</suggestedValues>
+                <suggestedValues>177Hf</suggestedValues>
                 <suggestedValues>179Hf</suggestedValues>
+                <suggestedValues>181Ta</suggestedValues>
+                <suggestedValues>183W</suggestedValues>
+                <suggestedValues>185Re</suggestedValues>
+                <suggestedValues>187Re</suggestedValues>
                 <suggestedValues>187Os</suggestedValues>
-                <suggestedValues>193Ir</suggestedValues>
-                <suggestedValues>235U</suggestedValues>
-                <suggestedValues>197Au</suggestedValues>
+                <suggestedValues>189Os</suggestedValues>
                 <suggestedValues>191Ir</suggestedValues>
+                <suggestedValues>193Ir</suggestedValues>
+                <suggestedValues>195Pt</suggestedValues>
+                <suggestedValues>197Au</suggestedValues>
+                <suggestedValues>199Hg</suggestedValues>
+                <suggestedValues>201Hg</suggestedValues>
+                <suggestedValues>203Tl</suggestedValues>
+                <suggestedValues>205Tl</suggestedValues>
+                <suggestedValues>207Pb</suggestedValues>
+                <suggestedValues>209Bi</suggestedValues>
+                <suggestedValues>235U</suggestedValues>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1122,7 +1108,6 @@
                 <suggestedValues>RFSpoiling2D</suggestedValues>
                 <suggestedValues>PhaseCycling1D180</suggestedValues>
                 <suggestedValues>PhaseCycling2D180</suggestedValues>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1163,7 +1148,6 @@
                 <suggestedValues>USER13</suggestedValues>
                 <suggestedValues>USER14</suggestedValues>
                 <suggestedValues>USER15</suggestedValues>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1178,7 +1162,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1196,7 +1179,6 @@
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
                 <group>Dimension</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1213,7 +1195,6 @@
                 <numberEnum>Scan</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1230,7 +1211,6 @@
                 <numberEnum>Scan</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1248,7 +1228,6 @@
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
                 <group>Dimension</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1265,7 +1244,6 @@
                 <numberEnum>Scan</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1282,7 +1260,6 @@
                 <numberEnum>Scan</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1300,7 +1277,6 @@
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
                 <group>Dimension</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1317,7 +1293,6 @@
                 <numberEnum>Scan</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1334,7 +1309,6 @@
                 <numberEnum>Scan</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1352,7 +1326,6 @@
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
                 <group>Dimension</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1369,7 +1342,6 @@
                 <numberEnum>Scan</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1386,7 +1358,6 @@
                 <numberEnum>Scan</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1403,7 +1374,6 @@
                 <numberEnum>Scan</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1421,7 +1391,6 @@
                 <minValue>-360.0</minValue>
                 <maxValue>360.0</maxValue>
                 <group>Miscellaneous</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1439,7 +1408,6 @@
                 <minValue>-360.0</minValue>
                 <maxValue>360.0</maxValue>
                 <group>Miscellaneous</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1457,7 +1425,6 @@
                 <minValue>-360.0</minValue>
                 <maxValue>360.0</maxValue>
                 <group>Miscellaneous</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1475,7 +1442,6 @@
                 <minValue>0.0</minValue>
                 <maxValue>120.0</maxValue>
                 <group>Reception</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1490,7 +1456,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1504,7 +1469,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1517,7 +1481,6 @@
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1532,7 +1495,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1547,7 +1509,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1565,7 +1526,6 @@
                 <minValue>0.0</minValue>
                 <maxValue>3.0E9</maxValue>
                 <group>Emission</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1580,7 +1540,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1593,7 +1552,6 @@
                 <displayedName>GradientAxe</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1608,7 +1566,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1626,7 +1583,6 @@
                 <minValue>0.0</minValue>
                 <maxValue>1.0E8</maxValue>
                 <group>Reception</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1641,7 +1597,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1655,7 +1610,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1669,7 +1623,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1684,7 +1637,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1698,7 +1650,6 @@
                 <displayedName>NegativeLogic</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1713,7 +1664,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1727,7 +1677,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1741,7 +1690,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1756,7 +1704,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1770,7 +1717,6 @@
                 <displayedName>NegativeLogic0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1785,7 +1731,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1799,7 +1744,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1813,7 +1757,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1828,7 +1771,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1843,7 +1785,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1857,7 +1798,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1867,17 +1807,9 @@
                 <name>Trigger1</name>
                 <value xsi:type="trigger">Timer</value>
                 <defaultValue xsi:type="trigger">Timer</defaultValue>
-                <value>Time2</value>
-                <defaultValue>Elem</defaultValue>
-                <rolesEnum>User</rolesEnum>
-                <value>true</value>
-                <defaultValue>true</defaultValue>
-                <value xsi:type="trigger">Timer</value>
-                <defaultValue xsi:type="trigger">Timer</defaultValue>
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1892,7 +1824,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1906,7 +1837,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1919,7 +1849,6 @@
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1934,7 +1863,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1948,7 +1876,6 @@
                 <displayedName>enabled9</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1961,7 +1888,6 @@
                 <displayedName>CodeEnum3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1976,7 +1902,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -1990,7 +1915,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2003,7 +1927,6 @@
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2018,7 +1941,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2032,7 +1954,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2045,7 +1966,6 @@
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2060,7 +1980,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2074,7 +1993,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2087,7 +2005,6 @@
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2102,7 +2019,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2116,7 +2032,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2130,7 +2045,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2145,7 +2059,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2159,7 +2072,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2173,7 +2085,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2188,7 +2099,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2202,7 +2112,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2216,7 +2125,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2233,7 +2141,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2248,7 +2155,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2262,7 +2168,6 @@
                 <displayedName>enabled16</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2277,7 +2182,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2291,7 +2195,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2305,7 +2208,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2320,7 +2222,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2334,7 +2235,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2348,7 +2248,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2363,7 +2262,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2377,7 +2275,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2391,7 +2288,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2406,7 +2302,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2420,7 +2315,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2435,7 +2329,6 @@
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Emission</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2450,7 +2343,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2464,7 +2356,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2478,7 +2369,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2493,7 +2383,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2507,7 +2396,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2521,7 +2409,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2534,7 +2421,6 @@
                 <displayedName>Trigger4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2549,7 +2435,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2563,7 +2448,6 @@
                 <displayedName>enabled110</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2578,7 +2462,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2592,7 +2475,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2606,7 +2488,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2621,7 +2502,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2635,7 +2515,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2649,7 +2528,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2664,7 +2542,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2678,7 +2555,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2692,7 +2568,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2707,7 +2582,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2721,7 +2595,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2734,7 +2607,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2751,7 +2623,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2766,7 +2637,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2780,7 +2650,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2793,7 +2662,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2810,7 +2678,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2825,7 +2692,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2839,7 +2705,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2852,7 +2717,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2869,7 +2733,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2883,7 +2746,6 @@
                 <displayedName>state6</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2898,7 +2760,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2912,7 +2773,6 @@
                 <displayedName>enabled111</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2926,7 +2786,6 @@
                 <displayedName>state13</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2941,7 +2800,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2955,7 +2813,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2968,7 +2825,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -2985,7 +2841,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3000,7 +2855,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3014,7 +2868,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3027,7 +2880,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3044,7 +2896,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3059,7 +2910,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3073,7 +2923,6 @@
                 <displayedName>enabled1117</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3086,7 +2935,6 @@
                 <displayedName>CodeEnum6</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3103,7 +2951,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3118,7 +2965,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3132,7 +2978,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3146,7 +2991,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3161,7 +3005,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3175,7 +3018,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3189,7 +3031,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3204,7 +3045,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3218,7 +3058,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3232,7 +3071,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3247,7 +3085,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3261,7 +3098,6 @@
                 <displayedName>enabled1118</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3275,7 +3111,6 @@
                 <displayedName>state119</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3290,7 +3125,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3304,7 +3138,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3318,7 +3151,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3333,7 +3165,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3347,7 +3178,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3361,7 +3191,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3376,7 +3205,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3390,7 +3218,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3404,7 +3231,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3419,7 +3245,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3433,7 +3258,6 @@
                 <displayedName>enabled39</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3448,7 +3272,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3462,7 +3285,6 @@
                 <displayedName>enabled40</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3477,7 +3299,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3491,7 +3312,6 @@
                 <displayedName>enabled41</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3509,7 +3329,6 @@
                 <minValue>1</minValue>
                 <maxValue>4194304</maxValue>
                 <group>Reception</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3532,12 +3351,12 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>name1120</name>
                 <value>Time18</value>
+                <defaultValue>Elem</defaultValue>
                 <description>The name of the element</description>
                 <displayedName>name1112</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3551,7 +3370,6 @@
                 <displayedName>enabled1112</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3566,7 +3384,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3581,7 +3398,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3595,7 +3411,6 @@
                 <displayedName>enabled112</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3608,7 +3423,6 @@
                 <displayedName>Trigger9</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3623,7 +3437,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3638,7 +3451,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3652,7 +3464,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3665,7 +3476,6 @@
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3680,7 +3490,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3694,7 +3503,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3708,7 +3516,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3723,7 +3530,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3737,7 +3543,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3751,7 +3556,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3766,7 +3570,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3780,7 +3583,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3793,7 +3595,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3810,7 +3611,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3825,7 +3625,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3839,7 +3638,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3853,7 +3651,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3867,7 +3664,6 @@
                 <displayedName>enabled113</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3881,7 +3677,6 @@
                 <displayedName>state110</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3896,7 +3691,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3910,7 +3704,6 @@
                 <displayedName>enabled114</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3924,7 +3717,6 @@
                 <displayedName>state111</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3939,7 +3731,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3953,7 +3744,6 @@
                 <displayedName>enabled115</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3966,7 +3756,6 @@
                 <displayedName>CodeEnum8</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3983,7 +3772,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -3998,7 +3786,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4012,7 +3799,6 @@
                 <displayedName>enabled116</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4026,7 +3812,6 @@
                 <displayedName>state112</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4041,7 +3826,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4055,7 +3839,6 @@
                 <displayedName>enabled117</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4068,7 +3851,6 @@
                 <displayedName>Trigger10</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4083,7 +3865,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4097,7 +3878,6 @@
                 <displayedName>enabled118</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4111,7 +3891,6 @@
                 <displayedName>state113</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4126,7 +3905,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4140,7 +3918,6 @@
                 <displayedName>enabled119</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4154,7 +3931,6 @@
                 <displayedName>state114</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4169,7 +3945,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4183,7 +3958,6 @@
                 <displayedName>enabled1110</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4196,7 +3970,6 @@
                 <displayedName>CodeEnum9</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4213,7 +3986,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4228,7 +4000,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4242,7 +4013,6 @@
                 <displayedName>enabled1111</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4256,7 +4026,6 @@
                 <displayedName>state115</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4271,7 +4040,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4285,7 +4053,6 @@
                 <displayedName>enabled1112</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4298,7 +4065,6 @@
                 <displayedName>Trigger11</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4313,7 +4079,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4327,7 +4092,6 @@
                 <displayedName>enabled1113</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4341,7 +4105,6 @@
                 <displayedName>state116</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4356,7 +4119,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4370,7 +4132,6 @@
                 <displayedName>enabled1114</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4384,7 +4145,6 @@
                 <displayedName>state117</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4399,7 +4159,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4413,7 +4172,6 @@
                 <displayedName>enabled1115</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4426,7 +4184,6 @@
                 <displayedName>CodeEnum10</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4443,7 +4200,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4458,7 +4214,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4472,7 +4227,6 @@
                 <displayedName>enabled1116</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4486,7 +4240,6 @@
                 <displayedName>state118</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4501,7 +4254,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4515,7 +4267,6 @@
                 <displayedName>enabled1119</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4530,7 +4281,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4545,7 +4295,6 @@
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Gradient</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4560,7 +4309,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4573,7 +4321,6 @@
                 <displayedName>Trigger12</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4588,7 +4335,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4603,7 +4349,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4618,7 +4363,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4632,7 +4376,6 @@
                 <displayedName>enabled11110</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4646,7 +4389,6 @@
                 <displayedName>state1110</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4661,7 +4403,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4675,7 +4416,6 @@
                 <displayedName>enabled11111</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4689,7 +4429,6 @@
                 <displayedName>state1111</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4704,7 +4443,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4718,7 +4456,6 @@
                 <displayedName>enabled11112</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4731,7 +4468,6 @@
                 <displayedName>CodeEnum11</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4748,7 +4484,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4763,7 +4498,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4777,7 +4511,6 @@
                 <displayedName>enabled11113</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4791,7 +4524,6 @@
                 <displayedName>state1112</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4806,7 +4538,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4820,7 +4551,6 @@
                 <displayedName>enabled11114</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4833,7 +4563,6 @@
                 <displayedName>Trigger13</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4848,7 +4577,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4862,7 +4590,6 @@
                 <displayedName>enabled11115</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4876,7 +4603,6 @@
                 <displayedName>state1113</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4891,7 +4617,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4905,7 +4630,6 @@
                 <displayedName>enabled11116</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4919,7 +4643,6 @@
                 <displayedName>state1114</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4934,7 +4657,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4948,7 +4670,6 @@
                 <displayedName>enabled11117</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4961,7 +4682,6 @@
                 <displayedName>CodeEnum12</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4978,7 +4698,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -4993,7 +4712,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5007,7 +4725,6 @@
                 <displayedName>enabled11118</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5021,7 +4738,6 @@
                 <displayedName>state1115</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5036,7 +4752,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5050,7 +4765,6 @@
                 <displayedName>enabled11119</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5063,7 +4777,6 @@
                 <displayedName>Trigger14</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5078,7 +4791,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5092,7 +4804,6 @@
                 <displayedName>enabled111110</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5106,7 +4817,6 @@
                 <displayedName>state1116</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5121,7 +4831,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5135,7 +4844,6 @@
                 <displayedName>enabled111111</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5149,7 +4857,6 @@
                 <displayedName>state1117</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5164,7 +4871,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5178,7 +4884,6 @@
                 <displayedName>enabled111112</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5191,7 +4896,6 @@
                 <displayedName>CodeEnum13</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5208,7 +4912,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5223,7 +4926,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5237,7 +4939,6 @@
                 <displayedName>enabled111113</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5251,7 +4952,6 @@
                 <displayedName>state1118</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5266,7 +4966,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5281,7 +4980,6 @@
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Gradient</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5296,7 +4994,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5311,7 +5008,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5328,7 +5024,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>15</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5348,7 +5043,6 @@
                 <suggestedValues>Ext1_AND_Ext2</suggestedValues>
                 <suggestedValues>Ext1_XOR_Ext2</suggestedValues>
                 <group>Delay</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5367,7 +5061,6 @@
                 <suggestedValues>FallingEdge</suggestedValues>
                 <suggestedValues>StateHigh</suggestedValues>
                 <suggestedValues>StateLow</suggestedValues>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5382,7 +5075,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5396,7 +5088,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5409,7 +5100,6 @@
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5424,7 +5114,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5438,7 +5127,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5452,7 +5140,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5467,7 +5154,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5481,7 +5167,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5495,7 +5180,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5510,7 +5194,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5524,7 +5207,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5537,7 +5219,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5554,7 +5235,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5569,7 +5249,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5583,7 +5262,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5597,7 +5275,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5612,7 +5289,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5626,7 +5302,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5639,7 +5314,6 @@
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5654,7 +5328,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5668,7 +5341,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5682,7 +5354,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5697,7 +5368,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5711,7 +5381,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5725,7 +5394,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5740,7 +5408,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5754,7 +5421,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5767,7 +5433,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5784,7 +5449,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5799,7 +5463,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5813,7 +5476,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5827,7 +5489,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5842,7 +5503,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5856,7 +5516,6 @@
                 <displayedName>enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5870,7 +5529,6 @@
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Delay</group>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5885,7 +5543,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5899,7 +5556,6 @@
                 <displayedName>enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5913,7 +5569,6 @@
                 <displayedName>state1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5928,7 +5583,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5942,7 +5596,6 @@
                 <displayedName>enabled5</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5956,7 +5609,6 @@
                 <displayedName>state2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5971,7 +5623,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5985,7 +5636,6 @@
                 <displayedName>enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -5998,7 +5648,6 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6015,7 +5664,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6030,7 +5678,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6044,7 +5691,6 @@
                 <displayedName>enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6058,7 +5704,6 @@
                 <displayedName>state0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6073,7 +5718,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6087,7 +5731,6 @@
                 <displayedName>enabled60</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6102,7 +5745,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6116,7 +5758,6 @@
                 <displayedName>enabled61</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6129,7 +5770,6 @@
                 <displayedName>Trigger11</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6149,7 +5789,6 @@
                 <suggestedValues>2D</suggestedValues>
                 <suggestedValues>3D</suggestedValues>
                 <suggestedValues>4D</suggestedValues>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6166,7 +5805,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6183,7 +5821,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6200,7 +5837,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6217,7 +5853,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6234,7 +5869,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6251,7 +5885,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6268,7 +5901,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6285,7 +5917,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6302,7 +5933,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6319,7 +5949,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6336,7 +5965,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6353,7 +5981,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6370,7 +5997,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6387,7 +6013,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6404,7 +6029,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6421,7 +6045,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6438,7 +6061,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6455,7 +6077,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>-2147483648</minValue>
                 <maxValue>2147483647</maxValue>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6470,7 +6091,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6484,7 +6104,6 @@
                 <displayedName>Enabled</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6499,7 +6118,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6513,7 +6131,6 @@
                 <displayedName>Enabled2</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6528,7 +6145,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6542,7 +6158,6 @@
                 <displayedName>Enabled3</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6557,7 +6172,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
         <Entry>
@@ -6571,7 +6185,6 @@
                 <displayedName>Enabled4</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </Entry>
     </params>
@@ -6670,7 +6283,6 @@
                         <numberEnum>Integer</numberEnum>
                         <minValue>2</minValue>
                         <maxValue>262144</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Span</name>
@@ -6684,7 +6296,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Center</name>
@@ -6698,7 +6309,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Rising</name>
@@ -6708,7 +6318,6 @@
                         <displayedName>Rising</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
@@ -6718,7 +6327,6 @@
                         <displayedName>Abs</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                 </generator>
                 <list>0.0</list>
@@ -6791,7 +6399,6 @@
                         <numberEnum>Integer</numberEnum>
                         <minValue>2</minValue>
                         <maxValue>262144</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Span</name>
@@ -6805,7 +6412,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Center</name>
@@ -6819,7 +6425,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Rising</name>
@@ -6829,7 +6434,6 @@
                         <displayedName>Rising</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
@@ -6839,7 +6443,6 @@
                         <displayedName>Abs</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                 </generator>
                 <list>0.0</list>
@@ -6870,7 +6473,6 @@
                         <numberEnum>Integer</numberEnum>
                         <minValue>1</minValue>
                         <maxValue>262144</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Step</name>
@@ -6884,7 +6486,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Start</name>
@@ -6898,7 +6499,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
@@ -6908,7 +6508,6 @@
                         <displayedName>Abs</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                 </generator>
                 <list>5.0</list>
@@ -6939,7 +6538,6 @@
                         <numberEnum>Integer</numberEnum>
                         <minValue>1</minValue>
                         <maxValue>262144</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Step</name>
@@ -6953,7 +6551,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Start</name>
@@ -6967,7 +6564,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
@@ -6977,7 +6573,6 @@
                         <displayedName>Abs</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                 </generator>
                 <list>40.087732488176094</list>
@@ -7008,13 +6603,12 @@
                         <numberEnum>Integer</numberEnum>
                         <minValue>1</minValue>
                         <maxValue>262144</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
-                        <description>Width of the gaussien</description>
+                        <description>Width of the gaussian</description>
                         <displayedName>Width</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
@@ -7022,13 +6616,12 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
-                        <description>Amplitude of the gaussienne</description>
+                        <description>Amplitude of the gaussian</description>
                         <displayedName>Amplitude</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
@@ -7036,7 +6629,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
@@ -7046,7 +6638,6 @@
                         <displayedName>Abs</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                 </generator>
                 <list>1.8315638888734178</list>
@@ -7220,7 +6811,6 @@
                         <numberEnum>Integer</numberEnum>
                         <minValue>1</minValue>
                         <maxValue>262144</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Step</name>
@@ -7234,7 +6824,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Start</name>
@@ -7248,7 +6837,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
@@ -7258,7 +6846,6 @@
                         <displayedName>Abs</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                 </generator>
                 <list>0.0</list>
@@ -7547,7 +7134,6 @@
                         <numberEnum>Integer</numberEnum>
                         <minValue>1</minValue>
                         <maxValue>262144</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Step</name>
@@ -7561,7 +7147,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="numberParam">
                         <name>Start</name>
@@ -7575,7 +7160,6 @@
                         <numberEnum>Double</numberEnum>
                         <minValue>-1.7976931348623157E308</minValue>
                         <maxValue>1.7976931348623157E308</maxValue>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
@@ -7585,7 +7169,6 @@
                         <displayedName>Abs</displayedName>
                         <locked>false</locked>
                         <lockedToDefault>false</lockedToDefault>
-                        <rolesEnum>User</rolesEnum>
                     </params>
                 </generator>
                 <list>100.0</list>

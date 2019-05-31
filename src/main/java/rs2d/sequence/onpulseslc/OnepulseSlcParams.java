@@ -17,7 +17,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ACCU_DIM");
             param.setDisplayedName("ACCU_DIM.name");
             param.setDescription("ACCU_DIM.description");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Integer);
@@ -35,7 +34,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ACQUISITION_MATRIX_DIMENSION_1D");
             param.setDisplayedName("Acquisition 1D");
             param.setDescription("The acquisition size of the first dimension");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -53,7 +51,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ACQUISITION_MATRIX_DIMENSION_2D");
             param.setDisplayedName("Acquisition 2D");
             param.setDescription("The acquisition size of the second dimension");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -71,7 +68,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ACQUISITION_MATRIX_DIMENSION_3D");
             param.setDisplayedName("Acquisition 3D");
             param.setDescription("The acquisition size of the third dimension");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -89,7 +85,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ACQUISITION_MATRIX_DIMENSION_4D");
             param.setDisplayedName("Acquisition 4D");
             param.setDescription("The acquisition size of the fourth dimension");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -107,7 +102,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ACQUISITION_MODE");
             param.setDisplayedName("ACQUISITION_MODE");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Acquisition);
             param.setValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
@@ -122,7 +116,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ACQUISITION_TIME_PER_SCAN");
             param.setDisplayedName("Acq Time");
             param.setDescription("The acquisition time per scan");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -140,7 +133,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ADJUST_WINDOW");
             param.setDisplayedName("Adjust_Window");
             param.setDescription("Get the Frequency from instrument or from BASE_FREQ_1 Adjust Window");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setValue(false);
@@ -155,7 +147,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("BASE_FREQ_1");
             param.setDisplayedName("Base Freq 1");
             param.setDescription("The base frequency of the first sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Frequency);
@@ -173,7 +164,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("BASE_FREQ_2");
             param.setDisplayedName("Base Freq 2");
             param.setDescription("The base frequency of the second sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Frequency);
@@ -191,7 +181,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("BASE_FREQ_3");
             param.setDisplayedName("Base Freq 3");
             param.setDescription("The base frequency of the third sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Frequency);
@@ -209,7 +198,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("BASE_FREQ_4");
             param.setDisplayedName("Base Freq 4");
             param.setDescription("The base frequency of the fourth sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Frequency);
@@ -227,7 +215,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("DATA_REPRESENTATION");
             param.setDisplayedName("DATA_REPRESENTATION");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Miscellaneous);
             param.setValue(asList("COMPLEX", "REAL", "REAL", "REAL"));
@@ -242,7 +229,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("DELAY_ECHO");
             param.setDisplayedName("DELAY_ECHO");
             param.setDescription("Allow to define DELAY_ECHO instead of ECHO_TIME");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setValue(false);
@@ -257,7 +243,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("DELAY_ECHO_TIME");
             param.setDisplayedName("DELAY_ECHO_TIME");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -276,7 +261,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("Digital filter removed");
             param.setDescription("Data shift due to the digital filter are removed");
             param.setLockedToDefault(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setValue(true);
@@ -293,7 +277,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDescription("DIGITAL_FILTER_SHIFT.description");
             param.setLocked(true);
             param.setLockedToDefault(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Integer);
@@ -311,7 +294,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("DUMMY_SCAN");
             param.setDisplayedName("DS");
             param.setDescription("Dummy Scan");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -329,7 +311,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ECHO_TIME");
             param.setDisplayedName("TE");
             param.setDescription("The echo time");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -347,7 +328,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("FIELD_OF_VIEW");
             param.setDisplayedName("FOV");
             param.setDescription("The field of view");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Length);
@@ -365,7 +345,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("FLIP_ANGLE");
             param.setDisplayedName("Flip angle");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Phase);
@@ -383,7 +362,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("GRADIENT_AMP_SPOILER");
             param.setDisplayedName("GRAD_AMP_SPOILER");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.GradAmp);
@@ -401,7 +379,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("GRADIENT_ENABLE_SPOILER");
             param.setDisplayedName("GRADIENT_ENABLE_SPOILER");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setValue(true);
@@ -416,7 +393,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("GRADIENT_REFOC_TIME");
             param.setDisplayedName("GRADIENT_REFOC_TIME");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
@@ -433,7 +409,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("GRADIENT_RISE_TIME");
             param.setDisplayedName("GRADIENT_RISE_TIME");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
@@ -450,7 +425,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("GRADIENT_SPOILER_TIME");
             param.setDisplayedName("GRADIENT_SPOILER_TIME");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -469,7 +443,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("nparam");
             param.setDescription("");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
@@ -486,7 +459,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("HARDWARE_B0_COMP");
             param.setDescription("");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setValue(false);
             param.setDefaultValue(false);
@@ -501,7 +473,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("HARDWARE_B0_COMP_AMP");
             param.setDescription("");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Double);
@@ -520,7 +491,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("HARDWARE_B0_COMP_PHASE");
             param.setDescription("");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Phase);
@@ -539,7 +509,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("nparam");
             param.setDescription("");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
@@ -556,7 +525,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("nparam");
             param.setDescription("");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setMinValue(-2.147483648E9);
@@ -574,7 +542,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("nparam");
             param.setDescription("");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setMinValue(0.0);
@@ -592,7 +559,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("nparam");
             param.setDescription("");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
@@ -609,7 +575,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("tparam");
             param.setDescription("");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setValue("NotConnected");
             param.setDefaultValue("");
@@ -623,7 +588,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("IMAGE_ORIENTATION_SUBJECT");
             param.setDisplayedName("IMAGE_ORIENTATION_SUBJECT");
             param.setDescription("Direction cosines of the first row and the first column with respect to the subject");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setMinValue(-1.7976931348623157E308);
@@ -641,7 +605,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("IMAGE_POSITION_SUBJECT");
             param.setDisplayedName("IMAGE_POSITION_SUBJECT");
             param.setDescription("x, y, and z coordinates of the upper left hand corner of the image");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setMinValue(-1.7976931348623157E308);
@@ -659,7 +622,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("INTERMEDIATE_FREQUENCY");
             param.setDisplayedName("INTERMEDIATE_FREQUENCY.name");
             param.setDescription("INTERMEDIATE_FREQUENCY.description");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Frequency);
@@ -677,7 +639,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("LAST_PUT");
             param.setDisplayedName("LAST_PUT");
             param.setDescription("LAST_PUT.description");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setMinValue(-2147483648);
@@ -696,14 +657,13 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("B0");
             param.setDescription("The magnetic field tregth");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Integer);
             param.setMinValue(-2147483648);
             param.setMaxValue(2147483647);
             param.setValue(5);
-            param.setDefaultValue(5);
+            param.setDefaultValue(3);
             return param;
         }
     },
@@ -714,7 +674,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("MANUFACTURER");
             param.setDisplayedName("MANUFACTURER");
             param.setDescription("Manufacturer");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Miscellaneous);
             param.setValue("Manufacturer");
@@ -729,7 +688,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("MIN_RISE_TIME_FACTOR");
             param.setDisplayedName("MIN_RISE_TIME_FACTOR");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.PERCENT);
@@ -748,7 +706,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("Modality");
             param.setDescription("The modality for the acquisition");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Acquisition);
             param.setValue("MRI");
@@ -765,7 +722,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("MODEL_NAME");
             param.setDisplayedName("MODEL_NAME");
             param.setDescription("Model name");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Miscellaneous);
             param.setValue("Nanoscan MR 3T");
@@ -780,7 +736,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("MULTI_PLANAR_EXCITATION");
             param.setDisplayedName("MULTI_PLANAR_EXCITATION");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setValue(false);
@@ -795,12 +750,11 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("NUCLEUS_1");
             param.setDisplayedName("Nucleus 1");
             param.setDescription("The nucleus used for the first sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Acquisition);
             param.setValue("1H");
             param.setDefaultValue("1H");
-            param.setSuggestedValues(asList("1H", "13C", "15N", "2H", "31P", "35Cl", "23Na", "19F"));
+            param.setSuggestedValues(asList("Y", "Other", "X", "1H", "2H", "3H", "3He", "6Li", "7Li", "9Be", "10B", "11B", "13C", "14N", "15N", "17O", "19F", "21Ne", "23Na", "25Mg", "27Al", "29Si", "31P", "33S", "35Cl", "37Cl", "39K", "40K", "41K", "43Ca", "45Sc", "47Ti", "49Ti", "50V", "51V", "53Cr", "55Mn", "57Fe", "59Co", "61Ni", "63Cu", "65Cu", "67Zn", "69Ga", "71Ga", "73Ge", "75As", "77Se", "79Br", "81Br", "83Kr", "85Rb", "87Rb", "87Sr", "89Y", "91Zr", "93Nb", "95Mo", "97Mo", "99Tc", "99Ru", "101Ru", "103Rh", "105Pd", "107Ag", "109Ag", "111Cd", "113Cd", "113In", "115Sn", "115In", "117Sn", "119Sn", "121Sb", "123Te", "123Sb", "125Te", "127I", "129Xe", "131Xe", "133Cs", "135Ba", "137Ba", "138La", "139La", "141Pr", "143Nd", "145Nd", "147Sm", "149Sm", "151Eu", "153Eu", "155Gd", "157Gd", "159Tb", "161Dy", "163Dy", "165Ho", "167Er", "169Tm", "171Yb", "173Yb", "175Lu", "176Lu", "177Hf", "179Hf", "181Ta", "183W", "185Re", "187Re", "187Os", "189Os", "191Ir", "193Ir", "195Pt", "197Au", "199Hg", "201Hg", "203Tl", "205Tl", "207Pb", "209Bi", "235U"));
             param.setRestrictedToSuggested(true);
             return param;
         }
@@ -812,12 +766,11 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("NUCLEUS_2");
             param.setDisplayedName("Nucleus 2");
             param.setDescription("The nucleus used for the second sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Acquisition);
             param.setValue("1H");
             param.setDefaultValue("1H");
-            param.setSuggestedValues(asList("1H", "13C", "15N", "2H", "31P", "35Cl", "23Na", "19F"));
+            param.setSuggestedValues(asList("Y", "Other", "X", "1H", "2H", "3H", "3He", "6Li", "7Li", "9Be", "10B", "11B", "13C", "14N", "15N", "17O", "19F", "21Ne", "23Na", "25Mg", "27Al", "29Si", "31P", "33S", "35Cl", "37Cl", "39K", "40K", "41K", "43Ca", "45Sc", "47Ti", "49Ti", "50V", "51V", "53Cr", "55Mn", "57Fe", "59Co", "61Ni", "63Cu", "65Cu", "67Zn", "69Ga", "71Ga", "73Ge", "75As", "77Se", "79Br", "81Br", "83Kr", "85Rb", "87Rb", "87Sr", "89Y", "91Zr", "93Nb", "95Mo", "97Mo", "99Tc", "99Ru", "101Ru", "103Rh", "105Pd", "107Ag", "109Ag", "111Cd", "113Cd", "113In", "115Sn", "115In", "117Sn", "119Sn", "121Sb", "123Te", "123Sb", "125Te", "127I", "129Xe", "131Xe", "133Cs", "135Ba", "137Ba", "138La", "139La", "141Pr", "143Nd", "145Nd", "147Sm", "149Sm", "151Eu", "153Eu", "155Gd", "157Gd", "159Tb", "161Dy", "163Dy", "165Ho", "167Er", "169Tm", "171Yb", "173Yb", "175Lu", "176Lu", "177Hf", "179Hf", "181Ta", "183W", "185Re", "187Re", "187Os", "189Os", "191Ir", "193Ir", "195Pt", "197Au", "199Hg", "201Hg", "203Tl", "205Tl", "207Pb", "209Bi", "235U"));
             param.setRestrictedToSuggested(true);
             return param;
         }
@@ -829,12 +782,11 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("NUCLEUS_3");
             param.setDisplayedName("Nucleus 3");
             param.setDescription("The nucleus used for the third sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Acquisition);
             param.setValue("1H");
             param.setDefaultValue("1H");
-            param.setSuggestedValues(asList("1H", "13C", "15N", "2H", "31P", "35Cl", "23Na", "19F"));
+            param.setSuggestedValues(asList("Y", "Other", "X", "1H", "2H", "3H", "3He", "6Li", "7Li", "9Be", "10B", "11B", "13C", "14N", "15N", "17O", "19F", "21Ne", "23Na", "25Mg", "27Al", "29Si", "31P", "33S", "35Cl", "37Cl", "39K", "40K", "41K", "43Ca", "45Sc", "47Ti", "49Ti", "50V", "51V", "53Cr", "55Mn", "57Fe", "59Co", "61Ni", "63Cu", "65Cu", "67Zn", "69Ga", "71Ga", "73Ge", "75As", "77Se", "79Br", "81Br", "83Kr", "85Rb", "87Rb", "87Sr", "89Y", "91Zr", "93Nb", "95Mo", "97Mo", "99Tc", "99Ru", "101Ru", "103Rh", "105Pd", "107Ag", "109Ag", "111Cd", "113Cd", "113In", "115Sn", "115In", "117Sn", "119Sn", "121Sb", "123Te", "123Sb", "125Te", "127I", "129Xe", "131Xe", "133Cs", "135Ba", "137Ba", "138La", "139La", "141Pr", "143Nd", "145Nd", "147Sm", "149Sm", "151Eu", "153Eu", "155Gd", "157Gd", "159Tb", "161Dy", "163Dy", "165Ho", "167Er", "169Tm", "171Yb", "173Yb", "175Lu", "176Lu", "177Hf", "179Hf", "181Ta", "183W", "185Re", "187Re", "187Os", "189Os", "191Ir", "193Ir", "195Pt", "197Au", "199Hg", "201Hg", "203Tl", "205Tl", "207Pb", "209Bi", "235U"));
             param.setRestrictedToSuggested(true);
             return param;
         }
@@ -846,12 +798,11 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("NUCLEUS_4");
             param.setDisplayedName("Nucleus 4");
             param.setDescription("The nucleus used for the fourth sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Acquisition);
             param.setValue("1H");
             param.setDefaultValue("1H");
-            param.setSuggestedValues(asList("1H", "13C", "15N", "2H", "31P", "35Cl", "23Na", "19F"));
+            param.setSuggestedValues(asList("Y", "Other", "X", "1H", "2H", "3H", "3He", "6Li", "7Li", "9Be", "10B", "11B", "13C", "14N", "15N", "17O", "19F", "21Ne", "23Na", "25Mg", "27Al", "29Si", "31P", "33S", "35Cl", "37Cl", "39K", "40K", "41K", "43Ca", "45Sc", "47Ti", "49Ti", "50V", "51V", "53Cr", "55Mn", "57Fe", "59Co", "61Ni", "63Cu", "65Cu", "67Zn", "69Ga", "71Ga", "73Ge", "75As", "77Se", "79Br", "81Br", "83Kr", "85Rb", "87Rb", "87Sr", "89Y", "91Zr", "93Nb", "95Mo", "97Mo", "99Tc", "99Ru", "101Ru", "103Rh", "105Pd", "107Ag", "109Ag", "111Cd", "113Cd", "113In", "115Sn", "115In", "117Sn", "119Sn", "121Sb", "123Te", "123Sb", "125Te", "127I", "129Xe", "131Xe", "133Cs", "135Ba", "137Ba", "138La", "139La", "141Pr", "143Nd", "145Nd", "147Sm", "149Sm", "151Eu", "153Eu", "155Gd", "157Gd", "159Tb", "161Dy", "163Dy", "165Ho", "167Er", "169Tm", "171Yb", "173Yb", "175Lu", "176Lu", "177Hf", "179Hf", "181Ta", "183W", "185Re", "187Re", "187Os", "189Os", "191Ir", "193Ir", "195Pt", "197Au", "199Hg", "201Hg", "203Tl", "205Tl", "207Pb", "209Bi", "235U"));
             param.setRestrictedToSuggested(true);
             return param;
         }
@@ -863,7 +814,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("NUMBER_OF_AVERAGES");
             param.setDisplayedName("NEX");
             param.setDescription("The number of average");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -881,7 +831,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OBSERVED_FREQUENCY");
             param.setDisplayedName("Observed frequency");
             param.setDescription("The frequency of the acquisition");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Frequency);
@@ -899,7 +848,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OBSERVED_NUCLEUS");
             param.setDisplayedName("Observed Nucleus");
             param.setDescription("The observed nucleus");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setValue("1H");
@@ -916,7 +864,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_1D");
             param.setDisplayedName("Location 1D");
             param.setDescription("Location in the Readout direction");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Location);
@@ -934,7 +881,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_2D");
             param.setDisplayedName("Location  2D");
             param.setDescription("Location in the PE direction");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Location);
@@ -952,7 +898,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_3D");
             param.setDisplayedName("Location 3D");
             param.setDescription("Location in the Slice encoding direction");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Location);
@@ -970,7 +915,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_EFF");
             param.setDisplayedName("OFF_CENTER_FIELD_OF_VIEW_EFF");
             param.setDescription("Offcenter effective in 1D 2D and 3D (read phase slice)");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setMinValue(-1.7976931348623157E308);
@@ -988,7 +932,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_X");
             param.setDisplayedName("Location X");
             param.setDescription("Location in the R/L direction");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Location);
@@ -1006,7 +949,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_Y");
             param.setDisplayedName("Location Y");
             param.setDescription("Location in the A/P direction");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Location);
@@ -1024,7 +966,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_Z");
             param.setDisplayedName("Location Z");
             param.setDescription("Location in the I/S direction");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Location);
@@ -1042,7 +983,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFFSET_FREQ_1");
             param.setDisplayedName("Offset 1");
             param.setDescription("The offset frequency of the first sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.FrequencyOffset);
@@ -1060,7 +1000,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFFSET_FREQ_2");
             param.setDisplayedName("Offset 2");
             param.setDescription("The offset frequency of the second sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.FrequencyOffset);
@@ -1078,7 +1017,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFFSET_FREQ_3");
             param.setDisplayedName("Offset 3");
             param.setDescription("The offset frequency of the third sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.FrequencyOffset);
@@ -1096,7 +1034,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("OFFSET_FREQ_4");
             param.setDisplayedName("Offset 4");
             param.setDescription("The offset frequency of the fourth sequence channel");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.FrequencyOffset);
@@ -1114,7 +1051,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("ORIENTATION");
             param.setDisplayedName("Orientation");
             param.setDescription("Field of view orientation");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setValue("AXIAL");
@@ -1131,7 +1067,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("PAROPT_PARAM");
             param.setDisplayedName("Parameter optimised");
             param.setDescription("Name of the current optimised parameter");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setValue("");
             param.setDefaultValue("PULSE_LENGTH");
@@ -1145,7 +1080,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("PHASE_0");
             param.setDisplayedName("PHASE_0");
             param.setDescription("PHASE_0.description");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Process);
             param.setMinValue(-1.7976931348623157E308);
@@ -1161,7 +1095,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("PHASE_1");
             param.setDisplayedName("PHASE_1");
             param.setDescription("PHASE_1.description");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Process);
             param.setMinValue(-1.7976931348623157E308);
@@ -1177,7 +1110,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("PHASE_APPLIED");
             param.setDisplayedName("PHASE_APPLIED");
             param.setDescription("PHASE_APPLIED");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Process);
             param.setValue(false);
@@ -1192,7 +1124,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("PHASE_RESET");
             param.setDisplayedName("PHASE_RESET");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setValue(false);
@@ -1207,7 +1138,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("PROBE");
             param.setDisplayedName("Probe");
             param.setDescription("The probe used for the mr acquisition");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Acquisition);
             param.setValue("");
@@ -1223,7 +1153,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("Probes");
             param.setDescription("The probes used for the acquisition");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Acquisition);
             return param;
@@ -1236,7 +1165,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("RECEIVER_COUNT");
             param.setDisplayedName("Receiver Count");
             param.setDescription("The number of receivers");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Integer);
@@ -1254,7 +1182,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("RECEIVER_GAIN");
             param.setDisplayedName("RG");
             param.setDescription("The receiver gain");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.RxGain);
@@ -1272,7 +1199,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("REPETITION_TIME");
             param.setDisplayedName("TR");
             param.setDescription("The repetition time");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -1290,7 +1216,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("SEQUENCE_NAME");
             param.setDisplayedName("Seq");
             param.setDescription("The name of the sequence");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setValue("OnePulse_Slc");
             param.setDefaultValue("OnePulse_Slc");
             return param;
@@ -1303,7 +1228,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("SEQUENCE_TIME");
             param.setDisplayedName("SEQUENCE_TIME");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
@@ -1320,7 +1244,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("SEQUENCE_VERSION");
             param.setDisplayedName("SEQUENCE_VERSION");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
             param.setValue("Version5.9");
@@ -1335,7 +1258,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("SETUP_MODE");
             param.setDisplayedName("Setup");
             param.setDescription("True during setup process");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setValue(false);
             param.setDefaultValue(false);
             return param;
@@ -1348,7 +1270,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("SLICE_THICKNESS");
             param.setDisplayedName("SLICE_THICKNESS");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Length);
@@ -1366,7 +1287,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("SOFTWARE_VERSION");
             param.setDisplayedName("SOFTWARE_VERSION");
             param.setDescription("The version of the software");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Miscellaneous);
             param.setValue("Software version");
@@ -1381,7 +1301,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("SPECTRAL_WIDTH");
             param.setDisplayedName("SW");
             param.setDescription("The spectral width of the reception");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.SW);
@@ -1399,7 +1318,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("SPECTRAL_WIDTH_OPT");
             param.setDisplayedName("SPECTRAL_WIDTH_OPT");
             param.setDescription("Use SW to calculate SW_PER_PIXEL (true) Use SW_PER_PIXEL to calculate SW (false)");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setValue(true);
@@ -1414,7 +1332,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("SPECTRAL_WIDTH_PER_PIXEL");
             param.setDisplayedName("SPECTRAL_WIDTH_PER_PIXEL");
             param.setDescription("Spectral Width per pixel in Hz / Pix");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.SW);
@@ -1432,7 +1349,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("STATION_NAME");
             param.setDisplayedName("STATION_NAME");
             param.setDescription("Station name");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Miscellaneous);
             param.setCategory(Category.Miscellaneous);
             param.setValue("Station name");
@@ -1448,7 +1364,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("SUBJECT_POSITION");
             param.setDescription("Subject position relative to the magnet.");
             param.setLocked(true);
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setValue("HeadFirstProne");
@@ -1465,12 +1380,11 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TRANSFORM_PLUGIN");
             param.setDisplayedName("Transform plugin");
             param.setDescription("Transform the acquisition space to the k space");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setValue("none");
             param.setDefaultValue("none");
-            param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Centered2D_FSERot", "Centered2DRot", "Centric4D", "Respiratory_FSE", "Sequential", "Sequential2D", "Sequential4D", "Sequential4DBackAndForth", "Sequential4DCine", "SequentialMPRAGE"));
+            param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Centered2D_FSERot", "Centered2DRot", "Sequential", "Sequential2D", "Sequential4D", "Sequential4D_Dummy2D", "Sequential4DBackAndForth", "Sequential4DCine", "SequentialMPRAGE"));
             return param;
         }
     },
@@ -1481,7 +1395,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TRIGGER_CHANEL");
             param.setDisplayedName("Trigger Channel");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setValue("Ext1_XOR_Ext2");
@@ -1498,7 +1411,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TRIGGER_EXTERNAL");
             param.setDisplayedName("TRIGGER_EXTERNAL");
             param.setDescription("Enable the synchronization of the sequence with the trigger");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setValue(false);
@@ -1513,7 +1425,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TRIGGER_TIME");
             param.setDisplayedName("TRIGGER_TIME");
             param.setDescription("TRIGGER_TIME.description");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setMinValue(0.0);
@@ -1531,7 +1442,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_AMP");
             param.setDisplayedName("TX_AMP");
             param.setDescription("The emission amplitude");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.PERCENT);
@@ -1549,7 +1459,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_AMP_ATT_AUTO");
             param.setDisplayedName("TX_AMP_ATT_AUTO");
             param.setDescription("Use the ATT and AMP set from the calibration ");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setValue(false);
             param.setDefaultValue(true);
@@ -1563,7 +1472,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_AMP_NUMBER");
             param.setDisplayedName("TX_AMP_NUMBER");
             param.setDescription("number of step");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Integer);
@@ -1581,7 +1489,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_AMP_START");
             param.setDisplayedName("TX_AMP_START");
             param.setDescription("Starting value of the Amp ramp");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Double);
             param.setMinValue(-1.7976931348623157E308);
@@ -1598,7 +1505,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_AMP_STEP");
             param.setDisplayedName("TX_AMP_STEP");
             param.setDescription("Step between two amp");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.TxAmp);
@@ -1616,7 +1522,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_ATT");
             param.setDisplayedName("TX_ATT");
             param.setDescription("The emission attenuation");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.TxAtt);
@@ -1634,7 +1539,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_LENGTH");
             param.setDisplayedName("TX_LENGTH");
             param.setDescription("RF time duration");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -1652,7 +1556,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_LENGTH_NUMBER");
             param.setDisplayedName("TX_LENGTH_NUMBER");
             param.setDescription("number of step");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Integer);
@@ -1670,7 +1573,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_LENGTH_START");
             param.setDisplayedName("TX_LENGTH_START");
             param.setDescription("Starting value of the TX_LENGTH ramp");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -1688,7 +1590,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_LENGTH_STEP");
             param.setDisplayedName("TX_LENGTH_STEP");
             param.setDescription("Step between two TX_LENGTH");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -1706,7 +1607,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_NUTATION_AMP");
             param.setDisplayedName("TX_NUTATION_AMP");
             param.setDescription("allows to acquire nutation curve");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setValue(false);
@@ -1721,7 +1621,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_NUTATION_LENGTH");
             param.setDisplayedName("TX_NUTATION_LENGTH");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setValue(false);
             param.setDefaultValue(false);
@@ -1735,7 +1634,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_POWER");
             param.setDisplayedName("TX_POWER");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Power);
@@ -1753,7 +1651,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_ROUTE");
             param.setDisplayedName("TX route");
             param.setDescription("LogCh->PhysCh");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setMinValue(-2147483648);
@@ -1770,7 +1667,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("TX_SHAPE");
             param.setDisplayedName("TX_SHAPE");
             param.setDescription("");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setCategory(Category.Acquisition);
             param.setValue("GAUSSIAN");
             param.setDefaultValue("GAUSSIAN");
@@ -1785,7 +1681,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("USER_MATRIX_DIMENSION_1D");
             param.setDisplayedName("Matrix 1D");
             param.setDescription("The matrix size of the first dimension");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -1803,7 +1698,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("USER_MATRIX_DIMENSION_2D");
             param.setDisplayedName("Matrix 2D");
             param.setDescription("The matrix size of the second dimension");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -1821,7 +1715,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("USER_MATRIX_DIMENSION_3D");
             param.setDisplayedName("Matrix 3D");
             param.setDescription("The matrix size of the third dimension");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -1839,7 +1732,6 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setName("USER_MATRIX_DIMENSION_4D");
             param.setDisplayedName("Matrix 4D");
             param.setDescription("The matrix size of the fourth dimension");
-            param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);

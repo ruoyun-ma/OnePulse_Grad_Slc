@@ -17,7 +17,6 @@
                 <maxValue>3</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -36,7 +35,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -55,7 +53,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -74,7 +71,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -93,7 +89,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -113,7 +108,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -132,7 +126,6 @@
                 <maxValue>1.0E9</maxValue>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -147,7 +140,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -166,7 +158,6 @@
                 <maxValue>3.0E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -185,7 +176,6 @@
                 <maxValue>3.0E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -204,7 +194,6 @@
                 <maxValue>3.0E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -223,7 +212,6 @@
                 <maxValue>3.0E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -243,7 +231,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Dimension</group>
                 <category>Miscellaneous</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -258,7 +245,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -277,7 +263,6 @@
                 <maxValue>1.0E9</maxValue>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -292,7 +277,6 @@
                 <lockedToDefault>true</lockedToDefault>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -311,7 +295,6 @@
                 <maxValue>50</maxValue>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -330,7 +313,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -349,7 +331,6 @@
                 <maxValue>1.0E9</maxValue>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -368,7 +349,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Dimension</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -387,7 +367,6 @@
                 <maxValue>360.0</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -406,7 +385,6 @@
                 <maxValue>100.0</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -421,7 +399,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -439,7 +416,6 @@
                 <minValue>0.0</minValue>
                 <maxValue>1.0E9</maxValue>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -457,7 +433,6 @@
                 <minValue>0.0</minValue>
                 <maxValue>1.0E9</maxValue>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -476,7 +451,6 @@
                 <maxValue>1.0E9</maxValue>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -494,7 +468,6 @@
                 <minValue>-2.147483648E9</minValue>
                 <maxValue>2.147483647E9</maxValue>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -508,7 +481,6 @@
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -527,7 +499,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -546,7 +517,6 @@
                 <maxValue>360.0</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -565,7 +535,6 @@
                 <minValue>-2.147483648E9</minValue>
                 <maxValue>2.147483647E9</maxValue>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -599,7 +568,6 @@
                 <maxValue>2.147483647E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -633,7 +601,6 @@
                 <maxValue>1.0E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -649,7 +616,6 @@
                 <minValue>-2.147483648E9</minValue>
                 <maxValue>2.147483647E9</maxValue>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -664,7 +630,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -692,7 +657,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Dimension</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -714,7 +678,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Dimension</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -733,7 +696,6 @@
                 <maxValue>3.0E9</maxValue>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -755,7 +717,6 @@
                 <maxValue>2147483647</maxValue>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -763,7 +724,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>MAGNETIC_FIELD_STRENGTH</name>
                 <value>5</value>
-                <defaultValue>5</defaultValue>
+                <defaultValue>3</defaultValue>
                 <description>The magnetic field tregth</description>
                 <displayedName>B0</displayedName>
                 <locked>true</locked>
@@ -774,7 +735,6 @@
                 <maxValue>2147483647</maxValue>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -790,7 +750,6 @@
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <group>Miscellaneous</group>
                 <category>Miscellaneous</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -809,7 +768,6 @@
                 <maxValue>100.0</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -828,7 +786,6 @@
                 <suggestedValues>DEFAULT</suggestedValues>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -844,7 +801,6 @@
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <group>Miscellaneous</group>
                 <category>Miscellaneous</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -859,7 +815,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Dimension</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -873,17 +828,131 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>true</restrictedToSuggested>
+                <suggestedValues>Y</suggestedValues>
+                <suggestedValues>Other</suggestedValues>
+                <suggestedValues>X</suggestedValues>
                 <suggestedValues>1H</suggestedValues>
-                <suggestedValues>13C</suggestedValues>
-                <suggestedValues>15N</suggestedValues>
                 <suggestedValues>2H</suggestedValues>
-                <suggestedValues>31P</suggestedValues>
-                <suggestedValues>35Cl</suggestedValues>
-                <suggestedValues>23Na</suggestedValues>
+                <suggestedValues>3H</suggestedValues>
+                <suggestedValues>3He</suggestedValues>
+                <suggestedValues>6Li</suggestedValues>
+                <suggestedValues>7Li</suggestedValues>
+                <suggestedValues>9Be</suggestedValues>
+                <suggestedValues>10B</suggestedValues>
+                <suggestedValues>11B</suggestedValues>
+                <suggestedValues>13C</suggestedValues>
+                <suggestedValues>14N</suggestedValues>
+                <suggestedValues>15N</suggestedValues>
+                <suggestedValues>17O</suggestedValues>
                 <suggestedValues>19F</suggestedValues>
+                <suggestedValues>21Ne</suggestedValues>
+                <suggestedValues>23Na</suggestedValues>
+                <suggestedValues>25Mg</suggestedValues>
+                <suggestedValues>27Al</suggestedValues>
+                <suggestedValues>29Si</suggestedValues>
+                <suggestedValues>31P</suggestedValues>
+                <suggestedValues>33S</suggestedValues>
+                <suggestedValues>35Cl</suggestedValues>
+                <suggestedValues>37Cl</suggestedValues>
+                <suggestedValues>39K</suggestedValues>
+                <suggestedValues>40K</suggestedValues>
+                <suggestedValues>41K</suggestedValues>
+                <suggestedValues>43Ca</suggestedValues>
+                <suggestedValues>45Sc</suggestedValues>
+                <suggestedValues>47Ti</suggestedValues>
+                <suggestedValues>49Ti</suggestedValues>
+                <suggestedValues>50V</suggestedValues>
+                <suggestedValues>51V</suggestedValues>
+                <suggestedValues>53Cr</suggestedValues>
+                <suggestedValues>55Mn</suggestedValues>
+                <suggestedValues>57Fe</suggestedValues>
+                <suggestedValues>59Co</suggestedValues>
+                <suggestedValues>61Ni</suggestedValues>
+                <suggestedValues>63Cu</suggestedValues>
+                <suggestedValues>65Cu</suggestedValues>
+                <suggestedValues>67Zn</suggestedValues>
+                <suggestedValues>69Ga</suggestedValues>
+                <suggestedValues>71Ga</suggestedValues>
+                <suggestedValues>73Ge</suggestedValues>
+                <suggestedValues>75As</suggestedValues>
+                <suggestedValues>77Se</suggestedValues>
+                <suggestedValues>79Br</suggestedValues>
+                <suggestedValues>81Br</suggestedValues>
+                <suggestedValues>83Kr</suggestedValues>
+                <suggestedValues>85Rb</suggestedValues>
+                <suggestedValues>87Rb</suggestedValues>
+                <suggestedValues>87Sr</suggestedValues>
+                <suggestedValues>89Y</suggestedValues>
+                <suggestedValues>91Zr</suggestedValues>
+                <suggestedValues>93Nb</suggestedValues>
+                <suggestedValues>95Mo</suggestedValues>
+                <suggestedValues>97Mo</suggestedValues>
+                <suggestedValues>99Tc</suggestedValues>
+                <suggestedValues>99Ru</suggestedValues>
+                <suggestedValues>101Ru</suggestedValues>
+                <suggestedValues>103Rh</suggestedValues>
+                <suggestedValues>105Pd</suggestedValues>
+                <suggestedValues>107Ag</suggestedValues>
+                <suggestedValues>109Ag</suggestedValues>
+                <suggestedValues>111Cd</suggestedValues>
+                <suggestedValues>113Cd</suggestedValues>
+                <suggestedValues>113In</suggestedValues>
+                <suggestedValues>115Sn</suggestedValues>
+                <suggestedValues>115In</suggestedValues>
+                <suggestedValues>117Sn</suggestedValues>
+                <suggestedValues>119Sn</suggestedValues>
+                <suggestedValues>121Sb</suggestedValues>
+                <suggestedValues>123Te</suggestedValues>
+                <suggestedValues>123Sb</suggestedValues>
+                <suggestedValues>125Te</suggestedValues>
+                <suggestedValues>127I</suggestedValues>
+                <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>133Cs</suggestedValues>
+                <suggestedValues>135Ba</suggestedValues>
+                <suggestedValues>137Ba</suggestedValues>
+                <suggestedValues>138La</suggestedValues>
+                <suggestedValues>139La</suggestedValues>
+                <suggestedValues>141Pr</suggestedValues>
+                <suggestedValues>143Nd</suggestedValues>
+                <suggestedValues>145Nd</suggestedValues>
+                <suggestedValues>147Sm</suggestedValues>
+                <suggestedValues>149Sm</suggestedValues>
+                <suggestedValues>151Eu</suggestedValues>
+                <suggestedValues>153Eu</suggestedValues>
+                <suggestedValues>155Gd</suggestedValues>
+                <suggestedValues>157Gd</suggestedValues>
+                <suggestedValues>159Tb</suggestedValues>
+                <suggestedValues>161Dy</suggestedValues>
+                <suggestedValues>163Dy</suggestedValues>
+                <suggestedValues>165Ho</suggestedValues>
+                <suggestedValues>167Er</suggestedValues>
+                <suggestedValues>169Tm</suggestedValues>
+                <suggestedValues>171Yb</suggestedValues>
+                <suggestedValues>173Yb</suggestedValues>
+                <suggestedValues>175Lu</suggestedValues>
+                <suggestedValues>176Lu</suggestedValues>
+                <suggestedValues>177Hf</suggestedValues>
+                <suggestedValues>179Hf</suggestedValues>
+                <suggestedValues>181Ta</suggestedValues>
+                <suggestedValues>183W</suggestedValues>
+                <suggestedValues>185Re</suggestedValues>
+                <suggestedValues>187Re</suggestedValues>
+                <suggestedValues>187Os</suggestedValues>
+                <suggestedValues>189Os</suggestedValues>
+                <suggestedValues>191Ir</suggestedValues>
+                <suggestedValues>193Ir</suggestedValues>
+                <suggestedValues>195Pt</suggestedValues>
+                <suggestedValues>197Au</suggestedValues>
+                <suggestedValues>199Hg</suggestedValues>
+                <suggestedValues>201Hg</suggestedValues>
+                <suggestedValues>203Tl</suggestedValues>
+                <suggestedValues>205Tl</suggestedValues>
+                <suggestedValues>207Pb</suggestedValues>
+                <suggestedValues>209Bi</suggestedValues>
+                <suggestedValues>235U</suggestedValues>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -897,17 +966,131 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>true</restrictedToSuggested>
+                <suggestedValues>Y</suggestedValues>
+                <suggestedValues>Other</suggestedValues>
+                <suggestedValues>X</suggestedValues>
                 <suggestedValues>1H</suggestedValues>
-                <suggestedValues>13C</suggestedValues>
-                <suggestedValues>15N</suggestedValues>
                 <suggestedValues>2H</suggestedValues>
-                <suggestedValues>31P</suggestedValues>
-                <suggestedValues>35Cl</suggestedValues>
-                <suggestedValues>23Na</suggestedValues>
+                <suggestedValues>3H</suggestedValues>
+                <suggestedValues>3He</suggestedValues>
+                <suggestedValues>6Li</suggestedValues>
+                <suggestedValues>7Li</suggestedValues>
+                <suggestedValues>9Be</suggestedValues>
+                <suggestedValues>10B</suggestedValues>
+                <suggestedValues>11B</suggestedValues>
+                <suggestedValues>13C</suggestedValues>
+                <suggestedValues>14N</suggestedValues>
+                <suggestedValues>15N</suggestedValues>
+                <suggestedValues>17O</suggestedValues>
                 <suggestedValues>19F</suggestedValues>
+                <suggestedValues>21Ne</suggestedValues>
+                <suggestedValues>23Na</suggestedValues>
+                <suggestedValues>25Mg</suggestedValues>
+                <suggestedValues>27Al</suggestedValues>
+                <suggestedValues>29Si</suggestedValues>
+                <suggestedValues>31P</suggestedValues>
+                <suggestedValues>33S</suggestedValues>
+                <suggestedValues>35Cl</suggestedValues>
+                <suggestedValues>37Cl</suggestedValues>
+                <suggestedValues>39K</suggestedValues>
+                <suggestedValues>40K</suggestedValues>
+                <suggestedValues>41K</suggestedValues>
+                <suggestedValues>43Ca</suggestedValues>
+                <suggestedValues>45Sc</suggestedValues>
+                <suggestedValues>47Ti</suggestedValues>
+                <suggestedValues>49Ti</suggestedValues>
+                <suggestedValues>50V</suggestedValues>
+                <suggestedValues>51V</suggestedValues>
+                <suggestedValues>53Cr</suggestedValues>
+                <suggestedValues>55Mn</suggestedValues>
+                <suggestedValues>57Fe</suggestedValues>
+                <suggestedValues>59Co</suggestedValues>
+                <suggestedValues>61Ni</suggestedValues>
+                <suggestedValues>63Cu</suggestedValues>
+                <suggestedValues>65Cu</suggestedValues>
+                <suggestedValues>67Zn</suggestedValues>
+                <suggestedValues>69Ga</suggestedValues>
+                <suggestedValues>71Ga</suggestedValues>
+                <suggestedValues>73Ge</suggestedValues>
+                <suggestedValues>75As</suggestedValues>
+                <suggestedValues>77Se</suggestedValues>
+                <suggestedValues>79Br</suggestedValues>
+                <suggestedValues>81Br</suggestedValues>
+                <suggestedValues>83Kr</suggestedValues>
+                <suggestedValues>85Rb</suggestedValues>
+                <suggestedValues>87Rb</suggestedValues>
+                <suggestedValues>87Sr</suggestedValues>
+                <suggestedValues>89Y</suggestedValues>
+                <suggestedValues>91Zr</suggestedValues>
+                <suggestedValues>93Nb</suggestedValues>
+                <suggestedValues>95Mo</suggestedValues>
+                <suggestedValues>97Mo</suggestedValues>
+                <suggestedValues>99Tc</suggestedValues>
+                <suggestedValues>99Ru</suggestedValues>
+                <suggestedValues>101Ru</suggestedValues>
+                <suggestedValues>103Rh</suggestedValues>
+                <suggestedValues>105Pd</suggestedValues>
+                <suggestedValues>107Ag</suggestedValues>
+                <suggestedValues>109Ag</suggestedValues>
+                <suggestedValues>111Cd</suggestedValues>
+                <suggestedValues>113Cd</suggestedValues>
+                <suggestedValues>113In</suggestedValues>
+                <suggestedValues>115Sn</suggestedValues>
+                <suggestedValues>115In</suggestedValues>
+                <suggestedValues>117Sn</suggestedValues>
+                <suggestedValues>119Sn</suggestedValues>
+                <suggestedValues>121Sb</suggestedValues>
+                <suggestedValues>123Te</suggestedValues>
+                <suggestedValues>123Sb</suggestedValues>
+                <suggestedValues>125Te</suggestedValues>
+                <suggestedValues>127I</suggestedValues>
+                <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>133Cs</suggestedValues>
+                <suggestedValues>135Ba</suggestedValues>
+                <suggestedValues>137Ba</suggestedValues>
+                <suggestedValues>138La</suggestedValues>
+                <suggestedValues>139La</suggestedValues>
+                <suggestedValues>141Pr</suggestedValues>
+                <suggestedValues>143Nd</suggestedValues>
+                <suggestedValues>145Nd</suggestedValues>
+                <suggestedValues>147Sm</suggestedValues>
+                <suggestedValues>149Sm</suggestedValues>
+                <suggestedValues>151Eu</suggestedValues>
+                <suggestedValues>153Eu</suggestedValues>
+                <suggestedValues>155Gd</suggestedValues>
+                <suggestedValues>157Gd</suggestedValues>
+                <suggestedValues>159Tb</suggestedValues>
+                <suggestedValues>161Dy</suggestedValues>
+                <suggestedValues>163Dy</suggestedValues>
+                <suggestedValues>165Ho</suggestedValues>
+                <suggestedValues>167Er</suggestedValues>
+                <suggestedValues>169Tm</suggestedValues>
+                <suggestedValues>171Yb</suggestedValues>
+                <suggestedValues>173Yb</suggestedValues>
+                <suggestedValues>175Lu</suggestedValues>
+                <suggestedValues>176Lu</suggestedValues>
+                <suggestedValues>177Hf</suggestedValues>
+                <suggestedValues>179Hf</suggestedValues>
+                <suggestedValues>181Ta</suggestedValues>
+                <suggestedValues>183W</suggestedValues>
+                <suggestedValues>185Re</suggestedValues>
+                <suggestedValues>187Re</suggestedValues>
+                <suggestedValues>187Os</suggestedValues>
+                <suggestedValues>189Os</suggestedValues>
+                <suggestedValues>191Ir</suggestedValues>
+                <suggestedValues>193Ir</suggestedValues>
+                <suggestedValues>195Pt</suggestedValues>
+                <suggestedValues>197Au</suggestedValues>
+                <suggestedValues>199Hg</suggestedValues>
+                <suggestedValues>201Hg</suggestedValues>
+                <suggestedValues>203Tl</suggestedValues>
+                <suggestedValues>205Tl</suggestedValues>
+                <suggestedValues>207Pb</suggestedValues>
+                <suggestedValues>209Bi</suggestedValues>
+                <suggestedValues>235U</suggestedValues>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -921,17 +1104,131 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>true</restrictedToSuggested>
+                <suggestedValues>Y</suggestedValues>
+                <suggestedValues>Other</suggestedValues>
+                <suggestedValues>X</suggestedValues>
                 <suggestedValues>1H</suggestedValues>
-                <suggestedValues>13C</suggestedValues>
-                <suggestedValues>15N</suggestedValues>
                 <suggestedValues>2H</suggestedValues>
-                <suggestedValues>31P</suggestedValues>
-                <suggestedValues>35Cl</suggestedValues>
-                <suggestedValues>23Na</suggestedValues>
+                <suggestedValues>3H</suggestedValues>
+                <suggestedValues>3He</suggestedValues>
+                <suggestedValues>6Li</suggestedValues>
+                <suggestedValues>7Li</suggestedValues>
+                <suggestedValues>9Be</suggestedValues>
+                <suggestedValues>10B</suggestedValues>
+                <suggestedValues>11B</suggestedValues>
+                <suggestedValues>13C</suggestedValues>
+                <suggestedValues>14N</suggestedValues>
+                <suggestedValues>15N</suggestedValues>
+                <suggestedValues>17O</suggestedValues>
                 <suggestedValues>19F</suggestedValues>
+                <suggestedValues>21Ne</suggestedValues>
+                <suggestedValues>23Na</suggestedValues>
+                <suggestedValues>25Mg</suggestedValues>
+                <suggestedValues>27Al</suggestedValues>
+                <suggestedValues>29Si</suggestedValues>
+                <suggestedValues>31P</suggestedValues>
+                <suggestedValues>33S</suggestedValues>
+                <suggestedValues>35Cl</suggestedValues>
+                <suggestedValues>37Cl</suggestedValues>
+                <suggestedValues>39K</suggestedValues>
+                <suggestedValues>40K</suggestedValues>
+                <suggestedValues>41K</suggestedValues>
+                <suggestedValues>43Ca</suggestedValues>
+                <suggestedValues>45Sc</suggestedValues>
+                <suggestedValues>47Ti</suggestedValues>
+                <suggestedValues>49Ti</suggestedValues>
+                <suggestedValues>50V</suggestedValues>
+                <suggestedValues>51V</suggestedValues>
+                <suggestedValues>53Cr</suggestedValues>
+                <suggestedValues>55Mn</suggestedValues>
+                <suggestedValues>57Fe</suggestedValues>
+                <suggestedValues>59Co</suggestedValues>
+                <suggestedValues>61Ni</suggestedValues>
+                <suggestedValues>63Cu</suggestedValues>
+                <suggestedValues>65Cu</suggestedValues>
+                <suggestedValues>67Zn</suggestedValues>
+                <suggestedValues>69Ga</suggestedValues>
+                <suggestedValues>71Ga</suggestedValues>
+                <suggestedValues>73Ge</suggestedValues>
+                <suggestedValues>75As</suggestedValues>
+                <suggestedValues>77Se</suggestedValues>
+                <suggestedValues>79Br</suggestedValues>
+                <suggestedValues>81Br</suggestedValues>
+                <suggestedValues>83Kr</suggestedValues>
+                <suggestedValues>85Rb</suggestedValues>
+                <suggestedValues>87Rb</suggestedValues>
+                <suggestedValues>87Sr</suggestedValues>
+                <suggestedValues>89Y</suggestedValues>
+                <suggestedValues>91Zr</suggestedValues>
+                <suggestedValues>93Nb</suggestedValues>
+                <suggestedValues>95Mo</suggestedValues>
+                <suggestedValues>97Mo</suggestedValues>
+                <suggestedValues>99Tc</suggestedValues>
+                <suggestedValues>99Ru</suggestedValues>
+                <suggestedValues>101Ru</suggestedValues>
+                <suggestedValues>103Rh</suggestedValues>
+                <suggestedValues>105Pd</suggestedValues>
+                <suggestedValues>107Ag</suggestedValues>
+                <suggestedValues>109Ag</suggestedValues>
+                <suggestedValues>111Cd</suggestedValues>
+                <suggestedValues>113Cd</suggestedValues>
+                <suggestedValues>113In</suggestedValues>
+                <suggestedValues>115Sn</suggestedValues>
+                <suggestedValues>115In</suggestedValues>
+                <suggestedValues>117Sn</suggestedValues>
+                <suggestedValues>119Sn</suggestedValues>
+                <suggestedValues>121Sb</suggestedValues>
+                <suggestedValues>123Te</suggestedValues>
+                <suggestedValues>123Sb</suggestedValues>
+                <suggestedValues>125Te</suggestedValues>
+                <suggestedValues>127I</suggestedValues>
+                <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>133Cs</suggestedValues>
+                <suggestedValues>135Ba</suggestedValues>
+                <suggestedValues>137Ba</suggestedValues>
+                <suggestedValues>138La</suggestedValues>
+                <suggestedValues>139La</suggestedValues>
+                <suggestedValues>141Pr</suggestedValues>
+                <suggestedValues>143Nd</suggestedValues>
+                <suggestedValues>145Nd</suggestedValues>
+                <suggestedValues>147Sm</suggestedValues>
+                <suggestedValues>149Sm</suggestedValues>
+                <suggestedValues>151Eu</suggestedValues>
+                <suggestedValues>153Eu</suggestedValues>
+                <suggestedValues>155Gd</suggestedValues>
+                <suggestedValues>157Gd</suggestedValues>
+                <suggestedValues>159Tb</suggestedValues>
+                <suggestedValues>161Dy</suggestedValues>
+                <suggestedValues>163Dy</suggestedValues>
+                <suggestedValues>165Ho</suggestedValues>
+                <suggestedValues>167Er</suggestedValues>
+                <suggestedValues>169Tm</suggestedValues>
+                <suggestedValues>171Yb</suggestedValues>
+                <suggestedValues>173Yb</suggestedValues>
+                <suggestedValues>175Lu</suggestedValues>
+                <suggestedValues>176Lu</suggestedValues>
+                <suggestedValues>177Hf</suggestedValues>
+                <suggestedValues>179Hf</suggestedValues>
+                <suggestedValues>181Ta</suggestedValues>
+                <suggestedValues>183W</suggestedValues>
+                <suggestedValues>185Re</suggestedValues>
+                <suggestedValues>187Re</suggestedValues>
+                <suggestedValues>187Os</suggestedValues>
+                <suggestedValues>189Os</suggestedValues>
+                <suggestedValues>191Ir</suggestedValues>
+                <suggestedValues>193Ir</suggestedValues>
+                <suggestedValues>195Pt</suggestedValues>
+                <suggestedValues>197Au</suggestedValues>
+                <suggestedValues>199Hg</suggestedValues>
+                <suggestedValues>201Hg</suggestedValues>
+                <suggestedValues>203Tl</suggestedValues>
+                <suggestedValues>205Tl</suggestedValues>
+                <suggestedValues>207Pb</suggestedValues>
+                <suggestedValues>209Bi</suggestedValues>
+                <suggestedValues>235U</suggestedValues>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -945,17 +1242,131 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>true</restrictedToSuggested>
+                <suggestedValues>Y</suggestedValues>
+                <suggestedValues>Other</suggestedValues>
+                <suggestedValues>X</suggestedValues>
                 <suggestedValues>1H</suggestedValues>
-                <suggestedValues>13C</suggestedValues>
-                <suggestedValues>15N</suggestedValues>
                 <suggestedValues>2H</suggestedValues>
-                <suggestedValues>31P</suggestedValues>
-                <suggestedValues>35Cl</suggestedValues>
-                <suggestedValues>23Na</suggestedValues>
+                <suggestedValues>3H</suggestedValues>
+                <suggestedValues>3He</suggestedValues>
+                <suggestedValues>6Li</suggestedValues>
+                <suggestedValues>7Li</suggestedValues>
+                <suggestedValues>9Be</suggestedValues>
+                <suggestedValues>10B</suggestedValues>
+                <suggestedValues>11B</suggestedValues>
+                <suggestedValues>13C</suggestedValues>
+                <suggestedValues>14N</suggestedValues>
+                <suggestedValues>15N</suggestedValues>
+                <suggestedValues>17O</suggestedValues>
                 <suggestedValues>19F</suggestedValues>
+                <suggestedValues>21Ne</suggestedValues>
+                <suggestedValues>23Na</suggestedValues>
+                <suggestedValues>25Mg</suggestedValues>
+                <suggestedValues>27Al</suggestedValues>
+                <suggestedValues>29Si</suggestedValues>
+                <suggestedValues>31P</suggestedValues>
+                <suggestedValues>33S</suggestedValues>
+                <suggestedValues>35Cl</suggestedValues>
+                <suggestedValues>37Cl</suggestedValues>
+                <suggestedValues>39K</suggestedValues>
+                <suggestedValues>40K</suggestedValues>
+                <suggestedValues>41K</suggestedValues>
+                <suggestedValues>43Ca</suggestedValues>
+                <suggestedValues>45Sc</suggestedValues>
+                <suggestedValues>47Ti</suggestedValues>
+                <suggestedValues>49Ti</suggestedValues>
+                <suggestedValues>50V</suggestedValues>
+                <suggestedValues>51V</suggestedValues>
+                <suggestedValues>53Cr</suggestedValues>
+                <suggestedValues>55Mn</suggestedValues>
+                <suggestedValues>57Fe</suggestedValues>
+                <suggestedValues>59Co</suggestedValues>
+                <suggestedValues>61Ni</suggestedValues>
+                <suggestedValues>63Cu</suggestedValues>
+                <suggestedValues>65Cu</suggestedValues>
+                <suggestedValues>67Zn</suggestedValues>
+                <suggestedValues>69Ga</suggestedValues>
+                <suggestedValues>71Ga</suggestedValues>
+                <suggestedValues>73Ge</suggestedValues>
+                <suggestedValues>75As</suggestedValues>
+                <suggestedValues>77Se</suggestedValues>
+                <suggestedValues>79Br</suggestedValues>
+                <suggestedValues>81Br</suggestedValues>
+                <suggestedValues>83Kr</suggestedValues>
+                <suggestedValues>85Rb</suggestedValues>
+                <suggestedValues>87Rb</suggestedValues>
+                <suggestedValues>87Sr</suggestedValues>
+                <suggestedValues>89Y</suggestedValues>
+                <suggestedValues>91Zr</suggestedValues>
+                <suggestedValues>93Nb</suggestedValues>
+                <suggestedValues>95Mo</suggestedValues>
+                <suggestedValues>97Mo</suggestedValues>
+                <suggestedValues>99Tc</suggestedValues>
+                <suggestedValues>99Ru</suggestedValues>
+                <suggestedValues>101Ru</suggestedValues>
+                <suggestedValues>103Rh</suggestedValues>
+                <suggestedValues>105Pd</suggestedValues>
+                <suggestedValues>107Ag</suggestedValues>
+                <suggestedValues>109Ag</suggestedValues>
+                <suggestedValues>111Cd</suggestedValues>
+                <suggestedValues>113Cd</suggestedValues>
+                <suggestedValues>113In</suggestedValues>
+                <suggestedValues>115Sn</suggestedValues>
+                <suggestedValues>115In</suggestedValues>
+                <suggestedValues>117Sn</suggestedValues>
+                <suggestedValues>119Sn</suggestedValues>
+                <suggestedValues>121Sb</suggestedValues>
+                <suggestedValues>123Te</suggestedValues>
+                <suggestedValues>123Sb</suggestedValues>
+                <suggestedValues>125Te</suggestedValues>
+                <suggestedValues>127I</suggestedValues>
+                <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>133Cs</suggestedValues>
+                <suggestedValues>135Ba</suggestedValues>
+                <suggestedValues>137Ba</suggestedValues>
+                <suggestedValues>138La</suggestedValues>
+                <suggestedValues>139La</suggestedValues>
+                <suggestedValues>141Pr</suggestedValues>
+                <suggestedValues>143Nd</suggestedValues>
+                <suggestedValues>145Nd</suggestedValues>
+                <suggestedValues>147Sm</suggestedValues>
+                <suggestedValues>149Sm</suggestedValues>
+                <suggestedValues>151Eu</suggestedValues>
+                <suggestedValues>153Eu</suggestedValues>
+                <suggestedValues>155Gd</suggestedValues>
+                <suggestedValues>157Gd</suggestedValues>
+                <suggestedValues>159Tb</suggestedValues>
+                <suggestedValues>161Dy</suggestedValues>
+                <suggestedValues>163Dy</suggestedValues>
+                <suggestedValues>165Ho</suggestedValues>
+                <suggestedValues>167Er</suggestedValues>
+                <suggestedValues>169Tm</suggestedValues>
+                <suggestedValues>171Yb</suggestedValues>
+                <suggestedValues>173Yb</suggestedValues>
+                <suggestedValues>175Lu</suggestedValues>
+                <suggestedValues>176Lu</suggestedValues>
+                <suggestedValues>177Hf</suggestedValues>
+                <suggestedValues>179Hf</suggestedValues>
+                <suggestedValues>181Ta</suggestedValues>
+                <suggestedValues>183W</suggestedValues>
+                <suggestedValues>185Re</suggestedValues>
+                <suggestedValues>187Re</suggestedValues>
+                <suggestedValues>187Os</suggestedValues>
+                <suggestedValues>189Os</suggestedValues>
+                <suggestedValues>191Ir</suggestedValues>
+                <suggestedValues>193Ir</suggestedValues>
+                <suggestedValues>195Pt</suggestedValues>
+                <suggestedValues>197Au</suggestedValues>
+                <suggestedValues>199Hg</suggestedValues>
+                <suggestedValues>201Hg</suggestedValues>
+                <suggestedValues>203Tl</suggestedValues>
+                <suggestedValues>205Tl</suggestedValues>
+                <suggestedValues>207Pb</suggestedValues>
+                <suggestedValues>209Bi</suggestedValues>
+                <suggestedValues>235U</suggestedValues>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -974,7 +1385,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -993,7 +1403,6 @@
                 <maxValue>3.0E9</maxValue>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1017,7 +1426,6 @@
                 <suggestedValues>19F</suggestedValues>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1036,7 +1444,6 @@
                 <maxValue>1.5E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1055,7 +1462,6 @@
                 <maxValue>1.5E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1074,7 +1480,6 @@
                 <maxValue>1.5E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1093,7 +1498,6 @@
                 <maxValue>1.5E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1112,7 +1516,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1131,7 +1534,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1150,7 +1552,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1172,7 +1573,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Dimension</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1191,7 +1591,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1210,7 +1609,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1229,7 +1627,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Gradient</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1249,7 +1646,6 @@
                 <suggestedValues>OBLIQUE</suggestedValues>
                 <group>Dimension</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1264,7 +1660,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1280,7 +1675,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Miscellaneous</group>
                 <category>Process</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1296,7 +1690,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Miscellaneous</group>
                 <category>Process</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1311,20 +1704,20 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Miscellaneous</group>
                 <category>Process</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
             <key>PHASE_RESET</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>PHASE_RESET</name>
+                <value>false</value>
+                <defaultValue>false</defaultValue>
                 <description></description>
                 <displayedName>PHASE_RESET</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1340,7 +1733,6 @@
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1353,7 +1745,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Miscellaneous</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1372,7 +1763,6 @@
                 <maxValue>32</maxValue>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1391,7 +1781,6 @@
                 <maxValue>120.0</maxValue>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1410,7 +1799,6 @@
                 <maxValue>1.0E9</maxValue>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1424,7 +1812,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1442,7 +1829,6 @@
                 <minValue>0.0</minValue>
                 <maxValue>1.0E9</maxValue>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1458,7 +1844,6 @@
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <group>User</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1471,7 +1856,6 @@
                 <displayedName>Setup</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1490,7 +1874,6 @@
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Dimension</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1506,7 +1889,6 @@
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <group>Miscellaneous</group>
                 <category>Miscellaneous</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1525,7 +1907,6 @@
                 <maxValue>3906000.0</maxValue>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1540,7 +1921,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1559,7 +1939,6 @@
                 <maxValue>1.0E8</maxValue>
                 <group>Reception</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1575,7 +1954,6 @@
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <group>Miscellaneous</group>
                 <category>Miscellaneous</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1595,7 +1973,6 @@
                 <suggestedValues>FeetFirstSupine</suggestedValues>
                 <group>Dimension</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1615,17 +1992,15 @@
                 <suggestedValues>Centered2D_FSE</suggestedValues>
                 <suggestedValues>Centered2D_FSERot</suggestedValues>
                 <suggestedValues>Centered2DRot</suggestedValues>
-                <suggestedValues>Centric4D</suggestedValues>
-                <suggestedValues>Respiratory_FSE</suggestedValues>
                 <suggestedValues>Sequential</suggestedValues>
                 <suggestedValues>Sequential2D</suggestedValues>
                 <suggestedValues>Sequential4D</suggestedValues>
+                <suggestedValues>Sequential4D_Dummy2D</suggestedValues>
                 <suggestedValues>Sequential4DBackAndForth</suggestedValues>
                 <suggestedValues>Sequential4DCine</suggestedValues>
                 <suggestedValues>SequentialMPRAGE</suggestedValues>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1645,7 +2020,6 @@
                 <suggestedValues>Ext1_XOR_Ext2</suggestedValues>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1660,7 +2034,6 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1681,7 +2054,6 @@
                 <maxValue>1.0E9</maxValue>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1700,7 +2072,6 @@
                 <maxValue>100.0</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1714,7 +2085,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1733,7 +2103,6 @@
                 <maxValue>2048</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1751,7 +2120,6 @@
                 <minValue>-1.7976931348623157E308</minValue>
                 <maxValue>1.7976931348623157E308</maxValue>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1770,7 +2138,6 @@
                 <maxValue>100.0</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1789,7 +2156,6 @@
                 <maxValue>63.0</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1808,7 +2174,6 @@
                 <maxValue>1.0</maxValue>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1827,23 +2192,24 @@
                 <maxValue>2048</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
             <key>TX_LENGTH_START</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_LENGTH_START</name>
+                <value>0.001</value>
                 <defaultValue>0.001</defaultValue>
                 <description>Starting value of the TX_LENGTH ramp</description>
                 <displayedName>TX_LENGTH_START</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <numberEnum>Time</numberEnum>
                 <minValue>9.999999999999999E-6</minValue>
                 <maxValue>1.0E9</maxValue>
                 <group>Delay</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1862,7 +2228,6 @@
                 <maxValue>1.0E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1877,19 +2242,19 @@
                 <lockedToDefault>false</lockedToDefault>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
             <key>TX_NUTATION_LENGTH</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>TX_NUTATION_LENGTH</name>
+                <value>false</value>
+                <defaultValue>false</defaultValue>
                 <description></description>
                 <displayedName>TX_NUTATION_LENGTH</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1908,7 +2273,6 @@
                 <maxValue>10000.0</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1925,7 +2289,6 @@
                 <maxValue>2147483647</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1944,7 +2307,6 @@
                 <suggestedValues>HARD</suggestedValues>
                 <suggestedValues>SINC5</suggestedValues>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1963,7 +2325,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -1982,7 +2343,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -2001,7 +2361,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
         <entry>
@@ -2020,7 +2379,6 @@
                 <maxValue>65536</maxValue>
                 <group>Scan</group>
                 <category>Acquisition</category>
-                <rolesEnum>User</rolesEnum>
             </value>
         </entry>
     </params>

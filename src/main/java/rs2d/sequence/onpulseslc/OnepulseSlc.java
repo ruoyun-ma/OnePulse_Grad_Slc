@@ -798,8 +798,8 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         return "OnePulse_Slc";
     }
 
-    public float getVersion() {
-        return 213.2f;
+    public String getVersion() {
+        return "master";
     }
     //</editor-fold>
 
