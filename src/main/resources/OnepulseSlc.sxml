@@ -786,7 +786,7 @@
             <key>key2</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
-                <value>40.0</value>
+                <value>21.0</value>
                 <defaultValue>7.5</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -1218,7 +1218,7 @@
             <key>key20</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_2d</name>
-                <value>1</value>
+                <value>3</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 2D</displayedName>
                 <locked>true</locked>
@@ -6343,7 +6343,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>7.999999999999988E-5</list>
+                <list>0.00101</list>
             </value>
         </Entry>
         <Entry>
@@ -6371,7 +6371,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.2894243130990417</list>
+                <list>0.28849431309904167</list>
             </value>
         </Entry>
         <Entry>
@@ -6575,7 +6575,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>40.087732488176094</list>
+                <list>40.052483358517755</list>
             </value>
         </Entry>
         <Entry>

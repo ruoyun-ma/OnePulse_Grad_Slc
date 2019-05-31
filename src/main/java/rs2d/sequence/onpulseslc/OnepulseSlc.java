@@ -49,7 +49,7 @@ import static rs2d.sequence.onpulseslc.OnepulseSlcSequenceParams.*;
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
-    private String sequenceVersion = "Version5.9";
+    private String sequenceVersion = "Version5.10";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -436,14 +436,21 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             tx_att = ((NumberParam) getParam(TX_ATT)).getValue().intValue();
 
         }
+     
+        ArrayList<Number> list_tx_amps = new ArrayList<>();
         if (is_tx_nutation_amp) {
             double tx_amp_start = ((NumberParam) getParam(TX_AMP_START)).getValue().doubleValue();
             double tx_amp_step = ((NumberParam) getParam(TX_AMP_STEP)).getValue().doubleValue();
 
             double[] tx_amps = new double[acquisitionMatrixDimension2D];
-            for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
+            
+                 for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
                 tx_amps[i] = (tx_amp_start + i * tx_amp_step);
+                list_tx_amps.add(tx_amps[i]);
+      
             }
+           
+            
             pulseTX.setAmp(Order.Two, tx_amps);
             pulseTX.setAtt(tx_att);
             this.setParamValue(TX_ATT, tx_att);
@@ -455,9 +462,14 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             //    pulsePowerWatt_pulse = pulseTX.get (float) TxMath.getPowerWatt(tx_amp, tx_att, observe_frequency, txCh) * power_factor_90;
             this.setParamValue(TX_AMP, tx_amp);
             this.setParamValue(TX_ATT, tx_att);
+            list_tx_amps.add(tx_amp);
+      
         }
+        setParamValue(TX_AMP_STEP_VALUES, list_tx_amps);
+     
         double txLengthMax = txLength;
         double[] tx_lengths = new double[acquisitionMatrixDimension2D];
+        ArrayList<Number> list_tx_length = new ArrayList<>();
         if (is_tx_nutation_Length) {
             Order order = txLengthTable.getOrder();
             txLengthTable.clear();
@@ -468,9 +480,13 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
                 tx_lengths[i] = (tx_start + i * tx_step);
                 txLengthTable.add(tx_lengths[i]);
+                list_tx_length.add(tx_lengths[i]);
             }
             txLengthMax = tx_lengths[acquisitionMatrixDimension2D - 1];
+        }else{
+        	list_tx_length.add(txLength);
         }
+        setParamValue(TX_LENGTH_VALUES, list_tx_length);
 
 
         // -----------------------------------------------

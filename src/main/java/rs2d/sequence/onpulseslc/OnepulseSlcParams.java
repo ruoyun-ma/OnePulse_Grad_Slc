@@ -56,7 +56,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(1);
+            param.setValue(3);
             param.setDefaultValue(128);
             return param;
         }
@@ -248,7 +248,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(7.999999999999988E-5);
+            param.setValue(0.00101);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -316,7 +316,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(6.0E-4);
+            param.setValue(0.0015300000000000001);
             param.setDefaultValue(0.005);
             return param;
         }
@@ -440,7 +440,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         Param build() {
             ListNumberParam param = new ListNumberParam();
             param.setName("HARDWARE_A0");
-            param.setDisplayedName("nparam");
+            param.setDisplayedName("HARDWARE_A0");
             param.setDescription("");
             param.setLocked(true);
             param.setCategory(Category.Acquisition);
@@ -506,7 +506,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         Param build() {
             ListNumberParam param = new ListNumberParam();
             param.setName("HARDWARE_DC");
-            param.setDisplayedName("nparam");
+            param.setDisplayedName("HARDWARE_DC");
             param.setDescription("");
             param.setLocked(true);
             param.setCategory(Category.Acquisition);
@@ -522,7 +522,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         Param build() {
             ListNumberParam param = new ListNumberParam();
             param.setName("HARDWARE_PREEMPHASIS_A");
-            param.setDisplayedName("nparam");
+            param.setDisplayedName("HARDWARE_PREEMPHASIS_A");
             param.setDescription("");
             param.setLocked(true);
             param.setGroup(EnumGroup.Emission);
@@ -539,7 +539,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         Param build() {
             ListNumberParam param = new ListNumberParam();
             param.setName("HARDWARE_PREEMPHASIS_T");
-            param.setDisplayedName("nparam");
+            param.setDisplayedName("HARDWARE_PREEMPHASIS_T");
             param.setDescription("");
             param.setLocked(true);
             param.setGroup(EnumGroup.Emission);
@@ -556,7 +556,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         Param build() {
             ListNumberParam param = new ListNumberParam();
             param.setName("HARDWARE_SHIM");
-            param.setDisplayedName("nparam");
+            param.setDisplayedName("HARDWARE_SHIM");
             param.setDescription("");
             param.setLocked(true);
             param.setCategory(Category.Acquisition);
@@ -572,7 +572,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         Param build() {
             TextParam param = new TextParam();
             param.setName("HARDWARE_SHIM_LABEL");
-            param.setDisplayedName("tparam");
+            param.setDisplayedName("HARDWARE_SHIM_LABEL");
             param.setDescription("");
             param.setLocked(true);
             param.setCategory(Category.Acquisition);
@@ -1232,7 +1232,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(0.7000000000000001);
+            param.setValue(2.1);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1246,7 +1246,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDescription("");
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version5.9");
+            param.setValue("Version5.10");
             param.setDefaultValue("");
             return param;
         }
@@ -1447,7 +1447,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.PERCENT);
             param.setMinValue(0.0);
             param.setMaxValue(100.0);
-            param.setValue(40.087732488176094);
+            param.setValue(40.052483358517755);
             param.setDefaultValue(40.0);
             return param;
         }
@@ -1460,7 +1460,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setDisplayedName("TX_AMP_ATT_AUTO");
             param.setDescription("Use the ATT and AMP set from the calibration ");
             param.setCategory(Category.Acquisition);
-            param.setValue(false);
+            param.setValue(true);
             param.setDefaultValue(true);
             return param;
         }
@@ -1516,6 +1516,22 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
         }
     },
 
+    TX_AMP_STEP_VALUES {
+        Param build() {
+            ListNumberParam param = new ListNumberParam();
+            param.setName("TX_AMP_STEP_VALUES");
+            param.setDisplayedName("TX_AMP_STEP_VALUES");
+            param.setDescription("");
+            param.setLocked(true);
+            param.setCategory(Category.Acquisition);
+            param.setMinValue(-2.147483648E9);
+            param.setMaxValue(2.147483647E9);
+            param.setNumberEnum(NumberEnum.PERCENT);
+            param.setValue(asListNumber(40.052483358517755));
+            return param;
+        }
+    },
+
     TX_ATT {
         Param build() {
             NumberParam param = new NumberParam();
@@ -1527,7 +1543,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.TxAtt);
             param.setMinValue(0.0);
             param.setMaxValue(63.0);
-            param.setValue(40.0);
+            param.setValue(21.0);
             param.setDefaultValue(36.0);
             return param;
         }
@@ -1597,6 +1613,22 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setMaxValue(1.0E9);
             param.setValue(0.001);
             param.setDefaultValue(1.9999999999999998E-4);
+            return param;
+        }
+    },
+
+    TX_LENGTH_VALUES {
+        Param build() {
+            ListNumberParam param = new ListNumberParam();
+            param.setName("TX_LENGTH_VALUES");
+            param.setDisplayedName("TX_LENGTH_VALUES");
+            param.setDescription("");
+            param.setLocked(true);
+            param.setCategory(Category.Acquisition);
+            param.setMinValue(0.0);
+            param.setMaxValue(1.0E9);
+            param.setNumberEnum(NumberEnum.Time);
+            param.setValue(asListNumber(0.001));
             return param;
         }
     },
@@ -1703,7 +1735,7 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(1);
+            param.setValue(3);
             param.setDefaultValue(128);
             return param;
         }
