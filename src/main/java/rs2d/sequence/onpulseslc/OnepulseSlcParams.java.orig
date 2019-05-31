@@ -1323,7 +1323,11 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setRoles(new RoleEnum[] {RoleEnum.User});
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
+<<<<<<< HEAD
+            param.setValue("Version5.6");
+=======
             param.setValue("Version5.9");
+>>>>>>> V213.2
             param.setDefaultValue("");
             return param;
         }
@@ -1470,7 +1474,11 @@ public enum OnepulseSlcParams implements GeneratorParamEnum {
             param.setCategory(Category.Acquisition);
             param.setValue("none");
             param.setDefaultValue("none");
+<<<<<<< HEAD
+            param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Centered2D_FSERot", "Centered2DRot", "Centric4D", "Respiratory_FSE", "Sequential", "Sequential2D", "Sequential2D_EPI", "Sequential2D_EPI_Cal", "Sequential2D_EPI_Int", "Sequential4D", "Sequential4DBackAndForth", "Sequential4DCine", "SequentialMPRAGE"));
+=======
             param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Centered2D_FSERot", "Centered2DRot", "Centric4D", "Respiratory_FSE", "Sequential", "Sequential2D", "Sequential4D", "Sequential4DBackAndForth", "Sequential4DCine", "SequentialMPRAGE"));
+>>>>>>> V213.2
             return param;
         }
     },

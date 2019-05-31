@@ -8,7 +8,10 @@ import rs2d.spinlab.instrument.probe.ProbeChannelPower;
 import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.instrument.util.TxMath;
 import rs2d.spinlab.plugins.loaders.LoaderFactory;
+<<<<<<< HEAD
+=======
 import rs2d.spinlab.plugins.loaders.PluginLoaderInterface;
+>>>>>>> V213.2
 import rs2d.spinlab.sequence.Sequence;
 import rs2d.spinlab.sequence.table.Shape;
 import rs2d.spinlab.sequence.table.Table;
@@ -23,7 +26,11 @@ import java.util.List;
 
 /**
  * Class RFPulse
+<<<<<<< HEAD
+ * V2.1- 2017-10-24 JR
+=======
  * V2.1- 2018-03-20b JR
+>>>>>>> V213.2
  */
 public class RFPulse {
     private Table amplitudeTable = null;
@@ -38,12 +45,15 @@ public class RFPulse {
     int numberOfFreqOffset = -1;
     Order FrequencyOffsetOrder = Order.FourLoopB;
 
+<<<<<<< HEAD
+=======
     boolean isSlr = false;
     int slrIndex = -1;
 
     double[] slrPowerFactors90 = {2.331, 2.331 * 0.72}; //slr power factors compared to not slr pulses
     double[] slrPowerFactors180 = {3.879, 3.879 * 0.36};
 
+>>>>>>> V213.2
     private double[] txFrequencyOffsetTable = null;
     private int txAtt = -1;
 
@@ -105,7 +115,11 @@ public class RFPulse {
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+<<<<<<< HEAD
+    //                  general  methodes: get set
+=======
     //                  general  methods: get set
+>>>>>>> V213.2
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     public double getPulseDuration() {
         return pulseDuration;
@@ -135,6 +149,8 @@ public class RFPulse {
         return numberOfFreqOffset;
     }
 
+<<<<<<< HEAD
+=======
     public boolean isSlr() {
         return isSlr;
     }
@@ -147,6 +163,7 @@ public class RFPulse {
         return isSlr ? slrPowerFactors180[slrIndex] : 1.0;
     }
 
+>>>>>>> V213.2
     public void setAtt(int att) {
         txAtt = att;
         attParam.setValue(txAtt);
@@ -231,12 +248,20 @@ public class RFPulse {
         Probe probe = Instrument.instance().getTransmitProbe();
         ProbeChannelPower pulse = TxMath.getProbePower(probe, null, nucleus.name());
         double instrument_length_180 = pulse.getHardPulse180().x;
+<<<<<<< HEAD
+        double power_factor = Utility.powerFillingFactor(shape);       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+=======
         double power_factor = Utility.powerFillingFactor(shape) / getSlrPowerFactors180();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+>>>>>>> V213.2
         double instrument_power_180 = pulse.getHardPulse180().y / power_factor;
         double power_180 = instrument_power_180 * Math.pow(instrument_length_180 / pulseDuration, 2);
 
         if (power_180 > pulse.getMaxRfPowerPulsed()) {  // TX LENGTH 90 MIN
+<<<<<<< HEAD
+            pulseDuration = Math.ceil(instrument_length_180 / Math.sqrt(pulse.getMaxRfPowerPulsed() / instrument_power_180) * 10000) / 10000.0;
+=======
             pulseDuration = ceilToSubDecimal(instrument_length_180 / Math.sqrt(pulse.getMaxRfPowerPulsed() / instrument_power_180), 6);
+>>>>>>> V213.2
             setSequenceTableSingleValue(timeTable, pulseDuration);
             power_180 = instrument_power_180 * Math.pow(instrument_length_180 / pulseDuration, 2);
             test_change_time = false;
@@ -255,12 +280,20 @@ public class RFPulse {
      */
     private double calculateTxAmp90(InstrumentTxChannel txCh) {
         if (txAtt == -1) {
+<<<<<<< HEAD
+            txAtt = (int) attParam.getValue();
+=======
             txAtt = ((NumberParam) attParam).getValue().intValue();
+>>>>>>> V213.2
         }
         double tx_amp;
         Probe probe = Instrument.instance().getTransmitProbe();
         ProbeChannelPower pulse = TxMath.getProbePower(probe, null, nucleus.name());
+<<<<<<< HEAD
+        double power_factor = Utility.powerFillingFactor(shape);       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+=======
         double power_factor = Utility.powerFillingFactor(shape) / getSlrPowerFactors90();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+>>>>>>> V213.2
         double instrument_power_90 = pulse.getHardPulse90().y / power_factor;
         double instrument_length = pulse.getHardPulse90().x;
         double power = instrument_power_90 * Math.pow(instrument_length / pulseDuration, 2);
@@ -278,7 +311,11 @@ public class RFPulse {
         double tx_amp;
         Probe probe = Instrument.instance().getTransmitProbe();
         ProbeChannelPower pulse = TxMath.getProbePower(probe, null, nucleus.name());
+<<<<<<< HEAD
+        double power_factor = Utility.powerFillingFactor(shape);       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+=======
         double power_factor = Utility.powerFillingFactor(shape) / getSlrPowerFactors180();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+>>>>>>> V213.2
         double instrument_power_180 = pulse.getHardPulse180().y / power_factor;
         double instrument_length = pulse.getHardPulse180().x;
         double power = instrument_power_180 * Math.pow(instrument_length / pulseDuration, 2);
@@ -323,12 +360,20 @@ public class RFPulse {
         boolean test_change_time = true;
         Probe probe = Instrument.instance().getTransmitProbe();
         ProbeChannelPower pulse = TxMath.getProbePower(probe, null, nucleus.name());
+<<<<<<< HEAD
+        double power_factor = Utility.powerFillingFactor(shape);       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+=======
         double power_factor = Utility.powerFillingFactor(shape) / (flipAngle < 135 ? getSlrPowerFactors90() : getSlrPowerFactors180());       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+>>>>>>> V213.2
         double instrument_length = flipAngle < 135 ? pulse.getHardPulse90().x : pulse.getHardPulse180().x;
         double instrument_power = (flipAngle < 135 ? pulse.getHardPulse90().y : pulse.getHardPulse180().y) / power_factor;
         powerPulse = instrument_power * Math.pow(instrument_length / pulseDuration, 2) * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2);
         if (powerPulse > pulse.getMaxRfPowerPulsed()) {  // TX LENGTH 90 MIN
+<<<<<<< HEAD
+            pulseDuration = Math.ceil(instrument_length / Math.sqrt(pulse.getMaxRfPowerPulsed() / (instrument_power * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2))));
+=======
             pulseDuration = ceilToSubDecimal(instrument_length / Math.sqrt(pulse.getMaxRfPowerPulsed() / (instrument_power * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2))), 6);
+>>>>>>> V213.2
             setSequenceTableSingleValue(timeTable, pulseDuration);
             powerPulse = instrument_power * Math.pow(instrument_length / pulseDuration, 2) * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2);
             test_change_time = false;
@@ -371,6 +416,8 @@ public class RFPulse {
         return tx_amp;
     }
 
+<<<<<<< HEAD
+=======
     /**
      * prepare and set txAmp according to txAtt , flipAngle
      *
@@ -392,6 +439,7 @@ public class RFPulse {
         return tx_amp;
     }
 
+>>>>>>> V213.2
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     //                  Shape
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -427,6 +475,11 @@ public class RFPulse {
             shape.setFirst(100);
             shapePhase.setFirst(0);
 
+<<<<<<< HEAD
+        }
+    }
+
+=======
         } else if ("RAMP".equalsIgnoreCase(pulseName)) {
 
             setTableValuesFromSincGenRamp(shape, numberOfPoint, 3, 100, true, window, 0.2);
@@ -537,6 +590,7 @@ public class RFPulse {
         return gen;
     }
 
+>>>>>>> V213.2
     /**
      * Generate a table of element with a Sinus Cardinal generator
      *
@@ -605,9 +659,15 @@ public class RFPulse {
     public void prepareOffsetFreqMultiSlice(Gradient gradSlice, int nbSlice, double spacing_between_slice, double offCenterDistance3D) {
         numberOfFreqOffset = nbSlice;
         double grad_amp_slice_mTpm = gradSlice.getAmplitude_mTpm();
+<<<<<<< HEAD
+        double frequencyCenter3D90 = -grad_amp_slice_mTpm * offCenterDistance3D * (GradientMath.GAMMA);
+
+        double multi_planar_fov = (numberOfFreqOffset - 1) * (spacing_between_slice + gradSlice.getSliceThickness());
+=======
         double frequencyCenter3D90 = calculateOffsetFreq(grad_amp_slice_mTpm, offCenterDistance3D);
         double slice_thickness = Double.isNaN(gradSlice.getSliceThickness()) ? 0 : gradSlice.getSliceThickness();
         double multi_planar_fov = (numberOfFreqOffset - 1) * (spacing_between_slice + slice_thickness);
+>>>>>>> V213.2
         double multiPlanarFreqOffset = multi_planar_fov * grad_amp_slice_mTpm * (GradientMath.GAMMA);
         txFrequencyOffsetTable = new double[numberOfFreqOffset];
         for (int i = 0; i < numberOfFreqOffset; i++) {
@@ -649,15 +709,20 @@ public class RFPulse {
 
     }
 
+<<<<<<< HEAD
+=======
     public double calculateOffsetFreq(double grad_amp_mTpm, double offCenterDistance) {
         return (-grad_amp_mTpm * offCenterDistance * (GradientMath.GAMMA));
     }
 
+>>>>>>> V213.2
     public void setFrequencyOffset(Order order) {
         FrequencyOffsetOrder = order;
         setFrequencyOffset();
     }
 
+<<<<<<< HEAD
+=======
 
     public void setFrequencyOffset(double value) {
 
@@ -686,6 +751,7 @@ public class RFPulse {
         }
     }
 
+>>>>>>> V213.2
     public void setFrequencyOffset() {
         setSequenceTableValues(FrequencyOffsetTable, FrequencyOffsetOrder);
         if (numberOfFreqOffset != -1) {
@@ -696,6 +762,8 @@ public class RFPulse {
             FrequencyOffsetTable.add(0);
         }
     }
+<<<<<<< HEAD
+=======
     public void setFrequencyOffset(double ... value) {
         numberOfFreqOffset = value.length;
         txFrequencyOffsetTable = new double[numberOfFreqOffset];
@@ -710,6 +778,7 @@ public class RFPulse {
         setFrequencyOffset( order);
         System.out.println(txFrequencyOffsetTable[0]);
     }
+>>>>>>> V213.2
 
     public double getFrequencyOffset(int k) {
         return txFrequencyOffsetTable[k];
@@ -804,7 +873,10 @@ public class RFPulse {
         }
     }
 
+<<<<<<< HEAD
+=======
     private double ceilToSubDecimal(double numberToBeRounded, double Order) {
         return Math.ceil(numberToBeRounded * Math.pow(10, Order)) / Math.pow(10, Order);
     }
+>>>>>>> V213.2
 }

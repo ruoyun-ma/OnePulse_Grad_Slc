@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <application>
+<<<<<<< HEAD
+    <name>OnePulse_Slc_master</name>
+=======
     <name>OnePulse_Slc_V213.2</name>
+>>>>>>> V213.2
     <description></description>
     <generatorName>seqdev-temp</generatorName>
     <durationTime>0</durationTime>
@@ -303,6 +307,8 @@
                     <group>Dimension</group>
                     <category>Miscellaneous</category>
                     <rolesEnum>User</rolesEnum>
+<<<<<<< HEAD
+=======
                 </value>
             </entry>
             <entry>
@@ -337,6 +343,7 @@
                     <group>Delay</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
+>>>>>>> V213.2
                 </value>
             </entry>
             <entry>
@@ -1161,8 +1168,13 @@
                     <name>OFF_CENTER_FIELD_OF_VIEW_1D</name>
                     <value>0.0</value>
                     <defaultValue>0.0</defaultValue>
+<<<<<<< HEAD
+                    <description>Location in the R/L direction</description>
+                    <displayedName>Location X</displayedName>
+=======
                     <description>Location in the Readout direction</description>
                     <displayedName>Location 1D</displayedName>
+>>>>>>> V213.2
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -1180,8 +1192,13 @@
                     <name>OFF_CENTER_FIELD_OF_VIEW_2D</name>
                     <value>0.0</value>
                     <defaultValue>0.0</defaultValue>
+<<<<<<< HEAD
+                    <description>Location in the A/P direction</description>
+                    <displayedName>Location Y</displayedName>
+=======
                     <description>Location in the PE direction</description>
                     <displayedName>Location  2D</displayedName>
+>>>>>>> V213.2
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -1199,8 +1216,13 @@
                     <name>OFF_CENTER_FIELD_OF_VIEW_3D</name>
                     <value>0.0</value>
                     <defaultValue>0.0</defaultValue>
+<<<<<<< HEAD
+                    <description>Location in the I/S direction</description>
+                    <displayedName>Location Z</displayedName>
+=======
                     <description>Location in the Slice encoding direction</description>
                     <displayedName>Location 3D</displayedName>
+>>>>>>> V213.2
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -1371,12 +1393,16 @@
                     <group>Miscellaneous</group>
                     <category>Process</category>
                     <rolesEnum>User</rolesEnum>
+<<<<<<< HEAD
+=======
                 </value>
             </entry>
             <entry>
                 <key>PHASE_RESET</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>PHASE_RESET</name>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
                     <description></description>
                     <displayedName>PHASE_RESET</displayedName>
                     <locked>false</locked>
@@ -1384,6 +1410,7 @@
                     <group>Emission</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
+>>>>>>> V213.2
                 </value>
             </entry>
             <entry>
@@ -1508,7 +1535,11 @@
                 <key>SEQUENCE_VERSION</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>SEQUENCE_VERSION</name>
+<<<<<<< HEAD
+                    <value>Version5.6</value>
+=======
                     <value>Version5.9</value>
+>>>>>>> V213.2
                     <defaultValue></defaultValue>
                     <description></description>
                     <displayedName>SEQUENCE_VERSION</displayedName>
@@ -1868,6 +1899,8 @@
                     <group>Delay</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
+<<<<<<< HEAD
+=======
                 </value>
             </entry>
             <entry>
@@ -1912,22 +1945,30 @@
                 <key>TX_LENGTH_STEP</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_LENGTH_STEP</name>
+                    <value>0.001</value>
                     <defaultValue>1.9999999999999998E-4</defaultValue>
                     <description>Step between two TX_LENGTH</description>
                     <displayedName>TX_LENGTH_STEP</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Time</numberEnum>
                     <minValue>9.999999999999999E-6</minValue>
                     <maxValue>1.0E9</maxValue>
                     <group>Emission</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
+>>>>>>> V213.2
                 </value>
             </entry>
             <entry>
                 <key>TX_NUTATION_AMP</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+<<<<<<< HEAD
+                    <name>TX_NUTATION</name>
+=======
                     <name>TX_NUTATION_AMP</name>
+>>>>>>> V213.2
                     <value>false</value>
                     <defaultValue>false</defaultValue>
                     <description>allows to acquire nutation curve</description>
@@ -1937,18 +1978,23 @@
                     <group>Emission</group>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
+<<<<<<< HEAD
+=======
                 </value>
             </entry>
             <entry>
                 <key>TX_NUTATION_LENGTH</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>TX_NUTATION_LENGTH</name>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
                     <description></description>
                     <displayedName>TX_NUTATION_LENGTH</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <category>Acquisition</category>
                     <rolesEnum>User</rolesEnum>
+>>>>>>> V213.2
                 </value>
             </entry>
             <entry>

@@ -4,7 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>rs2d-sequence</groupId>
   <artifactId>onepulse-slc</artifactId>
+<<<<<<< HEAD
   <version>master</version>
+=======
+  <version>V213.2</version>
+>>>>>>> V213.2
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -16,12 +20,20 @@
     <dependency>
       <groupId>rs2d</groupId>
       <artifactId>spinlab</artifactId>
+<<<<<<< HEAD
+      <version>1.217</version>
+=======
       <version>2019.01.3</version>
+>>>>>>> V213.2
     </dependency>
     <dependency>
       <groupId>rs2d</groupId>
       <artifactId>rs2d-commons</artifactId>
+<<<<<<< HEAD
+      <version>1.217</version>
+=======
       <version>2019.01.3</version>
+>>>>>>> V213.2
     </dependency>
   </dependencies>
   <build>

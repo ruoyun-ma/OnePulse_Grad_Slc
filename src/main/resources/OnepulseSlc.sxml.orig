@@ -1867,13 +1867,51 @@
                 <name>Trigger1</name>
                 <value xsi:type="trigger">Timer</value>
                 <defaultValue xsi:type="trigger">Timer</defaultValue>
+<<<<<<< HEAD
+                <displayedName>Trigger0</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <rolesEnum>User</rolesEnum>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>key61</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                <name>name7</name>
                 <value>Time2</value>
                 <defaultValue>Elem</defaultValue>
+                <description>The name of the element</description>
+                <displayedName>name2</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
                 <rolesEnum>User</rolesEnum>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>key62</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>enabled7</name>
                 <value>true</value>
                 <defaultValue>true</defaultValue>
+                <description>The state of the element</description>
+                <displayedName>enabled2</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <rolesEnum>User</rolesEnum>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>key63</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="enumParam">
+                <name>Trigger2</name>
                 <value xsi:type="trigger">Timer</value>
                 <defaultValue xsi:type="trigger">Timer</defaultValue>
+=======
+>>>>>>> V213.2
                 <displayedName>Trigger0</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -2427,8 +2465,13 @@
             <count>1</count>
             <key>key102</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+<<<<<<< HEAD
+                <name>state10</name>
+                <value>true</value>
+=======
                 <name>Phase_reset</name>
                 <value>false</value>
+>>>>>>> V213.2
                 <defaultValue>false</defaultValue>
                 <description>State of the element</description>
                 <displayedName>state2</displayedName>
@@ -3510,6 +3553,8 @@
                 <maxValue>4194304</maxValue>
                 <group>Reception</group>
                 <rolesEnum>User</rolesEnum>
+<<<<<<< HEAD
+=======
             </value>
         </Entry>
         <Entry>
@@ -3524,20 +3569,30 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
+                <rolesEnum>User</rolesEnum>
+>>>>>>> V213.2
             </value>
         </Entry>
         <Entry>
             <count>1</count>
             <key>key178</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+<<<<<<< HEAD
+                <name>name110</name>
+                <value>Ge</value>
+=======
                 <name>name1120</name>
                 <value>Time18</value>
+>>>>>>> V213.2
+                <defaultValue>Elem</defaultValue>
                 <description>The name of the element</description>
                 <displayedName>name1112</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <rolesEnum>User</rolesEnum>
+<<<<<<< HEAD
+=======
             </value>
         </Entry>
         <Entry>
@@ -3552,6 +3607,7 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <rolesEnum>User</rolesEnum>
+>>>>>>> V213.2
             </value>
         </Entry>
         <Entry>
@@ -6117,6 +6173,8 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <rolesEnum>User</rolesEnum>
+<<<<<<< HEAD
+=======
             </value>
         </Entry>
         <Entry>
@@ -6130,6 +6188,7 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <rolesEnum>User</rolesEnum>
+>>>>>>> V213.2
             </value>
         </Entry>
         <Entry>
@@ -6763,7 +6822,11 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
+<<<<<<< HEAD
+                <list>0.2894593130990417</list>
+=======
                 <list>0.2894243130990417</list>
+>>>>>>> V213.2
             </value>
         </Entry>
         <Entry>
