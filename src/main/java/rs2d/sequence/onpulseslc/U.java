@@ -1246,7 +1246,7 @@ public enum U implements GeneratorParamEnum {
             param.setDescription("");
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version5.10");
+            param.setValue("Version6.0");
             param.setDefaultValue("");
             return param;
         }
@@ -1522,7 +1522,6 @@ public enum U implements GeneratorParamEnum {
             param.setName("TX_AMP_VALUES");
             param.setDisplayedName("TX_AMP_VALUES");
             param.setDescription("");
-            param.setLocked(true);
             param.setCategory(Category.Acquisition);
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);

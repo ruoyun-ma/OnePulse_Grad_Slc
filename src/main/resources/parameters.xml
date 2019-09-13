@@ -1843,7 +1843,7 @@
             <key>SEQUENCE_VERSION</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_VERSION</name>
-                <value>Version5.10</value>
+                <value>Version6.0</value>
                 <defaultValue></defaultValue>
                 <description></description>
                 <displayedName>SEQUENCE_VERSION</displayedName>
@@ -2156,7 +2156,7 @@
                 <value>40.087732488176094</value>
                 <description></description>
                 <displayedName>TX_AMP_VALUES</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>PERCENT</numberEnum>
                 <minValue>-2.147483648E9</minValue>

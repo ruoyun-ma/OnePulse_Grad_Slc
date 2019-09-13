@@ -51,7 +51,7 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends SequenceGeneratorAbstract {
 
-    private String sequenceVersion = "Version5.10";
+    private String sequenceVersion = "Version6.0";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -109,7 +109,9 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
     private double minInstructionDelay = 0.000005;     // single instruction minimal duration
 
 
-    public OnepulseSlc() { addUserParams();    }
+    public OnepulseSlc() {
+        addUserParams();
+    }
 
 //    @Override
 //    public void route() throws rs2d.spinlab.hardware.compiler.exception.CompilerRoutageException {
@@ -117,7 +119,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
 //        super.route();
 //    }
 
-   // @Override
+    // @Override
     public void init() {
         super.init();
         // Define default, min, max and suggested values regarding the instrument.
@@ -263,8 +265,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             double tx_amp_start = getDouble(TX_AMP_START);
             double tx_amp_step = getDouble(TX_AMP_STEP);
 
-            acquisitionMatrixDimension2D = Math.min(tx_number, is_tx_nutation_amp ? (int) Math.floor((100 - tx_amp_start) / (tx_amp_step - 1)) : tx_number);
-
+            acquisitionMatrixDimension2D = Math.min(tx_number, is_tx_nutation_amp ? (int) Math.floor(((100 - tx_amp_start) / (tx_amp_step)) + 1) : tx_number);
 
             nb_scan_2d = acquisitionMatrixDimension2D;
             getParam(USER_MATRIX_DIMENSION_2D).setValue(acquisitionMatrixDimension2D);
@@ -278,7 +279,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             getParam(DELAY_ECHO).setValue(isDelayEcho);
 
         } else {
-            
+
             acquisitionMatrixDimension2D = userMatrixDimension2D;
             nb_scan_2d = userMatrixDimension2D;
 
@@ -431,21 +432,21 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             tx_att = getInt(TX_ATT);
 
         }
-     
+
         ArrayList<Number> list_tx_amps = new ArrayList<>();
         if (is_tx_nutation_amp) {
             double tx_amp_start = getDouble(TX_AMP_START);
             double tx_amp_step = getDouble(TX_AMP_STEP);
 
             double[] tx_amps = new double[acquisitionMatrixDimension2D];
-            
-                 for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
+
+            for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
                 tx_amps[i] = (tx_amp_start + i * tx_amp_step);
                 list_tx_amps.add(tx_amps[i]);
-      
+
             }
-           
-            
+
+
             pulseTX.setAmp(Order.Two, tx_amps);
             pulseTX.setAtt(tx_att);
             this.getParam(TX_ATT).setValue(tx_att);
@@ -458,10 +459,10 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             this.getParam(TX_AMP).setValue(tx_amp);
             this.getParam(TX_ATT).setValue(tx_att);
             list_tx_amps.add(tx_amp);
-      
+
         }
         getParam(TX_AMP_VALUES).setValue(list_tx_amps);
-     
+
         double txLengthMax = txLength;
         double[] tx_lengths = new double[acquisitionMatrixDimension2D];
         ArrayList<Number> list_tx_length = new ArrayList<>();
@@ -478,8 +479,8 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
                 list_tx_length.add(tx_lengths[i]);
             }
             txLengthMax = tx_lengths[acquisitionMatrixDimension2D - 1];
-        }else{
-        	list_tx_length.add(txLength);
+        } else {
+            list_tx_length.add(txLength);
         }
         getParam(TX_LENGTH_VALUES).setValue(list_tx_length);
 
@@ -510,9 +511,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
 // 15 40 2.5m
 
         Gradient gradSlice = Gradient.createGradient(getSequence(), Grad_amp_slice, Time_tx, Grad_shape_up, Grad_shape_down, Time_grad_ramp);
-        if (isMultiplanar && !gradSlice.prepareSliceSelection(tx_bandwidth, slice_thickness_excitation))
-
-        {
+        if (isMultiplanar && !gradSlice.prepareSliceSelection(tx_bandwidth, slice_thickness_excitation)) {
             slice_thickness_excitation = gradSlice.getSliceThickness();
             double slice_thickness_min = (isMultiplanar ? slice_thickness_excitation : (slice_thickness_excitation / userMatrixDimension3D));
             getUnreachParamExceptionManager().addParam(SLICE_THICKNESS.name(), sliceThickness, slice_thickness_min, ((NumberParam) getParam(SLICE_THICKNESS)).getMaxValue(), "Pulse length too short to reach this slice thickness");
@@ -527,7 +526,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         if (isMultiplanar) {
             gradSliceRefPhase3D.refocalizeGradient(gradSlice, 0.5);
         }
-	   gradSliceRefPhase3D.applyAmplitude();
+        gradSliceRefPhase3D.applyAmplitude();
         // -----------------------------------------------
         // calculate ADC observation time
         // -----------------------------------------------
@@ -569,7 +568,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // calculate delays adapted to current TE & search for incoherence
         // ------------------------------------------
         // calculate actual delays between Rf-pulses and ADC
-        double time0 = TimeEvents.getTimeBetweenEvents(getSequence(),eventPulse + 1, eventDelay - 1) + TimeEvents.getTimeBetweenEvents(getSequence(),eventDelay + 1, eventAcq - 1);
+        double time0 = TimeEvents.getTimeBetweenEvents(getSequence(), eventPulse + 1, eventDelay - 1) + TimeEvents.getTimeBetweenEvents(getSequence(), eventDelay + 1, eventAcq - 1);
         double time1 = time0 + txLengthMax / 2;// Actual_TE
 
         // get minimal TE value & search for incoherence
@@ -594,7 +593,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
             }
             if (is_tx_nutation_Length) {
                 for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
-                    time_te_delay_table.add(te - time0 -tx_lengths[i] / 2);
+                    time_te_delay_table.add(te - time0 - tx_lengths[i] / 2);
                 }
             } else {
                 delay1 = te - time1;
@@ -614,11 +613,11 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         double min_FIR_delay = (lo_FIR_dead_point + 2) / spectralWidth;
         double min_FIR_4pts_delay = 4 / spectralWidth;
 
-        double time_fir = TimeEvents.getTimeBetweenEvents(getSequence(),eventAcq + 1, eventEnd - 1);
+        double time_fir = TimeEvents.getTimeBetweenEvents(getSequence(), eventAcq + 1, eventEnd - 1);
         time_fir -= TimeEvents.getTimeForEvents(getSequence(), eventFIRDelay); // Actual_TE without delay1
         System.out.println("time_fir " + time_fir);
         double time_fir_delay = Math.max(minInstructionDelay, min_FIR_4pts_delay - time_fir);
-        time_fir = TimeEvents.getTimeBetweenEvents(getSequence(),eventAcq + 1, eventEnd - 1);
+        time_fir = TimeEvents.getTimeBetweenEvents(getSequence(), eventAcq + 1, eventEnd - 1);
 
         setSequenceTableSingleValue(Time_FIR_delay, time_fir_delay);
 
@@ -649,8 +648,8 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         double min_flush_delay = minInstructionDelay;   // minimal time to flush Chameleon buffer (this time is doubled to avoid hidden delays);
         min_flush_delay = Math.max(min_FIR_delay - time_fir, minInstructionDelay);
 
-        double time_seq_to_end_spoiler0 = TimeEvents.getTimeBetweenEvents(getSequence(),eventStart, eventPulse - 1) +te + TimeEvents.getTimeBetweenEvents(getSequence(),eventAcq, eventEnd - 1);
-        double time_seq_to_end_spoiler = time_seq_to_end_spoiler0 + txLengthMax / 2 ;
+        double time_seq_to_end_spoiler0 = TimeEvents.getTimeBetweenEvents(getSequence(), eventStart, eventPulse - 1) + te + TimeEvents.getTimeBetweenEvents(getSequence(), eventAcq, eventEnd - 1);
+        double time_seq_to_end_spoiler = time_seq_to_end_spoiler0 + txLengthMax / 2;
         double tr_min = time_seq_to_end_spoiler + min_flush_delay;// 2 +( 2 minInstructionDelay: event 22 +(20&21
         if (tr < tr_min) {
             System.out.println(tr + " < " + tr_min);
@@ -666,7 +665,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         Table time_last_delay_table = setSequenceTableValues(Time_last_delay, Order.Two);
         if (is_tx_nutation_Length) {
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
-                time_last_delay_table.add(tr - time_seq_to_end_spoiler0 - tx_lengths[i] / 2 );
+                time_last_delay_table.add(tr - time_seq_to_end_spoiler0 - tx_lengths[i] / 2);
             }
         } else {
             double last_delay = tr - time_seq_to_end_spoiler;
@@ -674,7 +673,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         }
 
 
-        double total_acquisition_time = tr * nb_scan_4d * nb_scan_3d * nb_scan_2d* nb_scan_1d;
+        double total_acquisition_time = tr * nb_scan_4d * nb_scan_3d * nb_scan_2d * nb_scan_1d;
         getParam(SEQUENCE_TIME).setValue(total_acquisition_time);
         // -----------------------------------------------
         // Phase Reset
