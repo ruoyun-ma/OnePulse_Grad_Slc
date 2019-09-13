@@ -2,6 +2,7 @@
 <application>
     <name>OnePulse_Slc_master</name>
     <description></description>
+    <usage></usage>
     <generatorName>seqdev-temp</generatorName>
     <durationTime>0</durationTime>
     <setUpQueue>
@@ -96,7 +97,7 @@
                 <key>ACQUISITION_MATRIX_DIMENSION_2D</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ACQUISITION_MATRIX_DIMENSION_2D</name>
-                    <value>3</value>
+                    <value>1</value>
                     <defaultValue>128</defaultValue>
                     <description>The acquisition size of the second dimension</description>
                     <displayedName>Acquisition 2D</displayedName>
@@ -169,7 +170,7 @@
                 <key>ACQUISITION_TIME_PER_SCAN</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ACQUISITION_TIME_PER_SCAN</name>
-                    <value>0.40894568690095845</value>
+                    <value>0.40894464</value>
                     <defaultValue>1.0</defaultValue>
                     <description>The acquisition time per scan</description>
                     <displayedName>Acq Time</displayedName>
@@ -201,7 +202,7 @@
                 <key>BASE_FREQ_1</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>BASE_FREQ_1</name>
-                    <value>1.2818100000000001E8</value>
+                    <value>1.279828E8</value>
                     <defaultValue>1.27194553E8</defaultValue>
                     <description>The base frequency of the first sequence channel</description>
                     <displayedName>Base Freq 1</displayedName>
@@ -306,7 +307,7 @@
                 <key>DELAY_ECHO_TIME</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>DELAY_ECHO_TIME</name>
-                    <value>0.00101</value>
+                    <value>7.999999999999988E-5</value>
                     <defaultValue>0.0</defaultValue>
                     <description></description>
                     <displayedName>DELAY_ECHO_TIME</displayedName>
@@ -374,7 +375,7 @@
                 <key>ECHO_TIME</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ECHO_TIME</name>
-                    <value>0.0015300000000000001</value>
+                    <value>6.0E-4</value>
                     <defaultValue>0.005</defaultValue>
                     <description>The echo time</description>
                     <displayedName>TE</displayedName>
@@ -663,6 +664,14 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>HARDWARE_SHIM</name>
                     <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
+                    <value>0.0</value>
                     <description></description>
                     <displayedName>HARDWARE_SHIM</displayedName>
                     <locked>true</locked>
@@ -677,7 +686,7 @@
                 <key>HARDWARE_SHIM_LABEL</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>HARDWARE_SHIM_LABEL</name>
-                    <value>NotConnected</value>
+                    <value>YZ XY XZ X2-Y2 Z0 Z2 X Y Z</value>
                     <defaultValue></defaultValue>
                     <description></description>
                     <displayedName>HARDWARE_SHIM_LABEL</displayedName>
@@ -739,8 +748,8 @@
                 <key>INTERMEDIATE_FREQUENCY</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>INTERMEDIATE_FREQUENCY</name>
-                    <value>2.051E7</value>
-                    <defaultValue>2.051E7</defaultValue>
+                    <value>2.151E7</value>
+                    <defaultValue>2.151E7</defaultValue>
                     <description>INTERMEDIATE_FREQUENCY.description</description>
                     <displayedName>INTERMEDIATE_FREQUENCY.name</displayedName>
                     <locked>false</locked>
@@ -1446,7 +1455,7 @@
                 <key>OBSERVED_FREQUENCY</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>OBSERVED_FREQUENCY</name>
-                    <value>1.2818100000000001E8</value>
+                    <value>1.279828E8</value>
                     <defaultValue>6.3E7</defaultValue>
                     <description>The frequency of the acquisition</description>
                     <displayedName>Observed frequency</displayedName>
@@ -1873,7 +1882,7 @@
                 <key>SEQUENCE_TIME</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SEQUENCE_TIME</name>
-                    <value>2.1</value>
+                    <value>0.7000000000000001</value>
                     <defaultValue>0.0</defaultValue>
                     <description></description>
                     <displayedName>SEQUENCE_TIME</displayedName>
@@ -1950,7 +1959,7 @@
                 <key>SPECTRAL_WIDTH</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SPECTRAL_WIDTH</name>
-                    <value>20032.0</value>
+                    <value>20032.05128205128</value>
                     <defaultValue>12520.0</defaultValue>
                     <description>The spectral width of the reception</description>
                     <displayedName>SW</displayedName>
@@ -1982,7 +1991,7 @@
                 <key>SPECTRAL_WIDTH_PER_PIXEL</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SPECTRAL_WIDTH_PER_PIXEL</name>
-                    <value>2.4453125</value>
+                    <value>2.4453187600160255</value>
                     <defaultValue>100.0</defaultValue>
                     <description>Spectral Width per pixel in Hz / Pix</description>
                     <displayedName>SPECTRAL_WIDTH_PER_PIXEL</displayedName>
@@ -2047,6 +2056,7 @@
                     <suggestedValues>Centered2D_FSE</suggestedValues>
                     <suggestedValues>Centered2D_FSERot</suggestedValues>
                     <suggestedValues>Centered2DRot</suggestedValues>
+                    <suggestedValues>SEEPISequential</suggestedValues>
                     <suggestedValues>Sequential</suggestedValues>
                     <suggestedValues>Sequential2D</suggestedValues>
                     <suggestedValues>Sequential4D</suggestedValues>
@@ -2115,7 +2125,7 @@
                 <key>TX_AMP</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
-                    <value>40.052483358517755</value>
+                    <value>40.087732488176094</value>
                     <defaultValue>40.0</defaultValue>
                     <description>The emission amplitude</description>
                     <displayedName>TX_AMP</displayedName>
@@ -2133,7 +2143,7 @@
                 <key>TX_AMP_ATT_AUTO</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>TX_AMP_ATT_AUTO</name>
-                    <value>true</value>
+                    <value>false</value>
                     <defaultValue>true</defaultValue>
                     <description>Use the ATT and AMP set from the calibration </description>
                     <displayedName>TX_AMP_ATT_AUTO</displayedName>
@@ -2199,7 +2209,7 @@
                 <key>TX_AMP_VALUES</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_AMP_VALUES</name>
-                    <value>40.052483358517755</value>
+                    <value>40.087732488176094</value>
                     <description></description>
                     <displayedName>TX_AMP_VALUES</displayedName>
                     <locked>true</locked>
@@ -2214,7 +2224,7 @@
                 <key>TX_ATT</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
-                    <value>21.0</value>
+                    <value>40.0</value>
                     <defaultValue>36.0</defaultValue>
                     <description>The emission attenuation</description>
                     <displayedName>TX_ATT</displayedName>
@@ -2250,7 +2260,7 @@
                 <key>TX_LENGTH_NUMBER</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_LENGTH_NUMBER</name>
-                    <value>3</value>
+                    <value>6</value>
                     <defaultValue>1</defaultValue>
                     <description>number of step</description>
                     <displayedName>TX_LENGTH_NUMBER</displayedName>
@@ -2307,7 +2317,7 @@
                     <value>0.001</value>
                     <description></description>
                     <displayedName>TX_LENGTH_VALUES</displayedName>
-                    <locked>true</locked>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <numberEnum>Time</numberEnum>
                     <minValue>0.0</minValue>
@@ -2416,7 +2426,7 @@
                 <key>USER_MATRIX_DIMENSION_2D</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>USER_MATRIX_DIMENSION_2D</name>
-                    <value>3</value>
+                    <value>1</value>
                     <defaultValue>128</defaultValue>
                     <description>The matrix size of the second dimension</description>
                     <displayedName>Matrix 2D</displayedName>

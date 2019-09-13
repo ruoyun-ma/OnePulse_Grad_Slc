@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sequenceIO>
-    <sequence rxGainKey="key33" ifFreqKey="key0" accuDimKey="key1" phaseModKey="key14" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firCoefSelectedKey="key302" updateDimensionKey="key359" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
+    <sequence rxGainKey="key33" ifFreqKey="key0" accuDimKey="key1" phaseModKey="key14" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firCoefSelectedKey="key302" updateDimensionKey="key359" acqTimeModeKey="param0" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
         <acquChannel swKey="key43" nameKey="key42">
             <keyList></keyList>
             <keyList></keyList>
@@ -184,6 +184,7 @@
             <keyList>key112</keyList>
             <keyList></keyList>
         </txChannels>
+        <pulses/>
         <observedTxIndex>0</observedTxIndex>
     </sequence>
     <elems>
@@ -752,7 +753,7 @@
             <key>key0</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Intermediate_frequency</name>
-                <value>2.051E7</value>
+                <value>2.151E7</value>
                 <defaultValue>1.0</defaultValue>
                 <displayedName>IF</displayedName>
                 <locked>true</locked>
@@ -762,6 +763,24 @@
                 <minValue>0.0</minValue>
                 <maxValue>3.0E9</maxValue>
                 <group>Reception</group>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>param0</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                <name>AcqTimeMode</name>
+                <value>None</value>
+                <defaultValue>None</defaultValue>
+                <description>Acquisition time resolution mode</description>
+                <displayedName>AcqTimeMode</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>true</restrictedToSuggested>
+                <suggestedValues>None</suggestedValues>
+                <suggestedValues>Time</suggestedValues>
+                <suggestedValues>NbPoints</suggestedValues>
+                <suggestedValues>SpectralWidth</suggestedValues>
             </value>
         </Entry>
         <Entry>
@@ -783,10 +802,24 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>param1</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                <name>Name5</name>
+                <value>AcquElem</value>
+                <defaultValue>Elem</defaultValue>
+                <description>The name of the element</description>
+                <displayedName>Name5</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key2</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
-                <value>21.0</value>
+                <value>40.0</value>
                 <defaultValue>7.5</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -796,6 +829,19 @@
                 <minValue>0.0</minValue>
                 <maxValue>63.0</maxValue>
                 <group>Emission</group>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>param2</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>Enabled5</name>
+                <value>true</value>
+                <defaultValue>true</defaultValue>
+                <description>The state of the element</description>
+                <displayedName>Enabled5</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
             </value>
         </Entry>
         <Entry>
@@ -814,6 +860,22 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>param3</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>Nb_point2</name>
+                <value>128</value>
+                <defaultValue>128</defaultValue>
+                <displayedName>Nb_point2</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <numberEnum>AcquPoint</numberEnum>
+                <minValue>1</minValue>
+                <maxValue>4194304</maxValue>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key4</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>name</name>
@@ -821,6 +883,20 @@
                 <defaultValue>Elem</defaultValue>
                 <description>The name of the element</description>
                 <displayedName>name</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>param4</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                <name>Name6</name>
+                <value>AcquElem</value>
+                <defaultValue>Elem</defaultValue>
+                <description>The name of the element</description>
+                <displayedName>Name6</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -841,6 +917,19 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>param5</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>Enabled6</name>
+                <value>true</value>
+                <defaultValue>true</defaultValue>
+                <description>The state of the element</description>
+                <displayedName>Enabled6</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key6</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="enumParam">
                 <name>CodeEnum</name>
@@ -849,6 +938,22 @@
                 <displayedName>CodeEnum</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>param6</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>Nb_point3</name>
+                <value>128</value>
+                <defaultValue>128</defaultValue>
+                <displayedName>Nb_point3</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <numberEnum>AcquPoint</numberEnum>
+                <minValue>1</minValue>
+                <maxValue>4194304</maxValue>
             </value>
         </Entry>
         <Entry>
@@ -1218,7 +1323,7 @@
             <key>key20</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_2d</name>
-                <value>3</value>
+                <value>1</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 2D</displayedName>
                 <locked>true</locked>
@@ -1516,7 +1621,7 @@
             <key>key39</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
-                <value>1.2818100000000001E8</value>
+                <value>1.279828E8</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -1573,7 +1678,7 @@
             <key>key43</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Spectral_width</name>
-                <value>20032.0</value>
+                <value>20032.05128205128</value>
                 <defaultValue>12500.0</defaultValue>
                 <displayedName>SW0</displayedName>
                 <locked>true</locked>
@@ -6197,7 +6302,7 @@
                 <name>Time_FIR_delay</name>
                 <description></description>
                 <numberEnum>Time</numberEnum>
-                <order>One</order>
+                <order>FourLoop</order>
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
@@ -6343,7 +6448,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.00101</list>
+                <list>7.999999999999988E-5</list>
             </value>
         </Entry>
         <Entry>
@@ -6353,11 +6458,11 @@
                 <name>Time_rx</name>
                 <description></description>
                 <numberEnum>Time</numberEnum>
-                <order>One</order>
+                <order>FourLoop</order>
                 <group>Reception</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.40894568690095845</list>
+                <list>0.40894464</list>
             </value>
         </Entry>
         <Entry>
@@ -6371,7 +6476,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.28849431309904167</list>
+                <list>0.28942536000000013</list>
             </value>
         </Entry>
         <Entry>
@@ -6381,7 +6486,7 @@
                 <name>Tx_freq_offset</name>
                 <description></description>
                 <numberEnum>FrequencyOffset</numberEnum>
-                <order>Two</order>
+                <order>FourLoop</order>
                 <group>Emission</group>
                 <locked>true</locked>
                 <address>-1</address>
@@ -6575,7 +6680,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>40.052483358517755</list>
+                <list>40.087732488176094</list>
             </value>
         </Entry>
         <Entry>
@@ -7046,7 +7151,7 @@
                 <name>Time_grad_ref</name>
                 <description></description>
                 <numberEnum>Time</numberEnum>
-                <order>One</order>
+                <order>FourLoop</order>
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
@@ -7060,7 +7165,7 @@
                 <name>Time_grad_spoil</name>
                 <description></description>
                 <numberEnum>Time</numberEnum>
-                <order>One</order>
+                <order>FourLoop</order>
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
@@ -7074,7 +7179,7 @@
                 <name>Time_grad_spoil_ramp</name>
                 <description></description>
                 <numberEnum>Time</numberEnum>
-                <order>One</order>
+                <order>FourLoop</order>
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
@@ -7104,7 +7209,7 @@
                 <numberEnum>Time</numberEnum>
                 <order>Four</order>
                 <group>Delay</group>
-                <locked>false</locked>
+                <locked>true</locked>
                 <address>-1</address>
                 <list>5.0E-6</list>
             </value>
