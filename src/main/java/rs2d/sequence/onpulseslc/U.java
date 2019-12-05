@@ -121,7 +121,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(0.40894464);
+            param.setValue(0.40894568690095845);
             param.setDefaultValue(1.0);
             return param;
         }
@@ -152,7 +152,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Frequency);
             param.setMinValue(0.0);
             param.setMaxValue(3.0E9);
-            param.setValue(1.279828E8);
+            param.setValue(3.00001E8);
             param.setDefaultValue(1.27194553E8);
             return param;
         }
@@ -447,7 +447,7 @@ public enum U implements GeneratorParamEnum {
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
             param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asListNumber(0.0, 0.0, 0.0));
+            param.setValue(asListNumber(27.69, 28.58, 22.43));
             return param;
         }
     },
@@ -513,7 +513,7 @@ public enum U implements GeneratorParamEnum {
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
             param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asListNumber(0.0, 0.0, 0.0, 0.0));
+            param.setValue(asListNumber(-0.174, 0.2686, -0.1862, 0.0));
             return param;
         }
     },
@@ -547,7 +547,7 @@ public enum U implements GeneratorParamEnum {
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
             param.setNumberEnum(NumberEnum.Time);
-            param.setValue(asListNumber(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0));
+            param.setValue(asListNumber(0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02));
             return param;
         }
     },
@@ -627,8 +627,8 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Frequency);
             param.setMinValue(0.0);
             param.setMaxValue(3.0E9);
-            param.setValue(2.151E7);
-            param.setDefaultValue(2.151E7);
+            param.setValue(1.25E7);
+            param.setDefaultValue(1.25E7);
             return param;
         }
     },
@@ -836,7 +836,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Frequency);
             param.setMinValue(0.0);
             param.setMaxValue(3.0E9);
-            param.setValue(1.279828E8);
+            param.setValue(3.00001E8);
             param.setDefaultValue(6.3E7);
             return param;
         }
@@ -1306,7 +1306,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.SW);
             param.setMinValue(119.3);
             param.setMaxValue(3906000.0);
-            param.setValue(20032.05128205128);
+            param.setValue(20032.0);
             param.setDefaultValue(12520.0);
             return param;
         }
@@ -1337,7 +1337,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.SW);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E8);
-            param.setValue(2.4453187600160255);
+            param.setValue(2.4453125);
             param.setDefaultValue(100.0);
             return param;
         }
@@ -1384,7 +1384,7 @@ public enum U implements GeneratorParamEnum {
             param.setCategory(Category.Acquisition);
             param.setValue("none");
             param.setDefaultValue("none");
-            param.setSuggestedValues(asList("Bordered2D", "Bordered2D_FSE", "Centered2D", "Centered2D_FSE", "Centered2D_FSERot", "Centered2DRot", "SEEPISequential", "Sequential", "Sequential2D", "Sequential4D", "Sequential4D_Dummy2D", "Sequential4DBackAndForth", "Sequential4DCine", "SequentialMPRAGE"));
+            param.setSuggestedValues(asList("Bordered2D", "Bordered2D", "Bordered2D_FSE", "Bordered2D_FSE", "Centered2D", "Centered2D", "Centered2D_FSE", "Centered2D_FSE", "Centered2D_FSERot", "Centered2D_FSERot", "Centered2DRot", "Centered2DRot", "EPISequential4D", "SEEPISequential", "SEEPISequential", "Sequential", "Sequential", "Sequential2D", "Sequential2D", "Sequential4D", "Sequential4D", "Sequential4D_Dummy2D", "Sequential4D_Dummy2D", "Sequential4DBackAndForth", "Sequential4DBackAndForth", "Sequential4DCine", "Sequential4DCine", "SequentialMPRAGE", "SequentialMPRAGE"));
             return param;
         }
     },

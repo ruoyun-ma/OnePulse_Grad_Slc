@@ -114,7 +114,7 @@
             <key>ACQUISITION_TIME_PER_SCAN</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ACQUISITION_TIME_PER_SCAN</name>
-                <value>0.40894464</value>
+                <value>0.40894568690095845</value>
                 <defaultValue>1.0</defaultValue>
                 <description>The acquisition time per scan</description>
                 <displayedName>Acq Time</displayedName>
@@ -146,7 +146,7 @@
             <key>BASE_FREQ_1</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>BASE_FREQ_1</name>
-                <value>1.279828E8</value>
+                <value>3.00001E8</value>
                 <defaultValue>1.27194553E8</defaultValue>
                 <description>The base frequency of the first sequence channel</description>
                 <displayedName>Base Freq 1</displayedName>
@@ -457,9 +457,9 @@
             <key>HARDWARE_A0</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>HARDWARE_A0</name>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
+                <value>27.69</value>
+                <value>28.58</value>
+                <value>22.43</value>
                 <description></description>
                 <displayedName>HARDWARE_A0</displayedName>
                 <locked>true</locked>
@@ -523,9 +523,9 @@
             <key>HARDWARE_DC</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>HARDWARE_DC</name>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
+                <value>-0.174</value>
+                <value>0.2686</value>
+                <value>-0.1862</value>
                 <value>0.0</value>
                 <description></description>
                 <displayedName>HARDWARE_DC</displayedName>
@@ -574,24 +574,24 @@
             <key>HARDWARE_PREEMPHASIS_T</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>HARDWARE_PREEMPHASIS_T</name>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
+                <value>0.02</value>
                 <description></description>
                 <displayedName>HARDWARE_PREEMPHASIS_T</displayedName>
                 <locked>true</locked>
@@ -692,8 +692,8 @@
             <key>INTERMEDIATE_FREQUENCY</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>INTERMEDIATE_FREQUENCY</name>
-                <value>2.151E7</value>
-                <defaultValue>2.151E7</defaultValue>
+                <value>1.25E7</value>
+                <defaultValue>1.25E7</defaultValue>
                 <description>INTERMEDIATE_FREQUENCY.description</description>
                 <displayedName>INTERMEDIATE_FREQUENCY.name</displayedName>
                 <locked>false</locked>
@@ -1399,7 +1399,7 @@
             <key>OBSERVED_FREQUENCY</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>OBSERVED_FREQUENCY</name>
-                <value>1.279828E8</value>
+                <value>3.00001E8</value>
                 <defaultValue>6.3E7</defaultValue>
                 <description>The frequency of the acquisition</description>
                 <displayedName>Observed frequency</displayedName>
@@ -1903,7 +1903,7 @@
             <key>SPECTRAL_WIDTH</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SPECTRAL_WIDTH</name>
-                <value>20032.05128205128</value>
+                <value>20032.0</value>
                 <defaultValue>12520.0</defaultValue>
                 <description>The spectral width of the reception</description>
                 <displayedName>SW</displayedName>
@@ -1935,7 +1935,7 @@
             <key>SPECTRAL_WIDTH_PER_PIXEL</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SPECTRAL_WIDTH_PER_PIXEL</name>
-                <value>2.4453187600160255</value>
+                <value>2.4453125</value>
                 <defaultValue>100.0</defaultValue>
                 <description>Spectral Width per pixel in Hz / Pix</description>
                 <displayedName>SPECTRAL_WIDTH_PER_PIXEL</displayedName>
@@ -1995,18 +1995,33 @@
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <suggestedValues>Bordered2D</suggestedValues>
+                <suggestedValues>Bordered2D</suggestedValues>
+                <suggestedValues>Bordered2D_FSE</suggestedValues>
                 <suggestedValues>Bordered2D_FSE</suggestedValues>
                 <suggestedValues>Centered2D</suggestedValues>
+                <suggestedValues>Centered2D</suggestedValues>
+                <suggestedValues>Centered2D_FSE</suggestedValues>
                 <suggestedValues>Centered2D_FSE</suggestedValues>
                 <suggestedValues>Centered2D_FSERot</suggestedValues>
+                <suggestedValues>Centered2D_FSERot</suggestedValues>
                 <suggestedValues>Centered2DRot</suggestedValues>
+                <suggestedValues>Centered2DRot</suggestedValues>
+                <suggestedValues>EPISequential4D</suggestedValues>
+                <suggestedValues>SEEPISequential</suggestedValues>
                 <suggestedValues>SEEPISequential</suggestedValues>
                 <suggestedValues>Sequential</suggestedValues>
+                <suggestedValues>Sequential</suggestedValues>
+                <suggestedValues>Sequential2D</suggestedValues>
                 <suggestedValues>Sequential2D</suggestedValues>
                 <suggestedValues>Sequential4D</suggestedValues>
+                <suggestedValues>Sequential4D</suggestedValues>
+                <suggestedValues>Sequential4D_Dummy2D</suggestedValues>
                 <suggestedValues>Sequential4D_Dummy2D</suggestedValues>
                 <suggestedValues>Sequential4DBackAndForth</suggestedValues>
+                <suggestedValues>Sequential4DBackAndForth</suggestedValues>
                 <suggestedValues>Sequential4DCine</suggestedValues>
+                <suggestedValues>Sequential4DCine</suggestedValues>
+                <suggestedValues>SequentialMPRAGE</suggestedValues>
                 <suggestedValues>SequentialMPRAGE</suggestedValues>
                 <group>Scan</group>
                 <category>Acquisition</category>

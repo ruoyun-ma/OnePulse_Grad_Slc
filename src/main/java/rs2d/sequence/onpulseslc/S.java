@@ -18,6 +18,7 @@ public enum S implements GeneratorSequenceParamEnum {
     Gradient_angle_psi("Gradient_angle_psi"),
     Gradient_angle_theta("Gradient_angle_theta"),
     Intermediate_frequency("Intermediate_frequency"),
+    LO_att("LO_att"),
     Nb_1d("Nb_1d"),
     Nb_2d("Nb_2d"),
     Nb_3d("Nb_3d"),

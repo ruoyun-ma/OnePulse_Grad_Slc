@@ -24,7 +24,11 @@ import java.util.List;
 
 /**
  * Class RFPulse
- * V2.1- 2018-03-20b JR
+ * V2.6 constructor with generatorSequenceParam .name() V2019.06
+ * V2.5- getNearestSW Sup Inf for Cam4
+ * V2.3- 2019-06-06 JR
+ * V2.2- 2018-12-19 JR
+ * V2.1- 2017-10-24 JR
  */
 public class RFPulse {
     private Table amplitudeTable = null;
@@ -233,6 +237,7 @@ public class RFPulse {
         ProbeChannelPower pulse = TxMath.getProbePower(probe, null, nucleus.name());
         double instrument_length_180 = pulse.getHardPulse180().x;
         double power_factor = Utility.powerFillingFactor(shape) / getSlrPowerFactors180();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+        // in future version V2019.07: double power_factor = Utility.complexPowerFillingFactor(shape) / getSlrPowerFactors180();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
         double instrument_power_180 = pulse.getHardPulse180().y / power_factor;
         double power_180 = instrument_power_180 * Math.pow(instrument_length_180 / pulseDuration, 2);
 
@@ -256,12 +261,13 @@ public class RFPulse {
      */
     private double calculateTxAmp90(InstrumentTxChannel txCh) {
         if (txAtt == -1) {
-            txAtt = ((NumberParam) attParam).getValue().intValue();
+            txAtt = (int) attParam.getValue();
         }
         double tx_amp;
         Probe probe = Instrument.instance().getTransmitProbe();
         ProbeChannelPower pulse = TxMath.getProbePower(probe, null, nucleus.name());
         double power_factor = Utility.powerFillingFactor(shape) / getSlrPowerFactors90();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+        // in future version V2019.07: double power_factor = Utility.complexPowerFillingFactor(shape) / getSlrPowerFactors180();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
         double instrument_power_90 = pulse.getHardPulse90().y / power_factor;
         double instrument_length = pulse.getHardPulse90().x;
         double power = instrument_power_90 * Math.pow(instrument_length / pulseDuration, 2);
@@ -280,6 +286,7 @@ public class RFPulse {
         Probe probe = Instrument.instance().getTransmitProbe();
         ProbeChannelPower pulse = TxMath.getProbePower(probe, null, nucleus.name());
         double power_factor = Utility.powerFillingFactor(shape) / getSlrPowerFactors180();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+        // in future version V2019.07: double power_factor = Utility.complexPowerFillingFactor(shape) ;       // get RF pulse power factor from instrument to calculate RF pulse amplitude
         double instrument_power_180 = pulse.getHardPulse180().y / power_factor;
         double instrument_length = pulse.getHardPulse180().x;
         double power = instrument_power_180 * Math.pow(instrument_length / pulseDuration, 2);
@@ -325,6 +332,7 @@ public class RFPulse {
         Probe probe = Instrument.instance().getTransmitProbe();
         ProbeChannelPower pulse = TxMath.getProbePower(probe, null, nucleus.name());
         double power_factor = Utility.powerFillingFactor(shape) / (flipAngle < 135 ? getSlrPowerFactors90() : getSlrPowerFactors180());       // get RF pulse power factor from instrument to calculate RF pulse amplitude
+        // in future version V2019.07: double power_factor = Utility.complexPowerFillingFactor(shape) ;       // get RF pulse power factor from instrument to calculate RF pulse amplitude
         double instrument_length = flipAngle < 135 ? pulse.getHardPulse90().x : pulse.getHardPulse180().x;
         double instrument_power = (flipAngle < 135 ? pulse.getHardPulse90().y : pulse.getHardPulse180().y) / power_factor;
         powerPulse = instrument_power * Math.pow(instrument_length / pulseDuration, 2) * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2);
@@ -661,7 +669,6 @@ public class RFPulse {
 
 
     public void setFrequencyOffset(double value) {
-
         txFrequencyOffsetTable = new double[1];
         txFrequencyOffsetTable[0] = value;
         numberOfFreqOffset = 1;
@@ -698,7 +705,7 @@ public class RFPulse {
         }
     }
 
-    public void setFrequencyOffset(double ... value) {
+    public void setFrequencyOffset(double... value) {
         numberOfFreqOffset = value.length;
         txFrequencyOffsetTable = new double[numberOfFreqOffset];
         for (int k = 0; k < numberOfFreqOffset; k++) {
@@ -707,10 +714,10 @@ public class RFPulse {
         setFrequencyOffset();
     }
 
-    public void setFrequencyOffset(Order order, double ... value) {
-        setFrequencyOffset( value);
-        setFrequencyOffset( order);
-        System.out.println(txFrequencyOffsetTable[0]);
+    public void setFrequencyOffset(Order order, double... value) {
+        setFrequencyOffset(value);
+        setFrequencyOffset(order);
+        // System.out.println(txFrequencyOffsetTable[0]);
     }
 
     public double getFrequencyOffset(int k) {
@@ -764,6 +771,23 @@ public class RFPulse {
         txFrequencyOffsetTable = new double[numberOfFreqOffset];
         txFrequencyOffsetTable[0] = -grad_amp_read_read_mTpm * off_center_distance * (GradientMath.GAMMA);
         setSequenceTableValues(FrequencyOffsetTable, FrequencyOffsetOrder, txFrequencyOffsetTable[0]);
+    }
+
+    public void setFrequencyOffsetReadoutEchoPlanar(Gradient grad, double off_center_distance, int ETL, Order tableorder) {
+        numberOfFreqOffset = ETL;
+        FrequencyOffsetOrder = tableorder;
+        double grad_amp_read_read_mTpm = grad.getAmplitude_mTpm();// amplitude in T/m
+        System.out.println("numberOfFreqOffset " + numberOfFreqOffset);
+        txFrequencyOffsetTable = new double[numberOfFreqOffset];
+        for (int i = 0; i < numberOfFreqOffset; i++) {
+            if (i % 2 == 0) {
+                txFrequencyOffsetTable[i] = -grad_amp_read_read_mTpm * off_center_distance * (GradientMath.GAMMA);
+            } else {
+                txFrequencyOffsetTable[i] = grad_amp_read_read_mTpm * off_center_distance * (GradientMath.GAMMA);
+            }
+        }
+        setSequenceTableValues(FrequencyOffsetTable, FrequencyOffsetOrder, txFrequencyOffsetTable);
+
     }
 
     /**

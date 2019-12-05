@@ -339,6 +339,10 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         off_center_distanceList.add(off_center_distance_3D);
 
         getParam(OFF_CENTER_FIELD_OF_VIEW_EFF).setValue(off_center_distanceList);
+        // ------------------------------------------------------------------
+        // load preemphasis
+        // ------------------------------------------------------------------
+  /*      HardwareB0comp hardwareB0comp = new HardwareB0comp();
 
 
         HardwarePreemphasis hardwarePreemphasis = new HardwarePreemphasis();
@@ -350,15 +354,12 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         HardwareShim hardwareShim = new HardwareShim();
         getParam(HARDWARE_SHIM).setValue(hardwareShim.getValue());
         getParam(HARDWARE_SHIM_LABEL).setValue(hardwareShim.getLabel());
-        // ------------------------------------------------------------------
-        // load preemphasis
-        // ------------------------------------------------------------------
-        HardwareB0comp hardwareB0comp = new HardwareB0comp();
         getParam(HARDWARE_B0_COMP).setValue(hardwareB0comp.getStatus());
 
         getParam(HARDWARE_B0_COMP_AMP).setValue(hardwareB0comp.getAmp());
 
         getParam(HARDWARE_B0_COMP_PHASE).setValue(hardwareB0comp.getB0compPhase());
+        */
         // -----------------------------------------------
         // activate gradient rotation matrix
         // -----------------------------------------------
@@ -533,6 +534,8 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
 
         setSequenceTableSingleValue(Time_rx, observation_time);
         set(Spectral_width, spectralWidth);
+        set(LO_att, Instrument.instance().getLoAttenuation());
+
         // ---------------------------------------------------------------------
         // calculate SPOILER gradient amplitudes
         // ---------------------------------------------------------------------
@@ -557,18 +560,13 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         //                                                          index of sequence events
         //
         // --------------------------------------------------------------------------------------------------------------------------------------------
-        int eventStart = 0;
-        int eventPulse = 5;
-        int eventDelay = 10;
-        int eventAcq = 11;
-        int eventFIRDelay = 12;
-        int eventEnd = 16;
 
+        Events.checkEventShortcut(getSequence());
         // ------------------------------------------
         // calculate delays adapted to current TE & search for incoherence
         // ------------------------------------------
         // calculate actual delays between Rf-pulses and ADC
-        double time0 = TimeEvents.getTimeBetweenEvents(getSequence(), eventPulse + 1, eventDelay - 1) + TimeEvents.getTimeBetweenEvents(getSequence(), eventDelay + 1, eventAcq - 1);
+        double time0 = TimeEvents.getTimeBetweenEvents(getSequence(), Events.Pulse.ID + 1, Events.Delay.ID - 1) + TimeEvents.getTimeBetweenEvents(getSequence(),Events.Delay.ID  + 1,Events.Acq.ID  - 1);
         double time1 = time0 + txLengthMax / 2;// Actual_TE
 
         // get minimal TE value & search for incoherence
@@ -613,11 +611,11 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         double min_FIR_delay = (lo_FIR_dead_point + 2) / spectralWidth;
         double min_FIR_4pts_delay = 4 / spectralWidth;
 
-        double time_fir = TimeEvents.getTimeBetweenEvents(getSequence(), eventAcq + 1, eventEnd - 1);
-        time_fir -= TimeEvents.getTimeForEvents(getSequence(), eventFIRDelay); // Actual_TE without delay1
+        double time_fir = TimeEvents.getTimeBetweenEvents(getSequence(),Events.Acq.ID  + 1,Events.End.ID  - 1);
+        time_fir -= TimeEvents.getTimeForEvents(getSequence(),Events.FIRDelay.ID ); // Actual_TE without delay1
         System.out.println("time_fir " + time_fir);
         double time_fir_delay = Math.max(minInstructionDelay, min_FIR_4pts_delay - time_fir);
-        time_fir = TimeEvents.getTimeBetweenEvents(getSequence(), eventAcq + 1, eventEnd - 1);
+        time_fir = TimeEvents.getTimeBetweenEvents(getSequence(),Events.Acq.ID  + 1,Events.End.ID  - 1);
 
         setSequenceTableSingleValue(Time_FIR_delay, time_fir_delay);
 
@@ -648,7 +646,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         double min_flush_delay = minInstructionDelay;   // minimal time to flush Chameleon buffer (this time is doubled to avoid hidden delays);
         min_flush_delay = Math.max(min_FIR_delay - time_fir, minInstructionDelay);
 
-        double time_seq_to_end_spoiler0 = TimeEvents.getTimeBetweenEvents(getSequence(), eventStart, eventPulse - 1) + te + TimeEvents.getTimeBetweenEvents(getSequence(), eventAcq, eventEnd - 1);
+        double time_seq_to_end_spoiler0 = TimeEvents.getTimeBetweenEvents(getSequence(), Events.Start.ID, Events.Pulse.ID - 1) + te + TimeEvents.getTimeBetweenEvents(getSequence(),Events.Acq.ID ,Events.End.ID  - 1);
         double time_seq_to_end_spoiler = time_seq_to_end_spoiler0 + txLengthMax / 2;
         double tr_min = time_seq_to_end_spoiler + min_flush_delay;// 2 +( 2 minInstructionDelay: event 22 +(20&21
         if (tr < tr_min) {

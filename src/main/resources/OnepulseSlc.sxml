@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sequenceIO>
-    <sequence rxGainKey="key33" ifFreqKey="key0" accuDimKey="key1" phaseModKey="key14" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firCoefSelectedKey="key302" updateDimensionKey="key359" acqTimeModeKey="param0" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
+    <sequence rxGainKey="key33" ifFreqKey="key0" accuDimKey="key1" phaseModKey="key14" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firCoefSelectedKey="key302" updateDimensionKey="key359" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
         <acquChannel swKey="key43" nameKey="key42">
             <keyList></keyList>
             <keyList></keyList>
@@ -753,7 +753,7 @@
             <key>key0</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Intermediate_frequency</name>
-                <value>2.151E7</value>
+                <value>1.25E7</value>
                 <defaultValue>1.0</defaultValue>
                 <displayedName>IF</displayedName>
                 <locked>true</locked>
@@ -1043,16 +1043,17 @@
             <count>1</count>
             <key>key12</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>TxAtt0</name>
-                <value>0.0</value>
+                <name>LO_att</name>
+                <value>30.0</value>
                 <defaultValue>0.0</defaultValue>
-                <displayedName>TxAtt0</displayedName>
+                <displayedName>LO_att</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>TxAtt</numberEnum>
                 <minValue>0.0</minValue>
                 <maxValue>63.0</maxValue>
+                <group>Reception</group>
             </value>
         </Entry>
         <Entry>
@@ -1621,7 +1622,7 @@
             <key>key39</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
-                <value>1.279828E8</value>
+                <value>3.00001E8</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -1678,7 +1679,7 @@
             <key>key43</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Spectral_width</name>
-                <value>20032.05128205128</value>
+                <value>20032.0</value>
                 <defaultValue>12500.0</defaultValue>
                 <displayedName>SW0</displayedName>
                 <locked>true</locked>
@@ -6462,7 +6463,7 @@
                 <group>Reception</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.40894464</list>
+                <list>0.40894568690095845</list>
             </value>
         </Entry>
         <Entry>
@@ -6476,7 +6477,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.28942536000000013</list>
+                <list>0.2894243130990417</list>
             </value>
         </Entry>
         <Entry>
