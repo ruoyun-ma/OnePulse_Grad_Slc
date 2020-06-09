@@ -1759,7 +1759,7 @@
             <key>RECEIVER_COUNT</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>RECEIVER_COUNT</name>
-                <value>1</value>
+                <value>4</value>
                 <defaultValue>1</defaultValue>
                 <description>The number of receivers</description>
                 <displayedName>Receiver Count</displayedName>
@@ -1843,7 +1843,7 @@
             <key>SEQUENCE_VERSION</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_VERSION</name>
-                <value>Version6.0</value>
+                <value>Version6.1</value>
                 <defaultValue></defaultValue>
                 <description></description>
                 <displayedName>SEQUENCE_VERSION</displayedName>
@@ -2006,6 +2006,7 @@
                 <suggestedValues>Centered2D_FSERot</suggestedValues>
                 <suggestedValues>Centered2DRot</suggestedValues>
                 <suggestedValues>Centered2DRot</suggestedValues>
+                <suggestedValues>EchoAntiechoTransform</suggestedValues>
                 <suggestedValues>EPISequential4D</suggestedValues>
                 <suggestedValues>SEEPISequential</suggestedValues>
                 <suggestedValues>SEEPISequential</suggestedValues>
@@ -2013,6 +2014,7 @@
                 <suggestedValues>Sequential</suggestedValues>
                 <suggestedValues>Sequential2D</suggestedValues>
                 <suggestedValues>Sequential2D</suggestedValues>
+                <suggestedValues>Sequential2DInterleaved</suggestedValues>
                 <suggestedValues>Sequential4D</suggestedValues>
                 <suggestedValues>Sequential4D</suggestedValues>
                 <suggestedValues>Sequential4D_Dummy2D</suggestedValues>

@@ -1170,7 +1170,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Integer);
             param.setMinValue(1);
             param.setMaxValue(32);
-            param.setValue(1);
+            param.setValue(4);
             param.setDefaultValue(1);
             return param;
         }
@@ -1246,7 +1246,7 @@ public enum U implements GeneratorParamEnum {
             param.setDescription("");
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version6.0");
+            param.setValue("Version6.1");
             param.setDefaultValue("");
             return param;
         }
@@ -1384,7 +1384,7 @@ public enum U implements GeneratorParamEnum {
             param.setCategory(Category.Acquisition);
             param.setValue("none");
             param.setDefaultValue("none");
-            param.setSuggestedValues(asList("Bordered2D", "Bordered2D", "Bordered2D_FSE", "Bordered2D_FSE", "Centered2D", "Centered2D", "Centered2D_FSE", "Centered2D_FSE", "Centered2D_FSERot", "Centered2D_FSERot", "Centered2DRot", "Centered2DRot", "EPISequential4D", "SEEPISequential", "SEEPISequential", "Sequential", "Sequential", "Sequential2D", "Sequential2D", "Sequential4D", "Sequential4D", "Sequential4D_Dummy2D", "Sequential4D_Dummy2D", "Sequential4DBackAndForth", "Sequential4DBackAndForth", "Sequential4DCine", "Sequential4DCine", "SequentialMPRAGE", "SequentialMPRAGE"));
+            param.setSuggestedValues(asList("Bordered2D", "Bordered2D", "Bordered2D_FSE", "Bordered2D_FSE", "Centered2D", "Centered2D", "Centered2D_FSE", "Centered2D_FSE", "Centered2D_FSERot", "Centered2D_FSERot", "Centered2DRot", "Centered2DRot", "EchoAntiechoTransform", "EPISequential4D", "SEEPISequential", "SEEPISequential", "Sequential", "Sequential", "Sequential2D", "Sequential2D", "Sequential2DInterleaved", "Sequential4D", "Sequential4D", "Sequential4D_Dummy2D", "Sequential4D_Dummy2D", "Sequential4DBackAndForth", "Sequential4DBackAndForth", "Sequential4DCine", "Sequential4DCine", "SequentialMPRAGE", "SequentialMPRAGE"));
             return param;
         }
     },
