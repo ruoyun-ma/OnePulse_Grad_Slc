@@ -192,7 +192,7 @@
         <Entry>
             <count>1</count>
             <key>key0</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key6" paramDataFieldKey="key7" paramSecondaryFieldKey="key377" nameKey="key4" enabledKey="key5"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key6" paramDataFieldKey="key7" paramSecondaryFieldKey="key377" tableDatafieldKey="table17" nameKey="key4" enabledKey="key5"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -239,7 +239,7 @@
         <Entry>
             <count>1</count>
             <key>key10</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key69" paramDataFieldKey="key88" paramSecondaryFieldKey="key376" nameKey="key67" enabledKey="key68"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key69" paramDataFieldKey="key88" paramSecondaryFieldKey="key376" tableDatafieldKey="table16" nameKey="key67" enabledKey="key68"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -329,17 +329,17 @@
         <Entry>
             <count>1</count>
             <key>key28</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key123" paramDataFieldKey="key124" paramSecondaryFieldKey="key363" nameKey="key121" enabledKey="key122"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key123" paramDataFieldKey="key124" paramSecondaryFieldKey="key363" tableDatafieldKey="table3" nameKey="key121" enabledKey="key122"/>
         </Entry>
         <Entry>
             <count>1</count>
             <key>key29</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key127" paramDataFieldKey="key128" paramSecondaryFieldKey="key364" nameKey="key125" enabledKey="key126"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key127" paramDataFieldKey="key128" paramSecondaryFieldKey="key364" tableDatafieldKey="table4" nameKey="key125" enabledKey="key126"/>
         </Entry>
         <Entry>
             <count>1</count>
             <key>key30</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key131" paramDataFieldKey="key132" paramSecondaryFieldKey="key365" nameKey="key129" enabledKey="key130"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key131" paramDataFieldKey="key132" paramSecondaryFieldKey="key365" tableDatafieldKey="table5" nameKey="key129" enabledKey="key130"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -349,17 +349,17 @@
         <Entry>
             <count>1</count>
             <key>key32</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key139" paramDataFieldKey="key140" paramSecondaryFieldKey="key370" nameKey="key137" enabledKey="key138"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key139" paramDataFieldKey="key140" paramSecondaryFieldKey="key370" tableDatafieldKey="table10" nameKey="key137" enabledKey="key138"/>
         </Entry>
         <Entry>
             <count>1</count>
             <key>key33</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key143" paramDataFieldKey="key144" paramSecondaryFieldKey="key371" nameKey="key141" enabledKey="key142"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key143" paramDataFieldKey="key144" paramSecondaryFieldKey="key371" tableDatafieldKey="table11" nameKey="key141" enabledKey="key142"/>
         </Entry>
         <Entry>
             <count>1</count>
             <key>key34</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key147" paramDataFieldKey="key148" paramSecondaryFieldKey="key372" nameKey="key145" enabledKey="key146"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key147" paramDataFieldKey="key148" paramSecondaryFieldKey="key372" tableDatafieldKey="table12" nameKey="key145" enabledKey="key146"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -448,7 +448,7 @@
         <Entry>
             <count>1</count>
             <key>key51</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key196" paramDataFieldKey="key197" paramSecondaryFieldKey="key369" nameKey="key194" enabledKey="key195"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key196" paramDataFieldKey="key197" paramSecondaryFieldKey="key369" tableDatafieldKey="table9" nameKey="key194" enabledKey="key195"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -463,7 +463,7 @@
         <Entry>
             <count>1</count>
             <key>key54</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key208" paramDataFieldKey="key209" paramSecondaryFieldKey="key368" nameKey="key206" enabledKey="key207"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key208" paramDataFieldKey="key209" paramSecondaryFieldKey="key368" tableDatafieldKey="table8" nameKey="key206" enabledKey="key207"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -488,7 +488,7 @@
         <Entry>
             <count>1</count>
             <key>key59</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key224" paramDataFieldKey="key225" paramSecondaryFieldKey="key367" nameKey="key222" enabledKey="key223"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key224" paramDataFieldKey="key225" paramSecondaryFieldKey="key367" tableDatafieldKey="table7" nameKey="key222" enabledKey="key223"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -513,7 +513,7 @@
         <Entry>
             <count>1</count>
             <key>key64</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key240" paramDataFieldKey="key241" paramSecondaryFieldKey="key366" nameKey="key238" enabledKey="key239"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key240" paramDataFieldKey="key241" paramSecondaryFieldKey="key366" tableDatafieldKey="table6" nameKey="key238" enabledKey="key239"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -563,7 +563,7 @@
         <Entry>
             <count>1</count>
             <key>key74</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key261" paramDataFieldKey="key262" paramSecondaryFieldKey="key375" nameKey="key259" enabledKey="key260"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key261" paramDataFieldKey="key262" paramSecondaryFieldKey="key375" tableDatafieldKey="table15" nameKey="key259" enabledKey="key260"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -588,7 +588,7 @@
         <Entry>
             <count>1</count>
             <key>key79</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key277" paramDataFieldKey="key278" paramSecondaryFieldKey="key374" nameKey="key275" enabledKey="key276"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key277" paramDataFieldKey="key278" paramSecondaryFieldKey="key374" tableDatafieldKey="table14" nameKey="key275" enabledKey="key276"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -613,7 +613,7 @@
         <Entry>
             <count>1</count>
             <key>key84</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key293" paramDataFieldKey="key294" paramSecondaryFieldKey="key373" nameKey="key291" enabledKey="key292"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key293" paramDataFieldKey="key294" paramSecondaryFieldKey="key373" tableDatafieldKey="table13" nameKey="key291" enabledKey="key292"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -653,7 +653,7 @@
         <Entry>
             <count>1</count>
             <key>key92</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key316" paramDataFieldKey="key317" paramSecondaryFieldKey="key360" nameKey="key314" enabledKey="key315"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key316" paramDataFieldKey="key317" paramSecondaryFieldKey="key360" tableDatafieldKey="table0" nameKey="key314" enabledKey="key315"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -678,7 +678,7 @@
         <Entry>
             <count>1</count>
             <key>key97</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key332" paramDataFieldKey="key333" paramSecondaryFieldKey="key362" nameKey="key330" enabledKey="key331"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key332" paramDataFieldKey="key333" paramSecondaryFieldKey="key362" tableDatafieldKey="table2" nameKey="key330" enabledKey="key331"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -703,7 +703,7 @@
         <Entry>
             <count>1</count>
             <key>key102</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key348" paramDataFieldKey="key349" paramSecondaryFieldKey="key361" nameKey="key346" enabledKey="key347"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="opcode" paramCodeKey="key348" paramDataFieldKey="key349" paramSecondaryFieldKey="key361" tableDatafieldKey="table1" nameKey="key346" enabledKey="key347"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -753,7 +753,7 @@
             <key>key0</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Intermediate_frequency</name>
-                <value>1.25E7</value>
+                <value>1.251E7</value>
                 <defaultValue>1.0</defaultValue>
                 <displayedName>IF</displayedName>
                 <locked>true</locked>
@@ -1062,7 +1062,7 @@
             <key>key12</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>LO_att</name>
-                <value>0.0</value>
+                <value>10.0</value>
                 <defaultValue>0.0</defaultValue>
                 <displayedName>LO_att</displayedName>
                 <locked>false</locked>
@@ -1698,7 +1698,7 @@
             <key>key43</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Spectral_width</name>
-                <value>20032.0</value>
+                <value>20032.05128205128</value>
                 <defaultValue>12500.0</defaultValue>
                 <displayedName>SW0</displayedName>
                 <locked>true</locked>
@@ -2231,7 +2231,7 @@
             <key>key87</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>Tx_blanking</name>
-                <value>false</value>
+                <value>true</value>
                 <defaultValue>false</defaultValue>
                 <description>State of the element</description>
                 <displayedName>Tx_blanking</displayedName>
@@ -6319,6 +6319,19 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>table0</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield17</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key1</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
                 <name>Time0</name>
@@ -6332,6 +6345,19 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>table1</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield18</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key2</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
                 <name>Time</name>
@@ -6341,6 +6367,19 @@
                 <locked>false</locked>
                 <address>-1</address>
                 <list>1.0E-5</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>table2</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield19</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
             </value>
         </Entry>
         <Entry>
@@ -6359,6 +6398,19 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>table3</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield20</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key4</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
                 <name>Time_tx</name>
@@ -6369,6 +6421,19 @@
                 <locked>true</locked>
                 <address>-1</address>
                 <list>0.001</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>table4</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield21</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
             </value>
         </Entry>
         <Entry>
@@ -6447,6 +6512,19 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>table5</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield22</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key6</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
                 <name>Time_te_delay</name>
@@ -6461,6 +6539,19 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>table6</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield23</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key7</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
                 <name>Time_rx</name>
@@ -6470,7 +6561,20 @@
                 <group>Reception</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.40894568690095845</list>
+                <list>0.40894464</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>table7</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield24</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
             </value>
         </Entry>
         <Entry>
@@ -6484,7 +6588,20 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.28249431309904166</list>
+                <list>0.2824753600000001</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>table8</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield25</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
             </value>
         </Entry>
         <Entry>
@@ -6562,6 +6679,19 @@
             </value>
         </Entry>
         <Entry>
+            <count>1</count>
+            <key>table9</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield26</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
             <count>2</count>
             <key>key10</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
@@ -6627,6 +6757,19 @@
             </value>
         </Entry>
         <Entry>
+            <count>1</count>
+            <key>table10</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield27</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
             <count>2</count>
             <key>key11</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
@@ -6688,7 +6831,20 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>0.0</list>
+                <list>30.0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>table11</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield28</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
             </value>
         </Entry>
         <Entry>
@@ -6885,6 +7041,19 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>table12</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield29</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key13</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
                 <name>Phase2</name>
@@ -6897,6 +7066,19 @@
                 <list>90.0</list>
                 <list>180.0</list>
                 <list>270.0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>table13</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield30</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
             </value>
         </Entry>
         <Entry>
@@ -7066,11 +7248,37 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>table14</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield31</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key15</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
                 <name>att</name>
                 <description></description>
                 <numberEnum>TxAtt</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>table15</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield32</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
                 <order>One</order>
                 <locked>false</locked>
                 <address>-1</address>
@@ -7092,6 +7300,19 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>table16</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield33</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key17</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="shape">
                 <name>Tx_shape_phase</name>
@@ -7101,6 +7322,19 @@
                 <group>Emission</group>
                 <locked>false</locked>
                 <address>-1</address>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>table17</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Datafield34</name>
+                <description></description>
+                <numberEnum>Scan</numberEnum>
+                <order>One</order>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>0</list>
             </value>
         </Entry>
         <Entry>
@@ -7191,7 +7425,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>1.5E-4</list>
+                <list>1.6E-4</list>
             </value>
         </Entry>
         <Entry>

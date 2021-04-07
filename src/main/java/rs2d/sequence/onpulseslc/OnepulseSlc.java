@@ -34,7 +34,7 @@ import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.sequence.SequenceTool;
 import rs2d.spinlab.sequence.element.TimeElement;
 import rs2d.spinlab.sequence.table.*;
-import rs2d.spinlab.sequenceGenerator.SequenceGeneratorAbstract;
+import rs2d.spinlab.sequenceGenerator.BaseSequenceGenerator;
 import rs2d.spinlab.sequenceGenerator.util.GradientRotation;
 import rs2d.spinlab.sequenceGenerator.util.Hardware;
 import rs2d.spinlab.sequenceGenerator.util.TimeEvents;
@@ -49,9 +49,9 @@ import static rs2d.sequence.onpulseslc.S.*;
 import static rs2d.sequence.onpulseslc.U.*;
 
 
-public class OnepulseSlc extends SequenceGeneratorAbstract {
+public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private String sequenceVersion = "Version7.0";
+    private String sequenceVersion = "Version7.1";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -342,24 +342,7 @@ public class OnepulseSlc extends SequenceGeneratorAbstract {
         // ------------------------------------------------------------------
         // load preemphasis
         // ------------------------------------------------------------------
-  /*      HardwareB0comp hardwareB0comp = new HardwareB0comp();
 
-
-        HardwarePreemphasis hardwarePreemphasis = new HardwarePreemphasis();
-        getParam(HARDWARE_PREEMPHASIS_A).setValue(hardwarePreemphasis.getAmplitude());
-        getParam(HARDWARE_PREEMPHASIS_T).setValue(hardwarePreemphasis.getTime());
-        getParam(HARDWARE_DC).setValue(hardwarePreemphasis.getDC());
-        getParam(HARDWARE_A0).setValue(hardwarePreemphasis.getA0());
-
-        HardwareShim hardwareShim = new HardwareShim();
-        getParam(HARDWARE_SHIM).setValue(hardwareShim.getValue());
-        getParam(HARDWARE_SHIM_LABEL).setValue(hardwareShim.getLabel());
-        getParam(HARDWARE_B0_COMP).setValue(hardwareB0comp.getStatus());
-
-        getParam(HARDWARE_B0_COMP_AMP).setValue(hardwareB0comp.getAmp());
-
-        getParam(HARDWARE_B0_COMP_PHASE).setValue(hardwareB0comp.getB0compPhase());
-        */
         // -----------------------------------------------
         // activate gradient rotation matrix
         // -----------------------------------------------
