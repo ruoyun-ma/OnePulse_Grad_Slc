@@ -282,8 +282,8 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Integer);
             param.setMinValue(0);
             param.setMaxValue(50);
-            param.setValue(19);
-            param.setDefaultValue(19);
+            param.setValue(20);
+            param.setDefaultValue(20);
             return param;
         }
     },

@@ -283,8 +283,8 @@
             <key>DIGITAL_FILTER_SHIFT</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>DIGITAL_FILTER_SHIFT</name>
-                <value>19</value>
-                <defaultValue>19</defaultValue>
+                <value>20</value>
+                <defaultValue>20</defaultValue>
                 <description>DIGITAL_FILTER_SHIFT.description</description>
                 <displayedName>Digital filter shift</displayedName>
                 <locked>true</locked>

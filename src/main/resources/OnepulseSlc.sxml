@@ -1240,22 +1240,18 @@
             <key>key15</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>TTLID</name>
-                <value>NC</value>
+                <value>USER0</value>
                 <defaultValue>SEL_H_F</defaultValue>
                 <displayedName>TTLID</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>true</restrictedToSuggested>
                 <suggestedValues>SEL_H_F</suggestedValues>
-                <suggestedValues>SEL_X_F</suggestedValues>
                 <suggestedValues>NC</suggestedValues>
-                <suggestedValues>BlkTX1</suggestedValues>
-                <suggestedValues>BlkTX2</suggestedValues>
-                <suggestedValues>BlkTX3</suggestedValues>
-                <suggestedValues>BlkTX4</suggestedValues>
                 <suggestedValues>BlkGradX</suggestedValues>
                 <suggestedValues>BlkGradY</suggestedValues>
                 <suggestedValues>BlkGradZ</suggestedValues>
+                <suggestedValues>LockHold</suggestedValues>
                 <suggestedValues>ScopeTrigger</suggestedValues>
                 <suggestedValues>USER0</suggestedValues>
                 <suggestedValues>USER1</suggestedValues>
@@ -3298,7 +3294,7 @@
             <key>key166</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>state22</name>
-                <value>false</value>
+                <value>true</value>
                 <defaultValue>false</defaultValue>
                 <description>State of the element</description>
                 <displayedName>state0</displayedName>
