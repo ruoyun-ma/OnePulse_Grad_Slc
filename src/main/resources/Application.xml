@@ -542,7 +542,7 @@
                 <key>INTERMEDIATE_FREQUENCY</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>INTERMEDIATE_FREQUENCY</name>
-                    <value>2.051E7</value>
+                    <value>1.251E7</value>
                     <defaultValue>1.251E7</defaultValue>
                     <description>Info: Frequency from the Hardware used for the signal demodulation (ADC optimal frequency)</description>
                     <displayedName>INTERMEDIATE_FREQUENCY</displayedName>
@@ -1513,7 +1513,7 @@
                     <value></value>
                     <defaultValue>PULSE_LENGTH</defaultValue>
                     <description>Name of the current optimised parameter</description>
-                    <displayedName>Parameter optimised</displayedName>
+                    <displayedName>PAROPT_PARAM</displayedName>
                     <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -1662,7 +1662,7 @@
                 <key>SEQUENCE_TIME</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SEQUENCE_TIME</name>
-                    <value>0.0</value>
+                    <value>0.7000000000000001</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Total acquisition time</description>
                     <displayedName>Acquisition Time</displayedName>
@@ -1922,7 +1922,7 @@
                 <key>TX_AMP</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
-                    <value>40.087732488176094</value>
+                    <value>37.1425966745536</value>
                     <defaultValue>40.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse </description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2006,7 +2006,7 @@
                 <key>TX_AMP_VALUES</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_AMP_VALUES</name>
-                    <value>16.507820744246047</value>
+                    <value>37.1425966745536</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>TX Amp Values</displayedName>
                     <locked>false</locked>
@@ -2021,7 +2021,7 @@
                 <key>TX_ATT</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
-                    <value>40.0</value>
+                    <value>42.0</value>
                     <defaultValue>36.0</defaultValue>
                     <description>Emission RF pulse attenuation</description>
                     <displayedName>TX Attenuation</displayedName>

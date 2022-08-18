@@ -3,24 +3,7 @@
 //                 rs2d.sequence.onpulseslc.OnePulse_Slc_dev
 //  
 // ---------------------------------------------------------------------
-//GRADIENT_REF_TIME to GRADIENT_REFOC_TIME
-//  V5.4   -  20 / 12 / 2017 - Adjust_Window + Hardware shim
-//  V5.3   -  28 / 11 / 2017 - JR extTrigSource
-//                              Version5.3 - Field-Oscilatio
-//  V5.2   -  28 / 11 / 2017 - JR bug SW
-//  V5.1   -  30 / 10 / 2017 - JR
-//       sequenceVersion
-//  V5   -  30 / 10 / 2017 - JR
-//  V4_1  -  03 / 08 / 2017 -
-// 		remove TX_SAVE_IN_INSTRUMENT  TX_RF_POWER
-//        Add trigger
-//  V4_0  -  PECIMEN to SUBJECT - 
-//  V3  -  20 / 06 / 2017 - 
-//	remove  "/ nucleus.getRatio()"
-//
-//  last modification: - 
-//  18 mai 2016 add slice selection
-//  19 Jul 2016 add Spoiler and nutation curve
+
 package rs2d.sequence.onpulseslc;
 
 import rs2d.commons.log.Log;
@@ -28,15 +11,14 @@ import rs2d.commons.log.Log;
 import java.util.*;
 
 import rs2d.sequence.common.*;
-import rs2d.spinlab.instrument.Instrument;
-import rs2d.spinlab.instrument.InstrumentTxChannel;
+import rs2d.spinlab.api.PowerComputation;
+import rs2d.spinlab.api.Hardware;
 import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.sequence.SequenceTool;
 import rs2d.spinlab.sequence.element.TimeElement;
 import rs2d.spinlab.sequence.table.*;
 import rs2d.spinlab.sequenceGenerator.BaseSequenceGenerator;
 import rs2d.spinlab.sequenceGenerator.util.GradientRotation;
-import rs2d.spinlab.sequenceGenerator.util.Hardware;
 import rs2d.spinlab.sequenceGenerator.util.TimeEvents;
 import rs2d.spinlab.tools.param.*;
 import rs2d.spinlab.tools.role.RoleEnum;
@@ -113,12 +95,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         addUserParams();
     }
 
-//    @Override
-//    public void route() throws rs2d.spinlab.hardware.compiler.exception.CompilerRoutageException {
-//        ((List<Double>) this.getParam(MriDefaultParams.TX_ROUTE)).setValue(new ArrayList());
-//        super.route();
-//    }
-
     // @Override
     public void init() {
         super.init();
@@ -133,8 +109,9 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         ((TextParam) getParam(TRIGGER_CHANEL)).setRestrictedToSuggested(true);
 
         //fitSWToHardware(12.5e3);
-        getParam(DIGITAL_FILTER_REMOVED).setDefaultValue(Instrument.instance().getDevices().getCameleon().isRemoveAcquDeadPoint());
-        getParam(INTERMEDIATE_FREQUENCY).setDefaultValue(Instrument.instance().getIfFrequency());
+        getParam(DIGITAL_FILTER_REMOVED).setDefaultValue(Hardware.isRemoveAcquisitionDeadPoints());
+        getParam(DIGITAL_FILTER_SHIFT).setDefaultValue(Hardware.getNbAcquisitionDeadPoints());
+        getParam(INTERMEDIATE_FREQUENCY).setValue(Hardware.getIntermediateFrequency());
     }
 
     public void generate() throws Exception {
@@ -211,7 +188,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // RX parameters : nucleus, RX gain & frequencies
         // -----------------------------------------------
         nucleus = Nucleus.getNucleusForName(getText(NUCLEUS_1));
-        protonFrequency = Instrument.instance().getDevices().getMagnet().getProtonFrequency();
+        protonFrequency = Hardware.getProtonFrequency();
         double freq_offset1 = getDouble(OFFSET_FREQ_1);
         boolean adjustWindow = (getBoolean(ADJUST_WINDOW));
         double baseFreq1;
@@ -223,14 +200,14 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         observeFrequency = baseFreq1 + freq_offset1;
         getParam(BASE_FREQ_1).setValue(baseFreq1);
 
-        min_time_per_acq_point = Hardware.getSequenceCompiler().getTransfertTimePerDataPt();
+        min_time_per_acq_point = Hardware.getTransferTimePerDataPt();
         gMax = GradientMath.getMaxGradientStrength();
 
         set(Rx_gain, RECEIVER_GAIN);
-        getParam(RECEIVER_COUNT).setValue(Instrument.instance().getObservableRxs(nucleus).size());
+        getParam(RECEIVER_COUNT).setValue(Hardware.getReceiverCount(nucleus));
 
-        set(Intermediate_frequency, Instrument.instance().getIfFrequency());
-        getParam(INTERMEDIATE_FREQUENCY).setValue(Instrument.instance().getIfFrequency());
+        set(Intermediate_frequency, Hardware.getIntermediateFrequency());
+        getParam(INTERMEDIATE_FREQUENCY).setValue(Hardware.getIntermediateFrequency());
 
         set(Tx_frequency, observeFrequency);
         getParam(OBSERVED_FREQUENCY).setValue(observeFrequency);
@@ -492,8 +469,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // ---------------------------------------------------------------------
         double slice_thickness_excitation = (sliceThickness);
         setSequenceTableSingleValue(Time_grad_ramp, isMultiplanar ? grad_rise_time : minInstructionDelay);
-        InstrumentTxChannel txCh = Instrument.instance().getTxChannels().get(((List<Integer>) getParam(TX_ROUTE).getValue()).get(0));
-        double blanking_time = txCh.getRfAmpChannel().getBlankingDelay();
+        double blanking_time = Hardware.getRfAmplifierChannelBlankingDelay(getListInt(TX_ROUTE).get(0));
         setSequenceTableSingleValue(Time_grad_ramp_blanking, Math.max(isMultiplanar ? grad_rise_time : minInstructionDelay, blanking_time));
 // 15 40 2.5m
 
@@ -520,7 +496,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
 
         setSequenceTableSingleValue(Time_rx, observation_time);
         set(Spectral_width, spectralWidth);
-        set(LO_att, Instrument.instance().getLoAttenuation());
+        set(LO_att, Hardware.getLoAttenuation());
 
         // ---------------------------------------------------------------------
         // calculate SPOILER gradient amplitudes
@@ -592,8 +568,8 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // delays for FIR
         // ------------------------------------------
 
-        boolean is_FIR = Instrument.instance().getDevices().getCameleon().isRemoveAcquDeadPoint();
-        double lo_FIR_dead_point = is_FIR ? Instrument.instance().getDevices().getCameleon().getAcquDeadPointCount() : 0;
+        boolean is_FIR = Hardware.isRemoveAcquisitionDeadPoints();
+        double lo_FIR_dead_point = is_FIR ? Hardware.getNbAcquisitionDeadPoints() : 0;
         double min_FIR_delay = (lo_FIR_dead_point + 2) / spectralWidth;
         double min_FIR_4pts_delay = 4 / spectralWidth;
 
