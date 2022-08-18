@@ -7,8 +7,8 @@
                 <name>ACCU_DIM</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Dimension of the data accumulation</description>
-                <displayedName>Accu dim</displayedName>
+                <description>Dimension on which averaging is performed by the Cameleon</description>
+                <displayedName>ACCU_DIM</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -25,8 +25,8 @@
                 <name>ACQUISITION_MATRIX_DIMENSION_1D</name>
                 <value>8192</value>
                 <defaultValue>128</defaultValue>
-                <description>Info: Acquisition size of the first dimension</description>
-                <displayedName>Acquisition matrix 1D</displayedName>
+                <description>Info: Size of the initial dataset (raw data) in first dimension</description>
+                <displayedName>Acquisition Matrix 1D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -43,8 +43,8 @@
                 <name>ACQUISITION_MATRIX_DIMENSION_2D</name>
                 <value>1</value>
                 <defaultValue>128</defaultValue>
-                <description>Info: Acquisition size of the second dimension</description>
-                <displayedName>Acquisition matrix 2D</displayedName>
+                <description>Info: Size of the initial dataset (raw data) in second dimension</description>
+                <displayedName>Acquisition Matrix 2D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -61,8 +61,8 @@
                 <name>ACQUISITION_MATRIX_DIMENSION_3D</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Info: Acquisition size of the third dimension</description>
-                <displayedName>Acquisition matrix 3D</displayedName>
+                <description>Info: Size of the initial dataset (raw data) in third dimension</description>
+                <displayedName>Acquisition Matrix 3D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -79,8 +79,8 @@
                 <name>ACQUISITION_MATRIX_DIMENSION_4D</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Info: Acquisition size of the fourth dimension</description>
-                <displayedName>Acquisition matrix 4D</displayedName>
+                <description>Info: Size of the initial dataset (raw data) in fourth dimension</description>
+                <displayedName>Acquisition Matrix 4D</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -103,7 +103,7 @@
                 <defaultValue>REAL</defaultValue>
                 <defaultValue>REAL</defaultValue>
                 <defaultValue>REAL</defaultValue>
-                <description>Info: ACQUISITION_MODE and DATA_REPRESENTATION are filled according to the phase modulation. They ensure that data will be correctly processed.</description>
+                <description>Info: ACQUISITION_MODE and DATA_REPRESENTATION are filled according to the phase modulation chosen</description>
                 <displayedName>ACQUISITION_MODE</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -118,7 +118,7 @@
                 <value>0.40894464</value>
                 <defaultValue>1.0</defaultValue>
                 <description>Info: Time during which the signal is sampled by the ADC</description>
-                <displayedName>Observation time </displayedName>
+                <displayedName>Observation Time </displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -135,8 +135,8 @@
                 <name>ADJUST_WINDOW</name>
                 <value>false</value>
                 <defaultValue>false</defaultValue>
-                <description>Get the Frequency from instrument or from BASE_FREQ_1 Adjust Window</description>
-                <displayedName>Adjust_Window</displayedName>
+                <description>Enable to get the frequency from "Base Frequency 1" and not from instrument </description>
+                <displayedName>Adjust Window</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Reception</group>
@@ -147,10 +147,10 @@
             <key>BASE_FREQ_1</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>BASE_FREQ_1</name>
-                <value>1.2818100000000001E8</value>
+                <value>1.2800000241427468E8</value>
                 <defaultValue>1.27194553E8</defaultValue>
                 <description>Info: Carrier wave frequency of the first channel</description>
-                <displayedName>Base frequency 1</displayedName>
+                <displayedName>Base Frequency 1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -168,7 +168,7 @@
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Carrier wave frequency of the second channel</description>
-                <displayedName>Base frequency 2</displayedName>
+                <displayedName>Base Frequency 2</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -186,7 +186,7 @@
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Carrier wave frequency of the third channel</description>
-                <displayedName>Base frequency 3</displayedName>
+                <displayedName>Base Frequency 3</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -204,7 +204,7 @@
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Carrier wave frequency of the fourth channel</description>
-                <displayedName>Base frequency 4</displayedName>
+                <displayedName>Base Frequency 4</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -227,7 +227,7 @@
                 <defaultValue>REAL</defaultValue>
                 <defaultValue>REAL</defaultValue>
                 <defaultValue>REAL</defaultValue>
-                <description>Info: ACQUISITION_MODE and DATA_REPRESENTATION are filled according to the phase modulation. They ensure that data will be correctly processed.</description>
+                <description>Info: ACQUISITION_MODE and DATA_REPRESENTATION are filled according to the phase modulation chosen</description>
                 <displayedName>DATA_REPRESENTATION</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -242,7 +242,7 @@
                 <value>false</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable to define delay echo time instead of TE</description>
-                <displayedName>Delay echo</displayedName>
+                <displayedName>Delay Echo</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Delay</group>
@@ -256,7 +256,7 @@
                 <value>1.0000000000000026E-5</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Delay added before the signal reception </description>
-                <displayedName>Delay echo time</displayedName>
+                <displayedName>Delay Echo Time</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -273,8 +273,8 @@
                 <name>DIGITAL_FILTER_REMOVED</name>
                 <value>true</value>
                 <defaultValue>true</defaultValue>
-                <description>Data shift due to the digital filter are removed</description>
-                <displayedName>Remove the digital filter</displayedName>
+                <description>Enable to activate the data shift</description>
+                <displayedName>DIGITAL_FILTER_REMOVED</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>true</lockedToDefault>
                 <group>Reception</group>
@@ -288,7 +288,7 @@
                 <value>19</value>
                 <defaultValue>19</defaultValue>
                 <description>Data shift due to the digital filter</description>
-                <displayedName>Digital filter shift</displayedName>
+                <displayedName>DIGITAL_FILTER_SHIFT</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>true</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -321,7 +321,7 @@
             <key>ECHO_TIME</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ECHO_TIME</name>
-                <value>6.0E-4</value>
+                <value>0.00116</value>
                 <defaultValue>0.005</defaultValue>
                 <description>Echo time</description>
                 <displayedName>TE</displayedName>
@@ -360,7 +360,7 @@
                 <value>90.0</value>
                 <defaultValue>30.0</defaultValue>
                 <description>Excitation flip angle</description>
-                <displayedName>Flip angle</displayedName>
+                <displayedName>Flip Angle</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -378,7 +378,7 @@
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Spoiler gradient amplitude</description>
-                <displayedName>Spoiler gradient amplitude</displayedName>
+                <displayedName>Gradient Amplitude Spoiler</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -393,10 +393,10 @@
             <key>GRADIENT_ENABLE_SPOILER</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>GRADIENT_ENABLE_SPOILER</name>
-                <value>true</value>
+                <value>false</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable gradient spoiler</description>
-                <displayedName>Spoiler gradient</displayedName>
+                <displayedName>Gradient Spoiler</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Gradient</group>
@@ -410,7 +410,7 @@
                 <value>1.9999999999999998E-4</value>
                 <defaultValue>1.9999999999999998E-4</defaultValue>
                 <description>Top time of the slice refocusing gradient</description>
-                <displayedName>Refoc gradient duration</displayedName>
+                <displayedName>Gradient Duration Refocusing Slice</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -427,7 +427,7 @@
                 <value>1.5E-4</value>
                 <defaultValue>9.999999999999999E-5</defaultValue>
                 <description>Rise time of gradients</description>
-                <displayedName>Gradient rise time</displayedName>
+                <displayedName>Gradient Rise Time</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -444,7 +444,7 @@
                 <value>1.5E-4</value>
                 <defaultValue>9.999999999999999E-5</defaultValue>
                 <description>Top time of the slice refocusing gradient</description>
-                <displayedName>Spoiler gradient duration</displayedName>
+                <displayedName>Gradient Duration Spoiler</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -452,193 +452,6 @@
                 <minValue>0.0</minValue>
                 <maxValue>1.0E9</maxValue>
                 <group>Delay</group>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
-            <key>HARDWARE_A0</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
-                <name>HARDWARE_A0</name>
-                <value>27.69</value>
-                <value>28.58</value>
-                <value>22.43</value>
-                <description>Info: A0 from the Hardware</description>
-                <displayedName>HARDWARE_A0</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <numberEnum>PERCENT</numberEnum>
-                <minValue>-2.147483648E9</minValue>
-                <maxValue>2.147483647E9</maxValue>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
-            <key>HARDWARE_B0_COMP</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
-                <name>HARDWARE_B0_COMP</name>
-                <value>false</value>
-                <defaultValue>false</defaultValue>
-                <description></description>
-                <displayedName>HARDWARE_B0_COMP</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
-            <key>HARDWARE_B0_COMP_AMP</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>HARDWARE_B0_COMP_AMP</name>
-                <value>0.0</value>
-                <defaultValue>0.0</defaultValue>
-                <description></description>
-                <displayedName>HARDWARE_B0_COMP_AMP</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Double</numberEnum>
-                <minValue>-1.7976931348623157E308</minValue>
-                <maxValue>1.7976931348623157E308</maxValue>
-                <group>Gradient</group>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
-            <key>HARDWARE_B0_COMP_PHASE</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>HARDWARE_B0_COMP_PHASE</name>
-                <value>0.0</value>
-                <defaultValue>0.0</defaultValue>
-                <description></description>
-                <displayedName>HARDWARE_B0_COMP_PHASE</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Phase</numberEnum>
-                <minValue>0.0</minValue>
-                <maxValue>360.0</maxValue>
-                <group>Gradient</group>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
-            <key>HARDWARE_DC</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
-                <name>HARDWARE_DC</name>
-                <value>-0.174</value>
-                <value>0.2686</value>
-                <value>-0.1862</value>
-                <value>0.0</value>
-                <description>Info: DC from the Hardware</description>
-                <displayedName>HARDWARE_DC</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <numberEnum>PERCENT</numberEnum>
-                <minValue>-2.147483648E9</minValue>
-                <maxValue>2.147483647E9</maxValue>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
-            <key>HARDWARE_PREEMPHASIS_A</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
-                <name>HARDWARE_PREEMPHASIS_A</name>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <description>Info: Preamphasis amplitude from the Hardware</description>
-                <displayedName>HARDWARE_PREEMPHASIS_A</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <numberEnum>PERCENT</numberEnum>
-                <minValue>-2.147483648E9</minValue>
-                <maxValue>2.147483647E9</maxValue>
-                <group>Emission</group>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
-            <key>HARDWARE_PREEMPHASIS_T</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
-                <name>HARDWARE_PREEMPHASIS_T</name>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <value>0.02</value>
-                <description>Info: Preamphasis time constant from the Hardware</description>
-                <displayedName>HARDWARE_PREEMPHASIS_T</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <numberEnum>Time</numberEnum>
-                <minValue>0.0</minValue>
-                <maxValue>1.0E9</maxValue>
-                <group>Emission</group>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
-            <key>HARDWARE_SHIM</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
-                <name>HARDWARE_SHIM</name>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <value>0.0</value>
-                <description>Info: Shim values from the Hardaware</description>
-                <displayedName>HARDWARE_SHIM</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <numberEnum>PERCENT</numberEnum>
-                <minValue>-2.147483648E9</minValue>
-                <maxValue>2.147483647E9</maxValue>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
-            <key>HARDWARE_SHIM_LABEL</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
-                <name>HARDWARE_SHIM_LABEL</name>
-                <value>YZ XY XZ X2-Y2 Z0 Z2 X Y Z</value>
-                <defaultValue></defaultValue>
-                <description>Info: Shim label from the Hardware</description>
-                <displayedName>HARDWARE_SHIM_LABEL</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
                 <category>Acquisition</category>
             </value>
         </entry>
@@ -659,7 +472,7 @@
                 <defaultValue>1.0</defaultValue>
                 <defaultValue>0.0</defaultValue>
                 <description>Direction cosines of the first row and the first column with respect to the subject</description>
-                <displayedName>Image orientation</displayedName>
+                <displayedName>Image Orientation</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>Double</numberEnum>
@@ -673,7 +486,7 @@
             <key>INTERMEDIATE_FREQUENCY</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>INTERMEDIATE_FREQUENCY</name>
-                <value>2.051E7</value>
+                <value>1.251E7</value>
                 <defaultValue>1.251E7</defaultValue>
                 <description>Info: Frequency from the Hardware used for the signal demodulation (ADC optimal frequency)</description>
                 <displayedName>INTERMEDIATE_FREQUENCY</displayedName>
@@ -715,7 +528,7 @@
                 <value>5</value>
                 <defaultValue>3</defaultValue>
                 <description>Info: Magnetic field stength from the hardware</description>
-                <displayedName>B0 strength</displayedName>
+                <displayedName>B0 Strength</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -748,7 +561,7 @@
                 <value>90.0</value>
                 <defaultValue>90.0</defaultValue>
                 <description>Safety parameter applied on maximum gradient slew rate. Fastest is 100%</description>
-                <displayedName>Min rise time factor</displayedName>
+                <displayedName>Min Rise Time Factor</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -784,8 +597,8 @@
                 <value>Nanoscan MR 3T</value>
                 <defaultValue>Model name</defaultValue>
                 <description>Info: Model name</description>
-                <displayedName>Model name</displayedName>
-                <locked>false</locked>
+                <displayedName>Model Name</displayedName>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <group>Miscellaneous</group>
@@ -796,10 +609,10 @@
             <key>MULTI_PLANAR_EXCITATION</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>MULTI_PLANAR_EXCITATION</name>
-                <value>false</value>
+                <value>true</value>
                 <defaultValue>true</defaultValue>
-                <description>Enable to use slice selection gradient</description>
-                <displayedName>2D excitation</displayedName>
+                <description>Enable to do slice excitation</description>
+                <displayedName>2D Excitation</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Dimension</group>
@@ -1380,10 +1193,10 @@
             <key>OBSERVED_FREQUENCY</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>OBSERVED_FREQUENCY</name>
-                <value>1.2818100000000001E8</value>
+                <value>1.2800000241427468E8</value>
                 <defaultValue>6.3E7</defaultValue>
                 <description>Info: Frequency of the acquisition</description>
-                <displayedName>Observed frequency</displayedName>
+                <displayedName>Observed Frequency</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1424,7 +1237,7 @@
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Frequency offset of the first channel</description>
-                <displayedName>Frequency offset 1</displayedName>
+                <displayedName>Frequency Offset 1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1442,7 +1255,7 @@
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Frequency offset of the second channel</description>
-                <displayedName>Frequency offset 2</displayedName>
+                <displayedName>Frequency Offset 2</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1460,7 +1273,7 @@
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Frequency offset of the third channel</description>
-                <displayedName>Frequency offset 3</displayedName>
+                <displayedName>Frequency Offset 3</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1478,7 +1291,7 @@
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Frequency offset of the fourth channel</description>
-                <displayedName>Frequency offset 4</displayedName>
+                <displayedName>Frequency Offset 4</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1497,7 +1310,7 @@
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Off-center distance in Readout Direction</description>
                 <displayedName>Location 1D</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Location</numberEnum>
@@ -1515,7 +1328,7 @@
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Off-center distance in Phase Encoding Direction</description>
                 <displayedName>Location  2D</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Location</numberEnum>
@@ -1533,7 +1346,7 @@
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Off-center distance in Slice Direction</description>
                 <displayedName>Location 3D</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Location</numberEnum>
@@ -1554,8 +1367,8 @@
                 <defaultValue>0.0</defaultValue>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Off Center effective in 1D, 2D and 3D (read, phase, slice)</description>
-                <displayedName>Effective location</displayedName>
-                <locked>false</locked>
+                <displayedName>Location Eff</displayedName>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>Location</numberEnum>
                 <minValue>-1.7976931348623157E308</minValue>
@@ -1644,7 +1457,7 @@
                 <value></value>
                 <defaultValue>PULSE_LENGTH</defaultValue>
                 <description>Name of the current optimised parameter</description>
-                <displayedName>Parameter optimised</displayedName>
+                <displayedName>PAROPT_PARAM</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1702,7 +1515,7 @@
                 <value>false</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable the Phase reset at the beginning of each scan</description>
-                <displayedName>Phase reset</displayedName>
+                <displayedName>PHASE_RESET</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Emission</group>
@@ -1710,26 +1523,11 @@
             </value>
         </entry>
         <entry>
-            <key>PROBE</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
-                <name>PROBE</name>
-                <value></value>
-                <defaultValue></defaultValue>
-                <description>Name of probe used for the emission</description>
-                <displayedName>Emission probe</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <group>Miscellaneous</group>
-                <category>Acquisition</category>
-            </value>
-        </entry>
-        <entry>
             <key>PROBES</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listTextParam">
                 <name>PROBES</name>
-                <description>Name of probes used for the reception</description>
-                <displayedName>Reception probes</displayedName>
+                <description>Name of probes used for the transmit and reception</description>
+                <displayedName>Probes</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Miscellaneous</group>
@@ -1742,8 +1540,8 @@
                 <name>RECEIVER_COUNT</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Number of reception channels</description>
-                <displayedName>Number of receivers</displayedName>
+                <description>Info: Number of reception channels</description>
+                <displayedName>No. Receivers</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1761,7 +1559,7 @@
                 <value>1.0</value>
                 <defaultValue>1.0</defaultValue>
                 <description>Receiver Gain</description>
-                <displayedName>Receiver gain</displayedName>
+                <displayedName>RG</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1797,7 +1595,7 @@
                 <value>OnePulse_Slc</value>
                 <defaultValue>OnePulse_Slc</defaultValue>
                 <description>The name of the sequence</description>
-                <displayedName>Sequence name</displayedName>
+                <displayedName>Sequence Name</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1808,10 +1606,10 @@
             <key>SEQUENCE_TIME</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SEQUENCE_TIME</name>
-                <value>0.0</value>
+                <value>0.7000000000000001</value>
                 <defaultValue>0.0</defaultValue>
-                <description>Info: Acquisition time</description>
-                <displayedName>TA</displayedName>
+                <description>Info: Total acquisition time</description>
+                <displayedName>Acquisition Time</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1825,7 +1623,7 @@
             <key>SEQUENCE_VERSION</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_VERSION</name>
-                <value> Version5.3</value>
+                <value>Version7.4</value>
                 <defaultValue></defaultValue>
                 <description>Info: Sequence version</description>
                 <displayedName>Sequence version</displayedName>
@@ -1874,7 +1672,7 @@
                 <value>Software version</value>
                 <defaultValue>Software version</defaultValue>
                 <description>Info: Software version</description>
-                <displayedName>Software version</displayedName>
+                <displayedName>Software Version</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1904,10 +1702,10 @@
             <key>SPECTRAL_WIDTH_OPT</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>SPECTRAL_WIDTH_OPT</name>
-                <value>true</value>
+                <value>false</value>
                 <defaultValue>false</defaultValue>
                 <description>Use BW to calculate BW per pixel (Check) / Use  BW per pixel to calculate BW (Uncheck)</description>
-                <displayedName>BW option</displayedName>
+                <displayedName>BW Option</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Reception</group>
@@ -1939,7 +1737,7 @@
                 <value>Station name</value>
                 <defaultValue>Station name</defaultValue>
                 <description>Info: Station name</description>
-                <displayedName>Station name</displayedName>
+                <displayedName>Station Name</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1954,7 +1752,7 @@
                 <value>HeadFirstProne</value>
                 <defaultValue>FeetFirstProne</defaultValue>
                 <description>Subject position relative to the magnet</description>
-                <displayedName>Subject position </displayedName>
+                <displayedName>Subject Position </displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>true</restrictedToSuggested>
@@ -1972,11 +1770,12 @@
                 <name>TRANSFORM_PLUGIN</name>
                 <value>none</value>
                 <defaultValue>none</defaultValue>
-                <description>Info: Transform the acquisition space to the k-space. </description>
-                <displayedName>Transform plugin</displayedName>
-                <locked>false</locked>
+                <description>Info: Transform the acquisition space to the k-space</description>
+                <displayedName>Transform Plugin</displayedName>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
+                <suggestedValues>Accumulate1D2D</suggestedValues>
                 <suggestedValues>Bordered2D</suggestedValues>
                 <suggestedValues>Bordered2D</suggestedValues>
                 <suggestedValues>Bordered2D_FSE</suggestedValues>
@@ -2002,7 +1801,6 @@
                 <suggestedValues>Sequential4D</suggestedValues>
                 <suggestedValues>Sequential4D_Dummy2D</suggestedValues>
                 <suggestedValues>Sequential4D_Dummy2D</suggestedValues>
-                <suggestedValues>Sequential4D_TOF</suggestedValues>
                 <suggestedValues>Sequential4DBackAndForth</suggestedValues>
                 <suggestedValues>Sequential4DBackAndForth</suggestedValues>
                 <suggestedValues>Sequential4DCine</suggestedValues>
@@ -2017,7 +1815,7 @@
                 <name>TRIGGER_CHANEL</name>
                 <value>Ext1_XOR_Ext2</value>
                 <defaultValue>Ext1_XOR_Ext2</defaultValue>
-                <description>Choose the channels that will be used to synchronise the acquisition with an external signal</description>
+                <description>Choose the external trigger channels option (if available)</description>
                 <displayedName>Trigger Channel</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -2037,7 +1835,7 @@
                 <value>false</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable to synchronize the acquisition with external trigger</description>
-                <displayedName>Trigger external </displayedName>
+                <displayedName>Trigger External </displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Delay</group>
@@ -2053,8 +1851,8 @@
                 <value>0.2</value>
                 <value>0.3</value>
                 <defaultValue>0.01</defaultValue>
-                <description>Time to wait between reception of the trigger signal and sequence start</description>
-                <displayedName>Trigger delay</displayedName>
+                <description>Delays between trigger and acquisition start (Multiple values)</description>
+                <displayedName>Trigger Delay</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>Time</numberEnum>
@@ -2068,10 +1866,10 @@
             <key>TX_AMP</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_AMP</name>
-                <value>40.087732488176094</value>
+                <value>37.1425966745536</value>
                 <defaultValue>40.0</defaultValue>
-                <description>Info: Amplitude of the excitation RF pulse </description>
-                <displayedName>TX amplitude</displayedName>
+                <description>Amplitude of the excitation RF pulse </description>
+                <displayedName>TX Amplitude</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2086,10 +1884,10 @@
             <key>TX_AMP_ATT_AUTO</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>TX_AMP_ATT_AUTO</name>
-                <value>false</value>
+                <value>true</value>
                 <defaultValue>true</defaultValue>
                 <description>Enable to automatically set attenuation and amplitude for the RF according to the calibration</description>
-                <displayedName>TX att/amp auto</displayedName>
+                <displayedName>TX Att/Amp Auto</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <category>Acquisition</category>
@@ -2102,7 +1900,7 @@
                 <value>15</value>
                 <defaultValue>1</defaultValue>
                 <description>Number of TX amplitude increment steps to get a nutation curve</description>
-                <displayedName>TX amp number</displayedName>
+                <displayedName>TX Amp Number</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2120,7 +1918,7 @@
                 <value>5.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Start value of TX amplitude ramp to get a nutation curve</description>
-                <displayedName>TX amp start</displayedName>
+                <displayedName>TX Amp Start</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2137,7 +1935,7 @@
                 <value>1.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Value of the TX amplitude increment step to get a nutation curve</description>
-                <displayedName>TX amp step</displayedName>
+                <displayedName>TX Amp Step</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2152,9 +1950,9 @@
             <key>TX_AMP_VALUES</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_AMP_VALUES</name>
-                <value>16.507820744246047</value>
+                <value>37.1425966745536</value>
                 <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
-                <displayedName>TX amp values</displayedName>
+                <displayedName>TX Amp Values</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>PERCENT</numberEnum>
@@ -2167,10 +1965,10 @@
             <key>TX_ATT</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_ATT</name>
-                <value>40.0</value>
+                <value>42.0</value>
                 <defaultValue>36.0</defaultValue>
                 <description>Emission RF pulse attenuation</description>
-                <displayedName>TX attenuation</displayedName>
+                <displayedName>TX Attenuation</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2188,7 +1986,7 @@
                 <value>0.001</value>
                 <defaultValue>0.3</defaultValue>
                 <description>Emission RF pulse length</description>
-                <displayedName>TX length</displayedName>
+                <displayedName>TX Length</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2206,7 +2004,7 @@
                 <value>6</value>
                 <defaultValue>1</defaultValue>
                 <description>Number of TX length increment steps to get a nutation curve</description>
-                <displayedName>TX length number</displayedName>
+                <displayedName>TX Length Number</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2224,7 +2022,7 @@
                 <value>0.001</value>
                 <defaultValue>0.001</defaultValue>
                 <description>Start value of TX length ramp to get a nutation curve</description>
-                <displayedName>TX length start</displayedName>
+                <displayedName>TX Length Start</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2242,7 +2040,7 @@
                 <value>0.001</value>
                 <defaultValue>1.9999999999999998E-4</defaultValue>
                 <description>Value of the TX length increment step to get a nutation curve</description>
-                <displayedName>TX length step</displayedName>
+                <displayedName>TX Length Step</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2259,7 +2057,7 @@
                 <name>TX_LENGTH_VALUES</name>
                 <value>0.001</value>
                 <description>Info: Values of the TX length sampling points of the nutation curve</description>
-                <displayedName>TX length values</displayedName>
+                <displayedName>TX Length Values</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>Time</numberEnum>
@@ -2275,7 +2073,7 @@
                 <value>false</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable to acquire a nutation curve by varying the TX amplitude</description>
-                <displayedName>TX nutation amp</displayedName>
+                <displayedName>TX Nutation Amp</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Emission</group>
@@ -2289,7 +2087,7 @@
                 <value>false</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable to acquire a nutation curve by varying the TX length</description>
-                <displayedName>TX nutation length</displayedName>
+                <displayedName>TX Nutation Length</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <category>Acquisition</category>
@@ -2335,8 +2133,8 @@
                 <name>USER_MATRIX_DIMENSION_1D</name>
                 <value>8192</value>
                 <defaultValue>128</defaultValue>
-                <description>User 1D dimension after reconstruction</description>
-                <displayedName>User matrix dimension 1D</displayedName>
+                <description>Image size in readout direction (user matrix dimension 1D)</description>
+                <displayedName>Matrix 1D Read</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2353,8 +2151,8 @@
                 <name>USER_MATRIX_DIMENSION_2D</name>
                 <value>1</value>
                 <defaultValue>128</defaultValue>
-                <description>User 2D dimension after reconstruction</description>
-                <displayedName>User matrix dimension 2D</displayedName>
+                <description>Image size in phase encoding direction  (user matrix dimension 2D)</description>
+                <displayedName>Matrix 2D Phase</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2371,8 +2169,8 @@
                 <name>USER_MATRIX_DIMENSION_3D</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>User 3D dimension after reconstruction</description>
-                <displayedName>User matrix dimension 3D</displayedName>
+                <description>Image size in the third dimension: slice or 3D PE  (user matrix dimension 3D)</description>
+                <displayedName>Matrix 3D / No. Slices</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2389,8 +2187,8 @@
                 <name>USER_MATRIX_DIMENSION_4D</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>User 4D dimension after reconstruction</description>
-                <displayedName>User matrix dimension 4D</displayedName>
+                <description>Info: Number of trigger delays (user maxtrix 4D)</description>
+                <displayedName>No. Data Sets</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
