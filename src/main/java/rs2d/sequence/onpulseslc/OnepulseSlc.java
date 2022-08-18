@@ -368,7 +368,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         Table txLengthTable = setSequenceTableValues(Time_tx, Order.Two);
         txLengthTable.add(txLength);
 
-        RFPulse pulseTX = RFPulse.createRFPulse(getSequence(), Tx_att, Tx_amp1, Tx_phase, Time_tx, Tx_shape, Tx_shape_phase, Tx_freq_offset);
+        RFPulse pulseTX = RFPulse.createRFPulse(getSequence(), Tx_att, Tx_amp1, Tx_phase, Time_tx, Tx_shape, Tx_shape_phase, Tx_freq_offset, nucleus);
 
         int nb_shape_points = 128;
         pulseTX.setShape((getText(TX_SHAPE)), nb_shape_points, "Hamming");
