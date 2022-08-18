@@ -11,7 +11,6 @@ import rs2d.commons.log.Log;
 import java.util.*;
 
 import rs2d.sequence.common.*;
-import rs2d.spinlab.api.PowerComputation;
 import rs2d.spinlab.api.Hardware;
 import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.sequence.SequenceTool;
@@ -33,7 +32,7 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private String sequenceVersion = "Version7.4";
+    private String sequenceVersion = "Version8";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;

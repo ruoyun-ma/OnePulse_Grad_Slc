@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sequenceIO>
-    <sequence rxGainKey="key33" ifFreqKey="key0" accuDimKey="key1" phaseModKey="key14" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firCoefSelectedKey="key302" updateDimensionKey="key359" acqTimeModeKey="param7" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
+    <sequence rxGainTableKey="table18" ifFreqKey="key0" accuDimKey="key1" phaseModKey="key14" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firCoefSelectedKey="key302" updateDimensionKey="key359" acqTimeModeKey="param7" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
         <acquChannel swKey="key43" nameKey="key42">
             <keyList></keyList>
             <keyList></keyList>
@@ -819,7 +819,7 @@
             <key>key2</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
-                <value>15.0</value>
+                <value>40.0</value>
                 <defaultValue>7.5</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -1339,7 +1339,7 @@
             <key>key20</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_2d</name>
-                <value>15</value>
+                <value>1</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 2D</displayedName>
                 <locked>true</locked>
@@ -1550,23 +1550,6 @@
         </Entry>
         <Entry>
             <count>1</count>
-            <key>key33</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Rx_gain</name>
-                <value>1.0</value>
-                <defaultValue>1.0</defaultValue>
-                <displayedName>Rx Gain</displayedName>
-                <locked>true</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>RxGain</numberEnum>
-                <minValue>0.0</minValue>
-                <maxValue>120.0</maxValue>
-                <group>Reception</group>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
             <key>key34</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>name2</name>
@@ -1637,7 +1620,7 @@
             <key>key39</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
-                <value>1.28E8</value>
+                <value>1.2800000241427468E8</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -6530,7 +6513,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.007010000000000001</list>
+                <list>7.999999999999988E-5</list>
             </value>
         </Entry>
         <Entry>
@@ -6584,7 +6567,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>0.2824753600000001</list>
+                <list>0.28942536000000013</list>
             </value>
         </Entry>
         <Entry>
@@ -6827,7 +6810,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>30.0</list>
+                <list>40.087732488176094</list>
             </value>
         </Entry>
         <Entry>
@@ -7347,6 +7330,20 @@
         </Entry>
         <Entry>
             <count>1</count>
+            <key>table18</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
+                <name>Rx_gain</name>
+                <description></description>
+                <numberEnum>RxGain</numberEnum>
+                <order>One</order>
+                <group>Reception</group>
+                <locked>false</locked>
+                <address>-1</address>
+                <list>1.0</list>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
             <key>key19</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="shape">
                 <name>TxShape0</name>
@@ -7421,7 +7418,7 @@
                 <group>Delay</group>
                 <locked>true</locked>
                 <address>-1</address>
-                <list>1.6E-4</list>
+                <list>1.5E-4</list>
             </value>
         </Entry>
         <Entry>
@@ -7953,7 +7950,7 @@
                 <order>One</order>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0</list>
+                <list>0.0</list>
             </value>
         </Entry>
         <Entry>

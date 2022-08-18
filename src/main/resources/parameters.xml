@@ -253,7 +253,7 @@
             <key>DELAY_ECHO_TIME</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>DELAY_ECHO_TIME</name>
-                <value>1.0000000000000026E-5</value>
+                <value>7.999999999999988E-5</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Delay added before the signal reception </description>
                 <displayedName>Delay Echo Time</displayedName>
@@ -321,7 +321,7 @@
             <key>ECHO_TIME</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ECHO_TIME</name>
-                <value>0.00116</value>
+                <value>6.0E-4</value>
                 <defaultValue>0.005</defaultValue>
                 <description>Echo time</description>
                 <displayedName>TE</displayedName>
@@ -393,7 +393,7 @@
             <key>GRADIENT_ENABLE_SPOILER</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>GRADIENT_ENABLE_SPOILER</name>
-                <value>false</value>
+                <value>true</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable gradient spoiler</description>
                 <displayedName>Gradient Spoiler</displayedName>
@@ -609,7 +609,7 @@
             <key>MULTI_PLANAR_EXCITATION</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>MULTI_PLANAR_EXCITATION</name>
-                <value>true</value>
+                <value>false</value>
                 <defaultValue>true</defaultValue>
                 <description>Enable to do slice excitation</description>
                 <displayedName>2D Excitation</displayedName>
@@ -1623,7 +1623,7 @@
             <key>SEQUENCE_VERSION</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_VERSION</name>
-                <value>Version7.4</value>
+                <value>Version8</value>
                 <defaultValue></defaultValue>
                 <description>Info: Sequence version</description>
                 <displayedName>Sequence version</displayedName>
@@ -1702,7 +1702,7 @@
             <key>SPECTRAL_WIDTH_OPT</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>SPECTRAL_WIDTH_OPT</name>
-                <value>false</value>
+                <value>true</value>
                 <defaultValue>false</defaultValue>
                 <description>Use BW to calculate BW per pixel (Check) / Use  BW per pixel to calculate BW (Uncheck)</description>
                 <displayedName>BW Option</displayedName>
@@ -1866,7 +1866,7 @@
             <key>TX_AMP</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_AMP</name>
-                <value>37.1425966745536</value>
+                <value>40.087732488176094</value>
                 <defaultValue>40.0</defaultValue>
                 <description>Amplitude of the excitation RF pulse </description>
                 <displayedName>TX Amplitude</displayedName>
@@ -1884,7 +1884,7 @@
             <key>TX_AMP_ATT_AUTO</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>TX_AMP_ATT_AUTO</name>
-                <value>true</value>
+                <value>false</value>
                 <defaultValue>true</defaultValue>
                 <description>Enable to automatically set attenuation and amplitude for the RF according to the calibration</description>
                 <displayedName>TX Att/Amp Auto</displayedName>
@@ -1950,7 +1950,7 @@
             <key>TX_AMP_VALUES</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_AMP_VALUES</name>
-                <value>37.1425966745536</value>
+                <value>40.087732488176094</value>
                 <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                 <displayedName>TX Amp Values</displayedName>
                 <locked>false</locked>
@@ -1965,7 +1965,7 @@
             <key>TX_ATT</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_ATT</name>
-                <value>42.0</value>
+                <value>40.0</value>
                 <defaultValue>36.0</defaultValue>
                 <description>Emission RF pulse attenuation</description>
                 <displayedName>TX Attenuation</displayedName>
@@ -2133,8 +2133,8 @@
                 <name>USER_MATRIX_DIMENSION_1D</name>
                 <value>8192</value>
                 <defaultValue>128</defaultValue>
-                <description>Image size in readout direction (user matrix dimension 1D)</description>
-                <displayedName>Matrix 1D Read</displayedName>
+                <description>Number of points (user matrix dimension 1D)</description>
+                <displayedName>Matrix 1D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2151,8 +2151,8 @@
                 <name>USER_MATRIX_DIMENSION_2D</name>
                 <value>1</value>
                 <defaultValue>128</defaultValue>
-                <description>Image size in phase encoding direction  (user matrix dimension 2D)</description>
-                <displayedName>Matrix 2D Phase</displayedName>
+                <description>Number of repetitions (user matrix dimension 2D)</description>
+                <displayedName>Matrix 2D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2169,7 +2169,7 @@
                 <name>USER_MATRIX_DIMENSION_3D</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Image size in the third dimension: slice or 3D PE  (user matrix dimension 3D)</description>
+                <description>Image size in the third dimension: slice (user matrix dimension 3D)</description>
                 <displayedName>Matrix 3D / No. Slices</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
