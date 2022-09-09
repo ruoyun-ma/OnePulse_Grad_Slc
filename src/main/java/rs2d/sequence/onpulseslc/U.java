@@ -1097,7 +1097,7 @@ public enum U implements GeneratorParamEnum {
             param.setLocked(true);
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version7.4");
+            param.setValue("Version8");
             param.setDefaultValue("");
             return param;
         }
@@ -1547,8 +1547,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("USER_MATRIX_DIMENSION_1D");
-            param.setDisplayedName("Matrix 1D Read");
-            param.setDescription("Image size in readout direction (user matrix dimension 1D)");
+            param.setDisplayedName("Matrix 1D");
+            param.setDescription("Number of points (user matrix dimension 1D)");
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -1564,8 +1564,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("USER_MATRIX_DIMENSION_2D");
-            param.setDisplayedName("Matrix 2D Phase");
-            param.setDescription("Image size in phase encoding direction  (user matrix dimension 2D)");
+            param.setDisplayedName("Matrix 2D");
+            param.setDescription("Number of repetitions (user matrix dimension 2D)");
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -1582,7 +1582,7 @@ public enum U implements GeneratorParamEnum {
             NumberParam param = new NumberParam();
             param.setName("USER_MATRIX_DIMENSION_3D");
             param.setDisplayedName("Matrix 3D / No. Slices");
-            param.setDescription("Image size in the third dimension: slice or 3D PE  (user matrix dimension 3D)");
+            param.setDescription("Image size in the third dimension: slice (user matrix dimension 3D)");
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
