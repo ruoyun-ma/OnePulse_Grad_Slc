@@ -229,12 +229,25 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
+    DEBUG_MODE("DEBUG_MODE") {
+        public Param build() {
+            BooleanParam param = new BooleanParam();
+            param.setName("DEBUG_MODE");
+            param.setDisplayedName("DEBUG_MODE");
+            param.setDescription("Print additionnal information in wommand window for debug purpose");
+            param.setCategory(Category.Miscellaneous);
+            param.setValue(false);
+            param.setDefaultValue(false);
+            return param;
+        }
+    },
+
     DELAY_ECHO("DELAY_ECHO") {
         public Param build() {
             BooleanParam param = new BooleanParam();
             param.setName("DELAY_ECHO");
-            param.setDisplayedName("Use Extra Time RF-ADC");
-            param.setDescription("Enable to define the \"Time RF-ADC\" by adding an Extra Time to the minimal time achievable between RF and ADC");
+            param.setDisplayedName("Add Time btw RF and ADC");
+            param.setDescription("Enable to define the \"Time RF-ADC\" by adding a Dead Time to the minimal time achievable between RF and ADC");
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setValue(false);
@@ -247,14 +260,14 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("DELAY_ECHO_TIME");
-            param.setDisplayedName("Extra Time RF-ADC");
+            param.setDisplayedName("Dead Time RF-ADC");
             param.setDescription("Extra time added before the signal reception (input if \"Add  Extra Time RF-ADC\" checked)");
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(5.200000000000001E-4);
+            param.setValue(7.999999999999988E-5);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -322,7 +335,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(0.0010400000000000001);
+            param.setValue(6.0E-4);
             param.setDefaultValue(0.005);
             return param;
         }
@@ -1303,7 +1316,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.PERCENT);
             param.setMinValue(0.0);
             param.setMaxValue(100.0);
-            param.setValue(49.67640965093185);
+            param.setValue(50.68190460824603);
             param.setDefaultValue(40.0);
             return param;
         }
@@ -1382,7 +1395,7 @@ public enum U implements GeneratorParamEnum {
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
             param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asListNumber(49.67640965093185));
+            param.setValue(asListNumber(50.68190460824603));
             return param;
         }
     },
@@ -1398,7 +1411,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.TxAtt);
             param.setMinValue(0.0);
             param.setMaxValue(63.0);
-            param.setValue(49.0);
+            param.setValue(42.0);
             param.setDefaultValue(36.0);
             return param;
         }
@@ -1414,7 +1427,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.RfPower);
             param.setMinValue(0.0);
             param.setMaxValue(250000.0);
-            param.setValue(246.0);
+            param.setValue(1268.0);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1540,7 +1553,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Power);
             param.setMinValue(0.0);
             param.setMaxValue(10000.0);
-            param.setValue(0.1312);
+            param.setValue(0.676);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1569,7 +1582,7 @@ public enum U implements GeneratorParamEnum {
             param.setDisplayedName("TX shape");
             param.setDescription("Emission RF Pulse shape");
             param.setCategory(Category.Acquisition);
-            param.setValue("HARD");
+            param.setValue("GAUSSIAN");
             param.setDefaultValue("GAUSSIAN");
             param.setSuggestedValues(asList("GAUSSIAN", "SINC3", "HARD", "SINC5"));
             return param;

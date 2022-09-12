@@ -236,13 +236,26 @@
             </value>
         </entry>
         <entry>
+            <key>DEBUG_MODE</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>DEBUG_MODE</name>
+                <value>false</value>
+                <defaultValue>false</defaultValue>
+                <description>Print additionnal information in wommand window for debug purpose</description>
+                <displayedName>DEBUG_MODE</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <category>Miscellaneous</category>
+            </value>
+        </entry>
+        <entry>
             <key>DELAY_ECHO</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>DELAY_ECHO</name>
                 <value>false</value>
                 <defaultValue>false</defaultValue>
-                <description>Enable to define the "Time RF-ADC" by adding an Extra Time to the minimal time achievable between RF and ADC</description>
-                <displayedName>Use Extra Time RF-ADC</displayedName>
+                <description>Enable to define the "Time RF-ADC" by adding a Dead Time to the minimal time achievable between RF and ADC</description>
+                <displayedName>Add Time btw RF and ADC</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Delay</group>
@@ -253,10 +266,10 @@
             <key>DELAY_ECHO_TIME</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>DELAY_ECHO_TIME</name>
-                <value>5.200000000000001E-4</value>
+                <value>7.999999999999988E-5</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Extra time added before the signal reception (input if "Add  Extra Time RF-ADC" checked)</description>
-                <displayedName>Extra Time RF-ADC</displayedName>
+                <displayedName>Dead Time RF-ADC</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -321,7 +334,7 @@
             <key>ECHO_TIME</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ECHO_TIME</name>
-                <value>0.0010400000000000001</value>
+                <value>6.0E-4</value>
                 <defaultValue>0.005</defaultValue>
                 <description>Dead time between RF and ADC (input if "Add  Extra Time RF-ADC" unchecked)</description>
                 <displayedName>Time RF-ADC</displayedName>
@@ -1866,7 +1879,7 @@
             <key>TX_AMP</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_AMP</name>
-                <value>49.67640965093185</value>
+                <value>50.68190460824603</value>
                 <defaultValue>40.0</defaultValue>
                 <description>Amplitude of the excitation RF pulse </description>
                 <displayedName>TX Amplitude</displayedName>
@@ -1950,7 +1963,7 @@
             <key>TX_AMP_VALUES</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_AMP_VALUES</name>
-                <value>49.67640965093185</value>
+                <value>50.68190460824603</value>
                 <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                 <displayedName>TX Amp Values</displayedName>
                 <locked>false</locked>
@@ -1965,7 +1978,7 @@
             <key>TX_ATT</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_ATT</name>
-                <value>49.0</value>
+                <value>42.0</value>
                 <defaultValue>36.0</defaultValue>
                 <description>Emission RF pulse attenuation</description>
                 <displayedName>TX Attenuation</displayedName>
@@ -1983,7 +1996,7 @@
             <key>TX_GAMMA_B1</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_GAMMA_B1</name>
-                <value>246.0</value>
+                <value>1268.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the power in gamma B1 unit</description>
                 <displayedName>Tx Gamma B1</displayedName>
@@ -2114,7 +2127,7 @@
             <key>TX_POWER</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_POWER</name>
-                <value>0.1312</value>
+                <value>0.676</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the tx power that corresponds to Tx Amplitude and Attenuation</description>
                 <displayedName>TX Power</displayedName>
@@ -2147,7 +2160,7 @@
             <key>TX_SHAPE</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>TX_SHAPE</name>
-                <value>HARD</value>
+                <value>GAUSSIAN</value>
                 <defaultValue>GAUSSIAN</defaultValue>
                 <description>Emission RF Pulse shape</description>
                 <displayedName>TX shape</displayedName>
