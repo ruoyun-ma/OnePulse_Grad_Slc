@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <application>
-    <name>OnePulse_Slc_master_2021.06</name>
+    <name>OnePulse_Slc_master_2021.06_dev</name>
     <description></description>
     <usage></usage>
     <generatorName>seqdev-temp</generatorName>
@@ -309,7 +309,7 @@
                 <key>DELAY_ECHO_TIME</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>DELAY_ECHO_TIME</name>
-                    <value>7.999999999999988E-5</value>
+                    <value>5.200000000000001E-4</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Extra time added before the signal reception (input if "Add  Extra Time RF-ADC" checked)</description>
                     <displayedName>Extra Time RF-ADC</displayedName>
@@ -377,7 +377,7 @@
                 <key>ECHO_TIME</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ECHO_TIME</name>
-                    <value>6.0E-4</value>
+                    <value>0.0010400000000000001</value>
                     <defaultValue>0.005</defaultValue>
                     <description>Dead time between RF and ADC (input if "Add  Extra Time RF-ADC" unchecked)</description>
                     <displayedName>Time RF-ADC</displayedName>
@@ -1679,7 +1679,7 @@
                 <key>SEQUENCE_VERSION</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>SEQUENCE_VERSION</name>
-                    <value>Version8</value>
+                    <value>Version8.1</value>
                     <defaultValue></defaultValue>
                     <description>Info: Sequence version</description>
                     <displayedName>Sequence version</displayedName>
@@ -1922,7 +1922,7 @@
                 <key>TX_AMP</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
-                    <value>40.087732488176094</value>
+                    <value>49.67640965093185</value>
                     <defaultValue>40.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse </description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2006,7 +2006,7 @@
                 <key>TX_AMP_VALUES</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_AMP_VALUES</name>
-                    <value>40.087732488176094</value>
+                    <value>49.67640965093185</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>TX Amp Values</displayedName>
                     <locked>false</locked>
@@ -2021,7 +2021,7 @@
                 <key>TX_ATT</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
-                    <value>40.0</value>
+                    <value>49.0</value>
                     <defaultValue>36.0</defaultValue>
                     <description>Emission RF pulse attenuation</description>
                     <displayedName>TX Attenuation</displayedName>
@@ -2032,6 +2032,23 @@
                     <minValue>0.0</minValue>
                     <maxValue>63.0</maxValue>
                     <group>Emission</group>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_GAMMA_B1</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_GAMMA_B1</name>
+                    <value>246.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description>Info: Display the power in gamma B1 unit</description>
+                    <displayedName>Tx Gamma B1</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>RfPower</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>250000.0</maxValue>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -2150,6 +2167,23 @@
                 </value>
             </entry>
             <entry>
+                <key>TX_POWER</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_POWER</name>
+                    <value>0.1312</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description>Info: Display the tx power that corresponds to Tx Amplitude and Attenuation</description>
+                    <displayedName>TX Power</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Power</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>10000.0</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
                 <key>TX_ROUTE</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_ROUTE</name>
@@ -2169,7 +2203,7 @@
                 <key>TX_SHAPE</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>TX_SHAPE</name>
-                    <value>GAUSSIAN</value>
+                    <value>HARD</value>
                     <defaultValue>GAUSSIAN</defaultValue>
                     <description>Emission RF Pulse shape</description>
                     <displayedName>TX shape</displayedName>

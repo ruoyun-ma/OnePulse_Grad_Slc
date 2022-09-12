@@ -254,7 +254,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(7.999999999999988E-5);
+            param.setValue(5.200000000000001E-4);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -322,7 +322,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(6.0E-4);
+            param.setValue(0.0010400000000000001);
             param.setDefaultValue(0.005);
             return param;
         }
@@ -1098,7 +1098,7 @@ public enum U implements GeneratorParamEnum {
             param.setLocked(true);
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version8");
+            param.setValue("Version8.1");
             param.setDefaultValue("");
             return param;
         }
@@ -1303,7 +1303,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.PERCENT);
             param.setMinValue(0.0);
             param.setMaxValue(100.0);
-            param.setValue(40.087732488176094);
+            param.setValue(49.67640965093185);
             param.setDefaultValue(40.0);
             return param;
         }
@@ -1382,7 +1382,7 @@ public enum U implements GeneratorParamEnum {
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
             param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asListNumber(40.087732488176094));
+            param.setValue(asListNumber(49.67640965093185));
             return param;
         }
     },
@@ -1398,8 +1398,24 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.TxAtt);
             param.setMinValue(0.0);
             param.setMaxValue(63.0);
-            param.setValue(40.0);
+            param.setValue(49.0);
             param.setDefaultValue(36.0);
+            return param;
+        }
+    },
+
+    TX_GAMMA_B1("TX_GAMMA_B1") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("TX_GAMMA_B1");
+            param.setDisplayedName("Tx Gamma B1");
+            param.setDescription("Info: Display the power in gamma B1 unit");
+            param.setCategory(Category.Acquisition);
+            param.setNumberEnum(NumberEnum.RfPower);
+            param.setMinValue(0.0);
+            param.setMaxValue(250000.0);
+            param.setValue(246.0);
+            param.setDefaultValue(0.0);
             return param;
         }
     },
@@ -1514,6 +1530,22 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
+    TX_POWER("TX_POWER") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("TX_POWER");
+            param.setDisplayedName("TX Power");
+            param.setDescription("Info: Display the tx power that corresponds to Tx Amplitude and Attenuation");
+            param.setCategory(Category.Acquisition);
+            param.setNumberEnum(NumberEnum.Power);
+            param.setMinValue(0.0);
+            param.setMaxValue(10000.0);
+            param.setValue(0.1312);
+            param.setDefaultValue(0.0);
+            return param;
+        }
+    },
+
     TX_ROUTE("TX_ROUTE") {
         public Param build() {
             ListNumberParam param = new ListNumberParam();
@@ -1537,7 +1569,7 @@ public enum U implements GeneratorParamEnum {
             param.setDisplayedName("TX shape");
             param.setDescription("Emission RF Pulse shape");
             param.setCategory(Category.Acquisition);
-            param.setValue("GAUSSIAN");
+            param.setValue("HARD");
             param.setDefaultValue("GAUSSIAN");
             param.setSuggestedValues(asList("GAUSSIAN", "SINC3", "HARD", "SINC5"));
             return param;

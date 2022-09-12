@@ -32,7 +32,7 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private String sequenceVersion = "Version8";
+    private String sequenceVersion = "Version8.1";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -381,7 +381,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         double tx_amp;
         int tx_att;
         if (is_tx_amp_att_auto) {
-            if (!pulseTX.setAutoCalibFor180(flip_angle, observeFrequency, ((List<Integer>) getParam(TX_ROUTE).getValue()), nucleus)) {
+            if (!pulseTX.setAutoCalibFor180(flip_angle, observeFrequency, getListInt(TX_ROUTE), nucleus)) {
                 getUnreachParamExceptionManager().addParam(TX_LENGTH.name(), txLength, pulseTX.getPulseDuration(), ((NumberParam) getParam(TX_LENGTH)).getMaxValue(), "Pulse length too short to reach RF power with this pulse shape");
                 txLength = pulseTX.getPulseDuration();
             }
@@ -390,7 +390,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
          } else {
             tx_amp = getDouble(TX_AMP);
             tx_att = getInt(TX_ATT);
-
         }
 
         ArrayList<Number> list_tx_amps = new ArrayList<>();
@@ -406,7 +405,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
 
             }
 
-
             pulseTX.setAmp(Order.Two, tx_amps);
             pulseTX.setAtt(tx_att);
             this.getParam(TX_ATT).setValue(tx_att);
@@ -415,13 +413,16 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             //      pulsePowerWatt_pulse = (float) TxMath.getPowerWatt(tx_amp, tx_att, observe_frequency, txCh) * power_factor_90;
         } else {
             set(Tx_blanking ,tx_amp!=0 );
-            
-            pulseTX.setAmp(tx_amp);
-            pulseTX.setAtt(tx_att);
+
+            pulseTX.setPower(tx_amp, tx_att, observeFrequency, getListInt(TX_ROUTE));
             //    pulsePowerWatt_pulse = pulseTX.get (float) TxMath.getPowerWatt(tx_amp, tx_att, observe_frequency, txCh) * power_factor_90;
             this.getParam(TX_AMP).setValue(tx_amp);
             this.getParam(TX_ATT).setValue(tx_att);
+            this.getParam(TX_POWER).setValue(pulseTX.getPower());
+            this.getParam(TX_GAMMA_B1).setValue(Math.round(pulseTX.getPowerGammaB1()));
             list_tx_amps.add(tx_amp);
+            if (!is_tx_amp_att_auto)
+                this.getParam(FLIP_ANGLE).setValue(pulseTX.getFlipAngle());
 
         }
         getParam(TX_AMP_VALUES).setValue(list_tx_amps);
@@ -741,7 +742,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
     }
 
     public String getVersion() {
-        return "master_2021.06";
+        return "master_2021.06_dev";
     }
     //</editor-fold>
 
