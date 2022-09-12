@@ -741,7 +741,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
     }
 
     public String getVersion() {
-        return "master";
+        return "master_2021.06";
     }
     //</editor-fold>
 

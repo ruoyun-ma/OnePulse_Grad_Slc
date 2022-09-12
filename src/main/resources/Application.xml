@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <application>
-    <name>OnePulse_Slc_master</name>
+    <name>OnePulse_Slc_master_2021.06</name>
     <description></description>
     <usage></usage>
     <generatorName>seqdev-temp</generatorName>
@@ -297,8 +297,8 @@
                     <name>DELAY_ECHO</name>
                     <value>false</value>
                     <defaultValue>false</defaultValue>
-                    <description>Enable to define delay echo time instead of TE</description>
-                    <displayedName>Delay Echo</displayedName>
+                    <description>Enable to define the "Time RF-ADC" by adding an Extra Time to the minimal time achievable between RF and ADC</description>
+                    <displayedName>Use Extra Time RF-ADC</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <group>Delay</group>
@@ -311,8 +311,8 @@
                     <name>DELAY_ECHO_TIME</name>
                     <value>7.999999999999988E-5</value>
                     <defaultValue>0.0</defaultValue>
-                    <description>Delay added before the signal reception </description>
-                    <displayedName>Delay Echo Time</displayedName>
+                    <description>Extra time added before the signal reception (input if "Add  Extra Time RF-ADC" checked)</description>
+                    <displayedName>Extra Time RF-ADC</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -379,8 +379,8 @@
                     <name>ECHO_TIME</name>
                     <value>6.0E-4</value>
                     <defaultValue>0.005</defaultValue>
-                    <description>Echo time</description>
-                    <displayedName>TE</displayedName>
+                    <description>Dead time between RF and ADC (input if "Add  Extra Time RF-ADC" unchecked)</description>
+                    <displayedName>Time RF-ADC</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -399,7 +399,7 @@
                     <defaultValue>0.6</defaultValue>
                     <description>Field of view</description>
                     <displayedName>FOV</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Length</numberEnum>
@@ -1774,8 +1774,8 @@
                     <name>SPECTRAL_WIDTH_PER_PIXEL</name>
                     <value>2.4453187600160255</value>
                     <defaultValue>100.0</defaultValue>
-                    <description>Bandwidth per pixel </description>
-                    <displayedName>BW/px</displayedName>
+                    <description>Bandwidth per point ( FID res)</description>
+                    <displayedName>BW/pt</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -1942,7 +1942,7 @@
                     <name>TX_AMP_ATT_AUTO</name>
                     <value>false</value>
                     <defaultValue>true</defaultValue>
-                    <description>Enable to automatically set attenuation and amplitude for the RF according to the calibration</description>
+                    <description>Enable to automatically set attenuation and amplitude for the RF according to the calibration and the flip angle</description>
                     <displayedName>TX Att/Amp Auto</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
@@ -2189,8 +2189,8 @@
                     <name>USER_MATRIX_DIMENSION_1D</name>
                     <value>8192</value>
                     <defaultValue>128</defaultValue>
-                    <description>Number of points (user matrix dimension 1D)</description>
-                    <displayedName>Matrix 1D</displayedName>
+                    <description>Number of points of the FID  (user matrix dimension 1D)</description>
+                    <displayedName>Matrix 1D - FID</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2225,8 +2225,8 @@
                     <name>USER_MATRIX_DIMENSION_3D</name>
                     <value>1</value>
                     <defaultValue>1</defaultValue>
-                    <description>Image size in the third dimension: slice (user matrix dimension 3D)</description>
-                    <displayedName>Matrix 3D / No. Slices</displayedName>
+                    <description>Number of repetitions (user matrix dimension 3D)</description>
+                    <displayedName>Matrix 3D</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2244,7 +2244,7 @@
                     <value>1</value>
                     <defaultValue>1</defaultValue>
                     <description>Info: Number of trigger delays (user maxtrix 4D)</description>
-                    <displayedName>No. Data Sets</displayedName>
+                    <displayedName>No. Trigger Delays (4D) </displayedName>
                     <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>

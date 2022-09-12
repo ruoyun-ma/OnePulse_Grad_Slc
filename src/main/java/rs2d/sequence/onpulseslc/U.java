@@ -233,8 +233,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             BooleanParam param = new BooleanParam();
             param.setName("DELAY_ECHO");
-            param.setDisplayedName("Delay Echo");
-            param.setDescription("Enable to define delay echo time instead of TE");
+            param.setDisplayedName("Use Extra Time RF-ADC");
+            param.setDescription("Enable to define the \"Time RF-ADC\" by adding an Extra Time to the minimal time achievable between RF and ADC");
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setValue(false);
@@ -247,8 +247,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("DELAY_ECHO_TIME");
-            param.setDisplayedName("Delay Echo Time");
-            param.setDescription("Delay added before the signal reception ");
+            param.setDisplayedName("Extra Time RF-ADC");
+            param.setDescription("Extra time added before the signal reception (input if \"Add  Extra Time RF-ADC\" checked)");
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -315,8 +315,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("ECHO_TIME");
-            param.setDisplayedName("TE");
-            param.setDescription("Echo time");
+            param.setDisplayedName("Time RF-ADC");
+            param.setDescription("Dead time between RF and ADC (input if \"Add  Extra Time RF-ADC\" unchecked)");
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Time);
@@ -334,6 +334,7 @@ public enum U implements GeneratorParamEnum {
             param.setName("FIELD_OF_VIEW");
             param.setDisplayedName("FOV");
             param.setDescription("Field of view");
+            param.setLocked(true);
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Length);
@@ -1097,7 +1098,7 @@ public enum U implements GeneratorParamEnum {
             param.setLocked(true);
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
-            param.setValue("Version7.4");
+            param.setValue("Version8");
             param.setDefaultValue("");
             return param;
         }
@@ -1184,8 +1185,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("SPECTRAL_WIDTH_PER_PIXEL");
-            param.setDisplayedName("BW/px");
-            param.setDescription("Bandwidth per pixel ");
+            param.setDisplayedName("BW/pt");
+            param.setDescription("Bandwidth per point ( FID res)");
             param.setGroup(EnumGroup.Reception);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.SW);
@@ -1313,7 +1314,7 @@ public enum U implements GeneratorParamEnum {
             BooleanParam param = new BooleanParam();
             param.setName("TX_AMP_ATT_AUTO");
             param.setDisplayedName("TX Att/Amp Auto");
-            param.setDescription("Enable to automatically set attenuation and amplitude for the RF according to the calibration");
+            param.setDescription("Enable to automatically set attenuation and amplitude for the RF according to the calibration and the flip angle");
             param.setCategory(Category.Acquisition);
             param.setValue(false);
             param.setDefaultValue(true);
@@ -1547,8 +1548,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("USER_MATRIX_DIMENSION_1D");
-            param.setDisplayedName("Matrix 1D Read");
-            param.setDescription("Image size in readout direction (user matrix dimension 1D)");
+            param.setDisplayedName("Matrix 1D - FID");
+            param.setDescription("Number of points of the FID  (user matrix dimension 1D)");
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -1564,8 +1565,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("USER_MATRIX_DIMENSION_2D");
-            param.setDisplayedName("Matrix 2D Phase");
-            param.setDescription("Image size in phase encoding direction  (user matrix dimension 2D)");
+            param.setDisplayedName("Matrix 2D");
+            param.setDescription("Number of repetitions (user matrix dimension 2D)");
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -1581,8 +1582,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("USER_MATRIX_DIMENSION_3D");
-            param.setDisplayedName("Matrix 3D / No. Slices");
-            param.setDescription("Image size in the third dimension: slice or 3D PE  (user matrix dimension 3D)");
+            param.setDisplayedName("Matrix 3D");
+            param.setDescription("Number of repetitions (user matrix dimension 3D)");
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setNumberEnum(NumberEnum.Scan);
@@ -1598,7 +1599,7 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("USER_MATRIX_DIMENSION_4D");
-            param.setDisplayedName("No. Data Sets");
+            param.setDisplayedName("No. Trigger Delays (4D) ");
             param.setDescription("Info: Number of trigger delays (user maxtrix 4D)");
             param.setLocked(true);
             param.setGroup(EnumGroup.Scan);
