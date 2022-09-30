@@ -43,7 +43,7 @@
                 <name>ACQUISITION_MATRIX_DIMENSION_2D</name>
                 <value>1</value>
                 <defaultValue>128</defaultValue>
-                <description>Info: Size of the initial dataset (raw data) in second dimension</description>
+                <description>Info: Size of the initial dataset (raw data) in the second dimension</description>
                 <displayedName>Acquisition Matrix 2D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -61,7 +61,7 @@
                 <name>ACQUISITION_MATRIX_DIMENSION_3D</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Info: Size of the initial dataset (raw data) in third dimension</description>
+                <description>Info: Size of the initial dataset (raw data) in the third dimension</description>
                 <displayedName>Acquisition Matrix 3D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -79,7 +79,7 @@
                 <name>ACQUISITION_MATRIX_DIMENSION_4D</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Info: Size of the initial dataset (raw data) in fourth dimension</description>
+                <description>Info: Size of raw data in fourth dimension</description>
                 <displayedName>Acquisition Matrix 4D</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -103,7 +103,7 @@
                 <defaultValue>REAL</defaultValue>
                 <defaultValue>REAL</defaultValue>
                 <defaultValue>REAL</defaultValue>
-                <description>Info: ACQUISITION_MODE and DATA_REPRESENTATION are filled according to the phase modulation chosen</description>
+                <description>ACQUISITION_MODE and DATA_REPRESENTATION are filled according to the phase modulation chosen</description>
                 <displayedName>ACQUISITION_MODE</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -135,7 +135,7 @@
                 <name>ADJUST_WINDOW</name>
                 <value>false</value>
                 <defaultValue>false</defaultValue>
-                <description>Enable to get the frequency from "Base Frequency 1" and not from instrument </description>
+                <description>Enable to get the frequency from 'Base Frequency 1' and not from instrument </description>
                 <displayedName>Adjust Window</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -149,7 +149,7 @@
                 <name>BASE_FREQ_1</name>
                 <value>1.2800000241427468E8</value>
                 <defaultValue>1.27194553E8</defaultValue>
-                <description>Info: Carrier wave frequency of the first channel</description>
+                <description>Info: Frequency of the observed nucleus</description>
                 <displayedName>Base Frequency 1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -167,7 +167,7 @@
                 <name>BASE_FREQ_2</name>
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
-                <description>Info: Carrier wave frequency of the second channel</description>
+                <description>Info: Base frequency of the second channel</description>
                 <displayedName>Base Frequency 2</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -185,7 +185,7 @@
                 <name>BASE_FREQ_3</name>
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
-                <description>Info: Carrier wave frequency of the third channel</description>
+                <description>Info: Base frequency of the third channel</description>
                 <displayedName>Base Frequency 3</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -203,7 +203,7 @@
                 <name>BASE_FREQ_4</name>
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
-                <description>Info: Carrier wave frequency of the fourth channel</description>
+                <description>Info: Base frequency of the fourth channel</description>
                 <displayedName>Base Frequency 4</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -227,7 +227,7 @@
                 <defaultValue>REAL</defaultValue>
                 <defaultValue>REAL</defaultValue>
                 <defaultValue>REAL</defaultValue>
-                <description>Info: ACQUISITION_MODE and DATA_REPRESENTATION are filled according to the phase modulation chosen</description>
+                <description>ACQUISITION_MODE and DATA_REPRESENTATION are filled according to the phase modulation chosen</description>
                 <displayedName>DATA_REPRESENTATION</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -254,8 +254,8 @@
                 <name>DELAY_ECHO</name>
                 <value>false</value>
                 <defaultValue>false</defaultValue>
-                <description>Enable to define the "Time RF-ADC" by adding a Dead Time to the minimal time achievable between RF and ADC</description>
-                <displayedName>Add Time btw RF and ADC</displayedName>
+                <description>Enable to delay the signal reception by adding a 'Tx-Rx Dead Time' to the minimal 'Tx-Rx Time'</description>
+                <displayedName>Use Dead Time</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Delay</group>
@@ -268,8 +268,8 @@
                 <name>DELAY_ECHO_TIME</name>
                 <value>7.999999999999988E-5</value>
                 <defaultValue>0.0</defaultValue>
-                <description>Extra time added before the signal reception (input if "Add  Extra Time RF-ADC" checked)</description>
-                <displayedName>Dead Time RF-ADC</displayedName>
+                <description>Extra time added before the signal reception (input if  'Use Dead Time' checked)</description>
+                <displayedName>Tx-Rx Dead Time</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -336,8 +336,8 @@
                 <name>ECHO_TIME</name>
                 <value>6.0E-4</value>
                 <defaultValue>0.005</defaultValue>
-                <description>Dead time between RF and ADC (input if "Add  Extra Time RF-ADC" unchecked)</description>
-                <displayedName>Time RF-ADC</displayedName>
+                <description>Time between the middle of the excitation RF and the beginning of the reception  (input if 'Use Dead Time' unchecked)</description>
+                <displayedName>Tx-Rx Time</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -409,7 +409,7 @@
                 <value>true</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable gradient spoiler</description>
-                <displayedName>Gradient Spoiler</displayedName>
+                <displayedName>Gradient spoiler</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Gradient</group>
@@ -439,7 +439,7 @@
                 <name>GRADIENT_RISE_TIME</name>
                 <value>1.5E-4</value>
                 <defaultValue>9.999999999999999E-5</defaultValue>
-                <description>Rise time of gradients</description>
+                <description>Rise time of the gradient</description>
                 <displayedName>Gradient Rise Time</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -456,7 +456,7 @@
                 <name>GRADIENT_SPOILER_TIME</name>
                 <value>1.5E-4</value>
                 <defaultValue>9.999999999999999E-5</defaultValue>
-                <description>Top time of the slice refocusing gradient</description>
+                <description>Duration of the spoiler gradients</description>
                 <displayedName>Gradient Duration Spoiler</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -558,7 +558,7 @@
                 <name>MANUFACTURER</name>
                 <value>Manufacturer</value>
                 <defaultValue>Manufacturer</defaultValue>
-                <description>Info: Manufacturer</description>
+                <description>Manufacturer</description>
                 <displayedName>Manufacturer</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -574,7 +574,7 @@
                 <value>90.0</value>
                 <defaultValue>90.0</defaultValue>
                 <description>Safety parameter applied on maximum gradient slew rate. Fastest is 100%</description>
-                <displayedName>Min Rise Time Factor</displayedName>
+                <displayedName>Min rise Time Factor</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -609,7 +609,7 @@
                 <name>MODEL_NAME</name>
                 <value>Nanoscan MR 3T</value>
                 <defaultValue>Model name</defaultValue>
-                <description>Info: Model name</description>
+                <description>Model name</description>
                 <displayedName>Model Name</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -624,7 +624,7 @@
                 <name>MULTI_PLANAR_EXCITATION</name>
                 <value>false</value>
                 <defaultValue>true</defaultValue>
-                <description>Enable to do slice excitation</description>
+                <description>Enable to do slice slection during  RF exitation</description>
                 <displayedName>2D Excitation</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -638,7 +638,7 @@
                 <name>NUCLEUS_1</name>
                 <value>1H</value>
                 <defaultValue>1H</defaultValue>
-                <description>The nucleus used for the first sequence channel</description>
+                <description>Nucleus used for the first sequence channel</description>
                 <displayedName>Nucleus 1</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -776,7 +776,7 @@
                 <name>NUCLEUS_2</name>
                 <value>1H</value>
                 <defaultValue>1H</defaultValue>
-                <description>The nucleus used for the second sequence channel</description>
+                <description>Nucleus used for the second sequence channel</description>
                 <displayedName>Nucleus 2</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -914,7 +914,7 @@
                 <name>NUCLEUS_3</name>
                 <value>1H</value>
                 <defaultValue>1H</defaultValue>
-                <description>The nucleus used for the third sequence channel</description>
+                <description>Nucleus used for the third sequence channel</description>
                 <displayedName>Nucleus 3</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -1052,7 +1052,7 @@
                 <name>NUCLEUS_4</name>
                 <value>1H</value>
                 <defaultValue>1H</defaultValue>
-                <description>The nucleus used for the fourth sequence channel</description>
+                <description>Nucleus used for the fourth sequence channel</description>
                 <displayedName>Nucleus 4</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -1190,7 +1190,7 @@
                 <name>NUMBER_OF_AVERAGES</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Number of averages/excitation</description>
+                <description>Number of average</description>
                 <displayedName>Nex</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -1340,7 +1340,7 @@
                 <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Off-center distance in Phase Encoding Direction</description>
-                <displayedName>Location  2D</displayedName>
+                <displayedName>Location 2D</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1450,7 +1450,7 @@
                 <name>ORIENTATION</name>
                 <value>AXIAL</value>
                 <defaultValue>AXIAL</defaultValue>
-                <description>Field of view orientation</description>
+                <description>Field Of View orientation</description>
                 <displayedName>Orientation</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -1589,7 +1589,7 @@
                 <name>REPETITION_TIME</name>
                 <value>0.7000000000000001</value>
                 <defaultValue>0.2</defaultValue>
-                <description>Repetition time</description>
+                <description>Repetition Time</description>
                 <displayedName>TR</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -1607,7 +1607,7 @@
                 <name>SEQUENCE_NAME</name>
                 <value>OnePulse_Slc</value>
                 <defaultValue>OnePulse_Slc</defaultValue>
-                <description>The name of the sequence</description>
+                <description>Info: Name of the sequence</description>
                 <displayedName>Sequence Name</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -1636,10 +1636,10 @@
             <key>SEQUENCE_VERSION</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_VERSION</name>
-                <value>Version8.1</value>
+                <value>Version8.2</value>
                 <defaultValue></defaultValue>
                 <description>Info: Sequence version</description>
-                <displayedName>Sequence version</displayedName>
+                <displayedName>Sequence Version</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1654,7 +1654,7 @@
                 <value>false</value>
                 <defaultValue>false</defaultValue>
                 <description>True during setup process / False for regular use for the sequence</description>
-                <displayedName>Setup mode</displayedName>
+                <displayedName>SETUP_MODE</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <category>Acquisition</category>
@@ -1667,7 +1667,7 @@
                 <value>0.02</value>
                 <defaultValue>0.005</defaultValue>
                 <description>Slice Thickness</description>
-                <displayedName>Slice thickness</displayedName>
+                <displayedName>Slice Thickness</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -1749,7 +1749,7 @@
                 <name>STATION_NAME</name>
                 <value>Station name</value>
                 <defaultValue>Station name</defaultValue>
-                <description>Info: Station name</description>
+                <description>Station name</description>
                 <displayedName>Station Name</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -1783,7 +1783,7 @@
                 <name>TRANSFORM_PLUGIN</name>
                 <value>none</value>
                 <defaultValue>none</defaultValue>
-                <description>Info: Transform the acquisition space to the k-space</description>
+                <description>Transform the acquisition space to the k-space</description>
                 <displayedName>Transform Plugin</displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -1965,7 +1965,7 @@
                 <name>TX_AMP_VALUES</name>
                 <value>50.68190460824603</value>
                 <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
-                <displayedName>TX Amp Values</displayedName>
+                <displayedName>TX Amp Values </displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>PERCENT</numberEnum>
@@ -1980,7 +1980,7 @@
                 <name>TX_ATT</name>
                 <value>42.0</value>
                 <defaultValue>36.0</defaultValue>
-                <description>Emission RF pulse attenuation</description>
+                <description>RF pulse attenuation</description>
                 <displayedName>TX Attenuation</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -2015,7 +2015,7 @@
                 <name>TX_LENGTH</name>
                 <value>0.001</value>
                 <defaultValue>0.3</defaultValue>
-                <description>Emission RF pulse length</description>
+                <description>RF pulse length</description>
                 <displayedName>TX Length</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -2146,7 +2146,7 @@
                 <name>TX_ROUTE</name>
                 <value>0</value>
                 <description>Info: Physical transmit channel</description>
-                <displayedName>TX route</displayedName>
+                <displayedName>TX Route</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>Integer</numberEnum>
@@ -2162,8 +2162,8 @@
                 <name>TX_SHAPE</name>
                 <value>GAUSSIAN</value>
                 <defaultValue>GAUSSIAN</defaultValue>
-                <description>Emission RF Pulse shape</description>
-                <displayedName>TX shape</displayedName>
+                <description>RF Pulse shape</description>
+                <displayedName>TX Shape</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2198,7 +2198,7 @@
                 <name>USER_MATRIX_DIMENSION_2D</name>
                 <value>1</value>
                 <defaultValue>128</defaultValue>
-                <description>Number of repetitions (user matrix dimension 2D)</description>
+                <description>Number of repetitions  (user matrix dimension 2D)</description>
                 <displayedName>Matrix 2D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -2216,7 +2216,7 @@
                 <name>USER_MATRIX_DIMENSION_3D</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Number of repetitions (user matrix dimension 3D)</description>
+                <description>Number of repetitions  (user matrix dimension 3D)</description>
                 <displayedName>Matrix 3D</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -2234,8 +2234,8 @@
                 <name>USER_MATRIX_DIMENSION_4D</name>
                 <value>1</value>
                 <defaultValue>1</defaultValue>
-                <description>Info: Number of trigger delays (user maxtrix 4D)</description>
-                <displayedName>No. Trigger Delays (4D) </displayedName>
+                <description>Info: Number of trigger delay (user maxtrix 4D)</description>
+                <displayedName>No. trigger delay(4D) </displayedName>
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>

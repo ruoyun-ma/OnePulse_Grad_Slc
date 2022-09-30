@@ -33,7 +33,7 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private String sequenceVersion = "Version8.1";
+    private String sequenceVersion = "Version8.2";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
