@@ -18,6 +18,7 @@ import rs2d.spinlab.tools.utility.Nucleus;
 import rs2d.spinlab.api.PowerComputation;
 import rs2d.spinlab.api.Hardware;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.IntStream.*;
@@ -35,7 +36,13 @@ public class RFPulse {
     private Table timeTable = null;
     private Shape shape = null;
     private Shape shapePhase = null;
+    private double instrumentPower90 = Double.NaN; //instrument power depends on pulse shape
+    private double instrumentLength90 = Double.NaN;
+    private double instrumentPower180 = Double.NaN;
+    private double instrumentLength180 = Double.NaN;
 
+    private double observeFrequency = Double.NaN;
+    private Nucleus nucleus = Nucleus.H1;
     int numberOfFreqOffset = -1;
     Order FrequencyOffsetOrder = Order.FourLoopB;
 
@@ -48,15 +55,10 @@ public class RFPulse {
     private double[] txFrequencyOffsetTable = null;
     private int txAtt = -1;
 
-    private double power_90 = Double.NaN;
-    private double power_180 = Double.NaN;
-    private double tx_amp = Double.NaN;
-    private double flipAngle = Double.NaN;
-
-    private double pulseDuration;
-    private double observeFrequency = Double.NaN;
-    private Nucleus nucleus = Nucleus.H1;
+    private double pulseDuration = Double.NaN;
     private double powerPulse = Double.NaN;
+    private double flipAngle = Double.NaN;
+    private double txAmp = Double.NaN;
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     //                  Constructor
@@ -85,7 +87,6 @@ public class RFPulse {
 
     public RFPulse(Table timeTab, Table offsetFreqTab, Nucleus nucleus) {
         timeTable = timeTab;
-
         pulseDuration = timeTab.get(0).doubleValue();
         FrequencyOffsetTable = offsetFreqTab;
 
@@ -129,15 +130,12 @@ public class RFPulse {
     }
 
     public double getAmp() {
-        return tx_amp;
+        return txAmp;
     }
 
     public double getFlipAngle() {
-        if (Double.isNaN(powerPulse) && !Double.isNaN(powerPulse) && !Double.isNaN(power_90) && !Double.isNaN(pulseDuration)) {
-            double instrument_length = PowerComputation.getHardPulse90Width(nucleus.name());
-            flipAngle = 90 * Math.sqrt(powerPulse / power_90) * pulseDuration / instrument_length;
-        }
-
+        if (Double.isNaN(flipAngle))
+            calculateFA();
         return flipAngle;
     }
 
@@ -145,6 +143,13 @@ public class RFPulse {
         if (Double.isNaN(powerPulse))
             calculatePower();
         return powerPulse;
+    }
+
+    public double getPowerGammaB1() {
+        if (Double.isNaN(flipAngle))
+            calculateFA();
+
+        return flipAngle/(360*(flipAngle < 135 ? getShapePowerFactor90():getShapePowerFactor180())*pulseDuration);
     }
 
     public Order getFrequencyOffsetOrder() {
@@ -167,6 +172,28 @@ public class RFPulse {
         return isSlr ? slrPowerFactors180[slrIndex] : 1.0;
     }
 
+    public double getShapePowerFactor90(){
+        return Utility.complexPowerFillingFactor(shape, shapePhase) / getSlrPowerFactors90();
+    }
+
+    public double getShapePowerFactor180(){
+        return Utility.complexPowerFillingFactor(shape, shapePhase) / getSlrPowerFactors180();
+    }
+
+    // get direct access to SP
+    public Table getTimeTable() {
+        return timeTable;
+    }
+
+    public Table getAmpTable() {
+        return amplitudeTable;
+    }
+
+    public NumberParam getAttParam() {
+        return (NumberParam) attParam;
+    }
+
+
     public void setAtt(int att) {
         txAtt = att;
         attParam.setValue(txAtt);
@@ -176,24 +203,44 @@ public class RFPulse {
     public void setAtt(NumberParam att) {
         txAtt = att.getValue().intValue();
         attParam.setValue(txAtt);
-
     }
 
     public void setAmp(double amp) {
-        tx_amp = amp;
-        setSequenceTableSingleValue(amplitudeTable, tx_amp);
+        txAmp = amp;
+        setSequenceTableSingleValue(amplitudeTable, txAmp);
     }
 
     public void setAmp(Order order, double... amps) {
         setSequenceTableValues(amplitudeTable, order, amps);
         if (amps.length > 0) {
-            tx_amp = amps[0];
+            txAmp = amps[0];
         }
     }
 
     public void setAmp(NumberParam ampParam) {
-        tx_amp = ampParam.getValue().doubleValue();
-        setSequenceTableSingleValue(amplitudeTable, tx_amp);
+        txAmp = ampParam.getValue().doubleValue();
+        setSequenceTableSingleValue(amplitudeTable, txAmp);
+    }
+
+    /**
+     * Set power with amplitude and attenuation, and calculate flip angle
+     *
+     * @param amp : pulse amplitude
+     * @param att : pulse attenuation
+     * @param txRoute : Tx channel
+     */
+    public void setPower(double amp, int att, double observeFrequency, List<Integer> txRoute){
+        txAtt = att;
+        attParam.setValue(txAtt);
+        txAmp = amp;
+        setSequenceTableSingleValue(amplitudeTable, txAmp);
+        powerPulse = PowerComputation.getPower(txRoute.get(0), observeFrequency, txAmp, txAtt);
+        calculateFA();
+    }
+
+    public void setPulseDuration(double pulse_duration){
+        pulseDuration = pulse_duration;
+        setSequenceTableSingleValue(timeTable, pulseDuration);
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -218,38 +265,37 @@ public class RFPulse {
         if (txAtt == -1) {
             test_change_time = prepTxAttFor180(80, txRoute);
         }
-        // Calculate amp with the new and real Att
-        double tx_amp90 = calculateTxAmp90(txRoute);
-        tx_amp = tx_amp90 * flipAngle / 90;
-        setSequenceTableSingleValue(amplitudeTable, tx_amp);
+        double txAmp90 = calculateTxAmp90(txRoute);
+        txAmp = txAmp90 * flipAngle / 90;
+        setSequenceTableSingleValue(amplitudeTable, txAmp);
         attParam.setValue(txAtt);
+        powerPulse = PowerComputation.getPower(txRoute.get(0), observe_frequency, txAmp, txAtt);
         // set calculated parameters to display values & sequence
         return test_change_time;
     }
 
     /**
-     * Automatic Calibration: ATT set to get 180°-> tx_amp%.
+     * Automatic Calibration: ATT set to get 180°-> txAmp%.
      *
-     * @param tx_amp  : of the 180° pulse
+     * @param txAmp  : of the 180° pulse
      * @param txRoute : Tx channel
      * @return test_change_time : false if the pulse duration has changed
      */
-    private boolean prepTxAttFor180(double tx_amp, List<Integer> txRoute) {
+    private boolean prepTxAttFor180(double txAmp, List<Integer> txRoute) {
         boolean test_change_time = true;
-        double instrument_length_180 = PowerComputation.getHardPulse180Width(nucleus.name());
-        double power_factor = Utility.complexPowerFillingFactor(shape, shapePhase) / getSlrPowerFactors180();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
-        double instrument_power_180 = PowerComputation.getHardPulse180Power(nucleus.name()) / power_factor;
-        power_180 = instrument_power_180 * Math.pow(instrument_length_180 / pulseDuration, 2);
+        double powerPulse180 = instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2);
 
-        if (power_180 > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
-            pulseDuration = ceilToSubDecimal(instrument_length_180 / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / instrument_power_180), 6);
-            setSequenceTableSingleValue(timeTable, pulseDuration);
-            power_180 = instrument_power_180 * Math.pow(instrument_length_180 / pulseDuration, 2);
+        if (powerPulse180 > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
+
+            double durationMin = ceilToSubDecimal(instrumentLength180 / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / instrumentPower180), 6);
+            setPulseDuration(durationMin);
+            powerPulse180 = instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2);
             test_change_time = false;
         }
         // Calculate Att to get a 180° RF pulse around 80% amp
-        if (txAtt == -1)
-            txAtt = PowerComputation.getTxAttenuation(txRoute.get(0), power_180, observeFrequency, tx_amp);
+        if (txAtt == -1) {
+            txAtt = PowerComputation.getTxAttenuation(txRoute.get(0), powerPulse180, observeFrequency, txAmp);
+        }
         return test_change_time;
     }
 
@@ -257,35 +303,24 @@ public class RFPulse {
      * calculate 90° Pulse Amplitude for txAtt
      *
      * @param txRoute : Tx channel
-     * @return tx_amp
+     * @return txAmp
      */
     private double calculateTxAmp90(List<Integer> txRoute) {
-        if (txAtt == -1) {
-            txAtt = (int) attParam.getValue();
-        }
-        double tx_amp;
-        double power_factor = Utility.complexPowerFillingFactor(shape, shapePhase) / getSlrPowerFactors90();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
-        double instrument_power_90 = PowerComputation.getHardPulse90Power(nucleus.name()) / power_factor;
-        double instrument_length = PowerComputation.getHardPulse90Width(nucleus.name());
-        power_90 = instrument_power_90 * Math.pow(instrument_length / pulseDuration, 2);
-        tx_amp = PowerComputation.getTxAmplitude(txRoute.get(0), power_90, observeFrequency, txAtt);
-        return tx_amp;
+        if (txAtt == -1)
+            txAtt = ((NumberParam) attParam).getValue().intValue();
+        return PowerComputation.getTxAmplitude(txRoute.get(0), instrumentPower90 * Math.pow(instrumentLength90 / pulseDuration, 2), observeFrequency, txAtt);
     }
 
     /**
      * calculate 180° Pulse Amplitude for txAtt
      *
      * @param txRoute : Tx channel
-     * @return tx_amp
+     * @return txAmp
      */
     private double calculateTxAmp180(List<Integer> txRoute) {
-        double tx_amp;
-        double power_factor = Utility.complexPowerFillingFactor(shape, shapePhase) / getSlrPowerFactors180();       // get RF pulse power factor from instrument to calculate RF pulse amplitude
-        double instrument_power_180 = PowerComputation.getHardPulse180Power(nucleus.name()) / power_factor;
-        double instrument_length = PowerComputation.getHardPulse180Width(nucleus.name());
-        power_180 = instrument_power_180 * Math.pow(instrument_length / pulseDuration, 2);
-        tx_amp = PowerComputation.getTxAmplitude(txRoute.get(0), power_180, observeFrequency, txAtt);
-        return tx_amp;
+        if (txAtt == -1)
+            txAtt = ((NumberParam) attParam).getValue().intValue();
+        return PowerComputation.getTxAmplitude(txRoute.get(0),instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2), observeFrequency, txAtt);
     }
 
     /**
@@ -318,18 +353,16 @@ public class RFPulse {
         // flip angle < 135° : the power is checked using the 90° hard pulse
         // flip angle > 135° : the power is checked using the 180° hard pulse
         // The RF power is compute using the hard pulse calibration with the closest angle (known relation between power, duration and flip angle) and the shape power factor
-        double power_factor = Utility.complexPowerFillingFactor(shape, shapePhase) / (flipAngle < 135 ? getSlrPowerFactors90() : getSlrPowerFactors180());       // get RF pulse power factor from instrument to calculate RF pulse amplitude
-        double instrument_length = flipAngle < 135 ? PowerComputation.getHardPulse90Width(nucleus.name()) : PowerComputation.getHardPulse180Width(nucleus.name());
-        double instrument_power = (flipAngle < 135 ? PowerComputation.getHardPulse90Power(nucleus.name()) : PowerComputation.getHardPulse180Power(nucleus.name())) / power_factor;
-        power_90 = PowerComputation.getHardPulse90Power(nucleus.name()) / power_factor;
-        power_180 = PowerComputation.getHardPulse180Power(nucleus.name()) / power_factor;
-        powerPulse = instrument_power * Math.pow(instrument_length / pulseDuration, 2) * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2);
+        double instrumentLength = flipAngle < 135 ? instrumentLength90 : instrumentLength180;
+        double instrumentPower = flipAngle < 135 ? instrumentPower90 : instrumentPower180 ;
+        powerPulse = instrumentPower * Math.pow(flipAngle/ (flipAngle < 135 ? 90:180) , 2)* Math.pow(instrumentLength / pulseDuration, 2);
 
         // If the power exceed the instrument limit increase the pulse duration
         if (powerPulse > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
-            pulseDuration = ceilToSubDecimal(instrument_length / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / (instrument_power * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2))), 6);
-            setSequenceTableSingleValue(timeTable, pulseDuration);
-            powerPulse = instrument_power * Math.pow(instrument_length / pulseDuration, 2) * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2);
+            double durationMin = ceilToSubDecimal(instrumentLength / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / (instrumentPower * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2))), 6);
+            setPulseDuration(durationMin);
+            powerPulse = flipAngle < 135 ? instrumentPower90 * Math.pow(flipAngle/90, 2)* Math.pow(instrumentLength90 / pulseDuration, 2):
+                    instrumentPower180 * Math.pow(flipAngle/180, 2)* Math.pow(instrumentLength180 / pulseDuration, 2);
             b_time_unchanged = false;
         }
 
@@ -379,36 +412,42 @@ public class RFPulse {
     }
 
     /**
-     * prepare and set txAmp according to txAtt , flipAngle
+     * prepare and set txAmp according to SP attParam and the pulse power
      *
      * @param txRoute : Tx channel
-     */
+     */ 
     public void prepTxAmp(List<Integer> txRoute) {
-        if (txAtt == -1) {
-            txAtt = ((NumberParam) attParam).getValue().intValue();
-        }
-        tx_amp = PowerComputation.getTxAmplitude(txRoute.get(0), powerPulse, observeFrequency, txAtt);
-        setSequenceTableSingleValue(amplitudeTable, tx_amp);
+        txAtt = ((NumberParam) attParam).getValue().intValue();
+        txAmp = PowerComputation.getTxAmplitude(txRoute.get(0), powerPulse, observeFrequency, txAtt);
+        setSequenceTableSingleValue(amplitudeTable, txAmp);
     }
 
     /**
-     * prepare and set txAmp according to txAtt , flipAngle
+     * prepare and set txAmp according to SP attParam and flipAngle
      *
      * @param txRoute : Tx channel
-     * @return tx_amp
+     * @return txAmp
      */
     public double prepTxAmpMultiFA(List<Integer> txRoute, double[] FA_list, Order order) {
-        if (txAtt == -1) {
-            txAtt = ((NumberParam) attParam).getValue().intValue();
-        }
-        double tx_amp90 = calculateTxAmp90(txRoute);
-        double tx_amp180 = calculateTxAmp180(txRoute);
+        txAtt = ((NumberParam) attParam).getValue().intValue();
+        double txAmp90 = calculateTxAmp90(txRoute);
+        double txAmp180 = calculateTxAmp180(txRoute);
         setSequenceTableValues(amplitudeTable, order);
         range(0, FA_list.length).forEach(i -> {
-            tx_amp = (FA_list[i] < 135 ? tx_amp90 : tx_amp180) * FA_list[i] / (FA_list[i] < 135 ? 90 : 180);
-            amplitudeTable.add(tx_amp);
+            txAmp = (FA_list[i] < 135 ? txAmp90 : txAmp180) * FA_list[i] / (FA_list[i] < 135 ? 90 : 180);
+            amplitudeTable.add(txAmp);
         });
-        return tx_amp;
+        return txAmp;
+    }
+
+    /**
+     * calculate and set the flip angle knowing the pulse power
+     */
+    private void calculateFA(){
+        if (Double.isNaN(powerPulse)  || Double.isNaN(pulseDuration)) {
+            throw new IllegalArgumentException("Flip angle Calculation cannot be done: pulse power and/or pulseDuration is not set!");
+        }
+        flipAngle = 90 * Math.sqrt(powerPulse / instrumentPower90) * pulseDuration / instrumentLength90;
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -466,6 +505,13 @@ public class RFPulse {
             isSlr = true;
             slrIndex = 1;
         }
+
+        instrumentPower90 = PowerComputation.getHardPulse90Power(nucleus.name()) / getShapePowerFactor90();
+        instrumentLength90 = PowerComputation.getHardPulse90Width(nucleus.name());
+
+        instrumentPower180 = PowerComputation.getHardPulse180Power(nucleus.name()) / getShapePowerFactor180();
+        instrumentLength180 = PowerComputation.getHardPulse180Width(nucleus.name());
+        
     }
 
     /**

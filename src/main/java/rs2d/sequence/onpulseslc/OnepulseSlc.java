@@ -12,6 +12,7 @@ import java.util.*;
 
 import rs2d.sequence.common.*;
 import rs2d.spinlab.api.Hardware;
+import rs2d.spinlab.api.PowerComputation;
 import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.sequence.SequenceTool;
 import rs2d.spinlab.sequence.element.TimeElement;
@@ -32,7 +33,7 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private String sequenceVersion = "Version8";
+    private String sequenceVersion = "Version8.2";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -381,7 +382,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         double tx_amp;
         int tx_att;
         if (is_tx_amp_att_auto) {
-            if (!pulseTX.setAutoCalibFor180(flip_angle, observeFrequency, ((List<Integer>) getParam(TX_ROUTE).getValue()), nucleus)) {
+            if (!pulseTX.setAutoCalibFor180(flip_angle, observeFrequency, getListInt(TX_ROUTE), nucleus)) {
                 getUnreachParamExceptionManager().addParam(TX_LENGTH.name(), txLength, pulseTX.getPulseDuration(), ((NumberParam) getParam(TX_LENGTH)).getMaxValue(), "Pulse length too short to reach RF power with this pulse shape");
                 txLength = pulseTX.getPulseDuration();
             }
@@ -390,7 +391,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
          } else {
             tx_amp = getDouble(TX_AMP);
             tx_att = getInt(TX_ATT);
-
         }
 
         ArrayList<Number> list_tx_amps = new ArrayList<>();
@@ -406,7 +406,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
 
             }
 
-
             pulseTX.setAmp(Order.Two, tx_amps);
             pulseTX.setAtt(tx_att);
             this.getParam(TX_ATT).setValue(tx_att);
@@ -415,14 +414,41 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             //      pulsePowerWatt_pulse = (float) TxMath.getPowerWatt(tx_amp, tx_att, observe_frequency, txCh) * power_factor_90;
         } else {
             set(Tx_blanking ,tx_amp!=0 );
-            
-            pulseTX.setAmp(tx_amp);
-            pulseTX.setAtt(tx_att);
-            //    pulsePowerWatt_pulse = pulseTX.get (float) TxMath.getPowerWatt(tx_amp, tx_att, observe_frequency, txCh) * power_factor_90;
-            this.getParam(TX_AMP).setValue(tx_amp);
-            this.getParam(TX_ATT).setValue(tx_att);
-            list_tx_amps.add(tx_amp);
 
+            pulseTX.setPower(tx_amp, tx_att, observeFrequency, getListInt(TX_ROUTE));
+            //    pulsePowerWatt_pulse = pulseTX.get (float) TxMath.getPowerWatt(tx_amp, tx_att, observe_frequency, txCh) * power_factor_90;
+            getParam(TX_AMP).setValue(tx_amp);
+            getParam(TX_ATT).setValue(tx_att);
+            getParam(TX_POWER).setValue(pulseTX.getPower());
+            getParam(TX_GAMMA_B1).setValue(Math.round(pulseTX.getPowerGammaB1()));
+            list_tx_amps.add(tx_amp);
+            if (!is_tx_amp_att_auto) //in auto mode, Att/Amp are computed from FA so update FA can propagate errors if sequence is run more than one time
+                this.getParam(FLIP_ANGLE).setValue(pulseTX.getFlipAngle());
+            
+            if (getBoolean(DEBUG_MODE)) {
+                double ampSP = pulseTX.getAmpTable().get(0).doubleValue();
+                int attSP = pulseTX.getAttParam().intValue();
+                //Recompute power and flip angle directly from the SP
+                double powSP = PowerComputation.getPower(getListInt(TX_ROUTE).get(0), observeFrequency, ampSP, attSP);
+                double instrument_length = PowerComputation.getHardPulse90Width(nucleus.name());
+                double power_90 = PowerComputation.getHardPulse90Power(nucleus.name()) / pulseTX.getShapePowerFactor90();
+                double timeSP = pulseTX.getTimeTable().get(0).doubleValue();
+                double FASP = 90 * Math.sqrt(powSP / power_90) * timeSP / instrument_length;
+                double powUP = power_90 *Math.pow(flip_angle/90,2)*Math.pow(instrument_length/timeSP,2);
+                
+                System.out.println(" ");
+                System.out.println("------------- check pulses preparation -------------"); //check if the value written in RFPulse and SP are match with prescription
+                System.out.println("1/ Parameter value from: RFPulse, the sequence (SP):");
+                System.out.printf("Amplitude: %n %f     %f %n", tx_amp, ampSP);
+                System.out.printf("Attenuation: %n %d   %d %n", tx_att, attSP);
+                System.out.printf("Length: %n %f    %f %n", pulseTX.getPulseDuration(), timeSP);
+                System.out.println("2/ Parameter value from: UP, RFPulse, SP, error UP(ref) vs RFPulse, error SP(ref) vs RFPulse");
+                System.out.printf("Power: %n %f    %f     %f     %f    %f %n",
+                        powUP, pulseTX.getPower(), powSP, Math.abs(pulseTX.getPower() - powUP)*100/pulseTX.getPower(), Math.abs(pulseTX.getPower() - powSP)*100/pulseTX.getPower());
+                System.out.printf("Flip angle: %n %f    %f     %f     %f    %f %n",
+                        flip_angle, pulseTX.getFlipAngle(),  FASP,  Math.abs(pulseTX.getFlipAngle()-flip_angle)*100/pulseTX.getFlipAngle(),  Math.abs(pulseTX.getFlipAngle()-FASP)*100/pulseTX.getFlipAngle());
+                System.out.println(" ");
+            }
         }
         getParam(TX_AMP_VALUES).setValue(list_tx_amps);
 
@@ -741,7 +767,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
     }
 
     public String getVersion() {
-        return "master";
+        return "master_2021.06";
     }
     //</editor-fold>
 

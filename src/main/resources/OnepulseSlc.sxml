@@ -197,7 +197,7 @@
         <Entry>
             <count>1</count>
             <key>key1</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key9" phaseKey="key13" ampKey="key11" shapeKey="key19" shapePhaseKey="key20" attKey="key49" nameKey="key3" enabledKey="key9">
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key9" phaseKey="key10" ampKey="key11" shapeKey="key19" shapePhaseKey="key20" attKey="key49" nameKey="key3" enabledKey="key9">
                 <phaseModEnabled>false</phaseModEnabled>
             </value>
         </Entry>
@@ -819,7 +819,7 @@
             <key>key2</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
-                <value>40.0</value>
+                <value>42.0</value>
                 <defaultValue>7.5</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -6671,7 +6671,7 @@
             </value>
         </Entry>
         <Entry>
-            <count>2</count>
+            <count>3</count>
             <key>key10</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
                 <name>Tx_phase</name>
@@ -6810,7 +6810,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>40.087732488176094</list>
+                <list>50.68190460824603</list>
             </value>
         </Entry>
         <Entry>
@@ -7029,22 +7029,6 @@
                 <locked>false</locked>
                 <address>-1</address>
                 <list>0</list>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
-            <key>key13</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
-                <name>Phase2</name>
-                <description></description>
-                <numberEnum>Phase</numberEnum>
-                <order>One</order>
-                <locked>false</locked>
-                <address>-1</address>
-                <list>0</list>
-                <list>90.0</list>
-                <list>180.0</list>
-                <list>270.0</list>
             </value>
         </Entry>
         <Entry>
