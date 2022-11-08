@@ -148,8 +148,8 @@ public class RFPulse {
     public double getPowerGammaB1() {
         if (Double.isNaN(flipAngle))
             calculateFA();
-
-        return flipAngle/(360*(flipAngle < 135 ? getShapePowerFactor90():getShapePowerFactor180())*pulseDuration);
+        double complexVoltageFactor = Math.sqrt(flipAngle < 135 ? getShapePowerFactor90():getShapePowerFactor180());
+        return flipAngle/(360* complexVoltageFactor * pulseDuration);
     }
 
     public Order getFrequencyOffsetOrder() {
