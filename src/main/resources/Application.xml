@@ -473,7 +473,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>FLIP_ANGLE</name>
                     <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                    <value>180.0</value>
+                    <value>10.0</value>
                     <defaultValue>30.0</defaultValue>
                     <description>Excitation flip angle</description>
                     <displayedName>Flip Angle</displayedName>
@@ -2103,7 +2103,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
                     <uuid>6a096c39-09c0-41a8-bce5-fd514e5e3e94</uuid>
-                    <value>52.26189642094883</value>
+                    <value>6.126287997232442</value>
                     <defaultValue>40.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse </description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2192,7 +2192,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_AMP_VALUES</name>
                     <uuid>0c386d15-9676-4a3a-967e-9f905fd737b5</uuid>
-                    <value>52.26189642094883</value>
+                    <value>6.126287997232442</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>TX Amp Values</displayedName>
                     <locked>true</locked>
@@ -2208,7 +2208,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
                     <uuid>2671487a-e1f3-4a54-92c1-fa273b0e3f43</uuid>
-                    <value>29</value>
+                    <value>15</value>
                     <defaultValue>36</defaultValue>
                     <description>RF pulse attenuation</description>
                     <displayedName>TX Attenuation</displayedName>
@@ -2227,7 +2227,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_GAMMA_B1</name>
                     <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                    <value>1156.0</value>
+                    <value>63.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the power in gamma B1 unit</description>
                     <displayedName>Tx Gamma B1</displayedName>
@@ -2366,7 +2366,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_POWER</name>
                     <uuid>10ee6f5c-61e9-4acf-a548-fc8c4c762098</uuid>
-                    <value>1.046</value>
+                    <value>0.3173</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the tx power that corresponds to Tx Amplitude and Attenuation</description>
                     <displayedName>TX Power</displayedName>

@@ -261,14 +261,16 @@ public class RFPulse {
         this.flipAngle = flipAngle;
         observeFrequency = observe_frequency;
         this.nucleus = nucleus;
+
         boolean test_change_time = true;
         if (txAtt == -1) {
             test_change_time = prepTxAttFor180(80, txRoute);
         }
-        double txAmp90 = calculateTxAmp90(txRoute);
-        txAmp = txAmp90 * flipAngle / 90;
+        calculatePower();
+        txAmp = PowerComputation.getTxAmplitude(txRoute.get(0), powerPulse, observeFrequency, txAtt);
         setSequenceTableSingleValue(amplitudeTable, txAmp);
         attParam.setValue(txAtt);
+
         powerPulse = PowerComputation.getPower(txRoute.get(0), observe_frequency, txAmp, txAtt);
         // set calculated parameters to display values & sequence
         return test_change_time;

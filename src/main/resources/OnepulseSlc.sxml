@@ -792,7 +792,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
                 <uuid>bcd9d038-40f9-4305-9e3d-9f6b7e656982</uuid>
-                <value>29</value>
+                <value>15</value>
                 <defaultValue>7</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -7268,7 +7268,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>52.26189642094883</list>
+                <list>6.126287997232442</list>
             </value>
         </Entry>
         <Entry>
@@ -7299,7 +7299,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>e2351000-2e98-4894-83b9-baf1c3e0eba8</uuid>
+                        <uuid>486d1e73-c94b-4d47-acdd-096163fe95ce</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -7313,7 +7313,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>5a351b02-1731-478e-8d95-36b99f0de3c8</uuid>
+                        <uuid>51541a26-35f4-47a2-a5c5-43f2c0e6f34e</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -7327,7 +7327,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>984785ba-2445-45a7-a93e-fbb6411fae87</uuid>
+                        <uuid>cdffe58b-49ea-48c9-ba2b-cccb6f4250c7</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -7341,7 +7341,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>d7f3e59e-20ed-4a63-ab31-c5d40aed0373</uuid>
+                        <uuid>ca76aadb-2cf9-410d-980c-fd55c694a762</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>
