@@ -219,7 +219,7 @@ public class RFPulse {
     public void setAmp(Order order, double... amps) {
         setSequenceTableValues(amplitudeTable, order, amps);
         if (amps.length > 0) {
-            txAmp = amps[0];
+            txAmp = amps[amps.length-1];
         }
     }
 
@@ -240,7 +240,14 @@ public class RFPulse {
         attParam.setValue(txAtt);
         txAmp = amp;
         setSequenceTableSingleValue(amplitudeTable, txAmp);
+
         powerPulse = PowerComputation.getPower(txRoute.get(0), observeFrequency, txAmp, txAtt);
+        voltagePulse = calculateVoltage(powerPulse);
+        calculateFA();
+    }
+
+    public void setMaxPower(double amp, double observeFrequency, List<Integer> txRoute) {
+        powerPulse = PowerComputation.getPower(txRoute.get(0), observeFrequency, amp, txAtt);
         voltagePulse = calculateVoltage(powerPulse);
         calculateFA();
     }
@@ -318,7 +325,7 @@ public class RFPulse {
         if (txAtt == -1) {
             // Calculate Att to get a 180° RF pulse around 80% amp
             double targetTxAmp = 80;
-            if (flipAngle < 180) {
+            if (flipAngle < 180) { // it is always nice in the onepulse to directly have access to the 180° (attauto not automatic )by changing the amp only.
                 double powerPulse180 = powerPulse * Math.pow(180 / flipAngle, 2);
                 txAtt = PowerComputation.getTxAttenuation(txRoute.get(0), powerPulse180, observeFrequency, targetTxAmp);
             } else {

@@ -33,7 +33,7 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private String sequenceVersion = "Version8.2";
+    private String sequenceVersion = "Version8.3";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -409,15 +409,9 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         set(Tx_blanking, tx_amp != 0 || is_tx_nutation_amp);
         ArrayList<Number> list_tx_amps = new ArrayList<>();
         if (!is_tx_nutation_amp) {
-            //    pulsePowerWatt_pulse = pulseTX.get (float) TxMath.getPowerWatt(tx_amp, tx_att, observe_frequency, txCh) * power_factor_90;
             getParam(TX_AMP).setValue(tx_amp);
             getParam(TX_ATT).setValue(tx_att);
-            getParam(TX_POWER).setValue(pulseTX.getPower());
-            getParam(TX_VOLTAGE).setValue(pulseTX.getVoltage());
-            getParam(TX_GAMMA_B1).setValue(Math.round(pulseTX.getPowerGammaB1()));
             list_tx_amps.add(tx_amp);
-            if (!is_tx_amp_att_auto) //in auto mode, Att/Amp are computed from FA so update FA can propagate errors if sequence is run more than one time
-                this.getParam(FLIP_ANGLE).setValue(pulseTX.getFlipAngle());
 
             if (getBoolean(DEBUG_MODE)) {
                 double ampSP = pulseTX.getAmpTable().get(0).doubleValue();
@@ -443,7 +437,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                         flip_angle, pulseTX.getFlipAngle(), FASP, Math.abs(pulseTX.getFlipAngle() - flip_angle) * 100 / pulseTX.getFlipAngle(), Math.abs(pulseTX.getFlipAngle() - FASP) * 100 / pulseTX.getFlipAngle());
                 System.out.println(" ");
             }
-        } else {
+        } else { // is_tx_nutation_amp
             double tx_amp_start = getDouble(TX_AMP_START);
             double tx_amp_step = getDouble(TX_AMP_STEP);
             double[] tx_amps = new double[acquisitionMatrixDimension2D];
@@ -451,16 +445,19 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 tx_amps[i] = (tx_amp_start + i * tx_amp_step);
                 list_tx_amps.add(tx_amps[i]);
             }
-
-            pulseTX.setAmp(Order.Two, tx_amps);
             pulseTX.setAtt(tx_att);
+            pulseTX.setAmp(Order.Two, tx_amps);
+            pulseTX.setMaxPower(tx_amp_start + (acquisitionMatrixDimension2D - 1) * tx_amp_step, observeFrequency, getListInt(TX_ROUTE));
+
+            this.getParam(TX_AMP).setValue(pulseTX.getAmp());
             this.getParam(TX_ATT).setValue(tx_att);
 
-            //tx_amp = tx_amps[0];
-            //      pulsePowerWatt_pulse = (float) TxMath.getPowerWatt(tx_amp, tx_att, observe_frequency, txCh) * power_factor_90;
         }
-
+        getParam(TX_POWER).setValue(pulseTX.getPower());
+        getParam(TX_VOLTAGE).setValue(pulseTX.getVoltage());
+        getParam(TX_GAMMA_B1).setValue(Math.round(pulseTX.getPowerGammaB1()));
         getParam(TX_AMP_VALUES).setValue(list_tx_amps);
+
         double txLengthMax = txLength;
         double[] tx_lengths = new double[acquisitionMatrixDimension2D];
         ArrayList<Number> list_tx_length = new ArrayList<>();
@@ -481,7 +478,8 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             list_tx_length.add(txLength);
         }
         getParam(TX_LENGTH_VALUES).setValue(list_tx_length);
-
+        if (!is_tx_amp_att_auto) //in auto mode, Att/Amp are computed from FA so update FA can propagate errors if sequence is run more than one time
+            this.getParam(FLIP_ANGLE).setValue(pulseTX.getFlipAngle());
 
         // -----------------------------------------------
         // Calculation RF pulse parameters  3/3: bandwidth

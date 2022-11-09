@@ -1388,7 +1388,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_2d</name>
                 <uuid>91cdd71b-c9b9-46bd-a39e-cdc1c50549c8</uuid>
-                <value>1</value>
+                <value>6</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 2D</displayedName>
                 <locked>true</locked>
@@ -6840,6 +6840,11 @@
                 <locked>false</locked>
                 <address>-1</address>
                 <list>0.001</list>
+                <list>0.002</list>
+                <list>0.003</list>
+                <list>0.004</list>
+                <list>0.005</list>
+                <list>0.006</list>
             </value>
         </Entry>
         <Entry>
@@ -6958,7 +6963,12 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>7.999999999999988E-5</list>
+                <list>0.00251</list>
+                <list>0.00201</list>
+                <list>0.00151</list>
+                <list>0.00101</list>
+                <list>5.1E-4</list>
+                <list>1.0000000000000026E-5</list>
             </value>
         </Entry>
         <Entry>
@@ -7012,7 +7022,12 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.28942536000000013</list>
+                <list>0.2869953600000001</list>
+                <list>0.2864953600000001</list>
+                <list>0.2859953600000001</list>
+                <list>0.2854953600000001</list>
+                <list>0.2849953600000001</list>
+                <list>0.2844953600000001</list>
             </value>
         </Entry>
         <Entry>
@@ -7268,7 +7283,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>71.5091496346043</list>
+                <list>36.387779064327326</list>
             </value>
         </Entry>
         <Entry>
