@@ -473,7 +473,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>FLIP_ANGLE</name>
                     <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                    <value>10.0</value>
+                    <value>180.0</value>
                     <defaultValue>30.0</defaultValue>
                     <description>Excitation flip angle</description>
                     <displayedName>Flip Angle</displayedName>
@@ -2103,7 +2103,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
                     <uuid>6a096c39-09c0-41a8-bce5-fd514e5e3e94</uuid>
-                    <value>6.126287997232442</value>
+                    <value>71.5091496346043</value>
                     <defaultValue>40.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse </description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2192,7 +2192,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_AMP_VALUES</name>
                     <uuid>0c386d15-9676-4a3a-967e-9f905fd737b5</uuid>
-                    <value>6.126287997232442</value>
+                    <value>71.5091496346043</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>TX Amp Values</displayedName>
                     <locked>true</locked>
@@ -2208,7 +2208,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
                     <uuid>2671487a-e1f3-4a54-92c1-fa273b0e3f43</uuid>
-                    <value>15</value>
+                    <value>26</value>
                     <defaultValue>36</defaultValue>
                     <description>RF pulse attenuation</description>
                     <displayedName>TX Attenuation</displayedName>
@@ -2227,7 +2227,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_GAMMA_B1</name>
                     <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                    <value>63.0</value>
+                    <value>500.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the power in gamma B1 unit</description>
                     <displayedName>Tx Gamma B1</displayedName>
@@ -2366,7 +2366,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_POWER</name>
                     <uuid>10ee6f5c-61e9-4acf-a548-fc8c4c762098</uuid>
-                    <value>0.3173</value>
+                    <value>4.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the tx power that corresponds to Tx Amplitude and Attenuation</description>
                     <displayedName>TX Power</displayedName>
@@ -2401,7 +2401,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>TX_SHAPE</name>
                     <uuid>f660e6d3-74a2-4111-bb56-dbd69fe713df</uuid>
-                    <value>GAUSSIAN</value>
+                    <value>HARD</value>
                     <defaultValue>GAUSSIAN</defaultValue>
                     <description>RF Pulse shape</description>
                     <displayedName>TX Shape</displayedName>
@@ -2412,6 +2412,38 @@
                     <suggestedValues>SINC3</suggestedValues>
                     <suggestedValues>HARD</suggestedValues>
                     <suggestedValues>SINC5</suggestedValues>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_VOLTAGE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_VOLTAGE</name>
+                    <uuid>def98c53-85e7-490e-9ee2-9d7c032409ca</uuid>
+                    <value>40.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description></description>
+                    <displayedName>TX_VOLTAGE</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Vpp</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>1000.0</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>TX_VOLTAGE_INPUT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>TX_VOLTAGE_INPUT</name>
+                    <uuid>9a4a4b8c-26ab-4c43-8e10-b3068b9d5df4</uuid>
+                    <value>true</value>
+                    <defaultValue>false</defaultValue>
+                    <description></description>
+                    <displayedName>TX_VOLTAGE_INPUT</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
                     <category>Acquisition</category>
                 </value>
             </entry>
