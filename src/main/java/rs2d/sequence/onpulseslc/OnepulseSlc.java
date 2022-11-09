@@ -381,8 +381,8 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         double pulsePowerWatt_pulse;
         double tx_amp;
         int tx_att;
-        boolean tx_voltInput = getBoolean(TX_VOLTAGE_INPUT);
-
+        boolean tx_voltInput = getBoolean(TX_VOLTAGE_INPUT) && !is_tx_nutation_amp;
+        getParam(TX_VOLTAGE_INPUT).setValue(tx_voltInput);
         // Calculate / Set Amp / Att
         if (is_tx_amp_att_auto || tx_voltInput) {
             if (is_tx_amp_att_auto) {
@@ -451,7 +451,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
 
             this.getParam(TX_AMP).setValue(pulseTX.getAmp());
             this.getParam(TX_ATT).setValue(tx_att);
-
         }
         getParam(TX_POWER).setValue(pulseTX.getPower());
         getParam(TX_VOLTAGE).setValue(pulseTX.getVoltage());

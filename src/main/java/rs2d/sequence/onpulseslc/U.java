@@ -58,7 +58,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(6);
+            param.setValue(5);
             param.setDefaultValue(128);
             return param;
         }
@@ -283,7 +283,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(7.999999999999988E-5);
+            param.setValue(0.00251);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -411,7 +411,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.PulseAngle);
             param.setMinValue(0.0);
             param.setMaxValue(1.7976931348623157E308);
-            param.setValue(90.0);
+            param.setValue(20.0);
             param.setDefaultValue(30.0);
             return param;
         }
@@ -1183,7 +1183,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(4.2);
+            param.setValue(3.5000000000000004);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1493,7 +1493,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.PERCENT);
             param.setMinValue(0.0);
             param.setMaxValue(100.0);
-            param.setValue(36.387779064327326);
+            param.setValue(8.241509327490578);
             param.setDefaultValue(40.0);
             return param;
         }
@@ -1507,7 +1507,7 @@ public enum U implements GeneratorParamEnum {
             param.setDescription("Enable to automatically set attenuation and amplitude for the RF according to the calibration and the flip angle");
             param.setCategory(Category.Acquisition);
             param.setUuid("397f21a2-3474-47b4-b7ff-ad08efef6384");
-            param.setValue(false);
+            param.setValue(true);
             param.setDefaultValue(true);
             return param;
         }
@@ -1519,13 +1519,14 @@ public enum U implements GeneratorParamEnum {
             param.setName("TX_AMP_NUMBER");
             param.setDisplayedName("TX Amp Number");
             param.setDescription("Number of TX amplitude increment steps to get a nutation curve");
+            param.setLocked(true);
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setUuid("a420b8a9-621b-4916-b031-551362bdbb49");
             param.setNumberEnum(NumberEnum.Integer);
             param.setMinValue(1);
             param.setMaxValue(2048);
-            param.setValue(13);
+            param.setValue(5);
             param.setDefaultValue(1);
             return param;
         }
@@ -1580,7 +1581,7 @@ public enum U implements GeneratorParamEnum {
             param.setMinValue(-2.147483648E9);
             param.setMaxValue(2.147483647E9);
             param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asListNumber(36.387779064327326));
+            param.setValue(asListNumber(8.241509327490578));
             return param;
         }
     },
@@ -1614,7 +1615,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.RfPower);
             param.setMinValue(0.0);
             param.setMaxValue(250000.0);
-            param.setValue(250.0);
+            param.setValue(56.0);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1651,7 +1652,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Integer);
             param.setMinValue(1);
             param.setMaxValue(2048);
-            param.setValue(6);
+            param.setValue(4);
             param.setDefaultValue(1);
             return param;
         }
@@ -1707,7 +1708,7 @@ public enum U implements GeneratorParamEnum {
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
             param.setNumberEnum(NumberEnum.Time);
-            param.setValue(asListNumber(0.001, 0.002, 0.003, 0.004, 0.005, 0.006));
+            param.setValue(asListNumber(0.001));
             return param;
         }
     },
@@ -1718,7 +1719,6 @@ public enum U implements GeneratorParamEnum {
             param.setName("TX_NUTATION_AMP");
             param.setDisplayedName("TX Nutation Amp");
             param.setDescription("Enable to acquire a nutation curve by varying the TX amplitude");
-            param.setLocked(true);
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setUuid("926bbb73-8dd7-4463-8ebc-08383957b5c2");
@@ -1736,7 +1736,7 @@ public enum U implements GeneratorParamEnum {
             param.setDescription("Enable to acquire a nutation curve by varying the TX length");
             param.setCategory(Category.Acquisition);
             param.setUuid("3bb84ade-8bc3-4b91-8e49-7cdab5c8905a");
-            param.setValue(true);
+            param.setValue(false);
             param.setDefaultValue(false);
             return param;
         }
@@ -1753,7 +1753,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Power);
             param.setMinValue(0.0);
             param.setMaxValue(10000.0);
-            param.setValue(1.0);
+            param.setValue(0.04938);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1803,7 +1803,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Vpp);
             param.setMinValue(0.0);
             param.setMaxValue(1000.0);
-            param.setValue(20.0);
+            param.setValue(4.445);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1815,7 +1815,6 @@ public enum U implements GeneratorParamEnum {
             param.setName("TX_VOLTAGE_INPUT");
             param.setDisplayedName("TX_VOLTAGE_INPUT");
             param.setDescription("");
-            param.setLocked(true);
             param.setCategory(Category.Acquisition);
             param.setUuid("9a4a4b8c-26ab-4c43-8e10-b3068b9d5df4");
             param.setValue(false);
@@ -1854,7 +1853,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(6);
+            param.setValue(5);
             param.setDefaultValue(128);
             return param;
         }

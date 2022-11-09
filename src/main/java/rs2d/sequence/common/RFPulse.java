@@ -286,9 +286,15 @@ public class RFPulse {
 
         boolean test_change_time = true;
         if (txAtt == -1) {
-            test_change_time = prepTxAttFor180(80, txRoute);
+            if (flipAngle < 180) { // it is always nice in the onepulse to directly have access to the 180° (attauto not automatic )by changing the amp only.
+                test_change_time = prepTxAttFor180(80, txRoute);
+                calculatePower();
+            } else {
+                test_change_time = prepPower(this.flipAngle,observeFrequency, nucleus);
+                prepAtt(80, txRoute);
+            }
         }
-        calculatePower();
+
         txAmp = PowerComputation.getTxAmplitude(txRoute.get(0), powerPulse, observeFrequency, txAtt);
         setSequenceTableSingleValue(amplitudeTable, txAmp);
         attParam.setValue(txAtt);
