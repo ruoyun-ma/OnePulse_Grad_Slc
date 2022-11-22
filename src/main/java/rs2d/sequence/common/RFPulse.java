@@ -27,6 +27,10 @@ import static java.util.stream.IntStream.*;
  */
 
 public class RFPulse {
+
+    private static final double[] slrPowerFactors90 = {2.331, 2.331 * 0.72}; //slr power factors compared to not slr pulses
+    private static final double[] slrPowerFactors180 = {3.879, 3.879 * 0.36};
+
     private Table amplitudeTable = null;
     private Param attParam = null;
     private Table phase = null;
@@ -35,7 +39,8 @@ public class RFPulse {
     private Table timeTable = null;
     private Shape shape = null;
     private Shape shapePhase = null;
-    private double instrumentPower90 = Double.NaN; //instrument power depends on pulse shape
+    // Power and length saved in the instrument
+    private double instrumentPower90 = Double.NaN; //instrument power depends on pulse shape (divided by the shape power factor)
     private double instrumentLength90 = Double.NaN;
     private double instrumentPower180 = Double.NaN;
     private double instrumentLength180 = Double.NaN;
@@ -47,9 +52,6 @@ public class RFPulse {
 
     private boolean isSlr = false;
     private int slrIndex = -1;
-
-    private double[] slrPowerFactors90 = {2.331, 2.331 * 0.72}; //slr power factors compared to not slr pulses
-    private double[] slrPowerFactors180 = {3.879, 3.879 * 0.36};
 
     private double[] txFrequencyOffsetTable = null;
     private int txAtt = -1;
@@ -199,6 +201,10 @@ public class RFPulse {
         return (NumberParam) attParam;
     }
 
+    public void setPulseDuration(double pulse_duration) {
+        pulseDuration = pulse_duration;
+        setSequenceTableSingleValue(timeTable, pulseDuration);
+    }
 
     public void setAtt(int att) {
         txAtt = att;
@@ -242,27 +248,24 @@ public class RFPulse {
         setSequenceTableSingleValue(amplitudeTable, txAmp);
 
         powerPulse = PowerComputation.getPower(txRoute.get(0), observeFrequency, txAmp, txAtt);
-        voltagePulse = calculateVoltage(powerPulse);
+        voltagePulse = wattToVPP(powerPulse);
         calculateFA();
     }
 
-    public void setMaxPower(double amp, double observeFrequency, List<Integer> txRoute) {
+    public void setPower(double amp, double observeFrequency, List<Integer> txRoute) {
         powerPulse = PowerComputation.getPower(txRoute.get(0), observeFrequency, amp, txAtt);
-        voltagePulse = calculateVoltage(powerPulse);
+        voltagePulse = wattToVPP(powerPulse);
         calculateFA();
     }
 
-    private double calculateVoltage(double power) {
+    // power-vpp conversion functions: Power = Voltage * Voltage / Impedance
+    // Voltage sinusoid = Vpp / (2*sqrt(2)) and impedance RF pulse = 8
+    private double wattToVPP(double power) {
         return ceilToSubDecimal(Math.sqrt(power * (8 * 50)), 3);
     }
 
-    private double calculatePower(double voltage) {
+    private double voltPPToWatt(double voltage) {
         return (voltage * voltage) / (8 * 50);
-    }
-
-    public void setPulseDuration(double pulse_duration) {
-        pulseDuration = pulse_duration;
-        setSequenceTableSingleValue(timeTable, pulseDuration);
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -274,35 +277,24 @@ public class RFPulse {
      * set amplitudeTable and attParam
      *
      * @param flipAngle         : flip angle of the pulse
-     * @param observe_frequency :set pulse property
+     * @param targetAmplitude   : amplitude to reach for the maximum reference pulse power (either 180° Pulse or current power)
+     * @param observeFrequency :set pulse property
      * @param txRoute           : Tx channel
-     * @param nucleus           :set pulse propert
      * @return test_change_time : false if the pulse duration has changed
      */
-    public boolean setAutoCalibFor180(double flipAngle, double observe_frequency, List<Integer> txRoute, Nucleus nucleus) {
-        this.flipAngle = flipAngle;
-        observeFrequency = observe_frequency;
-        this.nucleus = nucleus;
-
-        boolean test_change_time = true;
-        if (txAtt == -1) {
-            if (flipAngle < 180) { // it is always nice in the onepulse to directly have access to the 180° (attauto not automatic )by changing the amp only.
-                test_change_time = prepTxAttFor180(80, txRoute);
-                calculatePower();
-            } else {
-                test_change_time = prepPower(this.flipAngle,observeFrequency, nucleus);
-                prepAtt(80, txRoute);
-            }
+    public boolean solveOnePulseWithFlipAngleAndReference180(double flipAngle, double targetAmplitude, double observeFrequency, List<Integer> txRoute) {
+        // Prepare power
+        boolean b_time_unchanged = prepPower(flipAngle, observeFrequency);
+        // Prepare attenuation
+        if (flipAngle < 180) { // it is always nice in the onePulse to directly have access to the 180° (att/amp auto not automatic) by changing the amp only.
+            b_time_unchanged = b_time_unchanged && prepChannelAttWithMaxPowerAt180(targetAmplitude, txRoute); // the test to know if the length has to be increase has not been done for 180° pulse
+        } else {
+            prepAtt(targetAmplitude, txRoute);
         }
+        // Prepare amplitude
+        prepTxAmp(txRoute);
 
-        txAmp = PowerComputation.getTxAmplitude(txRoute.get(0), powerPulse, observeFrequency, txAtt);
-        setSequenceTableSingleValue(amplitudeTable, txAmp);
-        attParam.setValue(txAtt);
-
-        powerPulse = PowerComputation.getPower(txRoute.get(0), observe_frequency, txAmp, txAtt);
-        voltagePulse = calculateVoltage(powerPulse);
-        // set calculated parameters to display values & sequence
-        return test_change_time;
+        return b_time_unchanged;
     }
 
     /**
@@ -312,40 +304,27 @@ public class RFPulse {
      * @param voltage           : voltage of the pulse
      * @param observe_frequency :set pulse property
      * @param txRoute           : Tx channel
-     * @param nucleus           :set pulse propert
-     * @return test_change_time : false if the pulse duration has changed
+     * @return b_voltage_unchanged : false if the pulse voltage has changed
      */
-    public boolean setVoltageFor180(double voltage, double observe_frequency, List<Integer> txRoute, Nucleus nucleus) {
-        this.voltagePulse = voltage;
-        this.powerPulse = calculatePower(voltagePulse);
+    public boolean solveOnePulseWithVoltage(double voltage, double targetAmplitude, double observe_frequency, List<Integer> txRoute) {
+        //prepare power
         observeFrequency = observe_frequency;
-        this.nucleus = nucleus;
-        boolean test_change_time = true;
+        voltagePulse = voltage;
+        powerPulse = voltPPToWatt(voltagePulse);
+        boolean b_voltage_unchanged = true;
         if (powerPulse > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
-
-            this.voltagePulse = calculateVoltage(floorToSubDecimal(Hardware.getMaxRfPowerPulsed(nucleus.name()), 3));
-            this.powerPulse = calculatePower(voltagePulse);
-            test_change_time = false;
+            voltagePulse = wattToVPP(floorToSubDecimal(Hardware.getMaxRfPowerPulsed(nucleus.name()), 3));
+            powerPulse = voltPPToWatt(voltagePulse);
+            b_voltage_unchanged = false;
         }
         calculateFA();
-        if (txAtt == -1) {
-            // Calculate Att to get a 180° RF pulse around 80% amp
-            double targetTxAmp = 80;
-            if (flipAngle < 180) { // it is always nice in the onepulse to directly have access to the 180° (attauto not automatic )by changing the amp only.
-                double powerPulse180 = powerPulse * Math.pow(180 / flipAngle, 2);
-                txAtt = PowerComputation.getTxAttenuation(txRoute.get(0), powerPulse180, observeFrequency, targetTxAmp);
-            } else {
-                txAtt = PowerComputation.getTxAttenuation(txRoute.get(0), powerPulse, observeFrequency, targetTxAmp);
-            }
-        }
-        txAmp = PowerComputation.getTxAmplitude(txRoute.get(0), powerPulse, observeFrequency, txAtt);
-        setSequenceTableSingleValue(amplitudeTable, txAmp);
-        attParam.setValue(txAtt);
+        // Prepare attenuation
+        prepAtt(targetAmplitude, txRoute);
+        // Prepare amplitude
+        prepTxAmp(txRoute);
 
-        // set calculated parameters to display values & sequence
-        return test_change_time;
+        return b_voltage_unchanged;
     }
-
 
     /**
      * Automatic Calibration: ATT set to get 180°-> txAmp%.
@@ -354,8 +333,8 @@ public class RFPulse {
      * @param txRoute : Tx channel
      * @return test_change_time : false if the pulse duration has changed
      */
-    private boolean prepTxAttFor180(double txAmp, List<Integer> txRoute) {
-        boolean test_change_time = true;
+    private boolean prepChannelAttWithMaxPowerAt180(double txAmp, List<Integer> txRoute) {
+        boolean b_time_unchanged = true;
         double powerPulse180 = instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2);
 
         if (powerPulse180 > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
@@ -363,13 +342,13 @@ public class RFPulse {
             double durationMin = ceilToSubDecimal(instrumentLength180 / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / instrumentPower180), 6);
             setPulseDuration(durationMin);
             powerPulse180 = instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2);
-            test_change_time = false;
+            b_time_unchanged = false;
         }
         // Calculate Att to get a 180° RF pulse around 80% amp
         if (txAtt == -1) {
             txAtt = PowerComputation.getTxAttenuation(txRoute.get(0), powerPulse180, observeFrequency, txAmp);
         }
-        return test_change_time;
+        return b_time_unchanged;
     }
 
     /**
@@ -401,13 +380,11 @@ public class RFPulse {
      *
      * @param flipAngle        set pulse property
      * @param observeFrequency set pulse property
-     * @param nucleus          set pulse property
      * @return test_change_time = false if the pulseDuration was increase because of exceeding power max
      */
-    public boolean prepPower(double flipAngle, double observeFrequency, Nucleus nucleus) {
+    public boolean prepPower(double flipAngle, double observeFrequency) {
         this.flipAngle = flipAngle;
         this.observeFrequency = observeFrequency; // used to calculate the attenuation and amplitude that match with the power
-        this.nucleus = nucleus;
         return calculatePower();
     }
 
@@ -429,17 +406,15 @@ public class RFPulse {
         double instrumentLength = flipAngle < 135 ? instrumentLength90 : instrumentLength180;
         double instrumentPower = flipAngle < 135 ? instrumentPower90 : instrumentPower180;
         powerPulse = instrumentPower * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2) * Math.pow(instrumentLength / pulseDuration, 2);
-        voltagePulse = calculateVoltage(powerPulse);
         // If the power exceed the instrument limit increase the pulse duration
         if (powerPulse > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
             double durationMin = ceilToSubDecimal(instrumentLength / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / (instrumentPower * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2))), 6);
             setPulseDuration(durationMin);
             powerPulse = flipAngle < 135 ? instrumentPower90 * Math.pow(flipAngle / 90, 2) * Math.pow(instrumentLength90 / pulseDuration, 2) :
                     instrumentPower180 * Math.pow(flipAngle / 180, 2) * Math.pow(instrumentLength180 / pulseDuration, 2);
-            voltagePulse = calculateVoltage(powerPulse);
             b_time_unchanged = false;
         }
-
+        voltagePulse = wattToVPP(powerPulse);
         return b_time_unchanged;
     }
 

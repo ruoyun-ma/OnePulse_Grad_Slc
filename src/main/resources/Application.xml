@@ -217,7 +217,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>BASE_FREQ_1</name>
                     <uuid>bdb638b1-d07c-4cd7-8720-40b53133ab4f</uuid>
-                    <value>6.3806597364338815E7</value>
+                    <value>6.3806791188395776E7</value>
                     <defaultValue>1.27194553E8</defaultValue>
                     <description>Info: Frequency of the observed nucleus</description>
                     <displayedName>Base Frequency 1</displayedName>
@@ -609,8 +609,8 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>INTERMEDIATE_FREQUENCY</name>
                     <uuid>9fc49f7f-88e3-418f-b2af-b15f962189a7</uuid>
-                    <value>1.251E7</value>
-                    <defaultValue>1.251E7</defaultValue>
+                    <value>1.25E7</value>
+                    <defaultValue>1.25E7</defaultValue>
                     <description>Info: Frequency from the Hardware used for the signal demodulation (ADC optimal frequency)</description>
                     <displayedName>INTERMEDIATE_FREQUENCY</displayedName>
                     <locked>true</locked>
@@ -1329,7 +1329,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>OBSERVED_FREQUENCY</name>
                     <uuid>d93d76ff-b4cc-42bd-aa43-dfa44cc9e28d</uuid>
-                    <value>6.3806597364338815E7</value>
+                    <value>6.3806791188395776E7</value>
                     <defaultValue>6.3E7</defaultValue>
                     <description>Info: Frequency of the acquisition</description>
                     <displayedName>Observed Frequency</displayedName>
@@ -2103,7 +2103,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
                     <uuid>6a096c39-09c0-41a8-bce5-fd514e5e3e94</uuid>
-                    <value>8.241509327490578</value>
+                    <value>66.59584160263563</value>
                     <defaultValue>40.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse </description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2192,7 +2192,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_AMP_VALUES</name>
                     <uuid>0c386d15-9676-4a3a-967e-9f905fd737b5</uuid>
-                    <value>8.241509327490578</value>
+                    <value>66.59584160263563</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>TX Amp Values</displayedName>
                     <locked>true</locked>
@@ -2208,7 +2208,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
                     <uuid>2671487a-e1f3-4a54-92c1-fa273b0e3f43</uuid>
-                    <value>26</value>
+                    <value>49</value>
                     <defaultValue>36</defaultValue>
                     <description>RF pulse attenuation</description>
                     <displayedName>TX Attenuation</displayedName>
@@ -2336,7 +2336,7 @@
                 <key>TX_NUTATION_AMP</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>TX_NUTATION_AMP</name>
-                    <uuid>926bbb73-8dd7-4463-8ebc-08383957b5c2</uuid>
+                    <uuid>242c394e-9498-47b1-b133-a47b840371a8</uuid>
                     <value>false</value>
                     <defaultValue>false</defaultValue>
                     <description>Enable to acquire a nutation curve by varying the TX amplitude</description>
@@ -2365,8 +2365,8 @@
                 <key>TX_POWER</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_POWER</name>
-                    <uuid>10ee6f5c-61e9-4acf-a548-fc8c4c762098</uuid>
-                    <value>0.04938</value>
+                    <uuid>a8400ddf-5374-43fa-b372-f84e9788a9f6</uuid>
+                    <value>0.02287</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the tx power that corresponds to Tx Amplitude and Attenuation</description>
                     <displayedName>TX Power</displayedName>
@@ -2419,11 +2419,11 @@
                 <key>TX_VOLTAGE</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_VOLTAGE</name>
-                    <uuid>def98c53-85e7-490e-9ee2-9d7c032409ca</uuid>
-                    <value>4.445</value>
+                    <uuid>072042f9-90de-4a6d-a963-cdd321d4eb80</uuid>
+                    <value>3.025</value>
                     <defaultValue>0.0</defaultValue>
-                    <description></description>
-                    <displayedName>TX_VOLTAGE</displayedName>
+                    <description>RF voltage amplitude peak-to-peak</description>
+                    <displayedName>TX Voltage</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2437,11 +2437,11 @@
                 <key>TX_VOLTAGE_INPUT</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>TX_VOLTAGE_INPUT</name>
-                    <uuid>9a4a4b8c-26ab-4c43-8e10-b3068b9d5df4</uuid>
+                    <uuid>63418845-470f-4ef1-8503-0ef82491d02d</uuid>
                     <value>false</value>
                     <defaultValue>false</defaultValue>
-                    <description></description>
-                    <displayedName>TX_VOLTAGE_INPUT</displayedName>
+                    <description>Enable to use TX Voltage to set the RF power</description>
+                    <displayedName>TX Voltage Input</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <category>Acquisition</category>

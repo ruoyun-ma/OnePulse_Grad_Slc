@@ -386,14 +386,14 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // Calculate / Set Amp / Att
         if (is_tx_amp_att_auto || tx_voltInput) {
             if (is_tx_amp_att_auto) {
-                if (!pulseTX.setAutoCalibFor180(flip_angle, observeFrequency, getListInt(TX_ROUTE), nucleus)) {
+                if (!pulseTX.solveOnePulseWithFlipAngleAndReference180(flip_angle, 80, observeFrequency, getListInt(TX_ROUTE))) {
                     getUnreachParamExceptionManager().addParam(TX_LENGTH.name(), txLength, pulseTX.getPulseDuration(), ((NumberParam) getParam(TX_LENGTH)).getMaxValue(), "Pulse length too short to reach RF power with this pulse shape");
                     txLength = pulseTX.getPulseDuration();
                 }
             } else {
                 double tx_volt = getDouble(TX_VOLTAGE);
-                if (!pulseTX.setVoltageFor180(tx_volt, observeFrequency, getListInt(TX_ROUTE), nucleus)) {
-                    getUnreachParamExceptionManager().addParam(TX_VOLTAGE.name(), tx_volt, ((NumberParam) getParam(TX_LENGTH)).getMinValue(), pulseTX.getVoltage(), "Pulse voltage too high for RF coil");
+                if (!pulseTX.solveOnePulseWithVoltage(tx_volt, 80, observeFrequency, getListInt(TX_ROUTE))) {
+                    getUnreachParamExceptionManager().addParam(TX_VOLTAGE.name(), tx_volt, ((NumberParam) getParam(TX_VOLTAGE)).getMinValue(), pulseTX.getVoltage(), "Pulse voltage too high for RF coil");
                     txLength = pulseTX.getPulseDuration();
                 }
             }
@@ -447,12 +447,12 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             }
             pulseTX.setAtt(tx_att);
             pulseTX.setAmp(Order.Two, tx_amps);
-            pulseTX.setMaxPower(tx_amp_start + (acquisitionMatrixDimension2D - 1) * tx_amp_step, observeFrequency, getListInt(TX_ROUTE));
+            pulseTX.setPower(tx_amp_start + (acquisitionMatrixDimension2D - 1) * tx_amp_step, observeFrequency, getListInt(TX_ROUTE));
 
             this.getParam(TX_AMP).setValue(pulseTX.getAmp());
             this.getParam(TX_ATT).setValue(tx_att);
         }
-        getParam(TX_POWER).setValue(pulseTX.getPower());
+        getParam(TX_POWER).setValue(ceilToSubDecimal(pulseTX.getPower(),5));
         getParam(TX_VOLTAGE).setValue(pulseTX.getVoltage());
         getParam(TX_GAMMA_B1).setValue(Math.round(pulseTX.getPowerGammaB1()));
         getParam(TX_AMP_VALUES).setValue(list_tx_amps);
@@ -478,7 +478,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         }
         getParam(TX_LENGTH_VALUES).setValue(list_tx_length);
         if (!is_tx_amp_att_auto) //in auto mode, Att/Amp are computed from FA so update FA can propagate errors if sequence is run more than one time
-            this.getParam(FLIP_ANGLE).setValue(pulseTX.getFlipAngle());
+            this.getParam(FLIP_ANGLE).setValue(Math.round(pulseTX.getFlipAngle()));
 
         // -----------------------------------------------
         // Calculation RF pulse parameters  3/3: bandwidth
