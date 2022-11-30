@@ -9,6 +9,7 @@ package rs2d.sequence.onpulseslc;
 import rs2d.commons.log.Log;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 import rs2d.sequence.common.*;
 import rs2d.spinlab.api.Hardware;
@@ -72,6 +73,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
     private boolean is_tx_amp_att_auto;
     private boolean is_tx_nutation_amp;
     private boolean is_tx_nutation_Length;
+    private boolean is_tx_voltInput;
     private boolean isDelayEcho;
 
 
@@ -150,6 +152,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         is_tx_amp_att_auto = getBoolean(TX_AMP_ATT_AUTO);
         is_tx_nutation_amp = getBoolean(TX_NUTATION_AMP);
         is_tx_nutation_Length = getBoolean(TX_NUTATION_LENGTH);
+        is_tx_voltInput = getBoolean(TX_VOLTAGE_INPUT);
         isDelayEcho = getBoolean(DELAY_ECHO);
 
         isTrigger = getBoolean(TRIGGER_EXTERNAL);
@@ -236,6 +239,9 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // 2nd D management
         // -----------------------------------------------
         // MATRIX
+        // solve conflict between input parameter used to solve pulse power
+        is_tx_voltInput = is_tx_voltInput && !is_tx_nutation_amp;
+        getParam(TX_VOLTAGE_INPUT).setValue(is_tx_voltInput);
 
         is_tx_nutation_Length = !is_tx_nutation_amp && is_tx_nutation_Length && !is_tx_amp_att_auto;
         getParam(TX_NUTATION_LENGTH).setValue(is_tx_nutation_Length);
@@ -245,9 +251,11 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             double tx_amp_start = getDouble(TX_AMP_START);
             double tx_amp_step = getDouble(TX_AMP_STEP);
 
+            // use the maximum amplitude calculated if power limit was previously reached
             acquisitionMatrixDimension2D = Math.min(tx_number, is_tx_nutation_amp ? (int) Math.floor(((100 - tx_amp_start) / (tx_amp_step)) + 1) : tx_number);
             nb_scan_2d = acquisitionMatrixDimension2D;
             getParam(USER_MATRIX_DIMENSION_2D).setValue(acquisitionMatrixDimension2D);
+            getParam(TX_AMP_NUMBER).setValue(acquisitionMatrixDimension2D);
 
             isMultiplanar = !is_tx_nutation_Length && isMultiplanar;
             getParam(MULTI_PLANAR_EXCITATION).setValue(isMultiplanar);
@@ -374,17 +382,32 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // -----------------------------------------------
         // Calculation RF pulse parameters  2/3 : RF pulse amp & attenuation
         // -----------------------------------------------
-        double flip_angle = getDouble(FLIP_ANGLE);
-        double tx_amp;
         int tx_att;
-        boolean tx_voltInput = getBoolean(TX_VOLTAGE_INPUT) && !is_tx_nutation_amp;
-        getParam(TX_VOLTAGE_INPUT).setValue(tx_voltInput);
+        double tx_amp;
+        ArrayList<Number> list_tx_amps = new ArrayList<>();
+        double flip_angle = getDouble(FLIP_ANGLE);
+
         // Calculate / Set Amp / Att
-        if (is_tx_amp_att_auto || tx_voltInput) {
+        double tx_amp_start = getDouble(TX_AMP_START);
+        double tx_amp_step = getDouble(TX_AMP_STEP);
+        // solve pulse for maximum amplitude (prepare & check maximum power)
+        double tx_amp_max = tx_amp_start + (acquisitionMatrixDimension2D - 1) * tx_amp_step;
+
+
+
+        if (is_tx_amp_att_auto || is_tx_voltInput) {
             if (is_tx_amp_att_auto) {
                 if (!pulseTX.solveOnePulseWithFlipAngleAndReference180(flip_angle, 80, observeFrequency, getListInt(TX_ROUTE))) {
                     getUnreachParamExceptionManager().addParam(TX_LENGTH.name(), txLength, pulseTX.getPulseDuration(), ((NumberParam) getParam(TX_LENGTH)).getMaxValue(), "Pulse length too short to reach RF power with this pulse shape");
                     txLength = pulseTX.getPulseDuration();
+                }
+                if(is_tx_nutation_amp) {
+                    // check if the maximum amplitude is achievable with flip angle chosen to be at 80% amp
+                    if (!pulseTX.solveOnePulseWithAmpAtt(tx_amp_max, pulseTX.getAtt(), observeFrequency, getListInt(TX_ROUTE))) {
+                        double flip_angle_lim = pulseTX.getFlipAngle()*0.7; //security limit
+                        getUnreachParamExceptionManager().addParam(FLIP_ANGLE.name(), flip_angle, ((NumberParam) getParam(FLIP_ANGLE)).getMinValue(), flip_angle_lim, "Reference flip angle too high for RF coil");
+                        flip_angle = flip_angle_lim;
+                    }
                 }
             } else {
                 double tx_volt = getDouble(TX_VOLTAGE);
@@ -395,10 +418,12 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             tx_amp = pulseTX.getAmp();
             tx_att = pulseTX.getAtt();
         } else {
-            tx_amp = getDouble(TX_AMP);
+            tx_amp = is_tx_nutation_amp ? tx_amp_max :getDouble(TX_AMP);
             tx_att = getInt(TX_ATT);
-            if (!pulseTX.prepPower(tx_amp, tx_att, observeFrequency, getListInt(TX_ROUTE))) {
-                getUnreachParamExceptionManager().addParam(TX_ATT.name(), tx_att, ((NumberParam) getParam(TX_ATT)).getMinValue(), pulseTX.getAtt(), "Pulse attenuation too low for RF coil");
+            if (!pulseTX.solveOnePulseWithAmpAtt(tx_amp, tx_att, observeFrequency, getListInt(TX_ROUTE))) {
+                int tx_att_offset_nutation = is_tx_nutation_amp ? 1:0; // security margin because when amp/att is calculated to reach maximum power, amp is always inferior to tx_amp_max so tx_amp_max will not be achievable
+                getUnreachParamExceptionManager().addParam(TX_ATT.name(), tx_att, pulseTX.getAtt()+tx_att_offset_nutation, ((NumberParam) getParam(TX_ATT)).getMaxValue(), "Pulse attenuation too low for RF coil");
+                getUnreachParamExceptionManager().addParam(TX_AMP.name(), tx_amp, ((NumberParam) getParam(TX_AMP)).getMinValue(), pulseTX.getAmp(), "Pulse amplitude too high for RF coil");
                 tx_amp = pulseTX.getAmp(); // tx amplitude can be slightly changed
                 tx_att = pulseTX.getAtt();
             }
@@ -406,7 +431,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
 
         //  finalise pulse or nutation amplitude
         set(Tx_blanking, tx_amp != 0 || is_tx_nutation_amp);
-        ArrayList<Number> list_tx_amps = new ArrayList<>();
+
         if (!is_tx_nutation_amp) {
             getParam(TX_AMP).setValue(tx_amp);
             getParam(TX_ATT).setValue(tx_att);
@@ -436,18 +461,15 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                         flip_angle, pulseTX.getFlipAngle(), FASP, Math.abs(pulseTX.getFlipAngle() - flip_angle) * 100 / pulseTX.getFlipAngle(), Math.abs(pulseTX.getFlipAngle() - FASP) * 100 / pulseTX.getFlipAngle());
                 System.out.println(" ");
             }
-        } else { // is_tx_nutation_amp
-            double tx_amp_start = getDouble(TX_AMP_START);
-            double tx_amp_step = getDouble(TX_AMP_STEP);
+        } else {
+            // create and set amplitude table (the pulse has already been solved for the maximum amplitude)
             double[] tx_amps = new double[acquisitionMatrixDimension2D];
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
                 tx_amps[i] = (tx_amp_start + i * tx_amp_step);
                 list_tx_amps.add(tx_amps[i]);
             }
-            pulseTX.setAtt(tx_att);
             pulseTX.setAmp(Order.Two, tx_amps);
-            pulseTX.setPower(tx_amp_start + (acquisitionMatrixDimension2D - 1) * tx_amp_step, observeFrequency, getListInt(TX_ROUTE));
-
+            // return tx_amp_max, att
             this.getParam(TX_AMP).setValue(pulseTX.getAmp());
             this.getParam(TX_ATT).setValue(tx_att);
         }
@@ -476,6 +498,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             list_tx_length.add(txLength);
         }
         getParam(TX_LENGTH_VALUES).setValue(list_tx_length);
+
         if (!is_tx_amp_att_auto) //in auto mode, Att/Amp are computed from FA so update FA can propagate errors if sequence is run more than one time
             this.getParam(FLIP_ANGLE).setValue(Math.round(pulseTX.getFlipAngle()));
 
@@ -625,7 +648,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         } else {
             for (int i = 0; i < numberOfTrigger; i++) {
                 double time_external_trigger_delay = roundToDecimal(triggerTime.get(i), 7);
-                time_external_trigger_delay = time_external_trigger_delay < minInstructionDelay ? minInstructionDelay : time_external_trigger_delay;
+                time_external_trigger_delay = Math.max(time_external_trigger_delay, minInstructionDelay);
                 triggerdelay.add(time_external_trigger_delay);
                 time_external_trigger_delay_max = Math.max(time_external_trigger_delay_max, time_external_trigger_delay);
             }

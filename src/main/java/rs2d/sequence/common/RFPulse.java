@@ -305,7 +305,7 @@ public class RFPulse {
      *
      * @param pulseList  List of RF-pulse power of the tx channel used to compute automatically channel attenuation and attenuation offset
      * @param targetAmplitude Amplitude to reach for the reference power
-     * @param observeFrequency
+     * @param observeFrequency :set pulse property
      * @param txRoute   : Tx channel
      */
     public static void solvePulses(List<RFPulse> pulseList, double targetAmplitude, double observeFrequency, List<Integer> txRoute){
@@ -377,7 +377,7 @@ public class RFPulse {
 
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    //                  Solve methods for one pulse
+    //                  Solve methods for one pulse (set Amp/Att & check power)
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     /**
@@ -435,42 +435,29 @@ public class RFPulse {
         return b_voltage_unchanged;
     }
 
+    /**
+     * Prepare the pulse with amp/att
+     *
+     * @param amp               : amplitude
+     * @param att               : attenuation
+     * @param observeFrequency  : set pulse property
+     * @param txRoute           : Tx channel
+     * @return b_voltage_unchanged : false if the pulse voltage has changed
+     */
+    public boolean solveOnePulseWithAmpAtt(double amp, int att, double observeFrequency, List<Integer> txRoute) {
+        setAtt(att);
+        setAmp(amp);
+        this.observeFrequency = observeFrequency;
+        boolean b_voltage_unchanged = prepPowerWithAmpAtt(txRoute);
+        prepFlipAngle();
+        return b_voltage_unchanged;
+    }
+
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     //                  Prepare methods: Power, ChannelAtt, Amp
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     // ------------------------------ Power ------------------------------------------
-
-    /**
-     * Prepare power with amplitude and attenuation, and check if it exceeds the instrument power limit
-     *
-     * @param amp     : pulse amplitude
-     * @param att     : pulse attenuation
-     * @param txRoute : Tx channel
-     */
-    public boolean prepPower(double amp, int att, double observeFrequency, List<Integer> txRoute) {
-        setAtt(att);
-        return prepPower(amp, observeFrequency, txRoute);
-    }
-
-    public boolean prepPower(double amp, double observeFrequency, List<Integer> txRoute) {
-        setAmp(amp);
-        powerPulse = PowerComputation.getPower(txRoute.get(0), observeFrequency, amp, getAtt());
-        voltagePulse = wattToVPP(powerPulse);
-        // check power limit
-        boolean b_voltage_unchanged = true;
-        if (powerPulse > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
-            voltagePulse = wattToVPP(floorToSubDecimal(Hardware.getMaxRfPowerPulsed(nucleus.name()), 3));
-            powerPulse = voltPPToWatt(voltagePulse);
-            // compute att and amp corresponding to the new power
-            prepChannelAtt(amp, txRoute);
-            prepTxAmp(txRoute);
-            b_voltage_unchanged = false;
-        }
-        prepFlipAngle();
-        return b_voltage_unchanged;
-    }
-
     /**
      * Prepare the power needed to achieve the flipAngle and check if it exceeds the instrument power limit
      *
@@ -512,6 +499,27 @@ public class RFPulse {
         voltagePulse = wattToVPP(powerPulse);
 
         return b_time_unchanged;
+    }
+
+    /**
+     * Prepare power with amplitude and attenuation, and check if it exceeds the instrument power limit
+     *
+     * @param txRoute : Tx channel
+     */
+    private boolean prepPowerWithAmpAtt(List<Integer> txRoute) {
+        powerPulse = PowerComputation.getPower(txRoute.get(0), observeFrequency, getAmp(), getAtt());
+        voltagePulse = wattToVPP(powerPulse);
+        // check power limit
+        boolean b_voltage_unchanged = true;
+        if (powerPulse > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
+            voltagePulse = wattToVPP(floorToSubDecimal(Hardware.getMaxRfPowerPulsed(nucleus.name()), 3));
+            powerPulse = voltPPToWatt(voltagePulse);
+            // compute att and amp corresponding to the new power
+            prepChannelAtt(getAmp(), txRoute);
+            prepTxAmp(txRoute);
+            b_voltage_unchanged = false;
+        }
+        return b_voltage_unchanged;
     }
 
     // Prepare flip angle with power
