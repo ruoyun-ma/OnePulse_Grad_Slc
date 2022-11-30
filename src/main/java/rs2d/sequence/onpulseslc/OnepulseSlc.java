@@ -233,9 +233,12 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         getParam(ACQUISITION_TIME_PER_SCAN).setValue(observation_time);   // display observation time
 
         // -----------------------------------------------
-        // 2nd D managment 
+        // 2nd D management
         // -----------------------------------------------
         // MATRIX
+
+        is_tx_nutation_Length = !is_tx_nutation_amp && is_tx_nutation_Length && !is_tx_amp_att_auto;
+        getParam(TX_NUTATION_LENGTH).setValue(is_tx_nutation_Length);
 
         if (!is_tx_amp_att_auto && (is_tx_nutation_amp || is_tx_nutation_Length)) {
             int tx_number = getInt(is_tx_nutation_amp ? TX_AMP_NUMBER : TX_LENGTH_NUMBER);
@@ -243,12 +246,9 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             double tx_amp_step = getDouble(TX_AMP_STEP);
 
             acquisitionMatrixDimension2D = Math.min(tx_number, is_tx_nutation_amp ? (int) Math.floor(((100 - tx_amp_start) / (tx_amp_step)) + 1) : tx_number);
-
             nb_scan_2d = acquisitionMatrixDimension2D;
             getParam(USER_MATRIX_DIMENSION_2D).setValue(acquisitionMatrixDimension2D);
 
-            is_tx_nutation_Length = !is_tx_nutation_amp && is_tx_nutation_Length;
-            getParam(TX_NUTATION_LENGTH).setValue(is_tx_nutation_Length);
             isMultiplanar = !is_tx_nutation_Length && isMultiplanar;
             getParam(MULTI_PLANAR_EXCITATION).setValue(isMultiplanar);
 
@@ -256,13 +256,11 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             getParam(DELAY_ECHO).setValue(isDelayEcho);
 
         } else {
-
             acquisitionMatrixDimension2D = userMatrixDimension2D;
             nb_scan_2d = userMatrixDimension2D;
-
         }
         // -----------------------------------------------
-        // 3D managment 
+        // 3D management
         // ------------------------------------------------
         // MATRIX
         acquisitionMatrixDimension3D = userMatrixDimension3D;
@@ -377,8 +375,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // Calculation RF pulse parameters  2/3 : RF pulse amp & attenuation
         // -----------------------------------------------
         double flip_angle = getDouble(FLIP_ANGLE);
-        boolean txON = true;
-        double pulsePowerWatt_pulse;
         double tx_amp;
         int tx_att;
         boolean tx_voltInput = getBoolean(TX_VOLTAGE_INPUT) && !is_tx_nutation_amp;
@@ -394,7 +390,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 double tx_volt = getDouble(TX_VOLTAGE);
                 if (!pulseTX.solveOnePulseWithVoltage(tx_volt, 80, observeFrequency, getListInt(TX_ROUTE))) {
                     getUnreachParamExceptionManager().addParam(TX_VOLTAGE.name(), tx_volt, ((NumberParam) getParam(TX_VOLTAGE)).getMinValue(), pulseTX.getVoltage(), "Pulse voltage too high for RF coil");
-                    txLength = pulseTX.getPulseDuration();
                 }
             }
             tx_amp = pulseTX.getAmp();
@@ -402,7 +397,11 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         } else {
             tx_amp = getDouble(TX_AMP);
             tx_att = getInt(TX_ATT);
-            pulseTX.setPower(tx_amp, tx_att, observeFrequency, getListInt(TX_ROUTE));
+            if (!pulseTX.prepPower(tx_amp, tx_att, observeFrequency, getListInt(TX_ROUTE))) {
+                getUnreachParamExceptionManager().addParam(TX_ATT.name(), tx_att, ((NumberParam) getParam(TX_ATT)).getMinValue(), pulseTX.getAtt(), "Pulse attenuation too low for RF coil");
+                tx_amp = pulseTX.getAmp(); // tx amplitude can be slightly changed
+                tx_att = pulseTX.getAtt();
+            }
         }
 
         //  finalise pulse or nutation amplitude
