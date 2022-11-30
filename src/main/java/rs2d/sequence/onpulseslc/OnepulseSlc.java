@@ -34,7 +34,7 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private String sequenceVersion = "Version8.3";
+    private String sequenceVersion = "Version8.4";
     public double protonFrequency;
     public double observeFrequency;
     private double min_time_per_acq_point;
@@ -374,7 +374,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         Table txLengthTable = setSequenceTableValues(Time_tx, Order.Two);
         txLengthTable.add(txLength);
 
-        RFPulse pulseTX = RFPulse.createRFPulse(getSequence(), Tx_att, Tx_amp1, Tx_phase, Time_tx, Tx_shape, Tx_shape_phase, Tx_freq_offset, nucleus);
+        RFPulse pulseTX = RFPulse.createRFPulse(getSequence(), Tx_att, Tx_amp, Tx_phase, Time_tx, Tx_shape, Tx_shape_phase, Tx_freq_offset, nucleus);
 
         int nb_shape_points = 128;
         pulseTX.setShape((getText(TX_SHAPE)), nb_shape_points, "Hamming");
@@ -392,8 +392,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         double tx_amp_step = getDouble(TX_AMP_STEP);
         // solve pulse for maximum amplitude (prepare & check maximum power)
         double tx_amp_max = tx_amp_start + (acquisitionMatrixDimension2D - 1) * tx_amp_step;
-
-
 
         if (is_tx_amp_att_auto || is_tx_voltInput) {
             if (is_tx_amp_att_auto) {

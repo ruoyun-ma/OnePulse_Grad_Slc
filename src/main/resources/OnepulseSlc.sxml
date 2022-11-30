@@ -756,7 +756,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Intermediate_frequency</name>
                 <uuid>ff3fb66c-1d09-4ac6-9be8-a5051554f190</uuid>
-                <value>1.251E7</value>
+                <value>1.25E7</value>
                 <defaultValue>1.0</defaultValue>
                 <displayedName>IF</displayedName>
                 <locked>true</locked>
@@ -792,7 +792,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
                 <uuid>bcd9d038-40f9-4305-9e3d-9f6b7e656982</uuid>
-                <value>26</value>
+                <value>30</value>
                 <defaultValue>7</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -1008,7 +1008,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>LO_att</name>
                 <uuid>5798fabf-89b5-4607-b9e5-d64736b07744</uuid>
-                <value>20</value>
+                <value>22</value>
                 <defaultValue>0</defaultValue>
                 <displayedName>LO_att</displayedName>
                 <locked>false</locked>
@@ -1762,7 +1762,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
                 <uuid>4d8fedbf-a67d-4190-978f-cf061ccceffa</uuid>
-                <value>6.3806597364338815E7</value>
+                <value>6.3806791188395776E7</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -7206,7 +7206,7 @@
             <count>2</count>
             <key>key11</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
-                <name>Tx_amp1</name>
+                <name>Tx_amp</name>
                 <description></description>
                 <numberEnum>TxAmp</numberEnum>
                 <order>FourLoop</order>
@@ -7268,7 +7268,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>8.241509327490578</list>
+                <list>8.94096220011582</list>
             </value>
         </Entry>
         <Entry>
@@ -8460,13 +8460,13 @@
             <count>1</count>
             <key>key64</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="table">
-                <name>Tx_amp</name>
+                <name>Tx_amp2</name>
                 <description></description>
                 <numberEnum>TxAmp</numberEnum>
                 <order>One</order>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>10</list>
+                <list>10.0</list>
             </value>
         </Entry>
         <Entry>

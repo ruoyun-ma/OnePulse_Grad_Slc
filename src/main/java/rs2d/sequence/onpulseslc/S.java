@@ -45,7 +45,7 @@ public enum S implements GeneratorSequenceParamEnum {
     Time_te_delay("Time_te_delay"),
     Time_trigger_delay("Time_trigger_delay"),
     Time_tx("Time_tx"),
-    Tx_amp1("Tx_amp1"),
+    Tx_amp("Tx_amp"),
     Tx_freq_offset("Tx_freq_offset"),
     Tx_phase("Tx_phase"),
     Tx_shape("Tx_shape"),

@@ -1725,7 +1725,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_VERSION</name>
                 <uuid>fce8797d-e7c2-4278-9c47-28d0beef10ad</uuid>
-                <value>Version8.3</value>
+                <value>Version8.4</value>
                 <defaultValue></defaultValue>
                 <description>Info: Sequence version</description>
                 <displayedName>Sequence Version</displayedName>
@@ -2043,7 +2043,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_AMP</name>
                 <uuid>6a096c39-09c0-41a8-bce5-fd514e5e3e94</uuid>
-                <value>66.59584160263563</value>
+                <value>8.94096220011582</value>
                 <defaultValue>40.0</defaultValue>
                 <description>Amplitude of the excitation RF pulse </description>
                 <displayedName>TX Amplitude</displayedName>
@@ -2132,7 +2132,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_AMP_VALUES</name>
                 <uuid>0c386d15-9676-4a3a-967e-9f905fd737b5</uuid>
-                <value>66.59584160263563</value>
+                <value>8.94096220011582</value>
                 <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                 <displayedName>TX Amp Values</displayedName>
                 <locked>true</locked>
@@ -2148,7 +2148,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_ATT</name>
                 <uuid>2671487a-e1f3-4a54-92c1-fa273b0e3f43</uuid>
-                <value>49</value>
+                <value>30</value>
                 <defaultValue>36</defaultValue>
                 <description>RF pulse attenuation</description>
                 <displayedName>TX Attenuation</displayedName>
