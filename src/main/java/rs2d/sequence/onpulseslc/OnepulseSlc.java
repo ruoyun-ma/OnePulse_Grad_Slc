@@ -246,7 +246,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         is_tx_nutation_Length = !is_tx_nutation_amp && is_tx_nutation_Length && !is_tx_amp_att_auto;
         getParam(TX_NUTATION_LENGTH).setValue(is_tx_nutation_Length);
 
-        if (!is_tx_amp_att_auto && (is_tx_nutation_amp || is_tx_nutation_Length)) {
+        if (is_tx_nutation_amp || is_tx_nutation_Length) {
             int tx_number = getInt(is_tx_nutation_amp ? TX_AMP_NUMBER : TX_LENGTH_NUMBER);
             double tx_amp_start = getDouble(TX_AMP_START);
             double tx_amp_step = getDouble(TX_AMP_STEP);
