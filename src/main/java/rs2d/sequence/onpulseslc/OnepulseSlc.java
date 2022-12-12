@@ -9,7 +9,6 @@ package rs2d.sequence.onpulseslc;
 import rs2d.commons.log.Log;
 
 import java.util.*;
-import java.util.stream.IntStream;
 
 import rs2d.sequence.common.*;
 import rs2d.spinlab.api.Hardware;
@@ -34,11 +33,9 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private String sequenceVersion = "Version8.4";
+    private final String sequenceVersion = "Version8.4";
     public double protonFrequency;
     public double observeFrequency;
-    private double min_time_per_acq_point;
-    private double gMax;
     private Nucleus nucleus;
 
     private boolean isMultiplanar;
@@ -55,8 +52,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
     private int nb_scan_2d;
     private int nb_scan_3d;
     private int nb_scan_4d;
-    private int echoTrainLength;
-    int nbOfInterleavedSlice;
 
     private double spectralWidth;
     private boolean isSW;
@@ -84,13 +79,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
     private double observation_time;
 
     // get hardware memory limit
-    private int offset_channel_memory = 512;
-    private int phase_channel_memory = 512;
-    private int amp_channel_memory = 2048;
-    private int loopIndice_memory = 2048;
-
-    private double defaultInstructionDelay = 0.000010;     // single instruction minimal duration
-    private double minInstructionDelay = 0.000005;     // single instruction minimal duration
+    private final double minInstructionDelay = 0.000005;     // single instruction minimal duration
 
 
     public OnepulseSlc() {
@@ -202,9 +191,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         }
         observeFrequency = baseFreq1 + freq_offset1;
         getParam(BASE_FREQ_1).setValue(baseFreq1);
-
-        min_time_per_acq_point = Hardware.getTransferTimePerDataPt();
-        gMax = GradientMath.getMaxGradientStrength();
 
         set(Rx_gain, RECEIVER_GAIN);
         getParam(RECEIVER_COUNT).setValue(Hardware.getReceiverCount(nucleus));
@@ -354,7 +340,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         double min_rise_time_factor = getDouble(MIN_RISE_TIME_FACTOR);
 
         double min_rise_time_sinus = GradientMath.getShortestRiseTime(100.0) * Math.PI / 2 * 100 / min_rise_time_factor;
-        double min_time = GradientMath.getShortestRiseTime(100.0);
 
         if (grad_rise_time < min_rise_time_sinus) {
             double new_grad_rise_time = ceilToSubDecimal(min_rise_time_sinus, 5);
@@ -362,11 +347,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             grad_rise_time = new_grad_rise_time;
         }
         setSequenceTableSingleValue(Time_grad_ramp, grad_rise_time);
-
-
-        double grad_shape_rise_factor_up = Utility.voltageFillingFactor((Shape) getSequenceTable(Grad_shape_up));
-        double grad_shape_rise_factor_down = Utility.voltageFillingFactor((Shape) getSequenceTable(Grad_shape_down));
-        double grad_shape_rise_time = grad_shape_rise_factor_up * grad_rise_time + grad_shape_rise_factor_down * grad_rise_time;        // shape dependant equivalent rise time
 
         // -----------------------------------------------
         // Calculation RF pulse parameters  1/3 : Shape
@@ -388,24 +368,11 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         double flip_angle = getDouble(FLIP_ANGLE);
 
         // Check power and prepare tx Att/amp
-        double tx_amp_start = getDouble(TX_AMP_START);
-        double tx_amp_step = getDouble(TX_AMP_STEP);
-        // solve pulse for maximum amplitude (prepare & check maximum power)
-        double tx_amp_max = tx_amp_start + (acquisitionMatrixDimension2D - 1) * tx_amp_step;
-
         if (is_tx_amp_att_auto || is_tx_voltInput) {
             if (is_tx_amp_att_auto) {
                 if (!pulseTX.solveOnePulseWithFlipAngleAndReference180(flip_angle, 80, observeFrequency, getListInt(TX_ROUTE))) {
                     getUnreachParamExceptionManager().addParam(TX_LENGTH.name(), txLength, pulseTX.getPulseDuration(), ((NumberParam) getParam(TX_LENGTH)).getMaxValue(), "Pulse length too short to reach RF power with this pulse shape");
                     txLength = pulseTX.getPulseDuration();
-                }
-                if(is_tx_nutation_amp) {
-                    // check if the maximum amplitude is achievable with flip angle chosen to be at 80% amp
-                    if (!pulseTX.solveOnePulseWithAmpAtt(tx_amp_max, pulseTX.getAtt(), observeFrequency, getListInt(TX_ROUTE))) {
-                        double flip_angle_lim = pulseTX.getFlipAngle()*0.7; //security limit
-                        getUnreachParamExceptionManager().addParam(FLIP_ANGLE.name(), flip_angle, ((NumberParam) getParam(FLIP_ANGLE)).getMinValue(), flip_angle_lim, "Reference flip angle too high for RF coil");
-                        flip_angle = flip_angle_lim;
-                    }
                 }
             } else {
                 double tx_volt = getDouble(TX_VOLTAGE);
@@ -416,11 +383,10 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             tx_amp = pulseTX.getAmp();
             tx_att = pulseTX.getAtt();
         } else {
-            tx_amp = is_tx_nutation_amp ? tx_amp_max :getDouble(TX_AMP);
+            tx_amp = getDouble(TX_AMP);
             tx_att = getInt(TX_ATT);
             if (!pulseTX.solveOnePulseWithAmpAtt(tx_amp, tx_att, observeFrequency, getListInt(TX_ROUTE))) {
-                int tx_att_offset_nutation = is_tx_nutation_amp ? 1:0; // security margin because when amp/att is calculated to reach maximum power, amp is always inferior to tx_amp_max so tx_amp_max will not be achievable
-                getUnreachParamExceptionManager().addParam(TX_ATT.name(), tx_att, pulseTX.getAtt()+tx_att_offset_nutation, ((NumberParam) getParam(TX_ATT)).getMaxValue(), "Pulse attenuation too low for RF coil");
+                getUnreachParamExceptionManager().addParam(TX_ATT.name(), tx_att, pulseTX.getAtt(), ((NumberParam) getParam(TX_ATT)).getMaxValue(), "Pulse attenuation too low for RF coil");
                 getUnreachParamExceptionManager().addParam(TX_AMP.name(), tx_amp, ((NumberParam) getParam(TX_AMP)).getMinValue(), pulseTX.getAmp(), "Pulse amplitude too high for RF coil");
                 tx_amp = pulseTX.getAmp(); // tx amplitude can be slightly changed
                 tx_att = pulseTX.getAtt();
@@ -460,6 +426,25 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 System.out.println(" ");
             }
         } else {
+            double tx_amp_start = getDouble(TX_AMP_START);
+            double tx_amp_step = getDouble(TX_AMP_STEP);
+            // solve pulse for maximum amplitude (prepare & check maximum power)
+            double tx_amp_end = tx_amp_start + (acquisitionMatrixDimension2D - 1) * tx_amp_step;
+
+            // Check that amplitude doesn't exceed maximum amplitude achievable
+            double tx_amp_lim = pulseTX.getAmpLimit(observeFrequency, getListInt(TX_ROUTE));
+            if(tx_amp_start > tx_amp_lim){
+                getUnreachParamExceptionManager().addParam(TX_AMP_START.name(), tx_amp_start, ((NumberParam) getParam(TX_ATT)).getMinValue(), tx_amp_lim, "Amplitude values exceed power limit: the maximum amplitude achievable with this attenuation is "+ceilToSubDecimal(tx_amp_lim,2)+"%");
+                getParam(TX_AMP_NUMBER).setValue(1);
+                getParam(ACQUISITION_MATRIX_DIMENSION_2D).setValue(1);
+            }
+            else if((tx_amp_start < tx_amp_lim) && (tx_amp_end > tx_amp_lim)){
+                int tx_amp_number = (int) Math.floor((tx_amp_lim - tx_amp_start)/tx_amp_step)+1;
+                getUnreachParamExceptionManager().addParam(TX_AMP_NUMBER.name(), acquisitionMatrixDimension2D, ((NumberParam) getParam(TX_ATT)).getMinValue(), tx_amp_number, "Amplitude values exceed power limit: the maximum amplitude achievable with this attenuation is "+ceilToSubDecimal(tx_amp_lim,2)+"%");
+                acquisitionMatrixDimension2D = tx_amp_number;
+                getParam(ACQUISITION_MATRIX_DIMENSION_2D).setValue(tx_amp_number);
+            }
+
             // create and set amplitude table (the pulse has already been solved for the maximum amplitude)
             double[] tx_amps = new double[acquisitionMatrixDimension2D];
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
@@ -467,8 +452,8 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 list_tx_amps.add(tx_amps[i]);
             }
             pulseTX.setAmp(Order.Two, tx_amps);
-            // return tx_amp_max, att
-            this.getParam(TX_AMP).setValue(pulseTX.getAmp());
+            // return tx_amp used to prepare tx_att (amp corresponding to FA if tx Att/Amp auto is checked)
+            this.getParam(TX_AMP).setValue(tx_amp);
             this.getParam(TX_ATT).setValue(tx_att);
         }
         getParam(TX_POWER).setValue(ceilToSubDecimal(pulseTX.getPower(),5));
@@ -656,8 +641,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // ---------------------------------------------------------------
         // calculate TR , Time_last_delay  Time_TR_delay & search for incoherence
         // ---------------------------------------------------------------
-        double min_flush_delay = minInstructionDelay;   // minimal time to flush Chameleon buffer (this time is doubled to avoid hidden delays);
-        min_flush_delay = Math.max(min_FIR_delay - time_fir, minInstructionDelay);
+        double min_flush_delay = Math.max(min_FIR_delay - time_fir, minInstructionDelay); // minimal time to flush Chameleon buffer (this time is doubled to avoid hidden delays);
 
         double time_seq_to_end_spoiler0 = TimeEvents.getTimeBetweenEvents(getSequence(), Events.Start.ID, Events.Pulse.ID - 1) + te + TimeEvents.getTimeBetweenEvents(getSequence(), Events.Acq.ID, Events.End.ID - 1);
         double time_seq_to_end_spoiler = time_seq_to_end_spoiler0 + txLengthMax / 2;
@@ -777,10 +761,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         roleEnums.add(RoleEnum.User);
         return roleEnums;
     }
-
-//    private Number getNumber(String name) {
-//        return (Number) getParamFromName(name).getValue();
-//    }
 
 
     //<editor-fold defaultstate="collapsed" desc="Generated Code (RS2D)">
