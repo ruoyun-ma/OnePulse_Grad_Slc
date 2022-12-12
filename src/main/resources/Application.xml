@@ -104,7 +104,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ACQUISITION_MATRIX_DIMENSION_2D</name>
                     <uuid>6f83f8fd-a03b-47d3-bc26-4728d4b798be</uuid>
-                    <value>5</value>
+                    <value>1</value>
                     <defaultValue>128</defaultValue>
                     <description>Info: Size of the initial dataset (raw data) in the second dimension</description>
                     <displayedName>Acquisition Matrix 2D</displayedName>
@@ -319,7 +319,7 @@
                     <defaultValue>false</defaultValue>
                     <description>Print additionnal information in wommand window for debug purpose</description>
                     <displayedName>DEBUG_MODE</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <category>Miscellaneous</category>
                 </value>
@@ -344,7 +344,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>DELAY_ECHO_TIME</name>
                     <uuid>6975b382-aa8f-424a-bee8-29e406cd9884</uuid>
-                    <value>0.00251</value>
+                    <value>7.999999999999988E-5</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Extra time added before the signal reception (input if  'Use Dead Time' checked)</description>
                     <displayedName>Tx-Rx Dead Time</displayedName>
@@ -435,7 +435,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ECHO_TIME</name>
                     <uuid>a66280a2-e6f8-4ed6-abb9-3a34a01838f6</uuid>
-                    <value>0.00303</value>
+                    <value>6.0E-4</value>
                     <defaultValue>0.005</defaultValue>
                     <description>Time between the middle of the excitation RF and the beginning of the reception  (input if 'Use Dead Time' unchecked)</description>
                     <displayedName>Tx-Rx Time</displayedName>
@@ -473,7 +473,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>FLIP_ANGLE</name>
                     <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                    <value>20.0</value>
+                    <value>5.0</value>
                     <defaultValue>30.0</defaultValue>
                     <description>Excitation flip angle</description>
                     <displayedName>Flip Angle</displayedName>
@@ -488,48 +488,14 @@
                 </value>
             </entry>
             <entry>
-                <key>GRADIENT_AMP_SPOILER</key>
-                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                    <name>GRADIENT_AMP_SPOILER</name>
-                    <uuid>01195a86-b563-4171-82aa-20003a1b5aeb</uuid>
-                    <value>0.0</value>
-                    <defaultValue>0.0</defaultValue>
-                    <description>Spoiler gradient amplitude</description>
-                    <displayedName>Gradient Amplitude Spoiler</displayedName>
-                    <locked>false</locked>
-                    <lockedToDefault>false</lockedToDefault>
-                    <restrictedToSuggested>false</restrictedToSuggested>
-                    <numberEnum>GradAmp</numberEnum>
-                    <minValue>-100.0</minValue>
-                    <maxValue>100.0</maxValue>
-                    <group>Gradient</group>
-                    <category>Acquisition</category>
-                </value>
-            </entry>
-            <entry>
-                <key>GRADIENT_ENABLE_SPOILER</key>
-                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
-                    <name>GRADIENT_ENABLE_SPOILER</name>
-                    <uuid>e209347a-88c6-430c-8cd1-baf4723e05fc</uuid>
-                    <value>true</value>
-                    <defaultValue>false</defaultValue>
-                    <description>Enable gradient spoiler</description>
-                    <displayedName>Gradient spoiler</displayedName>
-                    <locked>false</locked>
-                    <lockedToDefault>false</lockedToDefault>
-                    <group>Gradient</group>
-                    <category>Acquisition</category>
-                </value>
-            </entry>
-            <entry>
                 <key>GRADIENT_REFOC_TIME</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>GRADIENT_REFOC_TIME</name>
-                    <uuid>97e0471f-9920-45eb-9fda-5bd3cef94196</uuid>
+                    <uuid>4279b4f9-9885-456a-8da0-382319ba34d0</uuid>
                     <value>1.9999999999999998E-4</value>
                     <defaultValue>1.9999999999999998E-4</defaultValue>
                     <description>Top time of the slice refocusing gradient</description>
-                    <displayedName>Gradient Duration Refocusing Slice</displayedName>
+                    <displayedName>Gradient Refoc Slice Duration</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -558,14 +524,48 @@
                 </value>
             </entry>
             <entry>
+                <key>GRADIENT_SPOILER_ACTIVATE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>GRADIENT_SPOILER_ACTIVATE</name>
+                    <uuid>ae817834-e929-44f7-aa02-2bc64b1d1f01</uuid>
+                    <value>false</value>
+                    <defaultValue>false</defaultValue>
+                    <description>Enable gradient spoiler</description>
+                    <displayedName>Gradient Spoiler Enable</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>GRADIENT_SPOILER_AMP</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>GRADIENT_SPOILER_AMP</name>
+                    <uuid>12ee445d-f230-4b6a-af60-83a836aa585b</uuid>
+                    <value>0.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description>Amplitude of the spoiler gradient</description>
+                    <displayedName>Gradient Spoiler Amplitude</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>GradAmp</numberEnum>
+                    <minValue>-100.0</minValue>
+                    <maxValue>100.0</maxValue>
+                    <group>Gradient</group>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
                 <key>GRADIENT_SPOILER_TIME</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>GRADIENT_SPOILER_TIME</name>
-                    <uuid>f2a43744-e1c9-4507-b153-2b8e6c61618e</uuid>
+                    <uuid>378bbc96-3eff-463b-a615-73d4b0d36384</uuid>
                     <value>1.5E-4</value>
                     <defaultValue>9.999999999999999E-5</defaultValue>
                     <description>Duration of the spoiler gradients</description>
-                    <displayedName>Gradient Duration Spoiler</displayedName>
+                    <displayedName>Gradient Spoiler Duration</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -1767,7 +1767,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SEQUENCE_TIME</name>
                     <uuid>719b6f50-46b5-4a43-914d-16f9ab9631a6</uuid>
-                    <value>3.5000000000000004</value>
+                    <value>0.7000000000000001</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Total acquisition time</description>
                     <displayedName>Acquisition Time</displayedName>
@@ -2103,7 +2103,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
                     <uuid>6a096c39-09c0-41a8-bce5-fd514e5e3e94</uuid>
-                    <value>8.94096220011582</value>
+                    <value>40.087732488176094</value>
                     <defaultValue>40.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse </description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2122,7 +2122,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>TX_AMP_ATT_AUTO</name>
                     <uuid>397f21a2-3474-47b4-b7ff-ad08efef6384</uuid>
-                    <value>true</value>
+                    <value>false</value>
                     <defaultValue>true</defaultValue>
                     <description>Enable to automatically set attenuation and amplitude for the RF according to the calibration and the flip angle</description>
                     <displayedName>TX Att/Amp Auto</displayedName>
@@ -2136,11 +2136,11 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP_NUMBER</name>
                     <uuid>a420b8a9-621b-4916-b031-551362bdbb49</uuid>
-                    <value>5</value>
+                    <value>15</value>
                     <defaultValue>1</defaultValue>
                     <description>Number of TX amplitude increment steps to get a nutation curve</description>
                     <displayedName>TX Amp Number</displayedName>
-                    <locked>true</locked>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Integer</numberEnum>
@@ -2159,7 +2159,7 @@
                     <defaultValue>0.0</defaultValue>
                     <description>Start value of TX amplitude ramp to get a nutation curve</description>
                     <displayedName>TX Amp Start</displayedName>
-                    <locked>true</locked>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Double</numberEnum>
@@ -2177,7 +2177,7 @@
                     <defaultValue>0.0</defaultValue>
                     <description>Value of the TX amplitude increment step to get a nutation curve</description>
                     <displayedName>TX Amp Step</displayedName>
-                    <locked>true</locked>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>TxAmp</numberEnum>
@@ -2192,10 +2192,10 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_AMP_VALUES</name>
                     <uuid>0c386d15-9676-4a3a-967e-9f905fd737b5</uuid>
-                    <value>8.94096220011582</value>
+                    <value>40.087732488176094</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>TX Amp Values</displayedName>
-                    <locked>true</locked>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <numberEnum>PERCENT</numberEnum>
                     <minValue>-2.147483648E9</minValue>
@@ -2208,7 +2208,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
                     <uuid>2671487a-e1f3-4a54-92c1-fa273b0e3f43</uuid>
-                    <value>30</value>
+                    <value>40</value>
                     <defaultValue>36</defaultValue>
                     <description>RF pulse attenuation</description>
                     <displayedName>TX Attenuation</displayedName>
@@ -2227,7 +2227,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_GAMMA_B1</name>
                     <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                    <value>56.0</value>
+                    <value>31.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the power in gamma B1 unit</description>
                     <displayedName>Tx Gamma B1</displayedName>
@@ -2366,7 +2366,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_POWER</name>
                     <uuid>a8400ddf-5374-43fa-b372-f84e9788a9f6</uuid>
-                    <value>0.02287</value>
+                    <value>0.061</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the tx power that corresponds to Tx Amplitude and Attenuation</description>
                     <displayedName>TX Power</displayedName>
@@ -2401,7 +2401,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>TX_SHAPE</name>
                     <uuid>f660e6d3-74a2-4111-bb56-dbd69fe713df</uuid>
-                    <value>HARD</value>
+                    <value>GAUSSIAN</value>
                     <defaultValue>GAUSSIAN</defaultValue>
                     <description>RF Pulse shape</description>
                     <displayedName>TX Shape</displayedName>
@@ -2420,7 +2420,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_VOLTAGE</name>
                     <uuid>072042f9-90de-4a6d-a963-cdd321d4eb80</uuid>
-                    <value>3.025</value>
+                    <value>4.94</value>
                     <defaultValue>0.0</defaultValue>
                     <description>RF voltage amplitude peak-to-peak</description>
                     <displayedName>TX Voltage</displayedName>
@@ -2471,7 +2471,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>USER_MATRIX_DIMENSION_2D</name>
                     <uuid>be07fdb8-b371-4d24-85aa-cd55c25d3fea</uuid>
-                    <value>5</value>
+                    <value>1</value>
                     <defaultValue>128</defaultValue>
                     <description>Number of repetitions  (user matrix dimension 2D)</description>
                     <displayedName>Matrix 2D</displayedName>
