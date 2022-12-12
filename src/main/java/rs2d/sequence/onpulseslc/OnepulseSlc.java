@@ -346,7 +346,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // enable gradient lines
         // -----------------------------------------------
         set(enabled_slice, isMultiplanar);
-        set(enabled_spoiler, GRADIENT_ENABLE_SPOILER);
+        set(enabled_spoiler, GRADIENT_SPOILER_ACTIVATE);
         // -----------------------------------------------
         // calculate gradient equivalent rise time
         // -----------------------------------------------
@@ -387,7 +387,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         ArrayList<Number> list_tx_amps = new ArrayList<>();
         double flip_angle = getDouble(FLIP_ANGLE);
 
-        // Calculate / Set Amp / Att
+        // Check power and prepare tx Att/amp
         double tx_amp_start = getDouble(TX_AMP_START);
         double tx_amp_step = getDouble(TX_AMP_STEP);
         // solve pulse for maximum amplitude (prepare & check maximum power)
@@ -552,17 +552,17 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // ---------------------------------------------------------------------
         // calculate SPOILER gradient amplitudes
         // ---------------------------------------------------------------------
-        boolean is_spoiler = (getBoolean(GRADIENT_ENABLE_SPOILER));
+        boolean  is_spoiler= getBoolean(GRADIENT_SPOILER_ACTIVATE);
         double grad_spoiler_application_time = getDouble(GRADIENT_SPOILER_TIME);
 
         setSequenceTableSingleValue(Time_grad_spoil, is_spoiler ? grad_spoiler_application_time : minInstructionDelay);
 
         setSequenceTableSingleValue(Time_grad_spoil_ramp, is_spoiler ? grad_rise_time : minInstructionDelay);
 
-        double grad_spoiler_amp = getDouble(GRADIENT_AMP_SPOILER);
+        double grad_spoiler_amp = getDouble(GRADIENT_SPOILER_AMP);
 
         Gradient gradSpoiler = Gradient.createGradient(getSequence(), Grad_amp_spoiler, Time_grad_spoil, Grad_shape_up, Grad_shape_down, Time_grad_spoil_ramp, nucleus);
-        if (getBoolean(GRADIENT_ENABLE_SPOILER))
+        if (getBoolean(GRADIENT_SPOILER_ACTIVATE))
             gradSpoiler.addSpoiler(grad_spoiler_amp);
         gradSpoiler.applyAmplitude();
 

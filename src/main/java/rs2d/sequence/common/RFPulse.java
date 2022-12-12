@@ -397,7 +397,7 @@ public class RFPulse {
         if (flipAngle < 180) { // it is always nice in the onePulse to directly have access to the 180° (att/amp auto not automatic) by changing the amp only.
             b_time_unchanged = b_time_unchanged && prepChannelAttWithReferencePowerAt180(targetAmplitude, txRoute); // the test to know if the length has to be increase has not been done for 180° pulse
         } else {
-            prepChannelAtt(80, txRoute);
+            prepChannelAtt(targetAmplitude, txRoute);
         }
         // Prepare amplitude
         prepTxAmp(txRoute);
