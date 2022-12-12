@@ -177,6 +177,11 @@ public class RFPulse {
         return amplitudeTable;
     }
 
+    public double getAmpLimit(double observeFrequency, List<Integer> txRoute){
+        int channelAttOffset = (getAttOffset() != -1) ? getAttOffset() : 0; // If no attenuation offset has been set, consider it is 0
+        return PowerComputation.getTxAmplitude(txRoute.get(0),  Hardware.getMaxRfPowerPulsed(nucleus.name()), observeFrequency, getAtt()+channelAttOffset);
+    }
+
     public double getFlipAngle() {
         if (Double.isNaN(flipAngle))
             prepFlipAngle();
@@ -551,7 +556,6 @@ public class RFPulse {
      * @param txRoute   : Tx channel
      */
     public void prepChannelAtt(double targetAmplitude, List<Integer> txRoute) {
-
         int channelAtt;
         try {
             channelAtt = PowerComputation.getTxAttenuation(txRoute.get(0), powerPulse, observeFrequency, targetAmplitude);
