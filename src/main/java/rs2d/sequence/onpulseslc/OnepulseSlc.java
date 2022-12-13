@@ -458,8 +458,9 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             this.getParam(TX_AMP).setValue(tx_amp);
             this.getParam(TX_ATT).setValue(tx_att);
         }
-        getParam(TX_POWER).setValue(ceilToSubDecimal(pulseTX.getPower(),5));
-        getParam(TX_VOLTAGE).setValue(pulseTX.getVoltage());
+        // force voltage and power to 0 when amplitude is 0 for clarity (otherwise the function will return a small value around 0)
+        getParam(TX_POWER).setValue(tx_amp == 0 ? 0 : ceilToSubDecimal(pulseTX.getPower(),5));
+        getParam(TX_VOLTAGE).setValue(tx_amp == 0 ? 0 : pulseTX.getVoltage());
         getParam(TX_GAMMA_B1).setValue(Math.round(pulseTX.getPowerGammaB1()));
         getParam(TX_AMP_VALUES).setValue(list_tx_amps);
 
