@@ -220,6 +220,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         getParam(SPECTRAL_WIDTH).setValue(spectralWidthUP);
         observation_time = acquisitionMatrixDimension1D / spectralWidth;
         getParam(ACQUISITION_TIME_PER_SCAN).setValue(observation_time);   // display observation time
+        getParam(DWELL_TIME).setValue(observation_time/acquisitionMatrixDimension1D);   // display observation time
 
         // -----------------------------------------------
         // 2nd D management
@@ -283,6 +284,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         set(Nb_2d, nb_scan_2d);
         set(Nb_3d, nb_scan_3d);
         set(Nb_4d, nb_scan_4d);
+
         // -----------------------------------------------
         // Image Orientation
         // -----------------------------------------------
@@ -526,10 +528,10 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             gradSliceRefPhase3D.refocalizeGradient(gradSlice, 0.5);
         }
         gradSliceRefPhase3D.applyAmplitude();
+
         // -----------------------------------------------
         // calculate ADC observation time
         // -----------------------------------------------
-
         setSequenceTableSingleValue(Time_rx, observation_time);
         set(Spectral_width, spectralWidth);
         set(LO_att, Hardware.getLoAttenuation());

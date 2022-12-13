@@ -202,7 +202,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>ADJUST_WINDOW</name>
                     <uuid>4e02b8a6-e0da-4420-80e0-a9dbf4031c79</uuid>
-                    <value>false</value>
+                    <value>true</value>
                     <defaultValue>false</defaultValue>
                     <description>Enable to get the frequency from 'Base Frequency 1' and not from instrument </description>
                     <displayedName>Adjust Window</displayedName>
@@ -236,7 +236,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>BASE_FREQ_2</name>
                     <uuid>7ca8c56e-62fa-41b8-9de3-ab877593fb34</uuid>
-                    <value>0.0</value>
+                    <value>6.3806791188395776E7</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Base frequency of the second channel</description>
                     <displayedName>Base Frequency 2</displayedName>
@@ -255,7 +255,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>BASE_FREQ_3</name>
                     <uuid>3cb8b8e6-5603-49ba-87e2-09d7a26cdfcb</uuid>
-                    <value>0.0</value>
+                    <value>6.3806791188395776E7</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Base frequency of the third channel</description>
                     <displayedName>Base Frequency 3</displayedName>
@@ -274,7 +274,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>BASE_FREQ_4</name>
                     <uuid>08091c19-7724-45c5-a00c-c0aba8921519</uuid>
-                    <value>0.0</value>
+                    <value>6.3806791188395776E7</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Base frequency of the fourth channel</description>
                     <displayedName>Base Frequency 4</displayedName>
@@ -416,7 +416,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>DWELL_TIME</name>
                     <uuid>51a26fae-db89-4065-aa74-8bd11708d324</uuid>
-                    <value>0.0</value>
+                    <value>4.992E-5</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Reception dwell time</description>
                     <displayedName>DW</displayedName>
@@ -1971,7 +1971,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TRANSMIT_FREQ_1</name>
                     <uuid>16bc9bbe-de20-4b48-8666-a76f299664d8</uuid>
-                    <value>0.0</value>
+                    <value>6.3806791188395776E7</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Transmit frequency of the first sequence channel</description>
                     <displayedName>Transmit Freq 1</displayedName>
@@ -1990,7 +1990,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TRANSMIT_FREQ_2</name>
                     <uuid>b225ebfe-dc4e-4e96-9e53-26161ee60a1d</uuid>
-                    <value>0.0</value>
+                    <value>6.3806791188395776E7</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Transmit frequency of the second sequence channel</description>
                     <displayedName>Transmit Freq 2</displayedName>
@@ -2009,7 +2009,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TRANSMIT_FREQ_3</name>
                     <uuid>ffaadada-be0c-4b5b-8987-f440ae98bcf3</uuid>
-                    <value>0.0</value>
+                    <value>6.3806791188395776E7</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Transmit frequency of the third sequence channel</description>
                     <displayedName>Transmit Freq 3</displayedName>
@@ -2028,7 +2028,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TRANSMIT_FREQ_4</name>
                     <uuid>e7241286-cf5f-4341-a459-01a5adb283dc</uuid>
-                    <value>0.0</value>
+                    <value>6.3806791188395776E7</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Transmit frequency of the fourth sequence channel</description>
                     <displayedName>Transmit Freq 4</displayedName>
@@ -2140,7 +2140,7 @@
                     <defaultValue>1</defaultValue>
                     <description>Number of TX amplitude increment steps to get a nutation curve</description>
                     <displayedName>TX Amp Number</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Integer</numberEnum>
@@ -2154,17 +2154,17 @@
                 <key>TX_AMP_START</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP_START</name>
-                    <uuid>e53ac35f-c1d5-44cc-9908-3af665b816ea</uuid>
+                    <uuid>a8a2c7d8-6c81-4f20-abdd-9d9dcb7cf03b</uuid>
                     <value>5.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Start value of TX amplitude ramp to get a nutation curve</description>
                     <displayedName>TX Amp Start</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
-                    <numberEnum>Double</numberEnum>
-                    <minValue>-1.7976931348623157E308</minValue>
-                    <maxValue>1.7976931348623157E308</maxValue>
+                    <numberEnum>TxAmp</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>100.0</maxValue>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -2177,7 +2177,7 @@
                     <defaultValue>0.0</defaultValue>
                     <description>Value of the TX amplitude increment step to get a nutation curve</description>
                     <displayedName>TX Amp Step</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>TxAmp</numberEnum>
@@ -2195,7 +2195,7 @@
                     <value>40.087732488176094</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>TX Amp Values</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <numberEnum>PERCENT</numberEnum>
                     <minValue>-2.147483648E9</minValue>
@@ -2264,7 +2264,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_LENGTH_NUMBER</name>
                     <uuid>3cf63436-9fa7-4136-b934-61fe7f49d93e</uuid>
-                    <value>4</value>
+                    <value>6</value>
                     <defaultValue>1</defaultValue>
                     <description>Number of TX length increment steps to get a nutation curve</description>
                     <displayedName>TX Length Number</displayedName>
