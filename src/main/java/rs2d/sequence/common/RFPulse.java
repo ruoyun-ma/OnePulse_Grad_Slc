@@ -486,19 +486,14 @@ public class RFPulse {
             throw new IllegalArgumentException("Power Calculation cannot be done: Flip Angle and/or Pulse Duration are not set!"
                     + "Flip angle is " + flipAngle + ", pulse duration is " + pulseDuration + ".");
         }
-        // flip angle < 135° : the power is checked using the 90° hard pulse
-        // flip angle > 135° : the power is checked using the 180° hard pulse
         // The RF power is compute using the hard pulse calibration with the closest angle (known relation between power, duration and flip angle) and the shape power factor
-        double instrumentLength = flipAngle < 135 ? instrumentLength90 : instrumentLength180;
-        double instrumentPower = flipAngle < 135 ? instrumentPower90 : instrumentPower180;
-        powerPulse = instrumentPower * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2) * Math.pow(instrumentLength / pulseDuration, 2);
+        powerPulse = instrumentPower90 * Math.pow(flipAngle/90, 2) * Math.pow(instrumentLength90 / pulseDuration, 2);
         // If the power exceed the instrument limit increase the pulse duration
         boolean b_time_unchanged = true;
         if (powerPulse > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
-            double durationMin = ceilToSubDecimal(instrumentLength / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / (instrumentPower * Math.pow(flipAngle / (flipAngle < 135 ? 90 : 180), 2))), 6);
+            double durationMin = ceilToSubDecimal(instrumentLength90 / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / (instrumentPower90 * Math.pow(flipAngle/90, 2))), 6);
             setPulseDuration(durationMin);
-            powerPulse = flipAngle < 135 ? instrumentPower90 * Math.pow(flipAngle / 90, 2) * Math.pow(instrumentLength90 / pulseDuration, 2) :
-                    instrumentPower180 * Math.pow(flipAngle / 180, 2) * Math.pow(instrumentLength180 / pulseDuration, 2);
+            powerPulse =  instrumentPower90 * Math.pow(flipAngle/90, 2) * Math.pow(instrumentLength90 / pulseDuration, 2);
             b_time_unchanged = false;
         }
         voltagePulse = wattToVPP(powerPulse);
@@ -535,7 +530,7 @@ public class RFPulse {
         if (Double.isNaN(powerPulse) || Double.isNaN(pulseDuration)) {
             throw new IllegalArgumentException("Flip angle Calculation cannot be done: pulse power and/or pulseDuration is not set!");
         }
-        flipAngle = Math.round(90 * Math.sqrt(powerPulse / instrumentPower90) * pulseDuration / instrumentLength90);
+        flipAngle = 90 * Math.sqrt(powerPulse / instrumentPower90) * pulseDuration / instrumentLength90;
     }
 
     // power-vpp conversion functions: Power = Voltage * Voltage / Impedance
@@ -603,7 +598,6 @@ public class RFPulse {
         double powerPulse180 = instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2);
 
         if (powerPulse180 > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
-
             double durationMin = ceilToSubDecimal(instrumentLength180 / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / instrumentPower180), 6);
             setPulseDuration(durationMin);
             powerPulse180 = instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2);
