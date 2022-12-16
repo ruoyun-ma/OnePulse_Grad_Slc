@@ -398,35 +398,40 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         //  finalise pulse or nutation amplitude
         set(Tx_blanking, tx_amp != 0 || is_tx_nutation_amp);
 
+        if (getBoolean(DEBUG_MODE)) {
+            // Calibrations
+            double instrument_length = PowerComputation.getHardPulse90Width(nucleus.name());
+            double power_90 = PowerComputation.getHardPulse90Power(nucleus.name()) / pulseTX.getShapePowerFactor90();
+
+            double ampSP = pulseTX.getAmpTable().get(0).doubleValue();
+            int attSP = pulseTX.getAttParam().intValue();
+            //Recompute power and flip angle directly from the SP
+            double powSP = PowerComputation.getPower(getListInt(TX_ROUTE).get(0), observeFrequency, ampSP, attSP);
+            double timeSP = pulseTX.getTimeTable().get(0).doubleValue();
+            double FASP = 90 * Math.sqrt(powSP / power_90) * timeSP / instrument_length;
+
+            // Recompute power from UP
+            double timeUP = getDouble(TX_LENGTH);
+            double powUP = power_90 * Math.pow(flip_angle / 180, 2) * Math.pow(instrument_length / timeUP, 2);
+
+            System.out.println(" ");
+            System.out.println("------------- check pulses preparation -------------"); //check if the value written in RFPulse and SP are match with prescription
+            System.out.println("1/ Parameter value from: RFPulse, the sequence (SP):");
+            System.out.printf("Amplitude: %n %f     %f %n", tx_amp, ampSP);
+            System.out.printf("Attenuation: %n %d   %d %n", tx_att, attSP);
+            System.out.printf("Length: %n %f    %f %n", pulseTX.getPulseDuration(), timeSP);
+            System.out.println("2/ Parameter value from: UP, RFPulse, SP, error UP(ref) vs RFPulse, error SP(ref) vs RFPulse");
+            System.out.printf("Power: %n %f    %f     %f     %f    %f %n",
+                    powUP, pulseTX.getPower(), powSP, Math.abs(pulseTX.getPower() - powUP) * 100 / pulseTX.getPower(), Math.abs(pulseTX.getPower() - powSP) * 100 / pulseTX.getPower());
+            System.out.printf("Flip angle: %n %f    %f     %f     %f    %f %n",
+                    flip_angle, pulseTX.getFlipAngle(), FASP, Math.abs(pulseTX.getFlipAngle() - flip_angle) * 100 / pulseTX.getFlipAngle(), Math.abs(pulseTX.getFlipAngle() - FASP) * 100 / pulseTX.getFlipAngle());
+            System.out.println(" ");
+        }
+
         if (!is_tx_nutation_amp) {
             getParam(TX_AMP).setValue(tx_amp);
             getParam(TX_ATT).setValue(tx_att);
             list_tx_amps.add(tx_amp);
-
-            if (getBoolean(DEBUG_MODE)) {
-                double ampSP = pulseTX.getAmpTable().get(0).doubleValue();
-                int attSP = pulseTX.getAttParam().intValue();
-                //Recompute power and flip angle directly from the SP
-                double powSP = PowerComputation.getPower(getListInt(TX_ROUTE).get(0), observeFrequency, ampSP, attSP);
-                double instrument_length = PowerComputation.getHardPulse90Width(nucleus.name());
-                double power_90 = PowerComputation.getHardPulse90Power(nucleus.name()) / pulseTX.getShapePowerFactor90();
-                double timeSP = pulseTX.getTimeTable().get(0).doubleValue();
-                double FASP = 90 * Math.sqrt(powSP / power_90) * timeSP / instrument_length;
-                double powUP = power_90 * Math.pow(flip_angle / 90, 2) * Math.pow(instrument_length / timeSP, 2);
-
-                System.out.println(" ");
-                System.out.println("------------- check pulses preparation -------------"); //check if the value written in RFPulse and SP are match with prescription
-                System.out.println("1/ Parameter value from: RFPulse, the sequence (SP):");
-                System.out.printf("Amplitude: %n %f     %f %n", tx_amp, ampSP);
-                System.out.printf("Attenuation: %n %d   %d %n", tx_att, attSP);
-                System.out.printf("Length: %n %f    %f %n", pulseTX.getPulseDuration(), timeSP);
-                System.out.println("2/ Parameter value from: UP, RFPulse, SP, error UP(ref) vs RFPulse, error SP(ref) vs RFPulse");
-                System.out.printf("Power: %n %f    %f     %f     %f    %f %n",
-                        powUP, pulseTX.getPower(), powSP, Math.abs(pulseTX.getPower() - powUP) * 100 / pulseTX.getPower(), Math.abs(pulseTX.getPower() - powSP) * 100 / pulseTX.getPower());
-                System.out.printf("Flip angle: %n %f    %f     %f     %f    %f %n",
-                        flip_angle, pulseTX.getFlipAngle(), FASP, Math.abs(pulseTX.getFlipAngle() - flip_angle) * 100 / pulseTX.getFlipAngle(), Math.abs(pulseTX.getFlipAngle() - FASP) * 100 / pulseTX.getFlipAngle());
-                System.out.println(" ");
-            }
         } else {
             double tx_amp_start = getDouble(TX_AMP_START);
             double tx_amp_step = getDouble(TX_AMP_STEP);
