@@ -227,7 +227,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         // -----------------------------------------------
         // MATRIX
         // solve conflict between input parameter used to solve pulse power
-        is_tx_voltInput = is_tx_voltInput && !is_tx_nutation_amp;
+        is_tx_voltInput = is_tx_voltInput && !is_tx_nutation_amp && !is_tx_amp_att_auto;
         getParam(TX_VOLTAGE_INPUT).setValue(is_tx_voltInput);
 
         is_tx_nutation_Length = !is_tx_nutation_amp && is_tx_nutation_Length && !is_tx_amp_att_auto;
