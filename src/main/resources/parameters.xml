@@ -10,7 +10,7 @@
                 <defaultValue>1</defaultValue>
                 <description>Dimension on which averaging is performed by the Cameleon</description>
                 <displayedName>ACCU_DIM</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Integer</numberEnum>
@@ -29,7 +29,7 @@
                 <defaultValue>128</defaultValue>
                 <description>Info: Size of the initial dataset (raw data) in first dimension</description>
                 <displayedName>Acquisition Matrix 1D</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Scan</numberEnum>
@@ -48,7 +48,7 @@
                 <defaultValue>128</defaultValue>
                 <description>Info: Size of the initial dataset (raw data) in the second dimension</description>
                 <displayedName>Acquisition Matrix 2D</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Scan</numberEnum>
@@ -67,7 +67,7 @@
                 <defaultValue>1</defaultValue>
                 <description>Info: Size of the initial dataset (raw data) in the third dimension</description>
                 <displayedName>Acquisition Matrix 3D</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Scan</numberEnum>
@@ -142,7 +142,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>ADJUST_WINDOW</name>
                 <uuid>4e02b8a6-e0da-4420-80e0-a9dbf4031c79</uuid>
-                <value>true</value>
+                <value>false</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable to get the frequency from 'Base Frequency 1' and not from instrument </description>
                 <displayedName>Adjust Window</displayedName>
@@ -176,7 +176,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>BASE_FREQ_2</name>
                 <uuid>7ca8c56e-62fa-41b8-9de3-ab877593fb34</uuid>
-                <value>6.3806791188395776E7</value>
+                <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Base frequency of the second channel</description>
                 <displayedName>Base Frequency 2</displayedName>
@@ -195,7 +195,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>BASE_FREQ_3</name>
                 <uuid>3cb8b8e6-5603-49ba-87e2-09d7a26cdfcb</uuid>
-                <value>6.3806791188395776E7</value>
+                <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Base frequency of the third channel</description>
                 <displayedName>Base Frequency 3</displayedName>
@@ -214,7 +214,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>BASE_FREQ_4</name>
                 <uuid>08091c19-7724-45c5-a00c-c0aba8921519</uuid>
-                <value>6.3806791188395776E7</value>
+                <value>0.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Base frequency of the fourth channel</description>
                 <displayedName>Base Frequency 4</displayedName>
@@ -288,7 +288,7 @@
                 <defaultValue>0.0</defaultValue>
                 <description>Extra time added before the signal reception (input if  'Use Dead Time' checked)</description>
                 <displayedName>Tx-Rx Dead Time</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Time</numberEnum>
@@ -341,7 +341,7 @@
                 <defaultValue>128</defaultValue>
                 <description>Number of dummy cycles used to reach steady-state</description>
                 <displayedName>Dummy Scans</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Scan</numberEnum>
@@ -374,12 +374,12 @@
             <key>ECHO_TIME</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ECHO_TIME</name>
-                <uuid>a66280a2-e6f8-4ed6-abb9-3a34a01838f6</uuid>
+                <uuid>cfd6e656-00a1-4b37-b20b-963156dc7444</uuid>
                 <value>6.0E-4</value>
                 <defaultValue>0.005</defaultValue>
                 <description>Time between the middle of the excitation RF and the beginning of the reception  (input if 'Use Dead Time' unchecked)</description>
                 <displayedName>Tx-Rx Time</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Time</numberEnum>
@@ -413,7 +413,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>FLIP_ANGLE</name>
                 <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                <value>5.0</value>
+                <value>14.0</value>
                 <defaultValue>30.0</defaultValue>
                 <description>Excitation flip angle</description>
                 <displayedName>Flip Angle</displayedName>
@@ -683,7 +683,7 @@
                 <defaultValue>true</defaultValue>
                 <description>Enable to do slice slection during  RF exitation</description>
                 <displayedName>2D Excitation</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Dimension</group>
                 <category>Acquisition</category>
@@ -1471,7 +1471,7 @@
                 <defaultValue>0.0</defaultValue>
                 <description>Off-center distance in the R/L direction</description>
                 <displayedName>Location X</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Location</numberEnum>
@@ -1490,7 +1490,7 @@
                 <defaultValue>0.0</defaultValue>
                 <description>Off-center distance in the A/P direction</description>
                 <displayedName>Location Y</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Location</numberEnum>
@@ -1509,7 +1509,7 @@
                 <defaultValue>0.0</defaultValue>
                 <description>Off-center distance in the I/S direction</description>
                 <displayedName>Location Z</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Location</numberEnum>
@@ -1725,7 +1725,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_VERSION</name>
                 <uuid>fce8797d-e7c2-4278-9c47-28d0beef10ad</uuid>
-                <value>Version8.4</value>
+                <value>Version8.5</value>
                 <defaultValue></defaultValue>
                 <description>Info: Sequence version</description>
                 <displayedName>Sequence Version</displayedName>
@@ -1888,12 +1888,10 @@
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <suggestedValues>Accumulate1D2D</suggestedValues>
                 <suggestedValues>Bordered2D</suggestedValues>
-                <suggestedValues>Bordered2D_FSE</suggestedValues>
                 <suggestedValues>Centered2D</suggestedValues>
-                <suggestedValues>Centered2D_FSE</suggestedValues>
-                <suggestedValues>Centered2D_FSERot</suggestedValues>
                 <suggestedValues>Centered2DRot</suggestedValues>
                 <suggestedValues>EchoAntiechoTransform</suggestedValues>
+                <suggestedValues>FSE_TRAIN_1D</suggestedValues>
                 <suggestedValues>SEEPISequential</suggestedValues>
                 <suggestedValues>Sequential</suggestedValues>
                 <suggestedValues>Sequential2D</suggestedValues>
@@ -1902,6 +1900,7 @@
                 <suggestedValues>Sequential4D_Dummy2D</suggestedValues>
                 <suggestedValues>Sequential4DBackAndForth</suggestedValues>
                 <suggestedValues>Sequential4DCine</suggestedValues>
+                <suggestedValues>SequentialMPRAGE</suggestedValues>
                 <group>Scan</group>
                 <category>Acquisition</category>
             </value>
@@ -1991,7 +1990,7 @@
                 <defaultValue>Ext1_XOR_Ext2</defaultValue>
                 <description>Choose the external trigger channels option (if available)</description>
                 <displayedName>Trigger Channel</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>true</restrictedToSuggested>
                 <suggestedValues>Ext1</suggestedValues>
@@ -2011,7 +2010,7 @@
                 <defaultValue>false</defaultValue>
                 <description>Enable to synchronize the acquisition with external trigger</description>
                 <displayedName>Trigger External</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Delay</group>
                 <category>Acquisition</category>
@@ -2029,7 +2028,7 @@
                 <defaultValue>0.01</defaultValue>
                 <description>Delays between trigger and acquisition start (Multiple values)</description>
                 <displayedName>Trigger Delay</displayedName>
-                <locked>false</locked>
+                <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>Time</numberEnum>
                 <minValue>0.0</minValue>
@@ -2080,7 +2079,7 @@
                 <defaultValue>1</defaultValue>
                 <description>Number of TX amplitude increment steps to get a nutation curve</description>
                 <displayedName>TX Amp Number</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Integer</numberEnum>
@@ -2099,7 +2098,7 @@
                 <defaultValue>0.0</defaultValue>
                 <description>Start value of TX amplitude ramp to get a nutation curve</description>
                 <displayedName>TX Amp Start</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>TxAmp</numberEnum>
@@ -2117,7 +2116,7 @@
                 <defaultValue>0.0</defaultValue>
                 <description>Value of the TX amplitude increment step to get a nutation curve</description>
                 <displayedName>TX Amp Step</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>TxAmp</numberEnum>
@@ -2135,7 +2134,7 @@
                 <value>40.087732488176094</value>
                 <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                 <displayedName>TX Amp Values</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>PERCENT</numberEnum>
                 <minValue>-2.147483648E9</minValue>
@@ -2167,7 +2166,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_GAMMA_B1</name>
                 <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                <value>31.0</value>
+                <value>91.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the power in gamma B1 unit</description>
                 <displayedName>Tx Gamma B1</displayedName>
@@ -2208,7 +2207,7 @@
                 <defaultValue>1</defaultValue>
                 <description>Number of TX length increment steps to get a nutation curve</description>
                 <displayedName>TX Length Number</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Integer</numberEnum>
@@ -2227,7 +2226,7 @@
                 <defaultValue>0.001</defaultValue>
                 <description>Start value of TX length ramp to get a nutation curve</description>
                 <displayedName>TX Length Start</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Time</numberEnum>
@@ -2246,7 +2245,7 @@
                 <defaultValue>1.9999999999999998E-4</defaultValue>
                 <description>Value of the TX length increment step to get a nutation curve</description>
                 <displayedName>TX Length Step</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Time</numberEnum>
@@ -2264,7 +2263,7 @@
                 <value>0.001</value>
                 <description>Info: Values of the TX length sampling points of the nutation curve</description>
                 <displayedName>TX Length Values</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>Time</numberEnum>
                 <minValue>0.0</minValue>

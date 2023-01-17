@@ -33,7 +33,7 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private final String sequenceVersion = "Version8.4";
+    private final String sequenceVersion = "Version8.5";
     public double protonFrequency;
     public double observeFrequency;
     private Nucleus nucleus;
@@ -592,7 +592,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         } else {
             if (te < te_min) {
                 te_min = ceilToSubDecimal(te_min, 5);
-                getUnreachParamExceptionManager().addParam(ECHO_TIME.name(), te, te_min, ((NumberParam) getParam(ECHO_TIME)).getMaxValue(), "TE too short for the User Mx1D and SW");
+                getUnreachParamExceptionManager().addParam(ECHO_TIME.name(), te, te_min, ((NumberParam) getParam(ECHO_TIME)).getMaxValue(), "Tx-Rx Time too short for the User Mx1D and SW");
                 te = te_min;//
             }
             if (is_tx_nutation_Length) {
