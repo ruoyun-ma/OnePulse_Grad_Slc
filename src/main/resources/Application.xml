@@ -217,7 +217,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>BASE_FREQ_1</name>
                     <uuid>bdb638b1-d07c-4cd7-8720-40b53133ab4f</uuid>
-                    <value>6.3806791188395776E7</value>
+                    <value>6.38067934119089E7</value>
                     <defaultValue>1.27194553E8</defaultValue>
                     <description>Info: Frequency of the observed nucleus</description>
                     <displayedName>Base Frequency 1</displayedName>
@@ -473,7 +473,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>FLIP_ANGLE</name>
                     <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                    <value>14.0</value>
+                    <value>22.0</value>
                     <defaultValue>30.0</defaultValue>
                     <description>Excitation flip angle</description>
                     <displayedName>Flip Angle</displayedName>
@@ -688,7 +688,7 @@
                     <value>90.0</value>
                     <defaultValue>90.0</defaultValue>
                     <description>Safety parameter applied on maximum gradient slew rate. Fastest is 100%</description>
-                    <displayedName>Min rise Time Factor</displayedName>
+                    <displayedName>Gradient Rise Time Factor</displayedName>
                     <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -741,9 +741,9 @@
                     <uuid>ccf3eb9b-724f-49b3-bd21-98bd3824a13c</uuid>
                     <value>false</value>
                     <defaultValue>true</defaultValue>
-                    <description>Enable to do slice slection during  RF exitation</description>
-                    <displayedName>2D Excitation</displayedName>
-                    <locked>true</locked>
+                    <description>Enable to do slice slection during RF exitation</description>
+                    <displayedName>Slice Excitation</displayedName>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <group>Dimension</group>
                     <category>Acquisition</category>
@@ -1314,7 +1314,7 @@
                     <defaultValue>1</defaultValue>
                     <description>Number of average</description>
                     <displayedName>Nex</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Scan</numberEnum>
@@ -1329,7 +1329,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>OBSERVED_FREQUENCY</name>
                     <uuid>d93d76ff-b4cc-42bd-aa43-dfa44cc9e28d</uuid>
-                    <value>6.3806791188395776E7</value>
+                    <value>6.38067934119089E7</value>
                     <defaultValue>6.3E7</defaultValue>
                     <description>Info: Frequency of the acquisition</description>
                     <displayedName>Observed Frequency</displayedName>
@@ -1531,7 +1531,7 @@
                     <defaultValue>0.0</defaultValue>
                     <description>Off-center distance in the R/L direction</description>
                     <displayedName>Location X</displayedName>
-                    <locked>true</locked>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Location</numberEnum>
@@ -1550,7 +1550,7 @@
                     <defaultValue>0.0</defaultValue>
                     <description>Off-center distance in the A/P direction</description>
                     <displayedName>Location Y</displayedName>
-                    <locked>true</locked>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Location</numberEnum>
@@ -1569,7 +1569,7 @@
                     <defaultValue>0.0</defaultValue>
                     <description>Off-center distance in the I/S direction</description>
                     <displayedName>Location Z</displayedName>
-                    <locked>true</locked>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Location</numberEnum>
@@ -1670,7 +1670,7 @@
                     <defaultValue>false</defaultValue>
                     <description>Enable the Phase reset at the beginning of each scan</description>
                     <displayedName>PHASE_RESET</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <group>Emission</group>
                     <category>Acquisition</category>
@@ -2102,7 +2102,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
                     <uuid>6a096c39-09c0-41a8-bce5-fd514e5e3e94</uuid>
-                    <value>40.087732488176094</value>
+                    <value>40.0</value>
                     <defaultValue>40.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse </description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2191,7 +2191,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_AMP_VALUES</name>
                     <uuid>0c386d15-9676-4a3a-967e-9f905fd737b5</uuid>
-                    <value>40.087732488176094</value>
+                    <value>40.0</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>TX Amp Values</displayedName>
                     <locked>false</locked>
@@ -2226,10 +2226,10 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_GAMMA_B1</name>
                     <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                    <value>91.0</value>
+                    <value>138.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the power in gamma B1 unit</description>
-                    <displayedName>Tx Gamma B1</displayedName>
+                    <displayedName>TX Gamma B1</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2365,7 +2365,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_POWER</name>
                     <uuid>a8400ddf-5374-43fa-b372-f84e9788a9f6</uuid>
-                    <value>0.061</value>
+                    <value>0.06073</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the tx power that corresponds to Tx Amplitude and Attenuation</description>
                     <displayedName>TX Power</displayedName>
@@ -2419,7 +2419,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_VOLTAGE</name>
                     <uuid>072042f9-90de-4a6d-a963-cdd321d4eb80</uuid>
-                    <value>4.94</value>
+                    <value>4.929</value>
                     <defaultValue>0.0</defaultValue>
                     <description>RF voltage amplitude peak-to-peak</description>
                     <displayedName>TX Voltage</displayedName>
@@ -2511,7 +2511,7 @@
                     <value>1</value>
                     <defaultValue>1</defaultValue>
                     <description>Info: Number of trigger delay (user maxtrix 4D)</description>
-                    <displayedName>No. trigger delay(4D)</displayedName>
+                    <displayedName>No. trigger delay (4D)</displayedName>
                     <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
