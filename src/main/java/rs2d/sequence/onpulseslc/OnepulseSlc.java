@@ -69,8 +69,12 @@ public class OnepulseSlc extends BaseSequenceGenerator {
     private boolean is_tx_voltInput;
     private boolean  is_tx_nutation;
     private boolean  is_tx_nutation_amp;
+    private double txAmpStart;
+    private double txAmpEnd;
     private boolean  is_tx_nutation_volt;
     private boolean  is_tx_nutation_length;
+    private double txLengthStart;
+    private double txLengthEnd;
     private boolean isDelayEcho;
 
 
@@ -146,11 +150,17 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         txLength = getDouble(TX_LENGTH);
         is_tx_amp_att_auto = getBoolean(TX_AMP_ATT_AUTO);
         is_tx_voltInput = getBoolean(TX_VOLTAGE_INPUT);
+        isDelayEcho = getBoolean(DELAY_ECHO);
+        // Nutation curve parameters
         is_tx_nutation = !getText(TX_NUTATION).equalsIgnoreCase("None");
         is_tx_nutation_amp = getText(TX_NUTATION).equalsIgnoreCase("Amplitude");
+        txAmpStart = getDouble(TX_NUTATION_AMP_START);
+        txAmpEnd = getDouble(TX_NUTATION_AMP_END);
         is_tx_nutation_volt = getText(TX_NUTATION).equalsIgnoreCase("Voltage");
         is_tx_nutation_length = getText(TX_NUTATION).equalsIgnoreCase("Length");
-        isDelayEcho = getBoolean(DELAY_ECHO);
+        txLengthStart = getDouble(TX_NUTATION_LENGTH_START);
+        txLengthEnd = getDouble(TX_NUTATION_LENGTH_END);
+
 
         isTrigger = getBoolean(TRIGGER_EXTERNAL);
         triggerTime = getListDouble(TRIGGER_TIME);
@@ -239,7 +249,27 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         getParam(TX_VOLTAGE_INPUT).setValue(is_tx_voltInput);
 
         if (is_tx_nutation) {
-        // use the maximum amplitude calculated if power limit was previously reached
+            // check if the starting point is inferior to the ending point
+            if(txLengthStart > txLengthEnd) {
+                txLengthStart = txLengthEnd;
+                getParam(TX_NUTATION_LENGTH_START).setValue(txLengthStart);
+                getParam(TX_NUT_STEP_NUMBER).setValue(1);
+            }
+            if(txAmpStart > txAmpEnd) {
+                txAmpStart = txAmpEnd;
+                getParam(TX_NUTATION_AMP_START).setValue(txAmpStart);
+                getParam(TX_NUT_STEP_NUMBER).setValue(1);
+            }
+            // the pulse will be later be prepared for the maximum amplitude/length
+            if(!is_tx_amp_att_auto){
+                if(is_tx_nutation_amp){
+                    getParam(TX_AMP).setValue(txAmpEnd);
+                } else if(is_tx_nutation_length){
+                    txLength = getDouble(TX_NUTATION_LENGTH_END);
+                    getParam(TX_LENGTH).setValue(txLength);
+                }
+            }
+
             acquisitionMatrixDimension2D = getInt(TX_NUT_STEP_NUMBER);
             getParam(USER_MATRIX_DIMENSION_2D).setValue(acquisitionMatrixDimension2D);
             nb_scan_2d = acquisitionMatrixDimension2D;
@@ -369,9 +399,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         ArrayList<Number> list_tx_amps = new ArrayList<>();
         double flip_angle = getDouble(FLIP_ANGLE);
 
-
-
-        // Check power and prepare tx Att/amp
+        // Check power and prepare tx Att/amp: the way Att/Amp are prepared depends on which option is selected
         if (is_tx_amp_att_auto) {
             if (!is_tx_nutation) {
                 if (!pulseTX.solveOnePulseWithFlipAngleAndReference180(flip_angle, 80, observeFrequency, getListInt(TX_ROUTE))) {
@@ -407,6 +435,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         //  finalise pulse or nutation amplitude
         set(Tx_blanking, tx_amp != 0 || is_tx_nutation);
 
+        // Print information for debug only
         if (getBoolean(DEBUG_MODE)) {
             // Calibrations
             double instrument_length = PowerComputation.getHardPulse90Width(nucleus.name());
@@ -437,43 +466,39 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             System.out.println(" ");
         }
 
+        //
         if (!is_tx_nutation_amp) {
             getParam(TX_AMP).setValue(tx_amp);
             getParam(TX_ATT).setValue(tx_att);
             list_tx_amps.add(tx_amp);
         } else {
-            double tx_amp_start;
-            double tx_amp_end;
             double tx_amp_step;
 
             if (!is_tx_amp_att_auto) {
-                tx_amp_start = getDouble(TX_NUTATION_AMP_START);
-                tx_amp_end = getDouble(TX_NUTATION_AMP_END);
-                // solve pulse for maximum amplitude (prepare & check maximum power)
+                // Maximum amplitude has previously been prepared and checked, if the value of tx_amp was changed because of power limit exceed the tx_amp_start and end should be adjusted accordingly
                 // Check that amplitude doesn't exceed maximum amplitude achievable
-                double tx_amp_lim = pulseTX.getAmpLimit(observeFrequency, getListInt(TX_ROUTE));
-                if (tx_amp_start > tx_amp_lim) {
-                    getUnreachParamExceptionManager().addParam(TX_NUTATION_AMP_START.name(), tx_amp_start, ((NumberParam) getParam(TX_NUTATION_AMP_START)).getMinValue(), tx_amp_lim, "Amplitude values exceed power limit: the maximum amplitude achievable with this attenuation is " + ceilToSubDecimal(tx_amp_lim, 2) + "%");
+                if (txAmpStart > tx_amp) {
+                    getUnreachParamExceptionManager().addParam(TX_NUTATION_AMP_START.name(), txAmpStart, ((NumberParam) getParam(TX_NUTATION_AMP_START)).getMinValue(), tx_amp, "Amplitude values exceed power limit: the maximum amplitude achievable with this attenuation is " + ceilToSubDecimal(tx_amp, 2) + "%");
                     getParam(TX_NUT_STEP_NUMBER).setValue(1);
                     getParam(ACQUISITION_MATRIX_DIMENSION_2D).setValue(1);
-                } else if ((tx_amp_start < tx_amp_lim) && (tx_amp_end > tx_amp_lim)) {
-                    getUnreachParamExceptionManager().addParam(TX_NUTATION_AMP_END.name(), tx_amp_end, ((NumberParam) getParam(TX_NUTATION_AMP_END)).getMinValue(), tx_amp_lim, "Amplitude values exceed power limit: the maximum amplitude achievable with this attenuation is " + ceilToSubDecimal(tx_amp_lim, 2) + "%");
-                    tx_amp_end = tx_amp_lim;
+                } else if ((txAmpStart < tx_amp) && (txAmpEnd > tx_amp)) {
+                    getUnreachParamExceptionManager().addParam(TX_NUTATION_AMP_END.name(), txAmpEnd, ((NumberParam) getParam(TX_NUTATION_AMP_END)).getMinValue(), tx_amp, "Amplitude values exceed power limit: the maximum amplitude achievable with this attenuation is " + ceilToSubDecimal(tx_amp, 2) + "%");
+                    txAmpEnd = tx_amp;
                 }
-                tx_amp_step = (tx_amp_end - tx_amp_start) / (acquisitionMatrixDimension2D - 1);
+                tx_amp_step = acquisitionMatrixDimension2D == 1 ? 0 : (txAmpEnd - txAmpStart) / (acquisitionMatrixDimension2D - 1);
             } else {
                 tx_amp_step = tx_amp/acquisitionMatrixDimension2D;
-                tx_amp_start = tx_amp_step;
-                tx_amp_end = tx_amp;
+                txAmpStart = tx_amp_step;
+                txAmpEnd = tx_amp;
 
-                getParam(TX_NUTATION_AMP_START).setValue(tx_amp_start);
-                getParam(TX_NUTATION_AMP_END).setValue(tx_amp_end);
+                getParam(TX_NUTATION_AMP_START).setValue(txAmpStart);
+                getParam(TX_NUTATION_AMP_END).setValue(txAmpEnd);
             }
 
             // create and set amplitude table (the pulse has already been solved for the maximum amplitude)
             double[] tx_amps = new double[acquisitionMatrixDimension2D];
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
-                tx_amps[i] = (tx_amp_start + i * tx_amp_step);
+                tx_amps[i] = (txAmpStart + i * tx_amp_step);
                 list_tx_amps.add(tx_amps[i]);
             }
             pulseTX.setAmp(Order.Two, tx_amps);
@@ -495,23 +520,18 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             Order order = txLengthTable.getOrder();
             txLengthTable.clear();
             txLengthTable.setOrder(order);
-            double tx_start;
-            double tx_end;
             double tx_step;
             if (!is_tx_amp_att_auto) {
-                tx_start = getDouble(TX_NUTATION_LENGTH_START);
-                tx_end = getDouble(TX_NUTATION_LENGTH_END);
-                tx_step = (tx_end - tx_start) / (acquisitionMatrixDimension2D - 1);
             } else {
-                tx_step = txLengthMax/acquisitionMatrixDimension2D;
-                tx_start = tx_step;
-                tx_end = txLengthMax;
-                getParam(TX_NUTATION_LENGTH_START).setValue(tx_start);
-                getParam(TX_NUTATION_LENGTH_END).setValue(tx_end);
+                tx_step = txLength/acquisitionMatrixDimension2D;
+                txLengthStart = tx_step;
+                txLengthEnd = txLength;
+                getParam(TX_NUTATION_LENGTH_START).setValue(txLengthStart);
+                getParam(TX_NUTATION_LENGTH_END).setValue(txLengthEnd);
             }
 
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
-                tx_lengths[i] = (tx_start + i * tx_step);
+                tx_lengths[i] = (txLengthStart + i * tx_step);
                 txLengthTable.add(tx_lengths[i]);
                 list_tx_length.add(tx_lengths[i]);
             }
