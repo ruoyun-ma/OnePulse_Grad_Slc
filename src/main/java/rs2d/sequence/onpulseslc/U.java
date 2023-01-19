@@ -166,7 +166,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Frequency);
             param.setMinValue(0.0);
             param.setMaxValue(3.0E9);
-            param.setValue(6.3806791188395776E7);
+            param.setValue(6.38067934119089E7);
             param.setDefaultValue(1.27194553E8);
             return param;
         }
@@ -415,7 +415,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.PulseAngle);
             param.setMinValue(0.0);
             param.setMaxValue(1.7976931348623157E308);
-            param.setValue(14.0);
+            param.setValue(4.0);
             param.setDefaultValue(30.0);
             return param;
         }
@@ -601,7 +601,7 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("MIN_RISE_TIME_FACTOR");
-            param.setDisplayedName("Min rise Time Factor");
+            param.setDisplayedName("Gradient Rise Time Factor");
             param.setDescription("Safety parameter applied on maximum gradient slew rate. Fastest is 100%");
             param.setLocked(true);
             param.setGroup(EnumGroup.Gradient);
@@ -654,9 +654,8 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             BooleanParam param = new BooleanParam();
             param.setName("MULTI_PLANAR_EXCITATION");
-            param.setDisplayedName("2D Excitation");
-            param.setDescription("Enable to do slice slection during  RF exitation");
-            param.setLocked(true);
+            param.setDisplayedName("Slice Excitation");
+            param.setDescription("Enable to do slice slection during RF exitation");
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setUuid("ccf3eb9b-724f-49b3-bd21-98bd3824a13c");
@@ -744,6 +743,7 @@ public enum U implements GeneratorParamEnum {
             param.setName("NUMBER_OF_AVERAGES");
             param.setDisplayedName("Nex");
             param.setDescription("Number of average");
+            param.setLocked(true);
             param.setGroup(EnumGroup.Scan);
             param.setCategory(Category.Acquisition);
             param.setUuid("4112f1d5-1da2-4fc8-9801-ca5a3681e4f4");
@@ -768,7 +768,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Frequency);
             param.setMinValue(0.0);
             param.setMaxValue(3.0E9);
-            param.setValue(6.3806791188395776E7);
+            param.setValue(6.38067934119089E7);
             param.setDefaultValue(6.3E7);
             return param;
         }
@@ -949,7 +949,6 @@ public enum U implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_X");
             param.setDisplayedName("Location X");
             param.setDescription("Off-center distance in the R/L direction");
-            param.setLocked(true);
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setUuid("2a0bab88-5b63-4cdf-9052-2470f20f6400");
@@ -968,7 +967,6 @@ public enum U implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_Y");
             param.setDisplayedName("Location Y");
             param.setDescription("Off-center distance in the A/P direction");
-            param.setLocked(true);
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setUuid("7f4c9962-9cf1-46f8-9989-c3b26fcd68c8");
@@ -987,7 +985,6 @@ public enum U implements GeneratorParamEnum {
             param.setName("OFF_CENTER_FIELD_OF_VIEW_Z");
             param.setDisplayedName("Location Z");
             param.setDescription("Off-center distance in the I/S direction");
-            param.setLocked(true);
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
             param.setUuid("7a6763b6-fd44-4e39-852f-0c212092ab68");
@@ -1088,6 +1085,7 @@ public enum U implements GeneratorParamEnum {
             param.setName("PHASE_RESET");
             param.setDisplayedName("PHASE_RESET");
             param.setDescription("Enable the Phase reset at the beginning of each scan");
+            param.setLocked(true);
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
             param.setUuid("28263be9-67dc-4036-8aed-d86d81509d94");
@@ -1207,7 +1205,7 @@ public enum U implements GeneratorParamEnum {
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
             param.setUuid("fce8797d-e7c2-4278-9c47-28d0beef10ad");
-            param.setValue("Version8.5");
+            param.setValue("Version8.6");
             param.setDefaultValue("");
             return param;
         }
@@ -1497,15 +1495,15 @@ public enum U implements GeneratorParamEnum {
             NumberParam param = new NumberParam();
             param.setName("TX_AMP");
             param.setDisplayedName("TX Amplitude");
-            param.setDescription("Amplitude of the excitation RF pulse ");
+            param.setDescription("Amplitude of the excitation RF pulse");
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
-            param.setUuid("6a096c39-09c0-41a8-bce5-fd514e5e3e94");
-            param.setNumberEnum(NumberEnum.PERCENT);
+            param.setUuid("4e381691-8b2a-4b50-96c4-76206b85baae");
+            param.setNumberEnum(NumberEnum.TxAmp);
             param.setMinValue(0.0);
             param.setMaxValue(100.0);
-            param.setValue(40.087732488176094);
-            param.setDefaultValue(40.0);
+            param.setValue(40.0);
+            param.setDefaultValue(0.0);
             return param;
         }
     },
@@ -1524,75 +1522,6 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
-    TX_AMP_NUMBER("TX_AMP_NUMBER") {
-        public Param build() {
-            NumberParam param = new NumberParam();
-            param.setName("TX_AMP_NUMBER");
-            param.setDisplayedName("TX Amp Number");
-            param.setDescription("Number of TX amplitude increment steps to get a nutation curve");
-            param.setGroup(EnumGroup.Emission);
-            param.setCategory(Category.Acquisition);
-            param.setUuid("a420b8a9-621b-4916-b031-551362bdbb49");
-            param.setNumberEnum(NumberEnum.Integer);
-            param.setMinValue(1);
-            param.setMaxValue(2048);
-            param.setValue(15);
-            param.setDefaultValue(1);
-            return param;
-        }
-    },
-
-    TX_AMP_START("TX_AMP_START") {
-        public Param build() {
-            NumberParam param = new NumberParam();
-            param.setName("TX_AMP_START");
-            param.setDisplayedName("TX Amp Start");
-            param.setDescription("Start value of TX amplitude ramp to get a nutation curve");
-            param.setCategory(Category.Acquisition);
-            param.setUuid("a8a2c7d8-6c81-4f20-abdd-9d9dcb7cf03b");
-            param.setNumberEnum(NumberEnum.TxAmp);
-            param.setMinValue(0.0);
-            param.setMaxValue(100.0);
-            param.setValue(5.0);
-            param.setDefaultValue(0.0);
-            return param;
-        }
-    },
-
-    TX_AMP_STEP("TX_AMP_STEP") {
-        public Param build() {
-            NumberParam param = new NumberParam();
-            param.setName("TX_AMP_STEP");
-            param.setDisplayedName("TX Amp Step");
-            param.setDescription("Value of the TX amplitude increment step to get a nutation curve");
-            param.setGroup(EnumGroup.Emission);
-            param.setCategory(Category.Acquisition);
-            param.setUuid("8734cf1b-b255-4a64-b1fd-fdcd04796f29");
-            param.setNumberEnum(NumberEnum.TxAmp);
-            param.setMinValue(0.0);
-            param.setMaxValue(100.0);
-            param.setValue(1.0);
-            param.setDefaultValue(0.0);
-            return param;
-        }
-    },
-
-    TX_AMP_VALUES("TX_AMP_VALUES") {
-        public Param build() {
-            ListNumberParam param = new ListNumberParam();
-            param.setName("TX_AMP_VALUES");
-            param.setDisplayedName("TX Amp Values");
-            param.setDescription("Info: Values of the TX amplitude sampling points of the nutation curve");
-            param.setCategory(Category.Acquisition);
-            param.setUuid("0c386d15-9676-4a3a-967e-9f905fd737b5");
-            param.setMinValue(-2.147483648E9);
-            param.setMaxValue(2.147483647E9);
-            param.setNumberEnum(NumberEnum.PERCENT);
-            param.setValue(asListNumber(40.087732488176094));
-            return param;
-        }
-    },
-
     TX_ATT("TX_ATT") {
         public Param build() {
             NumberParam param = new NumberParam();
@@ -1601,7 +1530,7 @@ public enum U implements GeneratorParamEnum {
             param.setDescription("RF pulse attenuation");
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
-            param.setUuid("2671487a-e1f3-4a54-92c1-fa273b0e3f43");
+            param.setUuid("a9f47542-bf8b-478e-af2d-58ad35a381b1");
             param.setNumberEnum(NumberEnum.TxAtt);
             param.setMinValue(0);
             param.setMaxValue(63);
@@ -1615,14 +1544,14 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("TX_GAMMA_B1");
-            param.setDisplayedName("Tx Gamma B1");
+            param.setDisplayedName("TX Gamma B1");
             param.setDescription("Info: Display the power in gamma B1 unit");
             param.setCategory(Category.Acquisition);
             param.setUuid("b97c56b6-2740-41a6-a9cf-f8bd27340c1f");
             param.setNumberEnum(NumberEnum.RfPower);
             param.setMinValue(0.0);
             param.setMaxValue(250000.0);
-            param.setValue(91.0);
+            param.setValue(22.0);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1636,7 +1565,7 @@ public enum U implements GeneratorParamEnum {
             param.setDescription("RF pulse length");
             param.setGroup(EnumGroup.Delay);
             param.setCategory(Category.Acquisition);
-            param.setUuid("38f69065-ce0d-4dd7-b286-fe7add538c0d");
+            param.setUuid("4c648c30-6369-4497-be76-d16537413f36");
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0);
@@ -1646,68 +1575,119 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
-    TX_LENGTH_NUMBER("TX_LENGTH_NUMBER") {
+    TX_NUTATION("TX_NUTATION") {
         public Param build() {
-            NumberParam param = new NumberParam();
-            param.setName("TX_LENGTH_NUMBER");
-            param.setDisplayedName("TX Length Number");
-            param.setDescription("Number of TX length increment steps to get a nutation curve");
+            TextParam param = new TextParam();
+            param.setName("TX_NUTATION");
+            param.setDisplayedName("TX Nutation");
+            param.setDescription("Select the TX parameter to lineary increment to make a nutation curve. 'None' disables the option. ");
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
-            param.setUuid("3cf63436-9fa7-4136-b934-61fe7f49d93e");
-            param.setNumberEnum(NumberEnum.Integer);
-            param.setMinValue(1);
-            param.setMaxValue(2048);
-            param.setValue(6);
-            param.setDefaultValue(1);
+            param.setUuid("a13dda7a-e13c-49cd-85be-143244d1ef71");
+            param.setValue("None");
+            param.setDefaultValue("None");
+            param.setSuggestedValues(asList("None", "Amplitude", "Voltage", "Length"));
+            param.setRestrictedToSuggested(true);
             return param;
         }
     },
 
-    TX_LENGTH_START("TX_LENGTH_START") {
+    TX_NUTATION_AMP_END("TX_NUTATION_AMP_END") {
         public Param build() {
             NumberParam param = new NumberParam();
-            param.setName("TX_LENGTH_START");
-            param.setDisplayedName("TX Length Start");
-            param.setDescription("Start value of TX length ramp to get a nutation curve");
-            param.setGroup(EnumGroup.Delay);
+            param.setName("TX_NUTATION_AMP_END");
+            param.setDisplayedName("TX Amp End");
+            param.setDescription("End value of TX amplitude ramp for nutation curve");
+            param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
-            param.setUuid("0081adb6-7b06-4abd-8219-d3636431d304");
-            param.setNumberEnum(NumberEnum.Time);
-            param.setMinValue(9.999999999999999E-6);
-            param.setMaxValue(1.0E9);
-            param.setValue(0.001);
-            param.setDefaultValue(0.001);
+            param.setUuid("1de0c1a2-21b4-46de-a395-86b24b5b11a7");
+            param.setNumberEnum(NumberEnum.TxAmp);
+            param.setMinValue(0.0);
+            param.setMaxValue(100.0);
+            param.setValue(100.0);
+            param.setDefaultValue(100.0);
             return param;
         }
     },
 
-    TX_LENGTH_STEP("TX_LENGTH_STEP") {
+    TX_NUTATION_AMP_START("TX_NUTATION_AMP_START") {
         public Param build() {
             NumberParam param = new NumberParam();
-            param.setName("TX_LENGTH_STEP");
-            param.setDisplayedName("TX Length Step");
-            param.setDescription("Value of the TX length increment step to get a nutation curve");
+            param.setName("TX_NUTATION_AMP_START");
+            param.setDisplayedName("TX Amp Start");
+            param.setDescription("Start value of TX amplitude ramp for nutation curve");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("bc97db0e-32ee-4af8-bdf7-f90092f6dc8a");
+            param.setNumberEnum(NumberEnum.TxAmp);
+            param.setMinValue(0.0);
+            param.setMaxValue(100.0);
+            param.setValue(1.0);
+            param.setDefaultValue(0.0);
+            return param;
+        }
+    },
+
+    TX_NUTATION_AMP_VALUES("TX_NUTATION_AMP_VALUES") {
+        public Param build() {
+            ListNumberParam param = new ListNumberParam();
+            param.setName("TX_NUTATION_AMP_VALUES");
+            param.setDisplayedName("TX Nutation Amp Values");
+            param.setDescription("Info: Values of the TX amplitude sampling points of the nutation curve");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("54178328-aeb8-4faf-9c8d-c6f5688f1439");
+            param.setMinValue(-2.147483648E9);
+            param.setMaxValue(2.147483647E9);
+            param.setNumberEnum(NumberEnum.PERCENT);
+            param.setValue(asListNumber(40.0));
+            return param;
+        }
+    },
+
+    TX_NUTATION_LENGTH_END("TX_NUTATION_LENGTH_END") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("TX_NUTATION_LENGTH_END");
+            param.setDisplayedName("TX Length End");
+            param.setDescription("End value of TX amplitude ramp for nutation curve");
             param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
-            param.setUuid("58bb90f0-e3a9-479a-89a6-84b941db349e");
+            param.setUuid("aa976796-a295-4852-8e68-5cded1690ae1");
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(9.999999999999999E-6);
             param.setMaxValue(1.0E9);
-            param.setValue(0.001);
+            param.setValue(0.01);
             param.setDefaultValue(1.9999999999999998E-4);
             return param;
         }
     },
 
-    TX_LENGTH_VALUES("TX_LENGTH_VALUES") {
+    TX_NUTATION_LENGTH_START("TX_NUTATION_LENGTH_START") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("TX_NUTATION_LENGTH_START");
+            param.setDisplayedName("TX Length Start");
+            param.setDescription("Start value of TX length ramp for nutation curve");
+            param.setGroup(EnumGroup.Delay);
+            param.setCategory(Category.Acquisition);
+            param.setUuid("c0b75224-a736-4d71-9de8-4e43b6cb735d");
+            param.setNumberEnum(NumberEnum.Time);
+            param.setMinValue(9.999999999999999E-6);
+            param.setMaxValue(1.0);
+            param.setValue(0.001);
+            param.setDefaultValue(5.0E-4);
+            return param;
+        }
+    },
+
+    TX_NUTATION_LENGTH_VALUES("TX_NUTATION_LENGTH_VALUES") {
         public Param build() {
             ListNumberParam param = new ListNumberParam();
-            param.setName("TX_LENGTH_VALUES");
-            param.setDisplayedName("TX Length Values");
+            param.setName("TX_NUTATION_LENGTH_VALUES");
+            param.setDisplayedName("TX Nutation Length Values");
             param.setDescription("Info: Values of the TX length sampling points of the nutation curve");
+            param.setGroup(EnumGroup.Emission);
             param.setCategory(Category.Acquisition);
-            param.setUuid("90667e6d-d622-4cf7-bd7f-8c65d3948808");
+            param.setUuid("8553c767-79b8-4cd0-bed1-5d0b81d5f8a8");
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
             param.setNumberEnum(NumberEnum.Time);
@@ -1716,31 +1696,54 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
-    TX_NUTATION_AMP("TX_NUTATION_AMP") {
+    TX_NUTATION_VOLT_START("TX_NUTATION_VOLT_START") {
         public Param build() {
-            BooleanParam param = new BooleanParam();
-            param.setName("TX_NUTATION_AMP");
-            param.setDisplayedName("TX Nutation Amp");
-            param.setDescription("Enable to acquire a nutation curve by varying the TX amplitude");
-            param.setGroup(EnumGroup.Emission);
+            NumberParam param = new NumberParam();
+            param.setName("TX_NUTATION_VOLT_START");
+            param.setDisplayedName("TX Voltage Start");
+            param.setDescription("Start value of TX voltage ramp for nutation curve");
             param.setCategory(Category.Acquisition);
-            param.setUuid("242c394e-9498-47b1-b133-a47b840371a8");
-            param.setValue(false);
-            param.setDefaultValue(false);
+            param.setUuid("b03f9f82-0ecf-444a-afff-9399a490f990");
+            param.setNumberEnum(NumberEnum.Vpp);
+            param.setMinValue(0.0);
+            param.setMaxValue(1000.0);
+            param.setValue(0.0);
+            param.setDefaultValue(0.0);
             return param;
         }
     },
 
-    TX_NUTATION_LENGTH("TX_NUTATION_LENGTH") {
+    TX_NUTATION_VOLT_STEP("TX_NUTATION_VOLT_STEP") {
         public Param build() {
-            BooleanParam param = new BooleanParam();
-            param.setName("TX_NUTATION_LENGTH");
-            param.setDisplayedName("TX Nutation Length");
-            param.setDescription("Enable to acquire a nutation curve by varying the TX length");
+            NumberParam param = new NumberParam();
+            param.setName("TX_NUTATION_VOLT_STEP");
+            param.setDisplayedName("TX Voltage End");
+            param.setDescription("End value of TX amplitude ramp for nutation curve");
             param.setCategory(Category.Acquisition);
-            param.setUuid("3bb84ade-8bc3-4b91-8e49-7cdab5c8905a");
-            param.setValue(false);
-            param.setDefaultValue(false);
+            param.setUuid("1dbf92d5-fe17-4ffc-9628-8fbca52f0443");
+            param.setNumberEnum(NumberEnum.Vpp);
+            param.setMinValue(0.1);
+            param.setMaxValue(1000.0);
+            param.setValue(1.0);
+            param.setDefaultValue(1.0);
+            return param;
+        }
+    },
+
+    TX_NUT_STEP_NUMBER("TX_NUT_STEP_NUMBER") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("TX_NUT_STEP_NUMBER");
+            param.setDisplayedName("TX Nutation Number");
+            param.setDescription("Number of incremental steps used to sample the nutation curve");
+            param.setGroup(EnumGroup.Emission);
+            param.setCategory(Category.Acquisition);
+            param.setUuid("78a4e2e9-a2f8-4cee-8028-1927e18de72f");
+            param.setNumberEnum(NumberEnum.Integer);
+            param.setMinValue(0);
+            param.setMaxValue(10000);
+            param.setValue(10);
+            param.setDefaultValue(1);
             return param;
         }
     },
@@ -1756,7 +1759,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Power);
             param.setMinValue(0.0);
             param.setMaxValue(10000.0);
-            param.setValue(0.061);
+            param.setValue(0.0016);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1802,11 +1805,11 @@ public enum U implements GeneratorParamEnum {
             param.setDisplayedName("TX Voltage");
             param.setDescription("RF voltage amplitude peak-to-peak");
             param.setCategory(Category.Acquisition);
-            param.setUuid("072042f9-90de-4a6d-a963-cdd321d4eb80");
+            param.setUuid("0da2407d-1233-4652-afa6-b1b8f8fa6c26");
             param.setNumberEnum(NumberEnum.Vpp);
             param.setMinValue(0.0);
             param.setMaxValue(1000.0);
-            param.setValue(4.94);
+            param.setValue(0.8);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1884,7 +1887,7 @@ public enum U implements GeneratorParamEnum {
         public Param build() {
             NumberParam param = new NumberParam();
             param.setName("USER_MATRIX_DIMENSION_4D");
-            param.setDisplayedName("No. trigger delay(4D)");
+            param.setDisplayedName("No. trigger delay (4D)");
             param.setDescription("Info: Number of trigger delay (user maxtrix 4D)");
             param.setLocked(true);
             param.setGroup(EnumGroup.Scan);
