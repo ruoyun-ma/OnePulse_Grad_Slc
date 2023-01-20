@@ -2266,7 +2266,7 @@
                     <uuid>aa976796-a295-4852-8e68-5cded1690ae1</uuid>
                     <value>0.01</value>
                     <defaultValue>1.9999999999999998E-4</defaultValue>
-                    <description>End value of TX amplitude ramp for nutation curve</description>
+                    <description>End value of TX length ramp for nutation curve</description>
                     <displayedName>TX Length End</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
@@ -2315,6 +2315,24 @@
                 </value>
             </entry>
             <entry>
+                <key>TX_NUTATION_VOLT_END</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>TX_NUTATION_VOLT_END</name>
+                    <uuid>283d719b-ad5e-42f0-8216-767f7885e358</uuid>
+                    <value>8.113</value>
+                    <defaultValue>1.0</defaultValue>
+                    <description>End value of TX voltage ramp for nutation curve</description>
+                    <displayedName>TX Voltage End</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Vpp</numberEnum>
+                    <minValue>0.1</minValue>
+                    <maxValue>1000.0</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
                 <key>TX_NUTATION_VOLT_START</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_NUTATION_VOLT_START</name>
@@ -2333,14 +2351,13 @@
                 </value>
             </entry>
             <entry>
-                <key>TX_NUTATION_VOLT_STEP</key>
-                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                    <name>TX_NUTATION_VOLT_STEP</name>
-                    <uuid>1dbf92d5-fe17-4ffc-9628-8fbca52f0443</uuid>
-                    <value>1.0</value>
-                    <defaultValue>1.0</defaultValue>
-                    <description>End value of TX amplitude ramp for nutation curve</description>
-                    <displayedName>TX Voltage End</displayedName>
+                <key>TX_NUTATION_VOLT_VALUES</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                    <name>TX_NUTATION_VOLT_VALUES</name>
+                    <uuid>02faa509-0ca3-4e50-81a3-93b4847a1f78</uuid>
+                    <value>8.113</value>
+                    <description>Info: Values of the TX voltage sampling points of the nutation curve</description>
+                    <displayedName>TX Nutation Voltage Values</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
