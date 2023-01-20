@@ -2117,20 +2117,6 @@
                 </value>
             </entry>
             <entry>
-                <key>TX_AMP_ATT_AUTO</key>
-                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
-                    <name>TX_AMP_ATT_AUTO</name>
-                    <uuid>397f21a2-3474-47b4-b7ff-ad08efef6384</uuid>
-                    <value>false</value>
-                    <defaultValue>true</defaultValue>
-                    <description>Enable to automatically set attenuation and amplitude for the RF according to the calibration and the flip angle</description>
-                    <displayedName>TX Att/Amp Auto</displayedName>
-                    <locked>false</locked>
-                    <lockedToDefault>false</lockedToDefault>
-                    <category>Acquisition</category>
-                </value>
-            </entry>
-            <entry>
                 <key>TX_ATT</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
@@ -2405,6 +2391,25 @@
                 </value>
             </entry>
             <entry>
+                <key>TX_POWER_INPUT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>TX_POWER_INPUT</name>
+                    <uuid>040820cc-28bc-4661-815b-29334860686d</uuid>
+                    <value>Flip Angle</value>
+                    <defaultValue>Amp/Att</defaultValue>
+                    <description>Select the input parameter to calculate the pulse power. Warning: calibrate the 90°-pulse to use the Flip Angle</description>
+                    <displayedName>TX Power Input</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                    <suggestedValues>Amp/Att</suggestedValues>
+                    <suggestedValues>Voltage</suggestedValues>
+                    <suggestedValues>Flip Angle</suggestedValues>
+                    <group>Emission</group>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
                 <key>TX_ROUTE</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_ROUTE</name>
@@ -2455,20 +2460,6 @@
                     <numberEnum>Vpp</numberEnum>
                     <minValue>0.0</minValue>
                     <maxValue>1000.0</maxValue>
-                    <category>Acquisition</category>
-                </value>
-            </entry>
-            <entry>
-                <key>TX_VOLTAGE_INPUT</key>
-                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
-                    <name>TX_VOLTAGE_INPUT</name>
-                    <uuid>63418845-470f-4ef1-8503-0ef82491d02d</uuid>
-                    <value>false</value>
-                    <defaultValue>false</defaultValue>
-                    <description>Enable to use TX Voltage to set the RF power</description>
-                    <displayedName>TX Voltage Input</displayedName>
-                    <locked>false</locked>
-                    <lockedToDefault>false</lockedToDefault>
                     <category>Acquisition</category>
                 </value>
             </entry>
