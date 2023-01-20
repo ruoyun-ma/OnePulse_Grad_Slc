@@ -412,7 +412,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         double flip_angle = getDouble(FLIP_ANGLE);
 
         // Check power and prepare tx Att/amp: the way Att/Amp are prepared depends on which option is selected
-        if (powerInput == PowerInput.FA) {
+        if (powerInput == PowerInput.FA && nutationType != NutationType.Length) {
             if (nutationType == NutationType.None) {
                 if (!pulseTX.solveOnePulseWithFlipAngleAndReference180(flip_angle, 80, observeFrequency, getListInt(TX_ROUTE))) {
                     getUnreachParamExceptionManager().addParam(TX_LENGTH.name(), txLength, pulseTX.getPulseDuration(), ((NumberParam) getParam(TX_LENGTH)).getMaxValue(), "Pulse length too short to reach RF power with this pulse shape");
@@ -431,7 +431,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 getUnreachParamExceptionManager().addParam(TX_VOLTAGE.name(), txVolt, ((NumberParam) getParam(TX_VOLTAGE)).getMinValue(), pulseTX.getVoltage(), "Pulse voltage too high for RF coil");
                 txVolt = pulseTX.getVoltage();
             }
-        } else {
+        } else { // power input Amp/Att or FA+nutation length
             tx_amp = getDouble(TX_AMP);
             tx_att = getInt(TX_ATT);
             if (!pulseTX.solveOnePulseWithAmpAtt(tx_amp, tx_att, observeFrequency, getListInt(TX_ROUTE))) {
@@ -484,6 +484,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         ArrayList<Number> list_tx_volts = new ArrayList<>();
         ArrayList<Number> list_tx_length = new ArrayList<>();
 
+        double[] tx_amps = new double[acquisitionMatrixDimension2D];
         if (nutationType == NutationType.Amplitude) {
             double tx_amp_step;
             if (powerInput != PowerInput.FA) {
@@ -499,8 +500,8 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 }
                 tx_amp_step = acquisitionMatrixDimension2D == 1 ? 0 : (txAmpEnd - txAmpStart) / (acquisitionMatrixDimension2D - 1);
             } else {
-                tx_amp_step = tx_amp/acquisitionMatrixDimension2D;
-                txAmpStart = tx_amp_step;
+                tx_amp_step = tx_amp/(acquisitionMatrixDimension2D-1);
+                txAmpStart = 0;
                 txAmpEnd = tx_amp;
 
                 getParam(TX_NUTATION_AMP_START).setValue(txAmpStart);
@@ -508,7 +509,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             }
 
             // create and set amplitude table (the pulse has already been solved for the maximum amplitude)
-            double[] tx_amps = new double[acquisitionMatrixDimension2D];
             double voltage_tmp;
             double power_tmp;
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
@@ -537,14 +537,14 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 }
                 tx_volt_step = acquisitionMatrixDimension2D == 1 ? 0 : (txAmpEnd - txAmpStart) / (acquisitionMatrixDimension2D - 1);
             } else {
-                tx_volt_step = txVolt/acquisitionMatrixDimension2D;
-                txVoltStart = tx_volt_step;
+                tx_volt_step = txVolt/(acquisitionMatrixDimension2D-1);
+                txVoltStart = 0;
                 txVoltEnd = txVolt;
             }
 
             // Prepare amplitude and voltage arrays
             // create and set amplitude table (the pulse has already been solved for the maximum amplitude)
-            double[] tx_amps = new double[acquisitionMatrixDimension2D];
+
             double voltage_tmp;
             double power_tmp;
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
@@ -558,7 +558,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             }
             txAmpStart = tx_amps[0];
             txAmpEnd = tx_amps[acquisitionMatrixDimension2D-1];
-            pulseTX.setAmp(Order.Two, tx_amps);
         } else {
             list_tx_amps.add(tx_amp);
             list_tx_volts.add(txVolt);
@@ -575,16 +574,22 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             if (powerInput != PowerInput.FA) {
                 tx_step = acquisitionMatrixDimension2D == 1 ? 0 : (txLengthEnd - txLengthStart) / (acquisitionMatrixDimension2D - 1);
             } else {
-                tx_step = txLength/acquisitionMatrixDimension2D;
-                txLengthStart = tx_step;
-                txLengthEnd = txLength;
+                list_tx_amps.clear();
+                tx_step = txLength/(acquisitionMatrixDimension2D-1);
+                txLengthStart = 0;
+                txLengthEnd = txLength*flip_angle/pulseTX.getFlipAngle();
+
                 getParam(TX_NUTATION_LENGTH_START).setValue(txLengthStart);
                 getParam(TX_NUTATION_LENGTH_END).setValue(txLengthEnd);
             }
 
             // Prepare length array
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
-                tx_lengths[i] = (txLengthStart + i * tx_step);
+                tx_lengths[i] = (powerInput == PowerInput.FA && i ==0)? txLengthStart + tx_step : (txLengthStart + i * tx_step);
+                if (powerInput == PowerInput.FA) {
+                    tx_amps[i] = i == 0? 0: tx_amp;
+                    list_tx_amps.add(tx_amps[i]);
+                }
                 txLengthTable.add(tx_lengths[i]);
                 list_tx_length.add(tx_lengths[i]);
             }
@@ -592,6 +597,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         } else {
             list_tx_length.add(txLength);
         }
+        if(nutationType != NutationType.None && powerInput == PowerInput.FA) pulseTX.setAmp(Order.Two, tx_amps); // for nutation and automatic setting using FA, amplitude is always variable
 
         // Write UP Values
         // ------------------------------------------------------------------------------------------------------------
