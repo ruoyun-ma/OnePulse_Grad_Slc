@@ -538,7 +538,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                     getUnreachParamExceptionManager().addParam(TX_NUTATION_VOLT_END.name(), txVoltEnd, ((NumberParam) getParam(TX_NUTATION_VOLT_END)).getMinValue(), txVolt, "Voltage values exceed power limit: the maximum voltage is " + ceilToSubDecimal(txVolt, 2) + "V");
                     txVoltEnd = txVolt;
                 }
-                tx_volt_step = acquisitionMatrixDimension2D == 1 ? 0 : (txAmpEnd - txAmpStart) / (acquisitionMatrixDimension2D - 1);
+                tx_volt_step = acquisitionMatrixDimension2D == 1 ? 0 : (txVoltEnd - txVoltStart) / (acquisitionMatrixDimension2D - 1);
             } else {
                 txVoltStart = 0;
                 txVoltEnd = txVolt;

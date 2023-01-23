@@ -427,7 +427,7 @@ public class RFPulse {
         // check if power exceed maximum limitation, if yes use the maximum power
         boolean b_voltage_unchanged = true;
         if (powerPulse > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
-            voltagePulse = wattToVPP(floorToSubDecimal(Hardware.getMaxRfPowerPulsed(nucleus.name()), 3));
+            voltagePulse = floorToSubDecimal(wattToVPP(Hardware.getMaxRfPowerPulsed(nucleus.name())), 1);
             powerPulse = voltPPToWatt(voltagePulse);
             b_voltage_unchanged = false;
         }
@@ -535,11 +535,11 @@ public class RFPulse {
 
     // power-vpp conversion functions: Power = Voltage * Voltage / Impedance
     // Voltage sinusoid = Vpp / (2*sqrt(2)) and impedance RF pulse = 8
-    private double wattToVPP(double power) {
+    public static double wattToVPP(double power) {
         return ceilToSubDecimal(Math.sqrt(power * (8 * 50)), 3);
     }
 
-    private double voltPPToWatt(double voltage) {
+    public static double voltPPToWatt(double voltage) {
         return (voltage * voltage) / (8 * 50);
     }
 
@@ -1266,7 +1266,7 @@ public class RFPulse {
      * @param numberToBeRounded : Double number
      * @param Order             : Digits kept after the decimal point
      */
-    private double ceilToSubDecimal(double numberToBeRounded, double Order) {
+    private static double ceilToSubDecimal(double numberToBeRounded, double Order) {
         return Math.ceil(numberToBeRounded * Math.pow(10, Order)) / Math.pow(10, Order);
     }
 
@@ -1276,7 +1276,7 @@ public class RFPulse {
      * @param numberToBeRounded : Double number
      * @param Order             : Digits kept after the decimal point
      */
-    private double floorToSubDecimal(double numberToBeRounded, double Order) {
+    private static double floorToSubDecimal(double numberToBeRounded, double Order) {
         return Math.floor(numberToBeRounded * Math.pow(10, Order)) / Math.pow(10, Order);
     }
 
