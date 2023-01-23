@@ -44,8 +44,6 @@ public class RFPulse {
     // Power and length saved in the instrument
     private double instrumentPower90 = Double.NaN; //instrument power depends on pulse shape (divided by the shape power factor)
     private double instrumentLength90 = Double.NaN;
-    private double instrumentPower180 = Double.NaN;
-    private double instrumentLength180 = Double.NaN;
 
     private double observeFrequency = Double.NaN;
     private Nucleus nucleus = Nucleus.H1;
@@ -595,12 +593,12 @@ public class RFPulse {
      */
     private boolean prepChannelAttWithReferencePowerAt180(double txAmp, List<Integer> txRoute) {
         boolean b_time_unchanged = true;
-        double powerPulse180 = instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2);
+	   double powerPulse180 = 4 * instrumentPower90 * Math.pow(instrumentLength90 / pulseDuration, 2);
 
         if (powerPulse180 > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
-            double durationMin = ceilToSubDecimal(instrumentLength180 / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / instrumentPower180), 6);
+            double durationMin = ceilToSubDecimal(instrumentLength90 / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / (4 * instrumentPower90 )), 6);
             setPulseDuration(durationMin);
-            powerPulse180 = instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2);
+            powerPulse180 = 4 * instrumentPower90 * Math.pow(instrumentLength90 / pulseDuration, 2);
             b_time_unchanged = false;
         }
         // Calculate Att to get a 180° RF pulse around 80% amp
@@ -661,7 +659,7 @@ public class RFPulse {
      */
     private double calculateTxAmp180(List<Integer> txRoute) {
         int channelAttOffset = (getAttOffset() != -1) ? getAttOffset() : 0; // If no attenuation offset has been set, consider it is 0
-        return PowerComputation.getTxAmplitude(txRoute.get(0), instrumentPower180 * Math.pow(instrumentLength180 / pulseDuration, 2), observeFrequency, getAtt()+channelAttOffset);
+        return PowerComputation.getTxAmplitude(txRoute.get(0), 4 * instrumentPower90 * Math.pow(instrumentLength90 / pulseDuration, 2), observeFrequency, getAtt()+channelAttOffset);
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -727,10 +725,6 @@ public class RFPulse {
 
         instrumentPower90 = PowerComputation.getHardPulse90Power(nucleus.name()) / getShapePowerFactor90();
         instrumentLength90 = PowerComputation.getHardPulse90Width(nucleus.name());
-
-        instrumentPower180 = PowerComputation.getHardPulse180Power(nucleus.name()) / getShapePowerFactor180();
-        instrumentLength180 = PowerComputation.getHardPulse180Width(nucleus.name());
-
     }
 
     /**
