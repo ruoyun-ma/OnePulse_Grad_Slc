@@ -2180,7 +2180,7 @@
                     <value>None</value>
                     <defaultValue>None</defaultValue>
                     <description>Select the TX parameter to lineary increment to make a nutation curve. 'None' disables the option. </description>
-                    <displayedName>TX Nutation</displayedName>
+                    <displayedName>Nutation</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>true</restrictedToSuggested>
@@ -2200,7 +2200,7 @@
                     <value>100.0</value>
                     <defaultValue>100.0</defaultValue>
                     <description>End value of TX amplitude ramp for nutation curve</description>
-                    <displayedName>TX Amp End</displayedName>
+                    <displayedName>Nutation Amp End</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2219,7 +2219,7 @@
                     <value>1.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Start value of TX amplitude ramp for nutation curve</description>
-                    <displayedName>TX Amp Start</displayedName>
+                    <displayedName>Nutation Amp Start</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2236,7 +2236,7 @@
                     <uuid>54178328-aeb8-4faf-9c8d-c6f5688f1439</uuid>
                     <value>40.0</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
-                    <displayedName>TX Nutation Amp Values</displayedName>
+                    <displayedName>Nutation Amp Values</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <numberEnum>PERCENT</numberEnum>
@@ -2253,7 +2253,7 @@
                     <value>0.01</value>
                     <defaultValue>1.9999999999999998E-4</defaultValue>
                     <description>End value of TX length ramp for nutation curve</description>
-                    <displayedName>TX Length End</displayedName>
+                    <displayedName>Nutation Length End</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2272,7 +2272,7 @@
                     <value>0.001</value>
                     <defaultValue>5.0E-4</defaultValue>
                     <description>Start value of TX length ramp for nutation curve</description>
-                    <displayedName>TX Length Start</displayedName>
+                    <displayedName>Nutation Length Start</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2290,7 +2290,7 @@
                     <uuid>8553c767-79b8-4cd0-bed1-5d0b81d5f8a8</uuid>
                     <value>0.001</value>
                     <description>Info: Values of the TX length sampling points of the nutation curve</description>
-                    <displayedName>TX Nutation Length Values</displayedName>
+                    <displayedName>Nutation Length Values</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <numberEnum>Time</numberEnum>
@@ -2308,7 +2308,7 @@
                     <value>8.113</value>
                     <defaultValue>1.0</defaultValue>
                     <description>End value of TX voltage ramp for nutation curve</description>
-                    <displayedName>TX Voltage End</displayedName>
+                    <displayedName>Nutation Voltage End</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2326,7 +2326,7 @@
                     <value>0.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Start value of TX voltage ramp for nutation curve</description>
-                    <displayedName>TX Voltage Start</displayedName>
+                    <displayedName>Nutation Voltage Start</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2343,7 +2343,7 @@
                     <uuid>02faa509-0ca3-4e50-81a3-93b4847a1f78</uuid>
                     <value>8.113</value>
                     <description>Info: Values of the TX voltage sampling points of the nutation curve</description>
-                    <displayedName>TX Nutation Voltage Values</displayedName>
+                    <displayedName>Nutation Voltage Values</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
@@ -2361,7 +2361,7 @@
                     <value>10</value>
                     <defaultValue>1</defaultValue>
                     <description>Number of incremental steps used to sample the nutation curve</description>
-                    <displayedName>TX Nutation Number</displayedName>
+                    <displayedName>Nutation Step Number</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>

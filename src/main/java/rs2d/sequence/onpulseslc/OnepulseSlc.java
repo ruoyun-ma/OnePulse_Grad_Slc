@@ -554,12 +554,12 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
                 voltage_tmp = (txVoltStart + i * tx_volt_step);
                 power_tmp = RFPulse.voltPPToWatt(voltage_tmp);
-                System.out.println("Volt " + voltage_tmp);
                 tx_amps[i] = PowerComputation.getTxAmplitude(getListInt(TX_ROUTE).get(0), power_tmp, observeFrequency, tx_att);
                 list_tx_volts.add(voltage_tmp);
                 list_tx_amps.add(tx_amps[i]);
                 System.out.println(tx_amps[i]);
             }
+            pulseTX.setAmp(Order.Two, tx_amps);
             txAmpStart = tx_amps[0];
             txAmpEnd = tx_amps[acquisitionMatrixDimension2D-1];
         } else {
