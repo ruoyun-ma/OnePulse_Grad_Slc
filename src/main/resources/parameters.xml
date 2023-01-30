@@ -413,7 +413,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>FLIP_ANGLE</name>
                 <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                <value>4.0</value>
+                <value>9.0</value>
                 <defaultValue>30.0</defaultValue>
                 <description>Excitation flip angle</description>
                 <displayedName>Flip Angle</displayedName>
@@ -431,11 +431,11 @@
             <key>GRADIENT_REFOC_TIME</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>GRADIENT_REFOC_TIME</name>
-                <uuid>4279b4f9-9885-456a-8da0-382319ba34d0</uuid>
+                <uuid>ec897c60-293c-4381-a9e5-e9e9dd23b574</uuid>
                 <value>1.9999999999999998E-4</value>
                 <defaultValue>1.9999999999999998E-4</defaultValue>
                 <description>Top time of the slice refocusing gradient</description>
-                <displayedName>Gradient Refoc Slice Duration</displayedName>
+                <displayedName>Gradient Slice Refoc Duration</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2042,7 +2042,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_AMP</name>
                 <uuid>4e381691-8b2a-4b50-96c4-76206b85baae</uuid>
-                <value>40.0</value>
+                <value>50.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Amplitude of the excitation RF pulse</description>
                 <displayedName>TX Amplitude</displayedName>
@@ -2061,7 +2061,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_ATT</name>
                 <uuid>a9f47542-bf8b-478e-af2d-58ad35a381b1</uuid>
-                <value>40</value>
+                <value>50</value>
                 <defaultValue>36</defaultValue>
                 <description>RF pulse attenuation</description>
                 <displayedName>TX Attenuation</displayedName>
@@ -2080,7 +2080,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_GAMMA_B1</name>
                 <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                <value>22.0</value>
+                <value>56.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the power in gamma B1 unit</description>
                 <displayedName>TX Gamma B1</displayedName>
@@ -2116,7 +2116,7 @@
             <key>TX_NUTATION</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>TX_NUTATION</name>
-                <uuid>a13dda7a-e13c-49cd-85be-143244d1ef71</uuid>
+                <uuid>8122a193-fa92-419d-a767-b6b31cf52533</uuid>
                 <value>None</value>
                 <defaultValue>None</defaultValue>
                 <description>Select the TX parameter to lineary increment to make a nutation curve. 'None' disables the option. </description>
@@ -2133,14 +2133,14 @@
             </value>
         </entry>
         <entry>
-            <key>TX_NUTATION_AMP_END</key>
+            <key>TX_NUTATION_AMP_MAX</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>TX_NUTATION_AMP_END</name>
-                <uuid>1de0c1a2-21b4-46de-a395-86b24b5b11a7</uuid>
-                <value>100.0</value>
+                <name>TX_NUTATION_AMP_MAX</name>
+                <uuid>d7e3dd33-c7a4-4817-8c7a-477911b2c53c</uuid>
+                <value>40.0</value>
                 <defaultValue>100.0</defaultValue>
-                <description>End value of TX amplitude ramp for nutation curve</description>
-                <displayedName>Nutation Amp End</displayedName>
+                <description>Maximum value of TX amplitude ramp for nutation curve</description>
+                <displayedName>Nutation Amp Max</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2152,14 +2152,14 @@
             </value>
         </entry>
         <entry>
-            <key>TX_NUTATION_AMP_START</key>
+            <key>TX_NUTATION_AMP_MIN</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>TX_NUTATION_AMP_START</name>
-                <uuid>bc97db0e-32ee-4af8-bdf7-f90092f6dc8a</uuid>
-                <value>1.0</value>
+                <name>TX_NUTATION_AMP_MIN</name>
+                <uuid>57764e4c-7656-4637-9f9e-cacc24b540fe</uuid>
+                <value>40.0</value>
                 <defaultValue>0.0</defaultValue>
-                <description>Start value of TX amplitude ramp for nutation curve</description>
-                <displayedName>Nutation Amp Start</displayedName>
+                <description>Minimum value of TX amplitude ramp for nutation curve</description>
+                <displayedName>Nutation Amp Min</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2173,27 +2173,28 @@
             <key>TX_NUTATION_AMP_VALUES</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_NUTATION_AMP_VALUES</name>
-                <uuid>54178328-aeb8-4faf-9c8d-c6f5688f1439</uuid>
-                <value>40.0</value>
+                <uuid>fba9b2cf-1637-47f4-bff4-0847566f0c01</uuid>
+                <value>50.0</value>
                 <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
-                <displayedName>Nutation Amp Values</displayedName>
+                <displayedName>Nutation Amp List</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>PERCENT</numberEnum>
                 <minValue>-2.147483648E9</minValue>
                 <maxValue>2.147483647E9</maxValue>
+                <group>Emission</group>
                 <category>Acquisition</category>
             </value>
         </entry>
         <entry>
-            <key>TX_NUTATION_LENGTH_END</key>
+            <key>TX_NUTATION_LENGTH_MAX</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>TX_NUTATION_LENGTH_END</name>
-                <uuid>aa976796-a295-4852-8e68-5cded1690ae1</uuid>
-                <value>0.01</value>
+                <name>TX_NUTATION_LENGTH_MAX</name>
+                <uuid>47ada9fe-38d1-4bd9-b846-a500ce7e0108</uuid>
+                <value>0.001</value>
                 <defaultValue>1.9999999999999998E-4</defaultValue>
-                <description>End value of TX length ramp for nutation curve</description>
-                <displayedName>Nutation Length End</displayedName>
+                <description>Maximum value of TX length ramp for nutation curve</description>
+                <displayedName>Nutation Length Max</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2205,19 +2206,19 @@
             </value>
         </entry>
         <entry>
-            <key>TX_NUTATION_LENGTH_START</key>
+            <key>TX_NUTATION_LENGTH_MIN</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>TX_NUTATION_LENGTH_START</name>
-                <uuid>c0b75224-a736-4d71-9de8-4e43b6cb735d</uuid>
+                <name>TX_NUTATION_LENGTH_MIN</name>
+                <uuid>9bfecd39-527d-4b4e-ba47-b9b1c58cd210</uuid>
                 <value>0.001</value>
                 <defaultValue>5.0E-4</defaultValue>
-                <description>Start value of TX length ramp for nutation curve</description>
-                <displayedName>Nutation Length Start</displayedName>
+                <description>Minimum value of TX length ramp for nutation curve</description>
+                <displayedName>Nutation Length Min</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Time</numberEnum>
-                <minValue>9.999999999999999E-6</minValue>
+                <minValue>4.9999999999999996E-6</minValue>
                 <maxValue>1.0</maxValue>
                 <group>Delay</group>
                 <category>Acquisition</category>
@@ -2227,10 +2228,10 @@
             <key>TX_NUTATION_LENGTH_VALUES</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_NUTATION_LENGTH_VALUES</name>
-                <uuid>8553c767-79b8-4cd0-bed1-5d0b81d5f8a8</uuid>
+                <uuid>8d8f7125-0a21-496f-9ad1-2105680e6acc</uuid>
                 <value>0.001</value>
                 <description>Info: Values of the TX length sampling points of the nutation curve</description>
-                <displayedName>Nutation Length Values</displayedName>
+                <displayedName>Nutation Length List</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <numberEnum>Time</numberEnum>
@@ -2241,32 +2242,33 @@
             </value>
         </entry>
         <entry>
-            <key>TX_NUTATION_VOLT_END</key>
+            <key>TX_NUTATION_VOLT_MAX</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>TX_NUTATION_VOLT_END</name>
-                <uuid>283d719b-ad5e-42f0-8216-767f7885e358</uuid>
-                <value>8.113</value>
+                <name>TX_NUTATION_VOLT_MAX</name>
+                <uuid>03d2e0ea-98bb-4b39-8c74-b8d2ad9f6cb8</uuid>
+                <value>19.922</value>
                 <defaultValue>1.0</defaultValue>
-                <description>End value of TX voltage ramp for nutation curve</description>
-                <displayedName>Nutation Voltage End</displayedName>
+                <description>Maximum value of TX voltage ramp for nutation curve</description>
+                <displayedName>Nutation Voltage Max</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Vpp</numberEnum>
                 <minValue>0.1</minValue>
                 <maxValue>1000.0</maxValue>
+                <group>Emission</group>
                 <category>Acquisition</category>
             </value>
         </entry>
         <entry>
-            <key>TX_NUTATION_VOLT_START</key>
+            <key>TX_NUTATION_VOLT_MIN</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>TX_NUTATION_VOLT_START</name>
-                <uuid>b03f9f82-0ecf-444a-afff-9399a490f990</uuid>
-                <value>0.0</value>
-                <defaultValue>0.0</defaultValue>
-                <description>Start value of TX voltage ramp for nutation curve</description>
-                <displayedName>Nutation Voltage Start</displayedName>
+                <name>TX_NUTATION_VOLT_MIN</name>
+                <uuid>a6b69fb0-47ef-47c9-a4f7-b01af2056a77</uuid>
+                <value>19.922</value>
+                <defaultValue>0.1</defaultValue>
+                <description>Minimum value of TX voltage ramp for nutation curve</description>
+                <displayedName>Nutation Voltage Min</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
@@ -2280,16 +2282,16 @@
             <key>TX_NUTATION_VOLT_VALUES</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_NUTATION_VOLT_VALUES</name>
-                <uuid>02faa509-0ca3-4e50-81a3-93b4847a1f78</uuid>
-                <value>8.113</value>
+                <uuid>809919bb-ef5a-4eca-a3ea-d16e47575d1f</uuid>
+                <value>2.021</value>
                 <description>Info: Values of the TX voltage sampling points of the nutation curve</description>
-                <displayedName>Nutation Voltage Values</displayedName>
+                <displayedName>Nutation Voltage List</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Vpp</numberEnum>
-                <minValue>0.1</minValue>
+                <minValue>0.0</minValue>
                 <maxValue>1000.0</maxValue>
+                <group>Emission</group>
                 <category>Acquisition</category>
             </value>
         </entry>
@@ -2297,7 +2299,7 @@
             <key>TX_NUT_STEP_NUMBER</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_NUT_STEP_NUMBER</name>
-                <uuid>78a4e2e9-a2f8-4cee-8028-1927e18de72f</uuid>
+                <uuid>2e0503a2-2b83-4378-80b6-098293c7a468</uuid>
                 <value>10</value>
                 <defaultValue>1</defaultValue>
                 <description>Number of incremental steps used to sample the nutation curve</description>
@@ -2307,7 +2309,7 @@
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Integer</numberEnum>
                 <minValue>0</minValue>
-                <maxValue>10000</maxValue>
+                <maxValue>256</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
             </value>
@@ -2316,10 +2318,10 @@
             <key>TX_POWER</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_POWER</name>
-                <uuid>a8400ddf-5374-43fa-b372-f84e9788a9f6</uuid>
-                <value>0.0016</value>
+                <uuid>e35ca420-08f7-426c-a521-7bd92b7994b1</uuid>
+                <value>0.01021</value>
                 <defaultValue>0.0</defaultValue>
-                <description>Info: Display the tx power that corresponds to Tx Amplitude and Attenuation</description>
+                <description>Info: Display the pulse power amplitude that corresponds to Tx Amplitude and Attenuation</description>
                 <displayedName>TX Power</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
@@ -2334,15 +2336,15 @@
             <key>TX_POWER_INPUT</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>TX_POWER_INPUT</name>
-                <uuid>040820cc-28bc-4661-815b-29334860686d</uuid>
-                <value>Flip Angle</value>
-                <defaultValue>Amp/Att</defaultValue>
-                <description>Select the input parameter to calculate the pulse power. Warning: calibrate the 90°-pulse to use the Flip Angle</description>
+                <uuid>70f9d15f-1a81-4940-9ac6-9b688fbe40cb</uuid>
+                <value>Att/Amp</value>
+                <defaultValue>Att/Amp</defaultValue>
+                <description>Select the input parameter to calculate the pulse power amplitude. Warning: calibrate the 90°-pulse to use the Flip Angle</description>
                 <displayedName>TX Power Input</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>true</restrictedToSuggested>
-                <suggestedValues>Amp/Att</suggestedValues>
+                <suggestedValues>Att/Amp</suggestedValues>
                 <suggestedValues>Voltage</suggestedValues>
                 <suggestedValues>Flip Angle</suggestedValues>
                 <group>Emission</group>
@@ -2389,8 +2391,8 @@
             <key>TX_VOLTAGE</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_VOLTAGE</name>
-                <uuid>0da2407d-1233-4652-afa6-b1b8f8fa6c26</uuid>
-                <value>0.8</value>
+                <uuid>a853cdcd-a18e-4b8d-b8c8-fb29d9d51267</uuid>
+                <value>2.021</value>
                 <defaultValue>0.0</defaultValue>
                 <description>RF voltage amplitude peak-to-peak</description>
                 <displayedName>TX Voltage</displayedName>
@@ -2400,6 +2402,7 @@
                 <numberEnum>Vpp</numberEnum>
                 <minValue>0.0</minValue>
                 <maxValue>1000.0</maxValue>
+                <group>Emission</group>
                 <category>Acquisition</category>
             </value>
         </entry>
