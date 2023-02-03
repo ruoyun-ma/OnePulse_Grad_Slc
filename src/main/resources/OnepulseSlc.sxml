@@ -1041,7 +1041,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>Tx_nucleus</name>
                 <uuid>0991f421-49db-4e9e-9f93-cced7b8f3b24</uuid>
-                <value>1H</value>
+                <value>13C</value>
                 <defaultValue>1H</defaultValue>
                 <description>The nucleus used for the first sequence channel</description>
                 <displayedName>Nucleus 1</displayedName>
@@ -1762,7 +1762,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
                 <uuid>4d8fedbf-a67d-4190-978f-cf061ccceffa</uuid>
-                <value>6.38067934119089E7</value>
+                <value>1.6044230964783175E7</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -7299,7 +7299,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>8872d8b4-4610-4866-a98e-5a97436289ed</uuid>
+                        <uuid>2c55b5a1-128c-4d29-ab3a-15f29c684318</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -7313,7 +7313,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>b2fc87dc-ea0c-404b-a554-0283ad0fa8fc</uuid>
+                        <uuid>63523304-7873-4783-86d4-ba75fed41bca</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -7327,7 +7327,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>cd2231fa-740a-493d-95f3-0baa421254ad</uuid>
+                        <uuid>674c5a6d-a6b1-4a99-98d3-39d291a3b098</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -7341,7 +7341,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>109db3a0-ff05-427a-88e9-a1d5e56a57b8</uuid>
+                        <uuid>dd653e1e-0ac6-468b-95fb-c7005b5e1f57</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>

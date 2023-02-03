@@ -507,7 +507,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 txAmpMax = tx_amp;
                 tx_amp_step = txAmpMax /(acquisitionMatrixDimension2D-1);
                 getParam(TX_NUTATION_AMP_MIN).setValue(txAmpMin);
-                getParam(TX_NUTATION_AMP_MIN).setValue(txAmpMax);
+                getParam(TX_NUTATION_AMP_MAX).setValue(txAmpMax);
             }
             tx_amp_step = (int) (tx_amp_step / txAmpMinResolution)*txAmpMinResolution;
 
@@ -582,7 +582,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 txLengthMax = txLength*flip_angle/pulseTX.getFlipAngle();
                 tx_step = txLengthMax /(acquisitionMatrixDimension2D-1);
                 getParam(TX_NUTATION_LENGTH_MIN).setValue(txLengthMin);
-                getParam(TX_NUTATION_LENGTH_MIN).setValue(txLengthMax);
+                getParam(TX_NUTATION_LENGTH_MAX).setValue(txLengthMax);
             }
             tx_step = (int) (tx_step / txLengthMinResolution)*txLengthMinResolution;
 
@@ -615,13 +615,13 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             this.getParam(FLIP_ANGLE).setValue(Math.round(pulseTX.getFlipAngle()));
         getParam(TX_NUTATION_AMP_VALUES).setValue(list_tx_amps);
         getParam(TX_NUTATION_AMP_MIN).setValue(txAmpMin);
-        getParam(TX_NUTATION_AMP_MIN).setValue(txAmpMax);
+        getParam(TX_NUTATION_AMP_MAX).setValue(txAmpMax);
         getParam(TX_NUTATION_VOLT_VALUES).setValue(list_tx_volts);
         getParam(TX_NUTATION_VOLT_MIN).setValue(txVoltMin);
-        getParam(TX_NUTATION_VOLT_MIN).setValue(txVoltMax);
+        getParam(TX_NUTATION_VOLT_MAX).setValue(txVoltMax);
         getParam(TX_NUTATION_LENGTH_VALUES).setValue(list_tx_length);
         getParam(TX_NUTATION_LENGTH_MIN).setValue(txLengthMin);
-        getParam(TX_NUTATION_LENGTH_MIN).setValue(txLengthMax);
+        getParam(TX_NUTATION_LENGTH_MAX).setValue(txLengthMax);
         // -----------------------------------------------
         // Calculation RF pulse parameters  3/3: bandwidth
         // -----------------------------------------------
