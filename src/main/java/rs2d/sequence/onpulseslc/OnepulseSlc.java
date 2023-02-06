@@ -498,7 +498,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                     getParam(TX_NUT_STEP_NUMBER).setValue(1);
                     getParam(ACQUISITION_MATRIX_DIMENSION_2D).setValue(1);
                 } else if ((txAmpMin < tx_amp) && (txAmpMax > tx_amp)) {
-                    getUnreachParamExceptionManager().addParam(TX_NUTATION_AMP_MIN.name(), txAmpMax, ((NumberParam) getParam(TX_NUTATION_AMP_MIN)).getMinValue(), tx_amp, "Amplitude values exceed power limit: the maximum amplitude achievable with this attenuation is " + ceilToSubDecimal(tx_amp, 2) + "%");
+                    getUnreachParamExceptionManager().addParam(TX_NUTATION_AMP_MAX.name(), txAmpMax, ((NumberParam) getParam(TX_NUTATION_AMP_MAX)).getMinValue(), tx_amp, "Amplitude values exceed power limit: the maximum amplitude achievable with this attenuation is " + ceilToSubDecimal(tx_amp, 2) + "%");
                     txAmpMax = tx_amp;
                 }
                 tx_amp_step = acquisitionMatrixDimension2D == 1 ? 0 : (txAmpMax - txAmpMin) / (acquisitionMatrixDimension2D - 1);
@@ -535,7 +535,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                     getParam(TX_NUT_STEP_NUMBER).setValue(1);
                     getParam(ACQUISITION_MATRIX_DIMENSION_2D).setValue(1);
                 } else if ((txVoltMin < txVolt) && (txVoltMax > txVolt)) {
-                    getUnreachParamExceptionManager().addParam(TX_NUTATION_VOLT_MIN.name(), txVoltMax, ((NumberParam) getParam(TX_NUTATION_VOLT_MIN)).getMinValue(), txVolt, "Voltage values exceed power limit: the maximum voltage is " + ceilToSubDecimal(txVolt, 2) + "V");
+                    getUnreachParamExceptionManager().addParam(TX_NUTATION_VOLT_MAX.name(), txVoltMax, ((NumberParam) getParam(TX_NUTATION_VOLT_MAX)).getMinValue(), txVolt, "Voltage values exceed power limit: the maximum voltage is " + ceilToSubDecimal(txVolt, 2) + "V");
                     txVoltMax = txVolt;
                 }
                 tx_volt_step = acquisitionMatrixDimension2D == 1 ? 0 : (txVoltMax - txVoltMin) / (acquisitionMatrixDimension2D - 1);
@@ -557,7 +557,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 tx_amps[i] = PowerComputation.getTxAmplitude(getListInt(TX_ROUTE).get(0), power_tmp, observeFrequency, tx_att);
                 list_tx_volts.add(voltage_tmp);
                 list_tx_amps.add(tx_amps[i]);
-                System.out.println(tx_amps[i]);
+  //              System.out.println(tx_amps[i]);
             }
             pulseTX.setAmp(Order.Two, tx_amps);
             txAmpMin = tx_amps[0];
@@ -577,13 +577,13 @@ public class OnepulseSlc extends BaseSequenceGenerator {
             if (powerInput != PowerInput.FA) {
                 tx_step = acquisitionMatrixDimension2D == 1 ? 0 : (txLengthMax - txLengthMin) / (acquisitionMatrixDimension2D - 1);
             } else {
-                list_tx_amps.clear();
                 txLengthMin = 0;
                 txLengthMax = txLength*flip_angle/pulseTX.getFlipAngle();
                 tx_step = txLengthMax /(acquisitionMatrixDimension2D-1);
                 getParam(TX_NUTATION_LENGTH_MIN).setValue(txLengthMin);
                 getParam(TX_NUTATION_LENGTH_MAX).setValue(txLengthMax);
             }
+            // the step have to be a multiple of the time hardware resolution to be corresctly sampled
             tx_step = (int) (tx_step / txLengthMinResolution)*txLengthMinResolution;
 
             // Prepare length array
@@ -591,12 +591,12 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 tx_lengths[i] = (powerInput == PowerInput.FA && i ==0)? txLengthMin + tx_step : (txLengthMin + i * tx_step);
                 if (powerInput == PowerInput.FA) {
                     tx_amps[i] = i == 0? 0: tx_amp;
-                    list_tx_amps.add(tx_amps[i]);
                 }
                 txLengthTable.add(tx_lengths[i]);
-                list_tx_length.add(tx_lengths[i]);
+                list_tx_length.add(roundToDecimal((powerInput == PowerInput.FA && i ==0)? 0: tx_lengths[i],6));
             }
-            txLengthMax = tx_lengths[acquisitionMatrixDimension2D - 1];
+            txLengthMax = tx_lengths[acquisitionMatrixDimension2D-1];
+            getParam(TX_LENGTH).setValue(txLengthMax);
         } else {
             txLengthMax = txLength;
             list_tx_length.add(txLength);
@@ -621,7 +621,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         getParam(TX_NUTATION_VOLT_MAX).setValue(txVoltMax);
         getParam(TX_NUTATION_LENGTH_VALUES).setValue(list_tx_length);
         getParam(TX_NUTATION_LENGTH_MIN).setValue(txLengthMin);
-        getParam(TX_NUTATION_LENGTH_MAX).setValue(txLengthMax);
+        getParam(TX_NUTATION_LENGTH_MAX).setValue(roundToDecimal(txLengthMax,6));
         // -----------------------------------------------
         // Calculation RF pulse parameters  3/3: bandwidth
         // -----------------------------------------------

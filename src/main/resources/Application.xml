@@ -104,7 +104,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ACQUISITION_MATRIX_DIMENSION_2D</name>
                     <uuid>6f83f8fd-a03b-47d3-bc26-4728d4b798be</uuid>
-                    <value>1</value>
+                    <value>11</value>
                     <defaultValue>128</defaultValue>
                     <description>Info: Size of the initial dataset (raw data) in the second dimension</description>
                     <displayedName>Acquisition Matrix 2D</displayedName>
@@ -217,7 +217,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>BASE_FREQ_1</name>
                     <uuid>bdb638b1-d07c-4cd7-8720-40b53133ab4f</uuid>
-                    <value>1.6044230964783175E7</value>
+                    <value>6.38067934119089E7</value>
                     <defaultValue>1.27194553E8</defaultValue>
                     <description>Info: Frequency of the observed nucleus</description>
                     <displayedName>Base Frequency 1</displayedName>
@@ -344,7 +344,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>DELAY_ECHO_TIME</name>
                     <uuid>6975b382-aa8f-424a-bee8-29e406cd9884</uuid>
-                    <value>7.999999999999988E-5</value>
+                    <value>0.495011</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Extra time added before the signal reception (input if  'Use Dead Time' checked)</description>
                     <displayedName>Tx-Rx Dead Time</displayedName>
@@ -435,7 +435,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ECHO_TIME</name>
                     <uuid>cfd6e656-00a1-4b37-b20b-963156dc7444</uuid>
-                    <value>6.0E-4</value>
+                    <value>0.50003</value>
                     <defaultValue>0.005</defaultValue>
                     <description>Time between the middle of the excitation RF and the beginning of the reception  (input if 'Use Dead Time' unchecked)</description>
                     <displayedName>Tx-Rx Time</displayedName>
@@ -473,7 +473,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>FLIP_ANGLE</name>
                     <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                    <value>75.0</value>
+                    <value>8874.0</value>
                     <defaultValue>30.0</defaultValue>
                     <description>Excitation flip angle</description>
                     <displayedName>Flip Angle</displayedName>
@@ -754,7 +754,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>NUCLEUS_1</name>
                     <uuid>541adef8-2df0-4304-a2f7-fac4bff551ff</uuid>
-                    <value>13C</value>
+                    <value>1H</value>
                     <defaultValue>1H</defaultValue>
                     <description>Nucleus used for the first sequence channel</description>
                     <displayedName>Nucleus 1</displayedName>
@@ -1329,7 +1329,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>OBSERVED_FREQUENCY</name>
                     <uuid>d93d76ff-b4cc-42bd-aa43-dfa44cc9e28d</uuid>
-                    <value>1.6044230964783175E7</value>
+                    <value>6.38067934119089E7</value>
                     <defaultValue>6.3E7</defaultValue>
                     <description>Info: Frequency of the acquisition</description>
                     <displayedName>Observed Frequency</displayedName>
@@ -1348,7 +1348,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>OBSERVED_NUCLEUS</name>
                     <uuid>07bdc4b7-4169-46da-a597-84ab4f3e40c8</uuid>
-                    <value>13C</value>
+                    <value>1H</value>
                     <defaultValue>1H</defaultValue>
                     <description>Info: Observed nucleus</description>
                     <displayedName>Observed Nucleus</displayedName>
@@ -1733,7 +1733,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>REPETITION_TIME</name>
                     <uuid>895a8c34-03ef-400d-b6bc-cc43ee7d8620</uuid>
-                    <value>0.7000000000000001</value>
+                    <value>1.4101</value>
                     <defaultValue>0.2</defaultValue>
                     <description>Repetition Time</description>
                     <displayedName>TR</displayedName>
@@ -1767,7 +1767,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SEQUENCE_TIME</name>
                     <uuid>719b6f50-46b5-4a43-914d-16f9ab9631a6</uuid>
-                    <value>0.7000000000000001</value>
+                    <value>15.511099999999999</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Total acquisition time</description>
                     <displayedName>Acquisition Time</displayedName>
@@ -2102,7 +2102,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
                     <uuid>4e381691-8b2a-4b50-96c4-76206b85baae</uuid>
-                    <value>50.0</value>
+                    <value>71.94539940102987</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse</description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2121,7 +2121,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
                     <uuid>a9f47542-bf8b-478e-af2d-58ad35a381b1</uuid>
-                    <value>50</value>
+                    <value>12</value>
                     <defaultValue>36</defaultValue>
                     <description>RF pulse attenuation</description>
                     <displayedName>TX Attenuation</displayedName>
@@ -2140,7 +2140,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_GAMMA_B1</name>
                     <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                    <value>472.0</value>
+                    <value>5590.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the power in gamma B1 unit</description>
                     <displayedName>TX Gamma B1</displayedName>
@@ -2158,7 +2158,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_LENGTH</name>
                     <uuid>4c648c30-6369-4497-be76-d16537413f36</uuid>
-                    <value>0.001</value>
+                    <value>0.009998</value>
                     <defaultValue>0.3</defaultValue>
                     <description>RF pulse length</description>
                     <displayedName>TX Length</displayedName>
@@ -2177,7 +2177,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>TX_NUTATION</name>
                     <uuid>8122a193-fa92-419d-a767-b6b31cf52533</uuid>
-                    <value>None</value>
+                    <value>Voltage</value>
                     <defaultValue>None</defaultValue>
                     <description>Select the TX parameter to lineary increment to make a nutation curve. 'None' disables the option. </description>
                     <displayedName>Nutation</displayedName>
@@ -2197,7 +2197,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_NUTATION_AMP_MAX</name>
                     <uuid>d7e3dd33-c7a4-4817-8c7a-477911b2c53c</uuid>
-                    <value>40.0</value>
+                    <value>71.94400969502779</value>
                     <defaultValue>100.0</defaultValue>
                     <description>Maximum value of TX amplitude ramp for nutation curve</description>
                     <displayedName>Nutation Amp Max</displayedName>
@@ -2216,7 +2216,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_NUTATION_AMP_MIN</name>
                     <uuid>57764e4c-7656-4637-9f9e-cacc24b540fe</uuid>
-                    <value>40.0</value>
+                    <value>4.011840271370272</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Minimum value of TX amplitude ramp for nutation curve</description>
                     <displayedName>Nutation Amp Min</displayedName>
@@ -2234,7 +2234,17 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_NUTATION_AMP_VALUES</name>
                     <uuid>fba9b2cf-1637-47f4-bff4-0847566f0c01</uuid>
-                    <value>50.0</value>
+                    <value>4.011840271370272</value>
+                    <value>10.983267620216989</value>
+                    <value>17.96648303152289</value>
+                    <value>24.871099089953205</value>
+                    <value>31.72201298168632</value>
+                    <value>38.51258280896724</value>
+                    <value>45.27676456307265</value>
+                    <value>51.99434473215431</value>
+                    <value>58.65952634465031</value>
+                    <value>65.3377811289121</value>
+                    <value>71.94400969502779</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>Nutation Amp List</displayedName>
                     <locked>false</locked>
@@ -2250,8 +2260,8 @@
                 <key>TX_NUTATION_LENGTH_MAX</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_NUTATION_LENGTH_MAX</name>
-                    <uuid>47ada9fe-38d1-4bd9-b846-a500ce7e0108</uuid>
-                    <value>0.001</value>
+                    <uuid>3ebafd23-aa48-41af-a226-615f12a6232e</uuid>
+                    <value>0.009998</value>
                     <defaultValue>1.9999999999999998E-4</defaultValue>
                     <description>Maximum value of TX length ramp for nutation curve</description>
                     <displayedName>Nutation Length Max</displayedName>
@@ -2261,7 +2271,7 @@
                     <numberEnum>Time</numberEnum>
                     <minValue>9.999999999999999E-6</minValue>
                     <maxValue>1.0E9</maxValue>
-                    <group>Emission</group>
+                    <group>Delay</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -2269,8 +2279,8 @@
                 <key>TX_NUTATION_LENGTH_MIN</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_NUTATION_LENGTH_MIN</name>
-                    <uuid>01295664-971b-4104-b216-be995166fb2d</uuid>
-                    <value>0.001</value>
+                    <uuid>4724f968-dc96-4580-bdb5-4515d127b8a8</uuid>
+                    <value>4.9999999999999996E-6</value>
                     <defaultValue>5.0E-4</defaultValue>
                     <description>Minimum value of TX length ramp for nutation curve</description>
                     <displayedName>Nutation Length Min</displayedName>
@@ -2280,7 +2290,7 @@
                     <numberEnum>Time</numberEnum>
                     <minValue>4.9999999999999996E-6</minValue>
                     <maxValue>1.0</maxValue>
-                    <group>Emission</group>
+                    <group>Delay</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -2288,8 +2298,8 @@
                 <key>TX_NUTATION_LENGTH_VALUES</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_NUTATION_LENGTH_VALUES</name>
-                    <uuid>8d8f7125-0a21-496f-9ad1-2105680e6acc</uuid>
-                    <value>0.001</value>
+                    <uuid>68d34a6f-109e-4d28-b103-aecc1bebc2c7</uuid>
+                    <value>0.009998</value>
                     <description>Info: Values of the TX length sampling points of the nutation curve</description>
                     <displayedName>Nutation Length List</displayedName>
                     <locked>false</locked>
@@ -2297,7 +2307,7 @@
                     <numberEnum>Time</numberEnum>
                     <minValue>0.0</minValue>
                     <maxValue>1.0E9</maxValue>
-                    <group>Emission</group>
+                    <group>Delay</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -2306,7 +2316,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_NUTATION_VOLT_MAX</name>
                     <uuid>03d2e0ea-98bb-4b39-8c74-b8d2ad9f6cb8</uuid>
-                    <value>19.922</value>
+                    <value>200.0</value>
                     <defaultValue>1.0</defaultValue>
                     <description>Maximum value of TX voltage ramp for nutation curve</description>
                     <displayedName>Nutation Voltage Max</displayedName>
@@ -2325,7 +2335,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_NUTATION_VOLT_MIN</name>
                     <uuid>a6b69fb0-47ef-47c9-a4f7-b01af2056a77</uuid>
-                    <value>19.922</value>
+                    <value>10.696</value>
                     <defaultValue>0.1</defaultValue>
                     <description>Minimum value of TX voltage ramp for nutation curve</description>
                     <displayedName>Nutation Voltage Min</displayedName>
@@ -2343,7 +2353,17 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_NUTATION_VOLT_VALUES</name>
                     <uuid>809919bb-ef5a-4eca-a3ea-d16e47575d1f</uuid>
-                    <value>2.668</value>
+                    <value>10.696</value>
+                    <value>29.625999999999998</value>
+                    <value>48.556</value>
+                    <value>67.486</value>
+                    <value>86.416</value>
+                    <value>105.346</value>
+                    <value>124.276</value>
+                    <value>143.206</value>
+                    <value>162.136</value>
+                    <value>181.066</value>
+                    <value>199.996</value>
                     <description>Info: Values of the TX voltage sampling points of the nutation curve</description>
                     <displayedName>Nutation Voltage List</displayedName>
                     <locked>false</locked>
@@ -2360,7 +2380,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_NUT_STEP_NUMBER</name>
                     <uuid>2e0503a2-2b83-4378-80b6-098293c7a468</uuid>
-                    <value>10</value>
+                    <value>11</value>
                     <defaultValue>1</defaultValue>
                     <description>Number of incremental steps used to sample the nutation curve</description>
                     <displayedName>Nutation Step Number</displayedName>
@@ -2379,7 +2399,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_POWER</name>
                     <uuid>e35ca420-08f7-426c-a521-7bd92b7994b1</uuid>
-                    <value>0.01779</value>
+                    <value>100.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the pulse power amplitude that corresponds to Tx Amplitude and Attenuation</description>
                     <displayedName>TX Power</displayedName>
@@ -2397,7 +2417,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>TX_POWER_INPUT</name>
                     <uuid>70f9d15f-1a81-4940-9ac6-9b688fbe40cb</uuid>
-                    <value>Att/Amp</value>
+                    <value>Voltage</value>
                     <defaultValue>Att/Amp</defaultValue>
                     <description>Select the input parameter to calculate the pulse power amplitude. Warning: calibrate the 90°-pulse to use the Flip Angle</description>
                     <displayedName>TX Power Input</displayedName>
@@ -2452,7 +2472,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_VOLTAGE</name>
                     <uuid>a853cdcd-a18e-4b8d-b8c8-fb29d9d51267</uuid>
-                    <value>2.668</value>
+                    <value>200.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>RF voltage amplitude peak-to-peak</description>
                     <displayedName>TX Voltage</displayedName>
@@ -2490,7 +2510,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>USER_MATRIX_DIMENSION_2D</name>
                     <uuid>be07fdb8-b371-4d24-85aa-cd55c25d3fea</uuid>
-                    <value>1</value>
+                    <value>11</value>
                     <defaultValue>128</defaultValue>
                     <description>Number of repetitions  (user matrix dimension 2D)</description>
                     <displayedName>Matrix 2D</displayedName>

@@ -792,7 +792,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
                 <uuid>bcd9d038-40f9-4305-9e3d-9f6b7e656982</uuid>
-                <value>50</value>
+                <value>12</value>
                 <defaultValue>7</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -1041,7 +1041,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>Tx_nucleus</name>
                 <uuid>0991f421-49db-4e9e-9f93-cced7b8f3b24</uuid>
-                <value>13C</value>
+                <value>1H</value>
                 <defaultValue>1H</defaultValue>
                 <description>The nucleus used for the first sequence channel</description>
                 <displayedName>Nucleus 1</displayedName>
@@ -1388,7 +1388,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_2d</name>
                 <uuid>91cdd71b-c9b9-46bd-a39e-cdc1c50549c8</uuid>
-                <value>1</value>
+                <value>11</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 2D</displayedName>
                 <locked>true</locked>
@@ -1762,7 +1762,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
                 <uuid>4d8fedbf-a67d-4190-978f-cf061ccceffa</uuid>
-                <value>1.6044230964783175E7</value>
+                <value>6.38067934119089E7</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -6839,7 +6839,7 @@
                 <group>Emission</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.001</list>
+                <list>0.009998</list>
             </value>
         </Entry>
         <Entry>
@@ -6958,7 +6958,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>7.999999999999988E-5</list>
+                <list>0.495011</list>
             </value>
         </Entry>
         <Entry>
@@ -7012,7 +7012,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.28968068000000013</list>
+                <list>0.4958516799999999</list>
             </value>
         </Entry>
         <Entry>
@@ -7209,7 +7209,7 @@
                 <name>Tx_amp</name>
                 <description></description>
                 <numberEnum>TxAmp</numberEnum>
-                <order>FourLoop</order>
+                <order>Two</order>
                 <group>Emission</group>
                 <locked>false</locked>
                 <address>-1</address>
@@ -7268,7 +7268,17 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>50.0</list>
+                <list>4.011840271370272</list>
+                <list>10.983267620216989</list>
+                <list>17.96648303152289</list>
+                <list>24.871099089953205</list>
+                <list>31.72201298168632</list>
+                <list>38.51258280896724</list>
+                <list>45.27676456307265</list>
+                <list>51.99434473215431</list>
+                <list>58.65952634465031</list>
+                <list>65.3377811289121</list>
+                <list>71.94400969502779</list>
             </value>
         </Entry>
         <Entry>
@@ -7299,7 +7309,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>2c55b5a1-128c-4d29-ab3a-15f29c684318</uuid>
+                        <uuid>7d815373-a520-4e2f-bcd8-5db85abaca0c</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -7313,7 +7323,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>63523304-7873-4783-86d4-ba75fed41bca</uuid>
+                        <uuid>b0b57a21-5f06-4158-b889-c5055b217595</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -7327,7 +7337,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>674c5a6d-a6b1-4a99-98d3-39d291a3b098</uuid>
+                        <uuid>85a41c80-3511-4431-b084-0ddb6e170eb9</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -7341,7 +7351,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>dd653e1e-0ac6-468b-95fb-c7005b5e1f57</uuid>
+                        <uuid>c0805156-8f41-4f53-8623-935cca27d41a</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>
