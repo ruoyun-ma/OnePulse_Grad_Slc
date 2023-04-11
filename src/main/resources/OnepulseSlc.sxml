@@ -756,7 +756,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Intermediate_frequency</name>
                 <uuid>ff3fb66c-1d09-4ac6-9be8-a5051554f190</uuid>
-                <value>1.25E7</value>
+                <value>1.251E7</value>
                 <defaultValue>1.0</defaultValue>
                 <displayedName>IF</displayedName>
                 <locked>true</locked>
@@ -792,7 +792,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
                 <uuid>bcd9d038-40f9-4305-9e3d-9f6b7e656982</uuid>
-                <value>12</value>
+                <value>50</value>
                 <defaultValue>7</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -1008,7 +1008,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>LO_att</name>
                 <uuid>5798fabf-89b5-4607-b9e5-d64736b07744</uuid>
-                <value>22</value>
+                <value>20</value>
                 <defaultValue>0</defaultValue>
                 <displayedName>LO_att</displayedName>
                 <locked>false</locked>
@@ -1388,7 +1388,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_2d</name>
                 <uuid>91cdd71b-c9b9-46bd-a39e-cdc1c50549c8</uuid>
-                <value>11</value>
+                <value>1</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 2D</displayedName>
                 <locked>true</locked>
@@ -1762,7 +1762,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
                 <uuid>4d8fedbf-a67d-4190-978f-cf061ccceffa</uuid>
-                <value>6.38067934119089E7</value>
+                <value>6.3806597364338815E7</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -6839,7 +6839,7 @@
                 <group>Emission</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.009998</list>
+                <list>0.001</list>
             </value>
         </Entry>
         <Entry>
@@ -6958,7 +6958,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.495011</list>
+                <list>7.999999999999988E-5</list>
             </value>
         </Entry>
         <Entry>
@@ -7012,7 +7012,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.4958516799999999</list>
+                <list>0.28968068000000013</list>
             </value>
         </Entry>
         <Entry>
@@ -7209,7 +7209,7 @@
                 <name>Tx_amp</name>
                 <description></description>
                 <numberEnum>TxAmp</numberEnum>
-                <order>Two</order>
+                <order>FourLoop</order>
                 <group>Emission</group>
                 <locked>false</locked>
                 <address>-1</address>
@@ -7268,17 +7268,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>4.011840271370272</list>
-                <list>10.983267620216989</list>
-                <list>17.96648303152289</list>
-                <list>24.871099089953205</list>
-                <list>31.72201298168632</list>
-                <list>38.51258280896724</list>
-                <list>45.27676456307265</list>
-                <list>51.99434473215431</list>
-                <list>58.65952634465031</list>
-                <list>65.3377811289121</list>
-                <list>71.94400969502779</list>
+                <list>80.0</list>
             </value>
         </Entry>
         <Entry>
@@ -7309,7 +7299,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>7d815373-a520-4e2f-bcd8-5db85abaca0c</uuid>
+                        <uuid>1b016045-c8b4-48fa-82d9-910210e596d6</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -7323,7 +7313,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>b0b57a21-5f06-4158-b889-c5055b217595</uuid>
+                        <uuid>dcf5583f-8bdc-4a5e-bff5-f5a94f028412</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -7337,7 +7327,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>85a41c80-3511-4431-b084-0ddb6e170eb9</uuid>
+                        <uuid>e1f94c8d-72ab-4e46-8034-21bebf0b77fb</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -7351,7 +7341,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>c0805156-8f41-4f53-8623-935cca27d41a</uuid>
+                        <uuid>bd759ccc-299f-47bd-a4f5-f6a53698a462</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>
@@ -7773,7 +7763,7 @@
                 <group>Reception</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>1.0</list>
+                <list>9.0</list>
             </value>
         </Entry>
         <Entry>
