@@ -157,7 +157,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>BASE_FREQ_1</name>
                 <uuid>bdb638b1-d07c-4cd7-8720-40b53133ab4f</uuid>
-                <value>6.3806597364338815E7</value>
+                <value>6.38067934119089E7</value>
                 <defaultValue>1.27194553E8</defaultValue>
                 <description>Info: Frequency of the observed nucleus</description>
                 <displayedName>Base Frequency 1</displayedName>
@@ -413,7 +413,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>FLIP_ANGLE</name>
                 <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                <value>6.0</value>
+                <value>92.0</value>
                 <defaultValue>30.0</defaultValue>
                 <description>Excitation flip angle</description>
                 <displayedName>Flip Angle</displayedName>
@@ -549,8 +549,8 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>INTERMEDIATE_FREQUENCY</name>
                 <uuid>9fc49f7f-88e3-418f-b2af-b15f962189a7</uuid>
-                <value>1.251E7</value>
-                <defaultValue>1.251E7</defaultValue>
+                <value>1.25E7</value>
+                <defaultValue>1.25E7</defaultValue>
                 <description>Info: Frequency from the Hardware used for the signal demodulation (ADC optimal frequency)</description>
                 <displayedName>INTERMEDIATE_FREQUENCY</displayedName>
                 <locked>true</locked>
@@ -780,7 +780,9 @@
                 <suggestedValues>125Te</suggestedValues>
                 <suggestedValues>127I</suggestedValues>
                 <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>129mXe</suggestedValues>
                 <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>131mXe</suggestedValues>
                 <suggestedValues>133Cs</suggestedValues>
                 <suggestedValues>135Ba</suggestedValues>
                 <suggestedValues>137Ba</suggestedValues>
@@ -919,7 +921,9 @@
                 <suggestedValues>125Te</suggestedValues>
                 <suggestedValues>127I</suggestedValues>
                 <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>129mXe</suggestedValues>
                 <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>131mXe</suggestedValues>
                 <suggestedValues>133Cs</suggestedValues>
                 <suggestedValues>135Ba</suggestedValues>
                 <suggestedValues>137Ba</suggestedValues>
@@ -1058,7 +1062,9 @@
                 <suggestedValues>125Te</suggestedValues>
                 <suggestedValues>127I</suggestedValues>
                 <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>129mXe</suggestedValues>
                 <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>131mXe</suggestedValues>
                 <suggestedValues>133Cs</suggestedValues>
                 <suggestedValues>135Ba</suggestedValues>
                 <suggestedValues>137Ba</suggestedValues>
@@ -1197,7 +1203,9 @@
                 <suggestedValues>125Te</suggestedValues>
                 <suggestedValues>127I</suggestedValues>
                 <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>129mXe</suggestedValues>
                 <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>131mXe</suggestedValues>
                 <suggestedValues>133Cs</suggestedValues>
                 <suggestedValues>135Ba</suggestedValues>
                 <suggestedValues>137Ba</suggestedValues>
@@ -1269,7 +1277,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>OBSERVED_FREQUENCY</name>
                 <uuid>d93d76ff-b4cc-42bd-aa43-dfa44cc9e28d</uuid>
-                <value>6.3806597364338815E7</value>
+                <value>6.38067934119089E7</value>
                 <defaultValue>6.3E7</defaultValue>
                 <description>Info: Frequency of the acquisition</description>
                 <displayedName>Observed Frequency</displayedName>
@@ -1343,6 +1351,7 @@
                 <maxValue>1.5E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
+                <uuidBaseFrequency>7ca8c56e-62fa-41b8-9de3-ab877593fb34</uuidBaseFrequency>
                 <initialNumberEnum>FrequencyOffset</initialNumberEnum>
             </value>
         </entry>
@@ -1363,6 +1372,7 @@
                 <maxValue>1.5E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
+                <uuidBaseFrequency>3cb8b8e6-5603-49ba-87e2-09d7a26cdfcb</uuidBaseFrequency>
                 <initialNumberEnum>FrequencyOffset</initialNumberEnum>
             </value>
         </entry>
@@ -1383,6 +1393,7 @@
                 <maxValue>1.5E9</maxValue>
                 <group>Emission</group>
                 <category>Acquisition</category>
+                <uuidBaseFrequency>08091c19-7724-45c5-a00c-c0aba8921519</uuidBaseFrequency>
                 <initialNumberEnum>FrequencyOffset</initialNumberEnum>
             </value>
         </entry>
@@ -1638,7 +1649,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>RECEIVER_COUNT</name>
                 <uuid>2e92822f-2cc5-4e74-88c2-a4162ab7634a</uuid>
-                <value>1</value>
+                <value>2</value>
                 <defaultValue>1</defaultValue>
                 <description>Info: Number of reception channels</description>
                 <displayedName>No. Receivers</displayedName>
@@ -1889,14 +1900,11 @@
                 <locked>true</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <suggestedValues>Accumulate1D2D</suggestedValues>
                 <suggestedValues>Bordered2D</suggestedValues>
-                <suggestedValues>Bordered2D_FSE</suggestedValues>
                 <suggestedValues>Centered2D</suggestedValues>
-                <suggestedValues>Centered2D_FSE</suggestedValues>
-                <suggestedValues>Centered2D_FSERot</suggestedValues>
                 <suggestedValues>Centered2DRot</suggestedValues>
-                <suggestedValues>EchoAntiechoTransform</suggestedValues>
+                <suggestedValues>Elliptical3D</suggestedValues>
+                <suggestedValues>FSE_TRAIN_1D</suggestedValues>
                 <suggestedValues>SEEPISequential</suggestedValues>
                 <suggestedValues>Sequential</suggestedValues>
                 <suggestedValues>Sequential2D</suggestedValues>
@@ -1905,6 +1913,7 @@
                 <suggestedValues>Sequential4D_Dummy2D</suggestedValues>
                 <suggestedValues>Sequential4DBackAndForth</suggestedValues>
                 <suggestedValues>Sequential4DCine</suggestedValues>
+                <suggestedValues>SequentialMPRAGE</suggestedValues>
                 <group>Scan</group>
                 <category>Acquisition</category>
             </value>
@@ -2084,7 +2093,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_GAMMA_B1</name>
                 <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                <value>41.0</value>
+                <value>577.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the power in gamma B1 unit</description>
                 <displayedName>TX Gamma B1</displayedName>

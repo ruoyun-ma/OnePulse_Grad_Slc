@@ -1,7 +1,7 @@
 package rs2d.sequence.common;
 
 import rs2d.spinlab.data.transformPlugin.TransformPlugin;
-import rs2d.spinlab.hardware.devices.DeviceManager;
+import rs2d.spinlab.api.Hardware;
 import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.sequence.Sequence;
 import rs2d.spinlab.sequence.table.Shape;
@@ -12,7 +12,7 @@ import rs2d.spinlab.tools.table.Order;
 import rs2d.spinlab.tools.utility.Nucleus;
 
 /**
- * Class Gradient: small Common Version 1.3S
+ * Class Gradient: small Common Version 1.4S
  */
 public class Gradient {
     protected Table amplitudeTable;
@@ -573,16 +573,8 @@ public class Gradient {
      * @param fov : field of view
      * @return sw : nearest bandwidth possible
      */
-    public double solveSpectralWidthMax(double fov) throws Exception {
-        double spectralWidth_init = (gMax * GradientMath.GAMMA * fov);
-        double spectralWidth = spectralWidth_init;
-        while (getNearestSW(spectralWidth) >= spectralWidth_init) {
-            // Hardware.getSequenceCompiler() //future version
-            spectralWidth = getInferiorSW(spectralWidth);
-        }
-        spectralWidth = getNearestSW(spectralWidth);
-        // Hardware.getSequenceCompiler() //future version
-        return spectralWidth;
+    public double solveSpectralWidthMax(double fov) {
+        return Hardware.getFloorSpectralWidth(gMax * GradientMath.GAMMA * fov);
     }
 
     public double getSpectralWidth() {
@@ -1294,66 +1286,6 @@ public class Gradient {
 
     // ---------------------------------------------------------------
     // ----------------- General Methods----------------------------------------------
-
-    /**
-     * Compute the nearest inferior bandwidth of the input bandwidth
-     *
-     * @param spectralWidth : target bandwidth
-     * @return Nearest inferior bandwidth
-     */
-    public double getInferiorSW(double spectralWidth) throws Exception {
-        double SysClock = rs2d.spinlab.api.Hardware.getSystemClock();
-        double decimationRef, SWmax;
-        if (SysClock == 78125000) { /* Cameleon 4 */
-            decimationRef = 8;
-            SWmax = SysClock / 2 / decimationRef;
-        } else {/* Cameleon 3 */
-            decimationRef = 1;
-            SWmax = SysClock / 32 / decimationRef;
-        }
-        double decim = (Math.floor(SWmax * decimationRef / spectralWidth) + 1);
-        return (SWmax * decimationRef) / (decim);
-    }
-
-    /**
-     * Compute the nearest bandwidth of the input bandwidth
-     *
-     * @param spectralWidth : target bandwidth
-     * @return Nearest bandwidth (can be superior or inferior to the input bandwidth)
-     */
-    public double getNearestSW(double spectralWidth) throws Exception {
-        double SysClock = rs2d.spinlab.api.Hardware.getSystemClock();
-        double decimationRef, SWmax;
-        if (SysClock == 78125000) { /* Cameleon 4 */
-            decimationRef = 8;
-            SWmax = SysClock / 2 / decimationRef;
-        } else {/* Cameleon 3 */
-            decimationRef = 1;
-            SWmax = SysClock / 32 / decimationRef;
-        }
-        double decim = (Math.round(SWmax * decimationRef / spectralWidth));
-        return (SWmax * decimationRef) / (decim);
-    }
-
-    /**
-     * Compute the nearest superior bandwidth of the input bandwidth
-     *
-     * @param spectralWidth : target bandwidth
-     * @return Nearest superior bandwidth
-     */
-    public double getSuperiorSW(double spectralWidth) throws Exception {
-        double SysClock = rs2d.spinlab.api.Hardware.getSystemClock();
-        double decimationRef, SWmax;
-        if (SysClock == 78125000) { /* Cameleon 4 */
-            decimationRef = 8;
-            SWmax = SysClock / 2 / decimationRef;
-        } else {/* Cameleon 3 */
-            decimationRef = 1;
-            SWmax = SysClock / 32 / decimationRef;
-        }
-        double decim = (Math.ceil(SWmax * decimationRef / spectralWidth) - 1);
-        return (SWmax * decimationRef) / (decim);
-    }
 
     /**
      * Configure the sequence parameter table with specified values and loop order

@@ -23,7 +23,7 @@ import java.util.*;
 import static java.util.stream.IntStream.*;
 
 /**
- * Class RFPulse: small Common Version 1.3S
+ * Class RFPulse: small Common Version 1.4S
  */
 
 public class RFPulse {
@@ -314,7 +314,6 @@ public class RFPulse {
     public static void solvePulses(List<RFPulse> pulseList, double targetAmplitude, double observeFrequency, List<Integer> txRoute){
 
         // Remove disabled pulses from the list and retrieve the power for each pulse
-        pulseList.removeIf(p -> p.getFlipAngle() > 0.0);
         List <Double> RFPowerList = getPowerList(pulseList,true);
 
         //--------------------------------------------------
@@ -355,7 +354,7 @@ public class RFPulse {
         List <Double> RFPowerList = new ArrayList<>();
         for (RFPulse eachPulse : pulseList) {
             // At first compilation, the same RF Pulse object can be created multiple times,
-            if ((!bRemoveDuplicate || !RFPowerList.contains(eachPulse.getPower())) ) {
+            if ((!bRemoveDuplicate || !RFPowerList.contains(eachPulse.getPower())) && eachPulse.getFlipAngle() > 0.0 ) {
                 RFPowerList.add(eachPulse.getPower());
             }
         }
@@ -593,7 +592,7 @@ public class RFPulse {
      */
     private boolean prepChannelAttWithReferencePowerAt180(double txAmp, List<Integer> txRoute) {
         boolean b_time_unchanged = true;
-	   double powerPulse180 = 4 * instrumentPower90 * Math.pow(instrumentLength90 / pulseDuration, 2);
+        double powerPulse180 = 4 * instrumentPower90 * Math.pow(instrumentLength90 / pulseDuration, 2);
 
         if (powerPulse180 > Hardware.getMaxRfPowerPulsed(nucleus.name())) {  // TX LENGTH 90 MIN
             double durationMin = ceilToSubDecimal(instrumentLength90 / Math.sqrt(Hardware.getMaxRfPowerPulsed(nucleus.name()) / (4 * instrumentPower90 )), 6);
@@ -1270,7 +1269,7 @@ public class RFPulse {
      * @param numberToBeRounded : Double number
      * @param Order             : Digits kept after the decimal point
      */
-    private static double floorToSubDecimal(double numberToBeRounded, double Order) {
+    private double floorToSubDecimal(double numberToBeRounded, double Order) {
         return Math.floor(numberToBeRounded * Math.pow(10, Order)) / Math.pow(10, Order);
     }
 

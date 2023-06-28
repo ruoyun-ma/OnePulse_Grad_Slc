@@ -20,10 +20,6 @@
             <keyList></keyList>
             <keyList></keyList>
         </acquChannel>
-        <actualScanKey>key18</actualScanKey>
-        <actualScanKey>key21</actualScanKey>
-        <actualScanKey>key24</actualScanKey>
-        <actualScanKey>key27</actualScanKey>
         <gradChannels gradientAxeKey="key41" nameKey="key16">
             <keyList></keyList>
             <keyList></keyList>
@@ -104,10 +100,6 @@
             <keyList>key73</keyList>
             <keyList>key27</keyList>
         </phaseResetChannel>
-        <startScanKey>key19</startScanKey>
-        <startScanKey>key22</startScanKey>
-        <startScanKey>key25</startScanKey>
-        <startScanKey>key28</startScanKey>
         <timeChannel nameKey="key37" defaultElementKey="key3">
             <keyList>key89</keyList>
             <keyList>key99</keyList>
@@ -756,7 +748,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Intermediate_frequency</name>
                 <uuid>ff3fb66c-1d09-4ac6-9be8-a5051554f190</uuid>
-                <value>1.251E7</value>
+                <value>1.25E7</value>
                 <defaultValue>1.0</defaultValue>
                 <displayedName>IF</displayedName>
                 <locked>true</locked>
@@ -1008,7 +1000,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>LO_att</name>
                 <uuid>5798fabf-89b5-4607-b9e5-d64736b07744</uuid>
-                <value>20</value>
+                <value>22</value>
                 <defaultValue>0</defaultValue>
                 <displayedName>LO_att</displayedName>
                 <locked>false</locked>
@@ -1127,7 +1119,9 @@
                 <suggestedValues>125Te</suggestedValues>
                 <suggestedValues>127I</suggestedValues>
                 <suggestedValues>129Xe</suggestedValues>
+                <suggestedValues>129mXe</suggestedValues>
                 <suggestedValues>131Xe</suggestedValues>
+                <suggestedValues>131mXe</suggestedValues>
                 <suggestedValues>133Cs</suggestedValues>
                 <suggestedValues>135Ba</suggestedValues>
                 <suggestedValues>137Ba</suggestedValues>
@@ -1320,23 +1314,6 @@
         </Entry>
         <Entry>
             <count>1</count>
-            <key>key18</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Actual 1D</name>
-                <uuid>407cee44-8bbd-4cf7-8283-31862b5e1c36</uuid>
-                <value>0</value>
-                <defaultValue>1</defaultValue>
-                <displayedName>Actual 1D</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Scan</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>65536</maxValue>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
             <key>param18</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>Grad_shape_name3</name>
@@ -1348,23 +1325,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
-            <key>key19</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Start 1D</name>
-                <uuid>e7411d69-9a56-45f7-8312-38822c50caef</uuid>
-                <value>0</value>
-                <defaultValue>1</defaultValue>
-                <displayedName>Start 1D</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Scan</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>65536</maxValue>
             </value>
         </Entry>
         <Entry>
@@ -1417,23 +1377,6 @@
         </Entry>
         <Entry>
             <count>1</count>
-            <key>key21</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Actual 2D</name>
-                <uuid>13ad2af0-5a75-409e-948b-790dc36a91c5</uuid>
-                <value>0</value>
-                <defaultValue>1</defaultValue>
-                <displayedName>Actual 2D</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Scan</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>65536</maxValue>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
             <key>param21</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>Grad_shape_name6</name>
@@ -1445,23 +1388,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
-            <key>key22</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Start 2D</name>
-                <uuid>e9701f18-58f6-488e-b585-da94f4554cb4</uuid>
-                <value>0</value>
-                <defaultValue>1</defaultValue>
-                <displayedName>Start 2D</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Scan</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>65536</maxValue>
             </value>
         </Entry>
         <Entry>
@@ -1514,23 +1440,6 @@
         </Entry>
         <Entry>
             <count>1</count>
-            <key>key24</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Actual 3D</name>
-                <uuid>db2c7892-74aa-4f8a-8ce2-4e9cc6559b7c</uuid>
-                <value>0</value>
-                <defaultValue>1</defaultValue>
-                <displayedName>Actual 3D</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Scan</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>65536</maxValue>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
             <key>param24</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>Grad_shape_name9</name>
@@ -1542,23 +1451,6 @@
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
-            <key>key25</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Start 3D</name>
-                <uuid>83878556-6220-468b-8f70-7530aab1b70c</uuid>
-                <value>0</value>
-                <defaultValue>1</defaultValue>
-                <displayedName>Start 3D</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Scan</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>65536</maxValue>
             </value>
         </Entry>
         <Entry>
@@ -1577,40 +1469,6 @@
                 <minValue>0</minValue>
                 <maxValue>65536</maxValue>
                 <group>Dimension</group>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
-            <key>key27</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Actual 4D</name>
-                <uuid>0aec27d2-5e9f-4a42-aedb-80696a80ff7b</uuid>
-                <value>0</value>
-                <defaultValue>1</defaultValue>
-                <displayedName>Actual 4D</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Scan</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>65536</maxValue>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
-            <key>key28</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>Start 4D</name>
-                <uuid>e411c0a8-af17-4853-9405-7c009fcf9bf8</uuid>
-                <value>0</value>
-                <defaultValue>1</defaultValue>
-                <displayedName>Start 4D</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Scan</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>65536</maxValue>
             </value>
         </Entry>
         <Entry>
@@ -1762,7 +1620,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
                 <uuid>4d8fedbf-a67d-4190-978f-cf061ccceffa</uuid>
-                <value>6.3806597364338815E7</value>
+                <value>6.38067934119089E7</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -7299,7 +7157,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>1b016045-c8b4-48fa-82d9-910210e596d6</uuid>
+                        <uuid>349c5bf3-c4f9-4996-9a76-bcb470f1532d</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -7313,7 +7171,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>dcf5583f-8bdc-4a5e-bff5-f5a94f028412</uuid>
+                        <uuid>9eb4450a-751e-443c-8d1a-907f24e55a80</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -7327,7 +7185,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>e1f94c8d-72ab-4e46-8034-21bebf0b77fb</uuid>
+                        <uuid>8dab9935-61dd-4dd3-80ec-c1ddc4a8a7ec</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -7341,7 +7199,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>bd759ccc-299f-47bd-a4f5-f6a53698a462</uuid>
+                        <uuid>700602c0-bb0a-4a08-9c71-abf1202f6fb1</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>
