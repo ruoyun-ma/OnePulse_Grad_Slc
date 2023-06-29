@@ -21,7 +21,6 @@ import rs2d.spinlab.sequenceGenerator.BaseSequenceGenerator;
 import rs2d.spinlab.sequenceGenerator.util.GradientRotation;
 import rs2d.spinlab.sequenceGenerator.util.TimeEvents;
 import rs2d.spinlab.tools.param.*;
-import rs2d.spinlab.tools.role.RoleEnum;
 import rs2d.spinlab.tools.table.Order;
 import rs2d.spinlab.tools.utility.Nucleus;
 
@@ -33,7 +32,7 @@ import static rs2d.sequence.onpulseslc.U.*;
 
 public class OnepulseSlc extends BaseSequenceGenerator {
 
-    private final String sequenceVersion = "Version8.6";
+    private final String sequenceVersion = "Version8.7";
     public double protonFrequency;
     public double observeFrequency;
     private Nucleus nucleus;
@@ -898,12 +897,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         return off_center_distance;
     }
 
-
-    public ArrayList<RoleEnum> getPluginAccess() {
-        ArrayList<RoleEnum> roleEnums = new ArrayList<RoleEnum>();
-        roleEnums.add(RoleEnum.User);
-        return roleEnums;
-    }
 
 
     //<editor-fold defaultstate="collapsed" desc="Generated Code (RS2D)">
