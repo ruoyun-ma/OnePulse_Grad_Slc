@@ -159,7 +159,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
 
         sliceThickness = getDouble(SLICE_THICKNESS);
 
-        txLength = getDouble(TX_LENGTH);
         txVolt = getDouble(TX_VOLTAGE);
         powerInput = PowerInput.valueOf(getText(TX_POWER_INPUT).equals("Att/Amp") ? "AmpAtt" : getText(TX_POWER_INPUT).equals("Voltage") ? "Volt" : "FA");
         isDelayEcho = getBoolean(DELAY_ECHO);
@@ -169,6 +168,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         txAmpMax = getDouble(TX_NUTATION_AMP_MAX);
         txVoltMin = getDouble(TX_NUTATION_VOLT_MIN);
         txVoltMax = getDouble(TX_NUTATION_VOLT_MAX);
+        txLength = nutationType == NutationType.Length ? 0.001 : getDouble(TX_LENGTH); //reference for calculation of FA ref and check power
         txLengthMin = getDouble(TX_NUTATION_LENGTH_MIN);
         txLengthMax = getDouble(TX_NUTATION_LENGTH_MAX);
 
@@ -279,10 +279,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                     getParam(TX_AMP).setValue(txAmpMax);
                     powerInput = PowerInput.AmpAtt;
                     getParam(TX_POWER_INPUT).setValue("Att/Amp");
-                } else if (nutationType == NutationType.Length) {
-                    txLength = getDouble(TX_NUTATION_LENGTH_MAX);
-                    getParam(TX_LENGTH).setValue(txLength);
-                } else {
+                } else if (nutationType == NutationType.Voltage) {
                     txVolt = getDouble(TX_NUTATION_VOLT_MAX);
                     getParam(TX_VOLTAGE).setValue(txVolt);
                     powerInput = PowerInput.Volt;
@@ -588,7 +585,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 getParam(TX_NUTATION_LENGTH_MIN).setValue(txLengthMin);
                 getParam(TX_NUTATION_LENGTH_MAX).setValue(txLengthMax);
             }
-            // the step have to be a multiple of the time hardware resolution to be corresctly sampled
+            // the step have to be a multiple of the time hardware resolution to be correctly sampled
             tx_step = (int) (tx_step / txLengthMinResolution) * txLengthMinResolution;
 
             // Prepare length array
