@@ -215,8 +215,9 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         observeFrequency = baseFreq1 + freq_offset1;
         getParam(BASE_FREQ_1).setValue(baseFreq1);
 
-        set(Rx_gain, RECEIVER_GAIN);
-        getParam(RECEIVER_COUNT).setValue(Hardware.getReceiverCount(nucleus));
+        int rg = Math.min(getInt(RECEIVER_GAIN), Hardware.getMaxReceiverGain(nucleus) );
+        getParam(RECEIVER_GAIN).setValue(rg);
+        set(Rx_gain, rg);
 
         set(Intermediate_frequency, Hardware.getIntermediateFrequency(nucleus.getName(), observeFrequency));
         getParam(INTERMEDIATE_FREQUENCY).setValue(Hardware.getIntermediateFrequency(nucleus.getName(), observeFrequency));
