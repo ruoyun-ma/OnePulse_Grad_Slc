@@ -21,7 +21,6 @@ import rs2d.spinlab.sequenceGenerator.BaseSequenceGenerator;
 import rs2d.spinlab.sequenceGenerator.util.GradientRotation;
 import rs2d.spinlab.sequenceGenerator.util.TimeEvents;
 import rs2d.spinlab.tools.param.*;
-import rs2d.spinlab.tools.role.RoleEnum;
 import rs2d.spinlab.tools.table.Order;
 import rs2d.spinlab.tools.utility.Nucleus;
 
@@ -893,13 +892,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
                 break;
         }
         return off_center_distance;
-    }
-
-
-    public ArrayList<RoleEnum> getPluginAccess() {
-        ArrayList<RoleEnum> roleEnums = new ArrayList<RoleEnum>();
-        roleEnums.add(RoleEnum.User);
-        return roleEnums;
     }
 
 
