@@ -119,11 +119,6 @@ public class OnepulseSlc extends BaseSequenceGenerator {
         List<String> tx_nutation = asList("None", "Amplitude", "Voltage", "Length");
         ((TextParam) getParam(TX_NUTATION)).setSuggestedValues(tx_nutation);
         ((TextParam) getParam(TX_NUTATION)).setRestrictedToSuggested(true);
-
-        //fitSWToHardware(12.5e3);
-        getParam(DIGITAL_FILTER_REMOVED).setDefaultValue(Hardware.isRemoveAcquisitionDeadPoints());
-        getParam(DIGITAL_FILTER_SHIFT).setDefaultValue(Hardware.getNbAcquisitionDeadPoints());
-        getParam(INTERMEDIATE_FREQUENCY).setValue(Hardware.getIntermediateFrequency());
     }
 
     public void generate() throws Exception {
@@ -225,6 +220,9 @@ public class OnepulseSlc extends BaseSequenceGenerator {
 
         set(Intermediate_frequency, Hardware.getIntermediateFrequency(nucleus.getName(), observeFrequency));
         getParam(INTERMEDIATE_FREQUENCY).setValue(Hardware.getIntermediateFrequency(nucleus.getName(), observeFrequency));
+
+        getParam(DIGITAL_FILTER_REMOVED).setValue(Hardware.isRemoveAcquisitionDeadPoints());
+        getParam(DIGITAL_FILTER_SHIFT).setValue(Hardware.getNbAcquisitionDeadPoints());
 
         set(Tx_frequency, observeFrequency);
         getParam(OBSERVED_FREQUENCY).setValue(observeFrequency);
