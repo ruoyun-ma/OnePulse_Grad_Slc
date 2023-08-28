@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sequenceIO>
-    <sequence rxGainTableKey="table18" ifFreqKey="key0" accuDimKey="key1" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firCoefSelectedKey="key302" updateDimensionKey="key359" acqTimeModeKey="param7" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
+    <sequence rxGainTableKey="table18" ifFreqKey="key0" accuDimKey="key1" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firCoefSelectedKey="param1" updateDimensionKey="key359" acqTimeModeKey="param7" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
         <acquChannel swKey="key43" nameKey="key42">
             <keyList></keyList>
             <keyList></keyList>
@@ -189,7 +189,7 @@
         <Entry>
             <count>1</count>
             <key>key1</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key9" phaseKey="key10" ampKey="key11" shapeKey="key19" shapePhaseKey="key20" attKey="key49" phaseModKey="table20" pulseAlignmentModeKey="param11" shapeNameKey="param10" nameKey="key3" enabledKey="key9"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key9" phaseKey="key10" shapePhaseKey="key20" attKey="key49" phaseModKey="table20" pulseAlignmentModeKey="param11" ampKey="key11" shapeKey="key19" shapeNameKey="param10" nameKey="key3" enabledKey="key9"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -391,7 +391,7 @@
         <Entry>
             <count>1</count>
             <key>key42</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key9" phaseKey="key10" ampKey="key11" shapeKey="key12" shapePhaseKey="key17" attKey="key53" phaseModKey="table21" pulseAlignmentModeKey="param13" shapeNameKey="param12" nameKey="key170" enabledKey="key171"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key9" phaseKey="key10" shapePhaseKey="key17" attKey="key53" phaseModKey="table21" pulseAlignmentModeKey="param13" ampKey="key11" shapeKey="key12" shapeNameKey="param12" nameKey="key170" enabledKey="key171"/>
         </Entry>
         <Entry>
             <count>6</count>
@@ -717,7 +717,7 @@
         <Entry>
             <count>1</count>
             <key>key104</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key32" phaseKey="key33" ampKey="key36" shapeKey="key37" shapePhaseKey="key38" attKey="key48" phaseModKey="table19" pulseAlignmentModeKey="param9" shapeNameKey="param8" nameKey="key353" enabledKey="key354"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key32" phaseKey="key33" shapePhaseKey="key38" attKey="key48" phaseModKey="table19" pulseAlignmentModeKey="param9" ampKey="key36" shapeKey="key37" shapeNameKey="param8" nameKey="key353" enabledKey="key354"/>
         </Entry>
         <Entry>
             <count>1</count>
@@ -737,7 +737,7 @@
         <Entry>
             <count>6</count>
             <key>key112</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key5" phaseKey="key63" ampKey="key64" shapeKey="key65" shapePhaseKey="key66" attKey="key54" phaseModKey="table22" pulseAlignmentModeKey="param15" shapeNameKey="param14" nameKey="key390" enabledKey="key391"/>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="txElement" offsetKey="key5" phaseKey="key63" shapePhaseKey="key66" attKey="key54" phaseModKey="table22" pulseAlignmentModeKey="param15" ampKey="key64" shapeKey="key65" shapeNameKey="param14" nameKey="key390" enabledKey="key391"/>
         </Entry>
     </elems>
     <params>
@@ -776,6 +776,23 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>4</maxValue>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>param1</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>FIR_coef</name>
+                <uuid>e25abb6b-f47e-4583-bdcb-8b62b84030f7</uuid>
+                <value>0</value>
+                <defaultValue>0</defaultValue>
+                <displayedName>FIR_coef</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <numberEnum>Integer</numberEnum>
+                <minValue>0</minValue>
+                <maxValue>15</maxValue>
             </value>
         </Entry>
         <Entry>
@@ -1620,7 +1637,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
                 <uuid>4d8fedbf-a67d-4190-978f-cf061ccceffa</uuid>
-                <value>6.38067934119089E7</value>
+                <value>6.6E7</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -5348,23 +5365,6 @@
         </Entry>
         <Entry>
             <count>1</count>
-            <key>key302</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>FIR coef</name>
-                <uuid>72019dad-2531-4bec-b644-cdd5853350ee</uuid>
-                <value>0</value>
-                <defaultValue>0</defaultValue>
-                <displayedName>FIR coef</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Integer</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>15</maxValue>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
             <key>key303</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>Ext_trig_source</name>
@@ -7126,7 +7126,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>80.0</list>
+                <list>50.0</list>
             </value>
         </Entry>
         <Entry>
@@ -7157,7 +7157,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>349c5bf3-c4f9-4996-9a76-bcb470f1532d</uuid>
+                        <uuid>0fa694d4-9f5e-457c-a34d-fbf12f393a23</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -7171,7 +7171,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>9eb4450a-751e-443c-8d1a-907f24e55a80</uuid>
+                        <uuid>9b99bcd5-d1c7-4cd1-9a3e-39603b18284e</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -7185,7 +7185,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>8dab9935-61dd-4dd3-80ec-c1ddc4a8a7ec</uuid>
+                        <uuid>d92858fe-0302-401d-8449-c264c35071a3</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -7199,7 +7199,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>700602c0-bb0a-4a08-9c71-abf1202f6fb1</uuid>
+                        <uuid>83a7f49a-6d29-4f06-a64a-e786aceeff4b</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>
@@ -7621,7 +7621,7 @@
                 <group>Reception</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>9.0</list>
+                <list>9</list>
             </value>
         </Entry>
         <Entry>

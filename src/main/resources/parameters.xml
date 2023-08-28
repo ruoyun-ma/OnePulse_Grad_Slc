@@ -157,7 +157,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>BASE_FREQ_1</name>
                 <uuid>bdb638b1-d07c-4cd7-8720-40b53133ab4f</uuid>
-                <value>6.38067934119089E7</value>
+                <value>6.6E7</value>
                 <defaultValue>1.27194553E8</defaultValue>
                 <description>Info: Frequency of the observed nucleus</description>
                 <displayedName>Base Frequency 1</displayedName>
@@ -318,8 +318,8 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>DIGITAL_FILTER_SHIFT</name>
                 <uuid>484dce7e-4f45-4722-bd3e-50f7b134c76d</uuid>
-                <value>19</value>
-                <defaultValue>19</defaultValue>
+                <value>0</value>
+                <defaultValue>0</defaultValue>
                 <description>Data shift due to the digital filter</description>
                 <displayedName>DIGITAL_FILTER_SHIFT</displayedName>
                 <locked>true</locked>
@@ -413,7 +413,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>FLIP_ANGLE</name>
                 <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                <value>92.0</value>
+                <value>57.0</value>
                 <defaultValue>30.0</defaultValue>
                 <description>Excitation flip angle</description>
                 <displayedName>Flip Angle</displayedName>
@@ -1277,7 +1277,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>OBSERVED_FREQUENCY</name>
                 <uuid>d93d76ff-b4cc-42bd-aa43-dfa44cc9e28d</uuid>
-                <value>6.38067934119089E7</value>
+                <value>6.6E7</value>
                 <defaultValue>6.3E7</defaultValue>
                 <description>Info: Frequency of the acquisition</description>
                 <displayedName>Observed Frequency</displayedName>
@@ -1649,7 +1649,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>RECEIVER_COUNT</name>
                 <uuid>2e92822f-2cc5-4e74-88c2-a4162ab7634a</uuid>
-                <value>2</value>
+                <value>1</value>
                 <defaultValue>1</defaultValue>
                 <description>Info: Number of reception channels</description>
                 <displayedName>No. Receivers</displayedName>
@@ -1739,7 +1739,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_VERSION</name>
                 <uuid>fce8797d-e7c2-4278-9c47-28d0beef10ad</uuid>
-                <value>Version8.6</value>
+                <value>Version8.7</value>
                 <defaultValue></defaultValue>
                 <description>Info: Sequence version</description>
                 <displayedName>Sequence Version</displayedName>
@@ -2055,7 +2055,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_AMP</name>
                 <uuid>4e381691-8b2a-4b50-96c4-76206b85baae</uuid>
-                <value>80.0</value>
+                <value>50.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Amplitude of the excitation RF pulse</description>
                 <displayedName>TX Amplitude</displayedName>
@@ -2093,7 +2093,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_GAMMA_B1</name>
                 <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                <value>577.0</value>
+                <value>357.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the power in gamma B1 unit</description>
                 <displayedName>TX Gamma B1</displayedName>
@@ -2187,7 +2187,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_NUTATION_AMP_VALUES</name>
                 <uuid>fba9b2cf-1637-47f4-bff4-0847566f0c01</uuid>
-                <value>80.0</value>
+                <value>50.0</value>
                 <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                 <displayedName>Nutation Amp List</displayedName>
                 <locked>false</locked>
@@ -2296,7 +2296,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_NUTATION_VOLT_VALUES</name>
                 <uuid>809919bb-ef5a-4eca-a3ea-d16e47575d1f</uuid>
-                <value>3.265</value>
+                <value>2.021</value>
                 <description>Info: Values of the TX voltage sampling points of the nutation curve</description>
                 <displayedName>Nutation Voltage List</displayedName>
                 <locked>false</locked>
@@ -2332,7 +2332,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_POWER</name>
                 <uuid>e35ca420-08f7-426c-a521-7bd92b7994b1</uuid>
-                <value>0.02665</value>
+                <value>0.01021</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the pulse power amplitude that corresponds to Tx Amplitude and Attenuation</description>
                 <displayedName>TX Power</displayedName>
@@ -2405,7 +2405,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_VOLTAGE</name>
                 <uuid>a853cdcd-a18e-4b8d-b8c8-fb29d9d51267</uuid>
-                <value>3.265</value>
+                <value>2.021</value>
                 <defaultValue>0.0</defaultValue>
                 <description>RF voltage amplitude peak-to-peak</description>
                 <displayedName>TX Voltage</displayedName>
