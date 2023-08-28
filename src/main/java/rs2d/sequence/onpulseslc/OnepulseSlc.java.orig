@@ -8,6 +8,8 @@ package rs2d.sequence.onpulseslc;
 
 import rs2d.commons.log.Log;
 
+import java.util.*;
+
 import rs2d.sequence.common.*;
 import rs2d.spinlab.api.Hardware;
 import rs2d.spinlab.api.PowerComputation;
@@ -22,7 +24,6 @@ import rs2d.spinlab.tools.param.*;
 import rs2d.spinlab.tools.table.Order;
 import rs2d.spinlab.tools.utility.Nucleus;
 
-import java.util.*;
 import static java.util.Arrays.asList;
 
 import static rs2d.sequence.onpulseslc.S.*;
@@ -893,6 +894,10 @@ public class OnepulseSlc extends BaseSequenceGenerator {
     }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89615ba2432364a38680d66d5d62a4e8cb2d5fbc
     //<editor-fold defaultstate="collapsed" desc="Generated Code (RS2D)">
     protected void addUserParams() {
         addMissingUserParams(U.values());
