@@ -4,7 +4,7 @@
 //  
 // ---------------------------------------------------------------------
 
-package rs2d.sequence.onpulseslc;
+package rs2d.sequence.onpulsegradslc;
 
 import rs2d.commons.log.Log;
 
@@ -25,11 +25,11 @@ import rs2d.spinlab.tools.utility.Nucleus;
 import java.util.*;
 import static java.util.Arrays.asList;
 
-import static rs2d.sequence.onpulseslc.S.*;
-import static rs2d.sequence.onpulseslc.U.*;
+import static rs2d.sequence.onpulsegradslc.S.*;
+import static rs2d.sequence.onpulsegradslc.U.*;
 
 
-public class OnepulseSlc extends BaseSequenceGenerator {
+public class OnepulseGradSlc extends BaseSequenceGenerator {
 
     private final String sequenceVersion = "Version8.7";
     public double protonFrequency;
@@ -94,7 +94,7 @@ public class OnepulseSlc extends BaseSequenceGenerator {
     private final double txLengthMinResolution = 128 * Math.pow(10, -9);
 
 
-    public OnepulseSlc() {
+    public OnepulseGradSlc() {
         addUserParams();
     }
 

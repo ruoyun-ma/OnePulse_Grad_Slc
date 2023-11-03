@@ -1,6 +1,6 @@
 //-- generated code, will be overwritten at each recompilation
 
-package rs2d.sequence.onpulseslc;
+package rs2d.sequence.onpulsegradslc;
 
 import rs2d.spinlab.tools.param.*;
 import rs2d.spinlab.tools.table.*;

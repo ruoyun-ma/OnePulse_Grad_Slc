@@ -1,4 +1,4 @@
-package rs2d.sequence.onpulseslc;
+package rs2d.sequence.onpulsegradslc;
 
 
 import rs2d.spinlab.sequence.Sequence;
