@@ -900,7 +900,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     }
 
     public String getName() {
-        return "OnePulse_Slc";
+        return "OnePulse_Grad_Slc";
     }
 
     public String getVersion() {

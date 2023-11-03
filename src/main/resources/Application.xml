@@ -172,7 +172,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>BASE_FREQ_1</name>
                     <uuid>bdb638b1-d07c-4cd7-8720-40b53133ab4f</uuid>
-                    <value>6.6E7</value>
+                    <value>1.27998998E8</value>
                     <defaultValue>1.27194553E8</defaultValue>
                     <description>Info: Frequency of the observed nucleus</description>
                     <displayedName>Base Frequency 1</displayedName>
@@ -333,8 +333,8 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>DIGITAL_FILTER_SHIFT</name>
                     <uuid>484dce7e-4f45-4722-bd3e-50f7b134c76d</uuid>
-                    <value>0</value>
-                    <defaultValue>0</defaultValue>
+                    <value>20</value>
+                    <defaultValue>20</defaultValue>
                     <description>Data shift due to the digital filter</description>
                     <displayedName>DIGITAL_FILTER_SHIFT</displayedName>
                     <locked>true</locked>
@@ -428,7 +428,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>FLIP_ANGLE</name>
                     <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                    <value>57.0</value>
+                    <value>3.0</value>
                     <defaultValue>30.0</defaultValue>
                     <description>Excitation flip angle</description>
                     <displayedName>Flip Angle</displayedName>
@@ -465,7 +465,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>GRADIENT_RISE_TIME</name>
                     <uuid>2a02a20c-ffc0-4b25-9700-338b38920822</uuid>
-                    <value>1.5E-4</value>
+                    <value>2.5E-4</value>
                     <defaultValue>9.999999999999999E-5</defaultValue>
                     <description>Rise time of the gradient</description>
                     <displayedName>Gradient Rise Time</displayedName>
@@ -564,8 +564,8 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>INTERMEDIATE_FREQUENCY</name>
                     <uuid>9fc49f7f-88e3-418f-b2af-b15f962189a7</uuid>
-                    <value>1.25E7</value>
-                    <defaultValue>1.25E7</defaultValue>
+                    <value>1.253E7</value>
+                    <defaultValue>1.253E7</defaultValue>
                     <description>Info: Frequency from the Hardware used for the signal demodulation (ADC optimal frequency)</description>
                     <displayedName>INTERMEDIATE_FREQUENCY</displayedName>
                     <locked>true</locked>
@@ -606,7 +606,7 @@
                     <name>MAGNETIC_FIELD_STRENGTH</name>
                     <uuid>ce975cb0-8385-4877-98c9-09a8a853c03c</uuid>
                     <value>5</value>
-                    <defaultValue>1</defaultValue>
+                    <defaultValue>3</defaultValue>
                     <description>Info: Magnetic field stength from the hardware</description>
                     <displayedName>B0 Strength</displayedName>
                     <locked>true</locked>
@@ -1292,7 +1292,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>OBSERVED_FREQUENCY</name>
                     <uuid>d93d76ff-b4cc-42bd-aa43-dfa44cc9e28d</uuid>
-                    <value>6.6E7</value>
+                    <value>1.27998998E8</value>
                     <defaultValue>6.3E7</defaultValue>
                     <description>Info: Frequency of the acquisition</description>
                     <displayedName>Observed Frequency</displayedName>
@@ -1722,7 +1722,7 @@
                     <name>SEQUENCE_NAME</name>
                     <uuid>28260898-d184-42f0-bf00-dd522235fd85</uuid>
                     <value>OnePulse_Slc</value>
-                    <defaultValue>OnePulse_Slc</defaultValue>
+                    <defaultValue>OnePulse_Grad_Slc</defaultValue>
                     <description>Info: Name of the sequence</description>
                     <displayedName>Sequence Name</displayedName>
                     <locked>true</locked>
@@ -1915,9 +1915,11 @@
                     <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
+                    <suggestedValues>Accumulate1D2D</suggestedValues>
                     <suggestedValues>Bordered2D</suggestedValues>
                     <suggestedValues>Centered2D</suggestedValues>
                     <suggestedValues>Centered2DRot</suggestedValues>
+                    <suggestedValues>EchoAntiechoTransform</suggestedValues>
                     <suggestedValues>Elliptical3D</suggestedValues>
                     <suggestedValues>FSE_TRAIN_1D</suggestedValues>
                     <suggestedValues>SEEPISequential</suggestedValues>
@@ -2108,7 +2110,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_GAMMA_B1</name>
                     <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                    <value>357.0</value>
+                    <value>21.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the power in gamma B1 unit</description>
                     <displayedName>TX Gamma B1</displayedName>
@@ -2311,7 +2313,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_NUTATION_VOLT_VALUES</name>
                     <uuid>809919bb-ef5a-4eca-a3ea-d16e47575d1f</uuid>
-                    <value>2.021</value>
+                    <value>1.449</value>
                     <description>Info: Values of the TX voltage sampling points of the nutation curve</description>
                     <displayedName>Nutation Voltage List</displayedName>
                     <locked>false</locked>
@@ -2347,7 +2349,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_POWER</name>
                     <uuid>e35ca420-08f7-426c-a521-7bd92b7994b1</uuid>
-                    <value>0.01021</value>
+                    <value>0.00525</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the pulse power amplitude that corresponds to Tx Amplitude and Attenuation</description>
                     <displayedName>TX Power</displayedName>
@@ -2420,7 +2422,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_VOLTAGE</name>
                     <uuid>a853cdcd-a18e-4b8d-b8c8-fb29d9d51267</uuid>
-                    <value>2.021</value>
+                    <value>1.449</value>
                     <defaultValue>0.0</defaultValue>
                     <description>RF voltage amplitude peak-to-peak</description>
                     <displayedName>TX Voltage</displayedName>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sequenceIO>
-    <sequence rxGainTableKey="table18" ifFreqKey="key0" accuDimKey="key1" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firCoefSelectedKey="param1" updateDimensionKey="key359" acqTimeModeKey="param7" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
+    <sequence rxGainTableKey="table18" ifFreqKey="key0" accuDimKey="key1" extTrigModeKey="key304" extTrigSourceKey="key303" dummyScanKey="key29" preScanKey="key11" firBypassKey="param0" updateDimensionKey="key359" acqTimeModeKey="param7" gradRotPhiKey="key30" gradRotThetaKey="key31" gradRotPsiKey="key32">
         <acquChannel swKey="key43" nameKey="key42">
             <keyList></keyList>
             <keyList></keyList>
@@ -748,7 +748,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Intermediate_frequency</name>
                 <uuid>ff3fb66c-1d09-4ac6-9be8-a5051554f190</uuid>
-                <value>1.25E7</value>
+                <value>1.253E7</value>
                 <defaultValue>1.0</defaultValue>
                 <displayedName>IF</displayedName>
                 <locked>true</locked>
@@ -758,6 +758,20 @@
                 <minValue>0.0</minValue>
                 <maxValue>3.0E9</maxValue>
                 <group>Reception</group>
+            </value>
+        </Entry>
+        <Entry>
+            <count>1</count>
+            <key>param0</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>FIR_bypass</name>
+                <uuid>feb0da2e-6c7e-4bca-9b6b-6c6be9e8a5d6</uuid>
+                <value>false</value>
+                <defaultValue>false</defaultValue>
+                <description>Bypass FIR filter</description>
+                <displayedName>FIR_bypass</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
             </value>
         </Entry>
         <Entry>
@@ -776,23 +790,6 @@
                 <numberEnum>Integer</numberEnum>
                 <minValue>0</minValue>
                 <maxValue>4</maxValue>
-            </value>
-        </Entry>
-        <Entry>
-            <count>1</count>
-            <key>param1</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                <name>FIR_coef</name>
-                <uuid>e25abb6b-f47e-4583-bdcb-8b62b84030f7</uuid>
-                <value>0</value>
-                <defaultValue>0</defaultValue>
-                <displayedName>FIR_coef</displayedName>
-                <locked>false</locked>
-                <lockedToDefault>false</lockedToDefault>
-                <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Integer</numberEnum>
-                <minValue>0</minValue>
-                <maxValue>15</maxValue>
             </value>
         </Entry>
         <Entry>
@@ -1017,7 +1014,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>LO_att</name>
                 <uuid>5798fabf-89b5-4607-b9e5-d64736b07744</uuid>
-                <value>22</value>
+                <value>20</value>
                 <defaultValue>0</defaultValue>
                 <displayedName>LO_att</displayedName>
                 <locked>false</locked>
@@ -1637,7 +1634,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_frequency</name>
                 <uuid>4d8fedbf-a67d-4190-978f-cf061ccceffa</uuid>
-                <value>6.6E7</value>
+                <value>1.27998998E8</value>
                 <defaultValue>6.35E7</defaultValue>
                 <displayedName>Frequency0</displayedName>
                 <locked>true</locked>
@@ -6870,7 +6867,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.28968068000000013</list>
+                <list>0.28971568000000014</list>
             </value>
         </Entry>
         <Entry>
@@ -7157,7 +7154,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>0fa694d4-9f5e-457c-a34d-fbf12f393a23</uuid>
+                        <uuid>3aca57ef-6c6d-4aee-b040-5fee137c4452</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -7171,7 +7168,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>9b99bcd5-d1c7-4cd1-9a3e-39603b18284e</uuid>
+                        <uuid>be5f895d-960d-46bd-becb-ce91825805d7</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -7185,7 +7182,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>d92858fe-0302-401d-8449-c264c35071a3</uuid>
+                        <uuid>ddad3741-a39f-4e1b-8990-4b67069cfe8c</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -7199,7 +7196,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>83a7f49a-6d29-4f06-a64a-e786aceeff4b</uuid>
+                        <uuid>9cbbe906-6aa3-4896-9aba-be5457a25f9a</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>
@@ -8284,7 +8281,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>4.0E-5</list>
+                <list>5.0E-6</list>
             </value>
         </Entry>
         <Entry>
