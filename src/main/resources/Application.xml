@@ -284,7 +284,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_LENGTH_1</name>
                     <uuid>0d5d2745-3b99-4dfc-a3ce-bae6be84410a</uuid>
-                    <value>0.002</value>
+                    <value>0.08</value>
                     <defaultValue>4.9999999999999996E-6</defaultValue>
                     <description></description>
                     <displayedName>Calib Grad Lenth 1</displayedName>
@@ -338,7 +338,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_NB_POINT</name>
                     <uuid>48218235-a8bf-4aea-a817-ab50c2ee15d9</uuid>
-                    <value>5000</value>
+                    <value>10240</value>
                     <defaultValue>0</defaultValue>
                     <description></description>
                     <displayedName>Calib Grad Nb Point</displayedName>
@@ -356,7 +356,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>CALIB_GRAD_SHAPE</name>
                     <uuid>c56290d2-41c2-4400-a91b-86cce3656591</uuid>
-                    <value>Trapezoid</value>
+                    <value>Chirp</value>
                     <defaultValue>Trapezoid</defaultValue>
                     <description>Shape of calibration gradient</description>
                     <displayedName>Calibration Grad Shape</displayedName>
@@ -376,7 +376,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_SLEW_RATE_FACTOR</name>
                     <uuid>59337e01-133c-42db-b807-45f4fdc40349</uuid>
-                    <value>50.0</value>
+                    <value>20.0</value>
                     <defaultValue>50.0</defaultValue>
                     <description></description>
                     <displayedName>Calib Grad Slew Rate Factor</displayedName>
@@ -1930,7 +1930,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SLEW_RATE_MAX_SHAPE</name>
                     <uuid>1ea58ec9-b34b-4b07-ac06-e3e0eff59427</uuid>
-                    <value>290.09965109696566</value>
+                    <value>116.21</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Maximum shape slew rate (T/m/s)</description>
                     <displayedName>Slew Rate Max Shape</displayedName>
@@ -1948,7 +1948,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SLEW_RATE_MAX_SYSTEM</name>
                     <uuid>022cdd9a-5f69-4637-8266-6648a702ab6c</uuid>
-                    <value>290.099651096966</value>
+                    <value>116.04</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Maximum system slew rate (T/m/s)</description>
                     <displayedName>Slew Rate Max System</displayedName>

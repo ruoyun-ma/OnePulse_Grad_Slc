@@ -43,7 +43,10 @@ public class ShapeGradient {
     private double maxSlewRateSystem = Double.NaN;
 
     private double gradObjectLength = Double.NaN;
+    private double gradFreq = 78.125 * 11 / (35 * 128) * 1000000;
+    private double gradFreq11 = 78.125 / (35 * 128) * 1000000;
 
+    private boolean isGradClockGrad;
 
     private static double gMax = Math.abs(GradientMath.getMaxGradientStrength());
     Nucleus nucleus = Nucleus.H1;
@@ -224,12 +227,12 @@ public class ShapeGradient {
             case "Trapezoid":
                 buildTrapezoidTable(shape1, shape2, shape3, 100, nbPoints, this.timeTable1.get(0).doubleValue(),
                         this.timeTable2.get(0).doubleValue(), this.timeTable3.get(0).doubleValue());
-                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1,0, this.amplitude), getMaxSlewRateShape(shape3,this.amplitude, 0));
+                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1,0, 100), getMaxSlewRateShape(shape3, 100.0, 0));
                 break;
             case "Triangle":
                 buildTriangleTable(shape1, shape2, 100, nbPoints, this.timeTable1.get(0).doubleValue(),
                         this.timeTable2.get(0).doubleValue());
-                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1,0, this.amplitude), getMaxSlewRateShape(shape2,this.amplitude, 0));
+                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1,0, 100), getMaxSlewRateShape(shape2, 100.0, 0));
                 break;
         }
         nullUnusedTables();
@@ -244,11 +247,11 @@ public class ShapeGradient {
                 maxSlewRateShape = getMaxSlewRateShape(shape1, 0, shape1.get(shape1.size()-1).doubleValue());
                 break;
            case "Triangle":
-                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1, 0, this.amplitude), getMaxSlewRateShape(shape2, this.amplitude, 0));
+                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1, 0, 100), getMaxSlewRateShape(shape2, 100, 0));
                 break;
             case "Trapezoid":
             default:
-                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1, 0, this.amplitude), getMaxSlewRateShape(shape3, this.amplitude, 0));
+                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1, 0, 100), getMaxSlewRateShape(shape3, 100, 0));
                 break;
 
         }
@@ -334,6 +337,8 @@ public class ShapeGradient {
     private void buildChirpTable(Table table, double freqStart, double freqEnd, int nbPoints, double amp){
         table.clear();
         double t;
+        System.out.println("freqStart = " + freqStart);
+        System.out.println("freqEnd = " + freqEnd);
         for (int i = 0; i < nbPoints; i++){
             t = (double)i * this.gradLength/ nbPoints;
             table.add(Math.sin(2 * Math.PI * (freqStart * t + (freqEnd - freqStart) * t * t / gradLength/2 )) * amp);
@@ -383,12 +388,17 @@ public class ShapeGradient {
 
     private double getMaxSlewRateShape(Table shape, double ampStart, double ampEnd){
         List<Double> slewRateList = new ArrayList<>();
+        System.out.println("ampStart = " + ampStart);
+        System.out.println("firstPoint = " + shape.get(0).doubleValue());
+        System.out.println("lastPoint = " + shape.get(shape.size()-1).doubleValue());
+        System.out.println("ampEnd = " + ampEnd);
         slewRateList.add(this.amplitude * Math.abs(shape.get(0).doubleValue() - ampStart) /10000.0);
         for (int i = 0; i < shape.size() - 1; i++){
             slewRateList.add(this.amplitude * Math.abs(shape.get(i+1).doubleValue() - shape.get(i).doubleValue())/10000.0);
         }
         slewRateList.add(this.amplitude * Math.abs(ampEnd - shape.get(shape.size() -1).doubleValue())/10000.0);
         System.out.println("maxSlewRateShape = " + Collections.max(slewRateList) * gMax / (this.gradLength / nbPoints));
+        System.out.println("dwell time = " + this.gradLength/nbPoints);
         return Collections.max(slewRateList) * gMax / (this.gradLength / nbPoints);
     }
 

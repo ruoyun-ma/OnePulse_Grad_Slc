@@ -276,7 +276,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(4.9999999999999996E-6);
             param.setMaxValue(1.0E9);
-            param.setValue(0.002);
+            param.setValue(0.08);
             param.setDefaultValue(4.9999999999999996E-6);
             return param;
         }
@@ -327,7 +327,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Integer);
             param.setMinValue(0);
             param.setMaxValue(2147483647);
-            param.setValue(5000);
+            param.setValue(10240);
             param.setDefaultValue(0);
             return param;
         }
@@ -341,7 +341,7 @@ public enum U implements GeneratorParamEnum {
             param.setDescription("Shape of calibration gradient");
             param.setCategory(Category.Acquisition);
             param.setUuid("c56290d2-41c2-4400-a91b-86cce3656591");
-            param.setValue("Trapezoid");
+            param.setValue("Chirp");
             param.setDefaultValue("Trapezoid");
             param.setSuggestedValues(asList("Gaussian", "Trapezoid", "Triangle", "Chirp", "Sinc"));
             param.setRestrictedToSuggested(true);
@@ -360,7 +360,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.PERCENT);
             param.setMinValue(0.0);
             param.setMaxValue(100.0);
-            param.setValue(50.0);
+            param.setValue(20.0);
             param.setDefaultValue(50.0);
             return param;
         }
@@ -1379,7 +1379,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Double);
             param.setMinValue(0.0);
             param.setMaxValue(1.7976931348623157E308);
-            param.setValue(290.09965109696566);
+            param.setValue(116.21);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1396,7 +1396,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Double);
             param.setMinValue(0.0);
             param.setMaxValue(1.7976931348623157E308);
-            param.setValue(290.099651096966);
+            param.setValue(116.04);
             param.setDefaultValue(0.0);
             return param;
         }

@@ -671,22 +671,23 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         double gradLength3 = getDouble(CALIB_GRAD_LENGTH_3);
         double chirpStart = 10;
         double chirpEnd = 10000;
+        int nbPointsGrad = getInt(CALIB_GRAD_NB_POINT);
         //double
         if (shapeName.equalsIgnoreCase("sinc")){
-            shapeGradient.initSinc(calibGradAmp, 256, gradLength1);
+            shapeGradient.initSinc(calibGradAmp, nbPointsGrad, gradLength1);
         } else if (shapeName.equalsIgnoreCase("gaussian")) {
-            shapeGradient.initGauss(calibGradAmp, 256, gradLength1);
+            shapeGradient.initGauss(calibGradAmp, nbPointsGrad, gradLength1);
         } else if (shapeName.equalsIgnoreCase("chirp")) {
-            shapeGradient.initChirp(calibGradAmp,256, gradLength1, chirpStart, chirpEnd);
+            shapeGradient.initChirp(calibGradAmp,nbPointsGrad, gradLength1, chirpStart, chirpEnd);
             System.out.println("gradlength = " + gradLength1);
         } else if (shapeName.equalsIgnoreCase("trapezoid")) {
-            shapeGradient.initTrapezoid(calibGradAmp, 256, gradLength1, gradLength2, gradLength3);
+            shapeGradient.initTrapezoid(calibGradAmp, nbPointsGrad, gradLength1, gradLength2, gradLength3);
         } else if (shapeName.equalsIgnoreCase("triangle")) {
-            shapeGradient.initTriangle(calibGradAmp, 256, gradLength1, gradLength2);
+            shapeGradient.initTriangle(calibGradAmp, nbPointsGrad, gradLength1, gradLength2);
         }
         shapeGradient.safetyCheck(getDouble(CALIB_GRAD_SLEW_RATE_FACTOR));
-        getParam(SLEW_RATE_MAX_SHAPE).setValue(shapeGradient.getMaxSlewRateShape());
-        getParam(SLEW_RATE_MAX_SYSTEM).setValue(shapeGradient.getMaxSlewRateSystem());
+        getParam(SLEW_RATE_MAX_SHAPE).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateShape(), 2));
+        getParam(SLEW_RATE_MAX_SYSTEM).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateSystem(), 2));
         shapeGradient.setAmplitudeTable();
 
         // calculate SLICE_refocusing
