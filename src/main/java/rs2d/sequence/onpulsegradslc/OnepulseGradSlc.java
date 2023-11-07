@@ -11,6 +11,7 @@ import rs2d.commons.log.Log;
 import rs2d.sequence.common.*;
 import rs2d.spinlab.api.Hardware;
 import rs2d.spinlab.api.PowerComputation;
+import rs2d.spinlab.instrument.Instrument;
 import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.sequence.SequenceTool;
 import rs2d.spinlab.sequence.element.TimeElement;
@@ -380,11 +381,13 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // -----------------------------------------------
         set(enabled_slice, isMultiplanar);
         set(enabled_spoiler, GRADIENT_SPOILER_ACTIVATE);
+
         // -----------------------------------------------
         // calculate gradient equivalent rise time
         // -----------------------------------------------
         double grad_rise_time = getDouble(GRADIENT_RISE_TIME);
         double min_rise_time_factor = getDouble(MIN_RISE_TIME_FACTOR);
+
 
         double min_rise_time_sinus = GradientMath.getShortestRiseTime(100.0) * Math.PI / 2 * 100 / min_rise_time_factor;
 
@@ -656,6 +659,36 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         }
         gradSlice.applyAmplitude();
 
+        // ---------------------------------------------------------------------
+        // calculate calibration gradient
+        // ---------------------------------------------------------------------
+        String shapeName = getText(CALIB_GRAD_SHAPE);
+        ShapeGradient shapeGradient = ShapeGradient.createShapeGradient(getSequence(), shapeName, Grad_shape_amp_1, Grad_shape_amp_2, Grad_shape_amp_3, Grad_shape_1,
+                Grad_shape_2, Grad_shape_3, Time_shapegrad_1, Time_shapegrad_2, Time_shapegrad_3);
+        double calibGradAmp = getDouble(CALIB_GRAD_AMP);
+        double gradLength1 = getDouble(CALIB_GRAD_LENGTH_1);
+        double gradLength2 = getDouble(CALIB_GRAD_LENGTH_2);
+        double gradLength3 = getDouble(CALIB_GRAD_LENGTH_3);
+        double chirpStart = 10;
+        double chirpEnd = 10000;
+        //double
+        if (shapeName.equalsIgnoreCase("sinc")){
+            shapeGradient.initSinc(calibGradAmp, 256, gradLength1);
+        } else if (shapeName.equalsIgnoreCase("gaussian")) {
+            shapeGradient.initGauss(calibGradAmp, 256, gradLength1);
+        } else if (shapeName.equalsIgnoreCase("chirp")) {
+            shapeGradient.initChirp(calibGradAmp,256, gradLength1, chirpStart, chirpEnd);
+            System.out.println("gradlength = " + gradLength1);
+        } else if (shapeName.equalsIgnoreCase("trapezoid")) {
+            shapeGradient.initTrapezoid(calibGradAmp, 256, gradLength1, gradLength2, gradLength3);
+        } else if (shapeName.equalsIgnoreCase("triangle")) {
+            shapeGradient.initTriangle(calibGradAmp, 256, gradLength1, gradLength2);
+        }
+        shapeGradient.safetyCheck(getDouble(CALIB_GRAD_SLEW_RATE_FACTOR));
+        getParam(SLEW_RATE_MAX_SHAPE).setValue(shapeGradient.getMaxSlewRateShape());
+        getParam(SLEW_RATE_MAX_SYSTEM).setValue(shapeGradient.getMaxSlewRateSystem());
+        shapeGradient.setAmplitudeTable();
+
         // calculate SLICE_refocusing
         double grad_ref_application_time = getDouble(GRADIENT_REFOC_TIME);
         setSequenceTableSingleValue(Time_grad_ref, isMultiplanar ? grad_ref_application_time : minInstructionDelay);
@@ -668,7 +701,9 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // -----------------------------------------------
         // calculate ADC observation time
         // -----------------------------------------------
-        setSequenceTableSingleValue(Time_rx, observation_time);
+        double preDelay = getDouble(CALIB_DELAY_BEFORE_GRAD);
+        setSequenceTableSingleValue(Time_rx, preDelay);
+        setSequenceTableSingleValue(Time_rx_continue, observation_time - preDelay - shapeGradient.getGradObjectLength());
         set(Spectral_width, spectralWidth);
         set(LO_att, Hardware.getLoAttenuation());
 

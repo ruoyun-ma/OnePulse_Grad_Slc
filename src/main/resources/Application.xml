@@ -244,6 +244,152 @@
                 </value>
             </entry>
             <entry>
+                <key>CALIB_DELAY_BEFORE_GRAD</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_DELAY_BEFORE_GRAD</name>
+                    <uuid>e85ff0b9-f547-4c71-943b-b8595eee43de</uuid>
+                    <value>9.999999999999999E-6</value>
+                    <defaultValue>9.999999999999999E-6</defaultValue>
+                    <description></description>
+                    <displayedName>Calib Delay Before Grad</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Time</numberEnum>
+                    <minValue>4.9999999999999996E-6</minValue>
+                    <maxValue>1.0E9</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_AMP</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_AMP</name>
+                    <uuid>77cb2ee3-47cf-4a83-81e1-2d333423164b</uuid>
+                    <value>40.0</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description></description>
+                    <displayedName>Calib Grad Amplitude</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>GradAmp</numberEnum>
+                    <minValue>-100.0</minValue>
+                    <maxValue>100.0</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_LENGTH_1</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_LENGTH_1</name>
+                    <uuid>0d5d2745-3b99-4dfc-a3ce-bae6be84410a</uuid>
+                    <value>0.002</value>
+                    <defaultValue>4.9999999999999996E-6</defaultValue>
+                    <description></description>
+                    <displayedName>Calib Grad Lenth 1</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Time</numberEnum>
+                    <minValue>4.9999999999999996E-6</minValue>
+                    <maxValue>1.0E9</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_LENGTH_2</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_LENGTH_2</name>
+                    <uuid>e420bd14-e4f1-4282-936f-09c978e1517c</uuid>
+                    <value>0.003</value>
+                    <defaultValue>4.9999999999999996E-6</defaultValue>
+                    <description></description>
+                    <displayedName>Calib Grad Length 2</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Time</numberEnum>
+                    <minValue>4.9999999999999996E-6</minValue>
+                    <maxValue>1.0E9</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_LENGTH_3</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_LENGTH_3</name>
+                    <uuid>08cf61e2-8bbd-4e6f-84b2-e17d066138b3</uuid>
+                    <value>0.002</value>
+                    <defaultValue>4.9999999999999996E-6</defaultValue>
+                    <description></description>
+                    <displayedName>Calib Grad Length 3</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Time</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>1.0E9</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_NB_POINT</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_NB_POINT</name>
+                    <uuid>48218235-a8bf-4aea-a817-ab50c2ee15d9</uuid>
+                    <value>5000</value>
+                    <defaultValue>0</defaultValue>
+                    <description></description>
+                    <displayedName>Calib Grad Nb Point</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Integer</numberEnum>
+                    <minValue>0</minValue>
+                    <maxValue>2147483647</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_SHAPE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                    <name>CALIB_GRAD_SHAPE</name>
+                    <uuid>c56290d2-41c2-4400-a91b-86cce3656591</uuid>
+                    <value>Trapezoid</value>
+                    <defaultValue>Trapezoid</defaultValue>
+                    <description>Shape of calibration gradient</description>
+                    <displayedName>Calibration Grad Shape</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>true</restrictedToSuggested>
+                    <suggestedValues>Gaussian</suggestedValues>
+                    <suggestedValues>Trapezoid</suggestedValues>
+                    <suggestedValues>Triangle</suggestedValues>
+                    <suggestedValues>Chirp</suggestedValues>
+                    <suggestedValues>Sinc</suggestedValues>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_SLEW_RATE_FACTOR</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_SLEW_RATE_FACTOR</name>
+                    <uuid>59337e01-133c-42db-b807-45f4fdc40349</uuid>
+                    <value>50.0</value>
+                    <defaultValue>50.0</defaultValue>
+                    <description></description>
+                    <displayedName>Calib Grad Slew Rate Factor</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>PERCENT</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>100.0</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
                 <key>DATA_REPRESENTATION</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listTextParam">
                     <name>DATA_REPRESENTATION</name>
@@ -299,7 +445,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>DELAY_ECHO_TIME</name>
                     <uuid>6975b382-aa8f-424a-bee8-29e406cd9884</uuid>
-                    <value>7.999999999999988E-5</value>
+                    <value>1.0000000000000026E-5</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Extra time added before the signal reception (input if  'Use Dead Time' checked)</description>
                     <displayedName>Tx-Rx Dead Time</displayedName>
@@ -390,7 +536,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ECHO_TIME</name>
                     <uuid>cfd6e656-00a1-4b37-b20b-963156dc7444</uuid>
-                    <value>6.0E-4</value>
+                    <value>0.00146</value>
                     <defaultValue>0.005</defaultValue>
                     <description>Time between the middle of the excitation RF and the beginning of the reception  (input if 'Use Dead Time' unchecked)</description>
                     <displayedName>Tx-Rx Time</displayedName>
@@ -428,7 +574,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>FLIP_ANGLE</name>
                     <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                    <value>3.0</value>
+                    <value>2.0</value>
                     <defaultValue>30.0</defaultValue>
                     <description>Excitation flip angle</description>
                     <displayedName>Flip Angle</displayedName>
@@ -694,7 +840,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>MULTI_PLANAR_EXCITATION</name>
                     <uuid>ccf3eb9b-724f-49b3-bd21-98bd3824a13c</uuid>
-                    <value>false</value>
+                    <value>true</value>
                     <defaultValue>true</defaultValue>
                     <description>Enable to do slice slection during RF exitation</description>
                     <displayedName>Slice Excitation</displayedName>
@@ -1780,6 +1926,42 @@
                 </value>
             </entry>
             <entry>
+                <key>SLEW_RATE_MAX_SHAPE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>SLEW_RATE_MAX_SHAPE</name>
+                    <uuid>1ea58ec9-b34b-4b07-ac06-e3e0eff59427</uuid>
+                    <value>290.09965109696566</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description>Maximum shape slew rate (T/m/s)</description>
+                    <displayedName>Slew Rate Max Shape</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Double</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>SLEW_RATE_MAX_SYSTEM</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>SLEW_RATE_MAX_SYSTEM</name>
+                    <uuid>022cdd9a-5f69-4637-8266-6648a702ab6c</uuid>
+                    <value>290.099651096966</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description>Maximum system slew rate (T/m/s)</description>
+                    <displayedName>Slew Rate Max System</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Double</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>1.7976931348623157E308</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
                 <key>SLICE_THICKNESS</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SLICE_THICKNESS</name>
@@ -2110,7 +2292,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_GAMMA_B1</name>
                     <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                    <value>21.0</value>
+                    <value>13.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the power in gamma B1 unit</description>
                     <displayedName>TX Gamma B1</displayedName>

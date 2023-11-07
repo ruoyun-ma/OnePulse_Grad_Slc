@@ -231,6 +231,141 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
+    CALIB_DELAY_BEFORE_GRAD("CALIB_DELAY_BEFORE_GRAD") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("CALIB_DELAY_BEFORE_GRAD");
+            param.setDisplayedName("Calib Delay Before Grad");
+            param.setDescription("");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("e85ff0b9-f547-4c71-943b-b8595eee43de");
+            param.setNumberEnum(NumberEnum.Time);
+            param.setMinValue(4.9999999999999996E-6);
+            param.setMaxValue(1.0E9);
+            param.setValue(9.999999999999999E-6);
+            param.setDefaultValue(9.999999999999999E-6);
+            return param;
+        }
+    },
+
+    CALIB_GRAD_AMP("CALIB_GRAD_AMP") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("CALIB_GRAD_AMP");
+            param.setDisplayedName("Calib Grad Amplitude");
+            param.setDescription("");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("77cb2ee3-47cf-4a83-81e1-2d333423164b");
+            param.setNumberEnum(NumberEnum.GradAmp);
+            param.setMinValue(-100.0);
+            param.setMaxValue(100.0);
+            param.setValue(40.0);
+            param.setDefaultValue(0.0);
+            return param;
+        }
+    },
+
+    CALIB_GRAD_LENGTH_1("CALIB_GRAD_LENGTH_1") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("CALIB_GRAD_LENGTH_1");
+            param.setDisplayedName("Calib Grad Lenth 1");
+            param.setDescription("");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("0d5d2745-3b99-4dfc-a3ce-bae6be84410a");
+            param.setNumberEnum(NumberEnum.Time);
+            param.setMinValue(4.9999999999999996E-6);
+            param.setMaxValue(1.0E9);
+            param.setValue(0.002);
+            param.setDefaultValue(4.9999999999999996E-6);
+            return param;
+        }
+    },
+
+    CALIB_GRAD_LENGTH_2("CALIB_GRAD_LENGTH_2") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("CALIB_GRAD_LENGTH_2");
+            param.setDisplayedName("Calib Grad Length 2");
+            param.setDescription("");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("e420bd14-e4f1-4282-936f-09c978e1517c");
+            param.setNumberEnum(NumberEnum.Time);
+            param.setMinValue(4.9999999999999996E-6);
+            param.setMaxValue(1.0E9);
+            param.setValue(0.003);
+            param.setDefaultValue(4.9999999999999996E-6);
+            return param;
+        }
+    },
+
+    CALIB_GRAD_LENGTH_3("CALIB_GRAD_LENGTH_3") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("CALIB_GRAD_LENGTH_3");
+            param.setDisplayedName("Calib Grad Length 3");
+            param.setDescription("");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("08cf61e2-8bbd-4e6f-84b2-e17d066138b3");
+            param.setNumberEnum(NumberEnum.Time);
+            param.setMinValue(0.0);
+            param.setMaxValue(1.0E9);
+            param.setValue(0.002);
+            param.setDefaultValue(4.9999999999999996E-6);
+            return param;
+        }
+    },
+
+    CALIB_GRAD_NB_POINT("CALIB_GRAD_NB_POINT") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("CALIB_GRAD_NB_POINT");
+            param.setDisplayedName("Calib Grad Nb Point");
+            param.setDescription("");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("48218235-a8bf-4aea-a817-ab50c2ee15d9");
+            param.setNumberEnum(NumberEnum.Integer);
+            param.setMinValue(0);
+            param.setMaxValue(2147483647);
+            param.setValue(5000);
+            param.setDefaultValue(0);
+            return param;
+        }
+    },
+
+    CALIB_GRAD_SHAPE("CALIB_GRAD_SHAPE") {
+        public Param build() {
+            TextParam param = new TextParam();
+            param.setName("CALIB_GRAD_SHAPE");
+            param.setDisplayedName("Calibration Grad Shape");
+            param.setDescription("Shape of calibration gradient");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("c56290d2-41c2-4400-a91b-86cce3656591");
+            param.setValue("Trapezoid");
+            param.setDefaultValue("Trapezoid");
+            param.setSuggestedValues(asList("Gaussian", "Trapezoid", "Triangle", "Chirp", "Sinc"));
+            param.setRestrictedToSuggested(true);
+            return param;
+        }
+    },
+
+    CALIB_GRAD_SLEW_RATE_FACTOR("CALIB_GRAD_SLEW_RATE_FACTOR") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("CALIB_GRAD_SLEW_RATE_FACTOR");
+            param.setDisplayedName("Calib Grad Slew Rate Factor");
+            param.setDescription("");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("59337e01-133c-42db-b807-45f4fdc40349");
+            param.setNumberEnum(NumberEnum.PERCENT);
+            param.setMinValue(0.0);
+            param.setMaxValue(100.0);
+            param.setValue(50.0);
+            param.setDefaultValue(50.0);
+            return param;
+        }
+    },
+
     DATA_REPRESENTATION("DATA_REPRESENTATION") {
         public Param build() {
             ListTextParam param = new ListTextParam();
@@ -289,7 +424,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(7.999999999999988E-5);
+            param.setValue(1.0000000000000026E-5);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -382,7 +517,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(6.0E-4);
+            param.setValue(0.00146);
             param.setDefaultValue(0.005);
             return param;
         }
@@ -419,7 +554,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.PulseAngle);
             param.setMinValue(0.0);
             param.setMaxValue(1.7976931348623157E308);
-            param.setValue(3.0);
+            param.setValue(2.0);
             param.setDefaultValue(30.0);
             return param;
         }
@@ -663,7 +798,7 @@ public enum U implements GeneratorParamEnum {
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setUuid("ccf3eb9b-724f-49b3-bd21-98bd3824a13c");
-            param.setValue(false);
+            param.setValue(true);
             param.setDefaultValue(true);
             return param;
         }
@@ -1233,6 +1368,40 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
+    SLEW_RATE_MAX_SHAPE("SLEW_RATE_MAX_SHAPE") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("SLEW_RATE_MAX_SHAPE");
+            param.setDisplayedName("Slew Rate Max Shape");
+            param.setDescription("Maximum shape slew rate (T/m/s)");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("1ea58ec9-b34b-4b07-ac06-e3e0eff59427");
+            param.setNumberEnum(NumberEnum.Double);
+            param.setMinValue(0.0);
+            param.setMaxValue(1.7976931348623157E308);
+            param.setValue(290.09965109696566);
+            param.setDefaultValue(0.0);
+            return param;
+        }
+    },
+
+    SLEW_RATE_MAX_SYSTEM("SLEW_RATE_MAX_SYSTEM") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("SLEW_RATE_MAX_SYSTEM");
+            param.setDisplayedName("Slew Rate Max System");
+            param.setDescription("Maximum system slew rate (T/m/s)");
+            param.setCategory(Category.Acquisition);
+            param.setUuid("022cdd9a-5f69-4637-8266-6648a702ab6c");
+            param.setNumberEnum(NumberEnum.Double);
+            param.setMinValue(0.0);
+            param.setMaxValue(1.7976931348623157E308);
+            param.setValue(290.099651096966);
+            param.setDefaultValue(0.0);
+            return param;
+        }
+    },
+
     SLICE_THICKNESS("SLICE_THICKNESS") {
         public Param build() {
             NumberParam param = new NumberParam();
@@ -1546,7 +1715,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.RfPower);
             param.setMinValue(0.0);
             param.setMaxValue(250000.0);
-            param.setValue(21.0);
+            param.setValue(13.0);
             param.setDefaultValue(0.0);
             return param;
         }

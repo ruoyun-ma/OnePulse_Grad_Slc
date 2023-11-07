@@ -5,6 +5,9 @@ package rs2d.sequence.onpulsegradslc;
 import rs2d.spinlab.sequenceGenerator.GeneratorSequenceParamEnum;
 
 public enum S implements GeneratorSequenceParamEnum {
+    Enable_shape_grad_1("Enable_shape_grad_1"),
+    Enable_shape_grad_2("Enable_shape_grad_2"),
+    Enable_shape_grad_3("Enable_shape_grad_3"),
     enabled_slice("enabled_slice"),
     enabled_spoiler("enabled_spoiler"),
     Ext_trig_source("Ext_trig_source"),
@@ -31,6 +34,12 @@ public enum S implements GeneratorSequenceParamEnum {
     Grad_amp_slice("Grad_amp_slice"),
     Grad_amp_slice_ref("Grad_amp_slice_ref"),
     Grad_amp_spoiler("Grad_amp_spoiler"),
+    Grad_shape_1("Grad_shape_1"),
+    Grad_shape_2("Grad_shape_2"),
+    Grad_shape_3("Grad_shape_3"),
+    Grad_shape_amp_1("Grad_shape_amp_1"),
+    Grad_shape_amp_2("Grad_shape_amp_2"),
+    Grad_shape_amp_3("Grad_shape_amp_3"),
     Grad_shape_down("Grad_shape_down"),
     Grad_shape_up("Grad_shape_up"),
     Rx_gain("Rx_gain"),
@@ -42,6 +51,10 @@ public enum S implements GeneratorSequenceParamEnum {
     Time_grad_spoil_ramp("Time_grad_spoil_ramp"),
     Time_last_delay("Time_last_delay"),
     Time_rx("Time_rx"),
+    Time_rx_continue("Time_rx_continue"),
+    Time_shapegrad_1("Time_shapegrad_1"),
+    Time_shapegrad_2("Time_shapegrad_2"),
+    Time_shapegrad_3("Time_shapegrad_3"),
     Time_te_delay("Time_te_delay"),
     Time_trigger_delay("Time_trigger_delay"),
     Time_tx("Time_tx"),
