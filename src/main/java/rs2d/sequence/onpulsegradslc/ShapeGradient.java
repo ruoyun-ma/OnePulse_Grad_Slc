@@ -37,7 +37,7 @@ public class ShapeGradient {
     private int steps = -1;
     private Order order = Order.FourLoop;
     private int nbPoints = 256;
-    private final double minInstructionDelay = 0.000005;
+    private double minInstructionDelay = 0.000005;
     private double maxSlewRateShape = 0.0;
 
     private double maxSlewRateSystem = Double.NaN;
@@ -47,12 +47,15 @@ public class ShapeGradient {
     private double gradFreq11 = 78.125 / (35 * 128) * 1000000;
 
     private boolean isGradClockGrad;
+    int gradClockNumber = 11;
 
     private static double gMax = Math.abs(GradientMath.getMaxGradientStrength());
     Nucleus nucleus = Nucleus.H1;
 
-    public ShapeGradient(String shapeName, Table amplitudeTab1, Table amplitudeTab2, Table amplitudeTab3, Shape shape1,
-                         Shape shape2, Shape shape3, Table timeTable1, Table timeTable2, Table timeTable3) {
+    public ShapeGradient(String shapeName, Boolean isGradClockGrad, Table amplitudeTab1, Table amplitudeTab2,
+                         Table amplitudeTab3, Shape shape1,Shape shape2, Shape shape3, Table timeTable1,
+                         Table timeTable2, Table timeTable3) {
+        this.isGradClockGrad = isGradClockGrad;
         this.shapeName = shapeName;
         this.amplitudeTable1 = amplitudeTab1;
         this.amplitudeTable2 = amplitudeTab2;
@@ -64,14 +67,17 @@ public class ShapeGradient {
         this.timeTable2 = timeTable2;
         this.timeTable3 = timeTable3;
         gMax = Math.abs(GradientMath.getMaxGradientStrength());
+        minInstructionDelay = 0.000005;
+        minInstructionDelay = isGradClockGrad ? ceilToGradClock(minInstructionDelay, 11) : minInstructionDelay;
     }
 
 
-    public static ShapeGradient createShapeGradient(Sequence sequence, String shapename, GeneratorSequenceParamEnum amplitudeTab1, GeneratorSequenceParamEnum amplitudeTab2,
+    public static ShapeGradient createShapeGradient(Sequence sequence, String shapename, boolean isGradClockGrad, GeneratorSequenceParamEnum amplitudeTab1, GeneratorSequenceParamEnum amplitudeTab2,
                                       GeneratorSequenceParamEnum amplitudeTab3, GeneratorSequenceParamEnum shape1,
                                       GeneratorSequenceParamEnum shape2, GeneratorSequenceParamEnum shape3, GeneratorSequenceParamEnum timeTable1,
                                       GeneratorSequenceParamEnum timeTable2, GeneratorSequenceParamEnum timeTable3) {
-        return new ShapeGradient(shapename, sequence.getPublicTable(amplitudeTab1.name()), sequence.getPublicTable(amplitudeTab2.name()),
+
+        return new ShapeGradient(shapename, isGradClockGrad, sequence.getPublicTable(amplitudeTab1.name()), sequence.getPublicTable(amplitudeTab2.name()),
                 sequence.getPublicTable(amplitudeTab3.name()), (Shape) sequence.getTable(shape1.name()), (Shape) sequence.getTable(shape2.name()),
                 (Shape) sequence.getTable(shape3.name()), sequence.getPublicTable(timeTable1.name()), sequence.getPublicTable(timeTable2.name()),
                 sequence.getPublicTable(timeTable3.name()));
@@ -96,7 +102,10 @@ public class ShapeGradient {
         }
         return this.gradObjectLength;
     }
-
+    public double getGradLength1(){ return this.timeTable1.get(0).doubleValue();}
+    public double getGradLength2(){ return this.timeTable2.get(0).doubleValue();}
+    public double getGradLength3(){ return this.timeTable3.get(0).doubleValue();}
+    public int getNbPoints(){ return this.nbPoints; }
     public void initSinc(double amplitude, int nbPoints, double pulseLength ){
         this.setSequenceTableValue(this.timeTable1, pulseLength);
         this.setSequenceTableValue(this.timeTable2, minInstructionDelay);
@@ -149,10 +158,27 @@ public class ShapeGradient {
         this.setShape();
 
     }
+    public void setNone(){
+        this.setSequenceTableValue(this.timeTable1, minInstructionDelay);
+        this.setSequenceTableValue(this.timeTable2, minInstructionDelay);
+        this.setSequenceTableValue(this.timeTable3, minInstructionDelay);
+        this.amplitude = 0;
+        this.nbPoints = 0;
+        this.gradLength = 0;
+        this.shape1.clear();
+        this.shape2.clear();
+        this.shape3.clear();
+        setSequenceTableValue(timeTable1, minInstructionDelay);
+        setSequenceTableValue(timeTable2, minInstructionDelay);
+        setSequenceTableValue(timeTable3, minInstructionDelay);
+        setSequenceTableValue(amplitudeTable1, 0.0);
+        setSequenceTableValue(amplitudeTable2, 0.0);
+        setSequenceTableValue(amplitudeTable3, 0.0);
+        this.maxSlewRateShape = 0.0;
+
+    }
 
     public void safetyCheck(double minRiseTimeFactor){
-        System.out.println("mine rise time = " + GradientMath.getShortestRiseTime(100));
-        System.out.println("gmax = " + gMax);
         maxSlewRateSystem = gMax/GradientMath.getShortestRiseTime(100.0) * minRiseTimeFactor / 100.0; // in T/m/s
         if (shapeName.equalsIgnoreCase("chirp")){
             double slewRateEnvelope, gCurrent, newShapeValue;
@@ -163,7 +189,7 @@ public class ShapeGradient {
                 shape1.set(i, newShapeValue);
             }
             shape1.fireListChange();
-        } else {
+        } else if (!shapeName.equalsIgnoreCase("None")){
             System.out.println("maxSlewRateSystem = " + maxSlewRateSystem);
             System.out.println("maxSlewRate");
             if (maxSlewRateSystem < maxSlewRateShape){
@@ -171,9 +197,6 @@ public class ShapeGradient {
                 double time1 = timeTable1.get(0).doubleValue();
                 double time2 = timeTable2.get(0).doubleValue();
                 double time3 = timeTable3.get(0).doubleValue();
-                System.out.println("time1 = " + time1);
-                System.out.println("time2 = " + time2);
-                System.out.println("time3 = " + time3);
                 if (shapeName.equalsIgnoreCase("Trapezoid")){
                     setSequenceTableValue(timeTable1, time1 * maxSlewRateShape / maxSlewRateSystem);
                     setSequenceTableValue(timeTable2, time2 * maxSlewRateShape / maxSlewRateSystem);
@@ -189,6 +212,7 @@ public class ShapeGradient {
                 }
             }
         }
+
         this.gradObjectLength = timeTable1.get(0).doubleValue() + timeTable2.get(0).doubleValue() +timeTable3.get(0).doubleValue();
     }
 
@@ -210,11 +234,33 @@ public class ShapeGradient {
                 break;
         }
     }
-    private void setShape() {
 
+    public void setAmplitudeTable2(){
         switch (shapeName){
             case "Sinc":
-                buildSincTable(shape1, 3, nbPoints,100, true, "Hamming");
+            case "Gaussian":
+            case "Chirp":
+                setSequenceTableValues(amplitudeTable1, Order.Two, amplitude, -amplitude);
+                break;
+            case "Trapezoid":
+
+                setSequenceTableValues(amplitudeTable1, Order.Two, amplitude, -amplitude);
+                setSequenceTableValues(amplitudeTable2, Order.Two, amplitude, -amplitude);
+                setSequenceTableValues(amplitudeTable3, Order.Two, amplitude, -amplitude);
+                break;
+            case "Triangle":
+                setSequenceTableValues(amplitudeTable1, Order.Two, amplitude, -amplitude);
+                setSequenceTableValues(amplitudeTable2, Order.Two, amplitude, -amplitude);
+                break;
+        }
+    }
+    private void setShape() {
+        if (isGradClockGrad) {
+            regularizeShapeTableSize();
+        }
+        switch (shapeName){
+            case "Sinc":
+                buildSincTable(shape1, 3, nbPoints,100, false, "Hamming");
                 maxSlewRateShape = getMaxSlewRateShape(shape1, 0, 0);
                 break;
             case "Gaussian":
@@ -250,9 +296,11 @@ public class ShapeGradient {
                 maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1, 0, 100), getMaxSlewRateShape(shape2, 100, 0));
                 break;
             case "Trapezoid":
-            default:
                 maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1, 0, 100), getMaxSlewRateShape(shape3, 100, 0));
                 break;
+            case "None":
+            default:
+                maxSlewRateShape = 0;
 
         }
     }
@@ -315,9 +363,6 @@ public class ShapeGradient {
         int nbPointsRampDown =  (int) Math.ceil(rampDownTime / dwellTime);
         int nbPointsFlatTime = (int) Math.ceil(flatTime / dwellTime);
         this.nbPoints = nbPointsFlatTime + nbPointsRampUp + nbPointsRampDown;
-        System.out.println("rampUpTime = " + rampDownTime);
-        System.out.println("rampDownTime = " + rampDownTime);
-        System.out.println("flat time = "+flatTime);
         double slopeRampUp = amp/ nbPointsRampUp;
         for (int i = 0; i < nbPointsRampUp; i++){
             table1.add(slopeRampUp * (i+1));
@@ -366,6 +411,43 @@ public class ShapeGradient {
         }
         table2.fireListChange();
     }
+    private void regularizeShapeTableSize(){
+        switch (shapeName) {
+            case "Sinc":
+            case "Gaussian":
+            case "Chirp":
+                gradLength = ceilToGradClock(timeTable1.get(0).doubleValue(), gradClockNumber);
+                nbPoints = (int) Math.round(gradLength /minInstructionDelay);
+                setSequenceTableValues(timeTable1, Order.FourLoop, gradLength);
+                break;
+            case "Triangle":
+                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1, 0, 100), getMaxSlewRateShape(shape2, 100, 0));
+                double time1 = timeTable1.get(0).doubleValue();
+                double time2 = timeTable2.get(0).doubleValue();
+                time1 = ceilToGradClock(time1, gradClockNumber);
+                time2 = ceilToGradClock(time2, gradClockNumber);
+                nbPoints = (int) Math.round((time1 + time2 )/minInstructionDelay);
+                gradLength = time1 + time2;
+                setSequenceTableValues(this.timeTable1, Order.FourLoop, time1);
+                setSequenceTableValues(this.timeTable2, Order.FourLoop, time2);
+                break;
+            case "Trapezoid":
+            default:
+                maxSlewRateShape = Math.max(getMaxSlewRateShape(shape1, 0, 100), getMaxSlewRateShape(shape2, 100, 0));
+                time1 = timeTable1.get(0).doubleValue();
+                time2 = timeTable2.get(0).doubleValue();
+                double time3 = timeTable3.get(0).doubleValue();
+                time1 = ceilToGradClock(time1, gradClockNumber);
+                time2 = ceilToGradClock(time2, gradClockNumber);
+                time3 = ceilToGradClock(time3, gradClockNumber);
+                nbPoints = (int) Math.round((time1 + time2 + time3)/ minInstructionDelay);
+                gradLength = time1 + time2 + time3;
+                setSequenceTableValues(this.timeTable1, Order.FourLoop, time1);
+                setSequenceTableValues(this.timeTable2, Order.FourLoop, time2);
+                setSequenceTableValues(this.timeTable3, Order.FourLoop, time3);
+                break;
+        }
+    }
     private void nullUnusedTables(){
         switch (shapeName){
             case "Sinc":
@@ -383,22 +465,28 @@ public class ShapeGradient {
                 setSequenceTableValue(timeTable3, minInstructionDelay);
                 setSequenceTableValue(amplitudeTable3, 0.0);
                 break;
+            case "None":
+            default:
+                shape3.clear();
+                shape1.clear();
+                shape2.clear();
+                setSequenceTableValue(timeTable1, minInstructionDelay);
+                setSequenceTableValue(timeTable2, minInstructionDelay);
+                setSequenceTableValue(timeTable3, minInstructionDelay);
+                setSequenceTableValue(amplitudeTable1, 0.0);
+                setSequenceTableValue(amplitudeTable2, 0.0);
+                setSequenceTableValue(amplitudeTable3, 0.0);
+
         }
     }
 
     private double getMaxSlewRateShape(Table shape, double ampStart, double ampEnd){
         List<Double> slewRateList = new ArrayList<>();
-        System.out.println("ampStart = " + ampStart);
-        System.out.println("firstPoint = " + shape.get(0).doubleValue());
-        System.out.println("lastPoint = " + shape.get(shape.size()-1).doubleValue());
-        System.out.println("ampEnd = " + ampEnd);
         slewRateList.add(this.amplitude * Math.abs(shape.get(0).doubleValue() - ampStart) /10000.0);
         for (int i = 0; i < shape.size() - 1; i++){
             slewRateList.add(this.amplitude * Math.abs(shape.get(i+1).doubleValue() - shape.get(i).doubleValue())/10000.0);
         }
         slewRateList.add(this.amplitude * Math.abs(ampEnd - shape.get(shape.size() -1).doubleValue())/10000.0);
-        System.out.println("maxSlewRateShape = " + Collections.max(slewRateList) * gMax / (this.gradLength / nbPoints));
-        System.out.println("dwell time = " + this.gradLength/nbPoints);
         return Collections.max(slewRateList) * gMax / (this.gradLength / nbPoints);
     }
 
@@ -442,5 +530,24 @@ public class ShapeGradient {
      */
     private double ceilToSubDecimal(double numberToBeRounded, double Order) {
         return Math.ceil(numberToBeRounded * Math.pow(10, Order)) / Math.pow(10, Order);
+    }
+    private double ceilToGradClock(double numberToBeRounded, int... factor) {
+        double freq = gradFreq;
+        if (factor.length == 1) {
+            freq /= (double) factor[0];
+        }
+        return Math.ceil(numberToBeRounded * freq) / freq;
+    }
+    private double roundToGradClock(double numberToBeRounded, int... factor) {
+        double freq = gradFreq;
+        if (factor.length == 1) {
+            freq /= (double) factor[0];
+        }
+        return Math.max(1, Math.round(numberToBeRounded * freq)) / freq;
+    }
+
+    private static int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
     }
 }

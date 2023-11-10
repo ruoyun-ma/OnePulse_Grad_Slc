@@ -32,7 +32,7 @@ import static rs2d.sequence.onpulsegradslc.U.*;
 
 public class OnepulseGradSlc extends BaseSequenceGenerator {
 
-    private final String sequenceVersion = "Version8.7";
+    private final String sequenceVersion = "Version1.0";
     public double protonFrequency;
     public double observeFrequency;
     private Nucleus nucleus;
@@ -89,10 +89,15 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     private double observation_time;
 
     // get hardware memory limit
-    private final double minInstructionDelay = 0.000005;     // single instruction minimal duration
+    private double minInstructionDelay = 0.000005;     // single instruction minimal duration
     private final double txAmpMinResolution = 0.01;
     private final double txVoltMinResolution = 0.01;
     private final double txLengthMinResolution = 128 * Math.pow(10, -9);
+    private double gradFreq = 78.125 * 11 / (35 * 128) * 1000000;
+    private double gradFreq11 = 78.125 / (35 * 128) * 1000000;
+
+    private boolean isGradClocked;
+    int gradClockNumber = 11;
 
 
     public OnepulseGradSlc() {
@@ -119,6 +124,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         List<String> tx_nutation = asList("None", "Amplitude", "Voltage", "Length");
         ((TextParam) getParam(TX_NUTATION)).setSuggestedValues(tx_nutation);
         ((TextParam) getParam(TX_NUTATION)).setRestrictedToSuggested(true);
+        getParam(TX_NUTATION).setValue("None"); // for gradient calibration, temporarily suppress the nutation option
     }
 
     public void generate() throws Exception {
@@ -174,6 +180,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
 
 
         observation_time = getDouble(ACQUISITION_TIME_PER_SCAN);
+        isGradClocked = getBoolean(GRAD_CLOCK);
     }
 
     // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -381,11 +388,11 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // -----------------------------------------------
         set(enabled_slice, isMultiplanar);
         set(enabled_spoiler, GRADIENT_SPOILER_ACTIVATE);
-
+        minInstructionDelay = isGradClocked ? ceilToGradClock(minInstructionDelay, gradClockNumber) : minInstructionDelay;
         // -----------------------------------------------
         // calculate gradient equivalent rise time
         // -----------------------------------------------
-        double grad_rise_time = getDouble(GRADIENT_RISE_TIME);
+        double grad_rise_time = isGradClocked? ceilToGradClock(getDouble(GRADIENT_RISE_TIME), gradClockNumber): getDouble(GRADIENT_RISE_TIME);
         double min_rise_time_factor = getDouble(MIN_RISE_TIME_FACTOR);
 
 
@@ -402,6 +409,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // Calculation RF pulse parameters  1/3 : Shape
         // -----------------------------------------------
         Table txLengthTable = setSequenceTableValues(Time_tx, Order.Two);
+        if(isGradClocked){txLength = ceilToGradClock(txLength, gradClockNumber);}
         txLengthTable.add(txLength);
 
         RFPulse pulseTX = RFPulse.createRFPulse(getSequence(), Tx_att, Tx_amp, Tx_phase, Time_tx, Tx_shape, Tx_shape_phase, Tx_freq_offset, nucleus);
@@ -647,6 +655,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         double slice_thickness_excitation = (sliceThickness);
         setSequenceTableSingleValue(Time_grad_ramp, isMultiplanar ? grad_rise_time : minInstructionDelay);
         double blanking_time = Hardware.getRfAmplifierChannelBlankingDelay(getListInt(TX_ROUTE).get(0));
+        if (isGradClocked){blanking_time = ceilToGradClock(blanking_time, gradClockNumber);}
         setSequenceTableSingleValue(Time_grad_ramp_blanking, Math.max(isMultiplanar ? grad_rise_time : minInstructionDelay, blanking_time));
 // 15 40 2.5m
 
@@ -663,14 +672,15 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // calculate calibration gradient
         // ---------------------------------------------------------------------
         String shapeName = getText(CALIB_GRAD_SHAPE);
-        ShapeGradient shapeGradient = ShapeGradient.createShapeGradient(getSequence(), shapeName, Grad_shape_amp_1, Grad_shape_amp_2, Grad_shape_amp_3, Grad_shape_1,
+
+        ShapeGradient shapeGradient = ShapeGradient.createShapeGradient(getSequence(), shapeName, isGradClocked, Grad_shape_amp_1, Grad_shape_amp_2, Grad_shape_amp_3, Grad_shape_1,
                 Grad_shape_2, Grad_shape_3, Time_shapegrad_1, Time_shapegrad_2, Time_shapegrad_3);
         double calibGradAmp = getDouble(CALIB_GRAD_AMP);
         double gradLength1 = getDouble(CALIB_GRAD_LENGTH_1);
         double gradLength2 = getDouble(CALIB_GRAD_LENGTH_2);
         double gradLength3 = getDouble(CALIB_GRAD_LENGTH_3);
-        double chirpStart = 10;
-        double chirpEnd = 10000;
+        double chirpStart = getDouble(CALIB_GRAD_CHIRP_START);
+        double chirpEnd = getDouble(CALIB_GRAD_CHIRP_STOP);
         int nbPointsGrad = getInt(CALIB_GRAD_NB_POINT);
         //double
         if (shapeName.equalsIgnoreCase("sinc")){
@@ -684,14 +694,26 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
             shapeGradient.initTrapezoid(calibGradAmp, nbPointsGrad, gradLength1, gradLength2, gradLength3);
         } else if (shapeName.equalsIgnoreCase("triangle")) {
             shapeGradient.initTriangle(calibGradAmp, nbPointsGrad, gradLength1, gradLength2);
+        } else if (shapeName.equalsIgnoreCase("None")){
+            shapeGradient.setNone();
         }
         shapeGradient.safetyCheck(getDouble(CALIB_GRAD_SLEW_RATE_FACTOR));
         getParam(SLEW_RATE_MAX_SHAPE).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateShape(), 2));
         getParam(SLEW_RATE_MAX_SYSTEM).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateSystem(), 2));
-        shapeGradient.setAmplitudeTable();
+        if (nb_scan_2d == 1) {
+            shapeGradient.setAmplitudeTable();
+        } else {
+            shapeGradient.setAmplitudeTable2();
+        }
+        if (!shapeName.equalsIgnoreCase("None")) {
+            getParam(CALIB_GRAD_NB_POINT).setValue(shapeGradient.getNbPoints());
+        }
+        getParam(CALIB_GRAD_LENGTH_EFF_1).setValue(shapeGradient.getGradLength1());
+        getParam(CALIB_GRAD_LENGTH_EFF_2).setValue(shapeGradient.getGradLength2());
+        getParam(CALIB_GRAD_LENGTH_EFF_3).setValue(shapeGradient.getGradLength3());
 
         // calculate SLICE_refocusing
-        double grad_ref_application_time = getDouble(GRADIENT_REFOC_TIME);
+        double grad_ref_application_time = isGradClocked? ceilToGradClock(getDouble(GRADIENT_REFOC_TIME), gradClockNumber):getDouble(GRADIENT_REFOC_TIME);
         setSequenceTableSingleValue(Time_grad_ref, isMultiplanar ? grad_ref_application_time : minInstructionDelay);
         Gradient gradSliceRefPhase3D = Gradient.createGradient(getSequence(), Grad_amp_slice_ref, Time_grad_ref, Grad_shape_up, Grad_shape_down, Time_grad_ramp, nucleus);
         if (isMultiplanar) {
@@ -703,6 +725,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // calculate ADC observation time
         // -----------------------------------------------
         double preDelay = getDouble(CALIB_DELAY_BEFORE_GRAD);
+        if (isGradClocked) {preDelay = ceilToGradClock(preDelay, gradClockNumber);}
         setSequenceTableSingleValue(Time_rx, preDelay);
         setSequenceTableSingleValue(Time_rx_continue, observation_time - preDelay - shapeGradient.getGradObjectLength());
         set(Spectral_width, spectralWidth);
@@ -754,6 +777,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
             getParam(ECHO_TIME).setValue(te);
 
             delay1 = te - time1;
+            if (isGradClocked){delay1 = ceilToGradClock(delay1, gradClockNumber); }
             time_te_delay_table.add(delay1);
         } else {
             if (te < te_min) {
@@ -794,8 +818,8 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         //--------------------------------------------------------------------------------------
         //  External triggering
         //--------------------------------------------------------------------------------------
-        getSequenceParam(Synchro_trigger).setValue(isTrigger ? TimeElement.Trigger.External : TimeElement.Trigger.Timer);
-        getSequenceParam(Synchro_trigger).setLocked(true);
+        getSequenceParam(Synchro_Trigger).setValue(isTrigger ? TimeElement.Trigger.External : TimeElement.Trigger.Timer);
+        getSequenceParam(Synchro_Trigger).setLocked(true);
 
         double time_external_trigger_delay_max = minInstructionDelay;
 
@@ -928,7 +952,45 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         }
         return off_center_distance;
     }
+    private double ceilToGradClock(double numberToBeRounded, int... factor) {
+        double freq = gradFreq;
+        if (factor.length == 1) {
+            freq /= (double) factor[0];
+        }
+        return Math.ceil(numberToBeRounded * freq) / freq;
+    }
+    private double roundToGradClock(double numberToBeRounded, int... factor) {
+        double freq = gradFreq;
+        if (factor.length == 1) {
+            freq /= (double) factor[0];
+        }
+        return Math.max(1, Math.round(numberToBeRounded * freq)) / freq;
+    }
 
+    private double roundSWToGradClock(double sw, int acq1D) {
+        //get the ADC timing as multiple of gradient clock with allowed SW
+        // depending if the number of points has common divider with the gradient clock the sw steps may be different
+        double acqTime = (double) acq1D / sw;
+        double clock_11Grad = Math.round(gradFreq11 * acqTime);
+        double common_divider = acq1D / ((double) gcd(acq1D, 64 * 7 * 5));
+        clock_11Grad = Math.round(clock_11Grad / (common_divider)) * common_divider;
+        acqTime = clock_11Grad / gradFreq11;
+        return acq1D / acqTime;
+    }
+
+    private double floorSWToGradClock(double sw, int acq1D) {
+        double acqTime = (double) acq1D / sw;
+        double clock_11Grad = (gradFreq11 * acqTime);
+        double common_divider = acq1D / ((double) gcd(acq1D, 64 * 7 * 5));
+        clock_11Grad = Math.ceil(clock_11Grad / (common_divider)) * common_divider;
+        acqTime = clock_11Grad / gradFreq11;
+        return acq1D / acqTime;
+    }
+
+    private static int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
 
     //<editor-fold defaultstate="collapsed" desc="Generated Code (RS2D)">
     protected void addUserParams() {

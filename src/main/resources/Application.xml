@@ -59,7 +59,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ACQUISITION_MATRIX_DIMENSION_2D</name>
                     <uuid>6f83f8fd-a03b-47d3-bc26-4728d4b798be</uuid>
-                    <value>1</value>
+                    <value>2</value>
                     <defaultValue>128</defaultValue>
                     <description>Info: Size of the initial dataset (raw data) in the second dimension</description>
                     <displayedName>Acquisition Matrix 2D</displayedName>
@@ -280,6 +280,42 @@
                 </value>
             </entry>
             <entry>
+                <key>CALIB_GRAD_CHIRP_START</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_CHIRP_START</name>
+                    <uuid>2327275d-1250-4dc3-aae6-538dcfc45df7</uuid>
+                    <value>10.0</value>
+                    <defaultValue>10.0</defaultValue>
+                    <description>Starting frequency of chirp gradient</description>
+                    <displayedName>Calib Grad Chirp Start</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Frequency</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>3.0E9</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_CHIRP_STOP</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_CHIRP_STOP</name>
+                    <uuid>bec5ed8b-d3a5-4715-bbeb-cc07ec04fd5f</uuid>
+                    <value>1000.0</value>
+                    <defaultValue>1000.0</defaultValue>
+                    <description>Stop frequency of chirp gradient</description>
+                    <displayedName>Calib Grad Chirp Stop</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Frequency</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>3.0E9</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
                 <key>CALIB_GRAD_LENGTH_1</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_LENGTH_1</name>
@@ -334,11 +370,65 @@
                 </value>
             </entry>
             <entry>
+                <key>CALIB_GRAD_LENGTH_EFF_1</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_LENGTH_EFF_1</name>
+                    <uuid>13a575aa-8c06-4f8a-a341-b3a94fc6d5a3</uuid>
+                    <value>0.080052224</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description>Info: Effective length of first calib shape gradient</description>
+                    <displayedName>Calib Grad Length Eff 1</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Time</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>1.0E9</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_LENGTH_EFF_2</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_LENGTH_EFF_2</name>
+                    <uuid>b8f6eea7-9eb5-4eaf-9d35-9a987cc386e1</uuid>
+                    <value>5.7344000000000005E-5</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description>Info: Effective length of second calib shape gradient</description>
+                    <displayedName>Calib Grad Length Eff 2</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Time</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>1.0E9</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>CALIB_GRAD_LENGTH_EFF_3</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>CALIB_GRAD_LENGTH_EFF_3</name>
+                    <uuid>bbd06890-1089-4187-b1a4-7d6be7ad68a8</uuid>
+                    <value>5.7344000000000005E-5</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description>Info: Effective length of third calib shape gradient</description>
+                    <displayedName>Calib Grad Length Eff 3</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>Time</numberEnum>
+                    <minValue>0.0</minValue>
+                    <maxValue>1.0E9</maxValue>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
                 <key>CALIB_GRAD_NB_POINT</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_NB_POINT</name>
                     <uuid>48218235-a8bf-4aea-a817-ab50c2ee15d9</uuid>
-                    <value>10240</value>
+                    <value>1396</value>
                     <defaultValue>0</defaultValue>
                     <description></description>
                     <displayedName>Calib Grad Nb Point</displayedName>
@@ -355,7 +445,7 @@
                 <key>CALIB_GRAD_SHAPE</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>CALIB_GRAD_SHAPE</name>
-                    <uuid>c56290d2-41c2-4400-a91b-86cce3656591</uuid>
+                    <uuid>e8369774-121e-4b0a-bdda-1a60fb3ca06a</uuid>
                     <value>Chirp</value>
                     <defaultValue>Trapezoid</defaultValue>
                     <description>Shape of calibration gradient</description>
@@ -368,6 +458,7 @@
                     <suggestedValues>Triangle</suggestedValues>
                     <suggestedValues>Chirp</suggestedValues>
                     <suggestedValues>Sinc</suggestedValues>
+                    <suggestedValues>None</suggestedValues>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -445,7 +536,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>DELAY_ECHO_TIME</name>
                     <uuid>6975b382-aa8f-424a-bee8-29e406cd9884</uuid>
-                    <value>1.0000000000000026E-5</value>
+                    <value>6.436799999999998E-5</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Extra time added before the signal reception (input if  'Use Dead Time' checked)</description>
                     <displayedName>Tx-Rx Dead Time</displayedName>
@@ -536,7 +627,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ECHO_TIME</name>
                     <uuid>cfd6e656-00a1-4b37-b20b-963156dc7444</uuid>
-                    <value>0.00146</value>
+                    <value>0.00167</value>
                     <defaultValue>0.005</defaultValue>
                     <description>Time between the middle of the excitation RF and the beginning of the reception  (input if 'Use Dead Time' unchecked)</description>
                     <displayedName>Tx-Rx Time</displayedName>
@@ -674,6 +765,20 @@
                     <minValue>0.0</minValue>
                     <maxValue>1.0E9</maxValue>
                     <group>Delay</group>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>GRAD_CLOCK</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                    <name>GRAD_CLOCK</name>
+                    <uuid>6c1e5777-abb9-41af-ae24-0292f73d2065</uuid>
+                    <value>true</value>
+                    <defaultValue>false</defaultValue>
+                    <description>Clock the gradient</description>
+                    <displayedName>Grad Clock</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -1882,7 +1987,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SEQUENCE_TIME</name>
                     <uuid>719b6f50-46b5-4a43-914d-16f9ab9631a6</uuid>
-                    <value>0.7000000000000001</value>
+                    <value>1.4000000000000001</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Total acquisition time</description>
                     <displayedName>Acquisition Time</displayedName>
@@ -1900,7 +2005,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>SEQUENCE_VERSION</name>
                     <uuid>fce8797d-e7c2-4278-9c47-28d0beef10ad</uuid>
-                    <value>Version8.7</value>
+                    <value>Version1.0</value>
                     <defaultValue></defaultValue>
                     <description>Info: Sequence version</description>
                     <displayedName>Sequence Version</displayedName>
@@ -1930,7 +2035,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SLEW_RATE_MAX_SHAPE</name>
                     <uuid>1ea58ec9-b34b-4b07-ac06-e3e0eff59427</uuid>
-                    <value>116.21</value>
+                    <value>115.82</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Maximum shape slew rate (T/m/s)</description>
                     <displayedName>Slew Rate Max Shape</displayedName>
@@ -2333,7 +2438,7 @@
                     <defaultValue>None</defaultValue>
                     <description>Select the TX parameter to lineary increment to make a nutation curve. 'None' disables the option. </description>
                     <displayedName>Nutation</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>true</restrictedToSuggested>
                     <suggestedValues>None</suggestedValues>
@@ -2353,7 +2458,7 @@
                     <defaultValue>100.0</defaultValue>
                     <description>Maximum value of TX amplitude ramp for nutation curve</description>
                     <displayedName>Nutation Amp Max</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>TxAmp</numberEnum>
@@ -2372,7 +2477,7 @@
                     <defaultValue>0.0</defaultValue>
                     <description>Minimum value of TX amplitude ramp for nutation curve</description>
                     <displayedName>Nutation Amp Min</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>TxAmp</numberEnum>
@@ -2389,7 +2494,7 @@
                     <value>50.0</value>
                     <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                     <displayedName>Nutation Amp List</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <numberEnum>PERCENT</numberEnum>
                     <minValue>-2.147483648E9</minValue>
@@ -2403,11 +2508,11 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_NUTATION_LENGTH_MAX</name>
                     <uuid>3ebafd23-aa48-41af-a226-615f12a6232e</uuid>
-                    <value>0.001</value>
+                    <value>0.001032</value>
                     <defaultValue>1.9999999999999998E-4</defaultValue>
                     <description>Maximum value of TX length ramp for nutation curve</description>
                     <displayedName>Nutation Length Max</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Time</numberEnum>
@@ -2426,7 +2531,7 @@
                     <defaultValue>5.0E-4</defaultValue>
                     <description>Minimum value of TX length ramp for nutation curve</description>
                     <displayedName>Nutation Length Min</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Time</numberEnum>
@@ -2441,10 +2546,10 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>TX_NUTATION_LENGTH_VALUES</name>
                     <uuid>68d34a6f-109e-4d28-b103-aecc1bebc2c7</uuid>
-                    <value>0.001</value>
+                    <value>0.0010321920000000001</value>
                     <description>Info: Values of the TX length sampling points of the nutation curve</description>
                     <displayedName>Nutation Length List</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <numberEnum>Time</numberEnum>
                     <minValue>0.0</minValue>
@@ -2462,7 +2567,7 @@
                     <defaultValue>1.0</defaultValue>
                     <description>Maximum value of TX voltage ramp for nutation curve</description>
                     <displayedName>Nutation Voltage Max</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Vpp</numberEnum>
@@ -2481,7 +2586,7 @@
                     <defaultValue>0.1</defaultValue>
                     <description>Minimum value of TX voltage ramp for nutation curve</description>
                     <displayedName>Nutation Voltage Min</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Vpp</numberEnum>
@@ -2498,7 +2603,7 @@
                     <value>1.449</value>
                     <description>Info: Values of the TX voltage sampling points of the nutation curve</description>
                     <displayedName>Nutation Voltage List</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <numberEnum>Vpp</numberEnum>
                     <minValue>0.0</minValue>
@@ -2516,7 +2621,7 @@
                     <defaultValue>1</defaultValue>
                     <description>Number of incremental steps used to sample the nutation curve</description>
                     <displayedName>Nutation Step Number</displayedName>
-                    <locked>false</locked>
+                    <locked>true</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Integer</numberEnum>
@@ -2642,7 +2747,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>USER_MATRIX_DIMENSION_2D</name>
                     <uuid>be07fdb8-b371-4d24-85aa-cd55c25d3fea</uuid>
-                    <value>1</value>
+                    <value>2</value>
                     <defaultValue>128</defaultValue>
                     <description>Number of repetitions  (user matrix dimension 2D)</description>
                     <displayedName>Matrix 2D</displayedName>

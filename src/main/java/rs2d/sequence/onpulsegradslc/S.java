@@ -24,7 +24,7 @@ public enum S implements GeneratorSequenceParamEnum {
     Phase_reset("Phase_reset"),
     Pre_scan("Pre_scan"),
     Spectral_width("Spectral_width"),
-    Synchro_trigger("Synchro_trigger"),
+    Synchro_Trigger("Synchro_Trigger"),
     Tx_att("Tx_att"),
     Tx_blanking("Tx_blanking"),
     Tx_frequency("Tx_frequency"),
