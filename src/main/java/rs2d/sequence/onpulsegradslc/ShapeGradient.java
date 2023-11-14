@@ -179,7 +179,7 @@ public class ShapeGradient {
     }
 
     public void safetyCheck(double minRiseTimeFactor){
-        maxSlewRateSystem = gMax/GradientMath.getShortestRiseTime(100.0) * minRiseTimeFactor / 100.0; // in T/m/s
+        maxSlewRateSystem = ceilToSubDecimal(gMax/GradientMath.getShortestRiseTime(100.0) * minRiseTimeFactor / 100.0,3); // in T/m/s
         if (shapeName.equalsIgnoreCase("chirp")){
             double slewRateEnvelope, gCurrent, newShapeValue;
             for (int i = 0; i < nbPoints; i++){

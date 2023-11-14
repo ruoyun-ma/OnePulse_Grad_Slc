@@ -122,8 +122,8 @@
             <key>ACQUISITION_TIME_PER_SCAN</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ACQUISITION_TIME_PER_SCAN</name>
-                <uuid>4a00929e-3633-489a-a4ca-1597f447876f</uuid>
-                <value>0.40894464</value>
+                <uuid>c6a83cb4-74f2-486b-bb17-68d8b1f28f3b</uuid>
+                <value>0.080740352</value>
                 <defaultValue>1.0</defaultValue>
                 <description>Info: Time during which the signal is sampled by the ADC</description>
                 <displayedName>Observation Time</displayedName>
@@ -251,7 +251,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_AMP</name>
                 <uuid>77cb2ee3-47cf-4a83-81e1-2d333423164b</uuid>
-                <value>40.0</value>
+                <value>2.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description></description>
                 <displayedName>Calib Grad Amplitude</displayedName>
@@ -287,7 +287,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_CHIRP_STOP</name>
                 <uuid>bec5ed8b-d3a5-4715-bbeb-cc07ec04fd5f</uuid>
-                <value>1000.0</value>
+                <value>600.0</value>
                 <defaultValue>1000.0</defaultValue>
                 <description>Stop frequency of chirp gradient</description>
                 <displayedName>Calib Grad Chirp Stop</displayedName>
@@ -466,6 +466,25 @@
             </value>
         </entry>
         <entry>
+            <key>CALIB_LOCATIONS</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                <name>CALIB_LOCATIONS</name>
+                <uuid>49446c8d-a6a8-47d3-b029-a2dd08180416</uuid>
+                <value>0.01</value>
+                <value>-0.01</value>
+                <defaultValue>0.01</defaultValue>
+                <defaultValue>-0.01</defaultValue>
+                <description></description>
+                <displayedName>Calib - Locations</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <numberEnum>LengthOffset</numberEnum>
+                <minValue>-1.7976931348623157E308</minValue>
+                <maxValue>1.7976931348623157E308</maxValue>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
             <key>DATA_REPRESENTATION</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listTextParam">
                 <name>DATA_REPRESENTATION</name>
@@ -506,7 +525,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>DELAY_ECHO</name>
                 <uuid>3bd9c1e1-5104-435c-977e-3c1ebffbfe6e</uuid>
-                <value>false</value>
+                <value>true</value>
                 <defaultValue>false</defaultValue>
                 <description>Enable to delay the signal reception by adding a 'Tx-Rx Dead Time' to the minimal 'Tx-Rx Time'</description>
                 <displayedName>Use Dead Time</displayedName>
@@ -521,7 +540,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>DELAY_ECHO_TIME</name>
                 <uuid>6975b382-aa8f-424a-bee8-29e406cd9884</uuid>
-                <value>6.436799999999998E-5</value>
+                <value>5.7344000000000005E-5</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Extra time added before the signal reception (input if  'Use Dead Time' checked)</description>
                 <displayedName>Tx-Rx Dead Time</displayedName>
@@ -593,7 +612,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>DWELL_TIME</name>
                 <uuid>51a26fae-db89-4065-aa74-8bd11708d324</uuid>
-                <value>4.992E-5</value>
+                <value>9.856E-6</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Reception dwell time</description>
                 <displayedName>DW</displayedName>
@@ -612,7 +631,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ECHO_TIME</name>
                 <uuid>cfd6e656-00a1-4b37-b20b-963156dc7444</uuid>
-                <value>0.00167</value>
+                <value>0.0014049280000000002</value>
                 <defaultValue>0.005</defaultValue>
                 <description>Time between the middle of the excitation RF and the beginning of the reception  (input if 'Use Dead Time' unchecked)</description>
                 <displayedName>Tx-Rx Time</displayedName>
@@ -661,6 +680,24 @@
                 <minValue>0.0</minValue>
                 <maxValue>1.7976931348623157E308</maxValue>
                 <group>Emission</group>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
+            <key>GMAX</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>GMAX</name>
+                <uuid>30cb604f-245f-4c57-b6bc-7f8bc0d89e84</uuid>
+                <value>0.09427499999999997</value>
+                <defaultValue>0.0</defaultValue>
+                <description>Info: gMax (T/m)</description>
+                <displayedName>gMax (T/m)</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <numberEnum>Double</numberEnum>
+                <minValue>-1.7976931348623157E308</minValue>
+                <maxValue>1.7976931348623157E308</maxValue>
                 <category>Acquisition</category>
             </value>
         </entry>
@@ -1938,7 +1975,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>REPETITION_TIME</name>
                 <uuid>895a8c34-03ef-400d-b6bc-cc43ee7d8620</uuid>
-                <value>0.7000000000000001</value>
+                <value>0.7000555520000001</value>
                 <defaultValue>0.2</defaultValue>
                 <description>Repetition Time</description>
                 <displayedName>TR</displayedName>
@@ -1972,7 +2009,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SEQUENCE_TIME</name>
                 <uuid>719b6f50-46b5-4a43-914d-16f9ab9631a6</uuid>
-                <value>1.4000000000000001</value>
+                <value>1.4001111040000003</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Total acquisition time</description>
                 <displayedName>Acquisition Time</displayedName>
@@ -2020,7 +2057,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SLEW_RATE_MAX_SHAPE</name>
                 <uuid>1ea58ec9-b34b-4b07-ac06-e3e0eff59427</uuid>
-                <value>115.82</value>
+                <value>7.012</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Maximum shape slew rate (T/m/s)</description>
                 <displayedName>Slew Rate Max Shape</displayedName>
@@ -2038,7 +2075,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SLEW_RATE_MAX_SYSTEM</name>
                 <uuid>022cdd9a-5f69-4637-8266-6648a702ab6c</uuid>
-                <value>116.04</value>
+                <value>136.453</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Maximum system slew rate (T/m/s)</description>
                 <displayedName>Slew Rate Max System</displayedName>
@@ -2091,7 +2128,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SPECTRAL_WIDTH</name>
                 <uuid>8494b191-8921-4ba8-ba16-1325b68dbc9d</uuid>
-                <value>20032.05128205128</value>
+                <value>101461.03896103895</value>
                 <defaultValue>12520.0</defaultValue>
                 <description>Receiver bandwidth (SW, BW, bandwidth )</description>
                 <displayedName>BW</displayedName>
@@ -2125,7 +2162,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SPECTRAL_WIDTH_PER_PIXEL</name>
                 <uuid>f0ebce79-b6ce-41ce-a859-349689ef21d3</uuid>
-                <value>2.4453187600160255</value>
+                <value>12.3853807325487</value>
                 <defaultValue>100.0</defaultValue>
                 <description>Bandwidth per point ( FID res)</description>
                 <displayedName>BW/pt</displayedName>
@@ -2344,7 +2381,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_AMP</name>
                 <uuid>4e381691-8b2a-4b50-96c4-76206b85baae</uuid>
-                <value>50.0</value>
+                <value>1.0552512292196186</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Amplitude of the excitation RF pulse</description>
                 <displayedName>TX Amplitude</displayedName>
@@ -2363,7 +2400,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_ATT</name>
                 <uuid>a9f47542-bf8b-478e-af2d-58ad35a381b1</uuid>
-                <value>50</value>
+                <value>8</value>
                 <defaultValue>36</defaultValue>
                 <description>RF pulse attenuation</description>
                 <displayedName>TX Attenuation</displayedName>
@@ -2382,7 +2419,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_GAMMA_B1</name>
                 <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                <value>13.0</value>
+                <value>24.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the power in gamma B1 unit</description>
                 <displayedName>TX Gamma B1</displayedName>
@@ -2400,7 +2437,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_LENGTH</name>
                 <uuid>4c648c30-6369-4497-be76-d16537413f36</uuid>
-                <value>0.001</value>
+                <value>5.160960000000001E-4</value>
                 <defaultValue>0.3</defaultValue>
                 <description>RF pulse length</description>
                 <displayedName>TX Length</displayedName>
@@ -2476,7 +2513,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_NUTATION_AMP_VALUES</name>
                 <uuid>fba9b2cf-1637-47f4-bff4-0847566f0c01</uuid>
-                <value>50.0</value>
+                <value>1.0552512292196186</value>
                 <description>Info: Values of the TX amplitude sampling points of the nutation curve</description>
                 <displayedName>Nutation Amp List</displayedName>
                 <locked>true</locked>
@@ -2493,7 +2530,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_NUTATION_LENGTH_MAX</name>
                 <uuid>3ebafd23-aa48-41af-a226-615f12a6232e</uuid>
-                <value>0.001032</value>
+                <value>5.16E-4</value>
                 <defaultValue>1.9999999999999998E-4</defaultValue>
                 <description>Maximum value of TX length ramp for nutation curve</description>
                 <displayedName>Nutation Length Max</displayedName>
@@ -2531,7 +2568,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_NUTATION_LENGTH_VALUES</name>
                 <uuid>68d34a6f-109e-4d28-b103-aecc1bebc2c7</uuid>
-                <value>0.0010321920000000001</value>
+                <value>5.160960000000001E-4</value>
                 <description>Info: Values of the TX length sampling points of the nutation curve</description>
                 <displayedName>Nutation Length List</displayedName>
                 <locked>true</locked>
@@ -2585,7 +2622,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>TX_NUTATION_VOLT_VALUES</name>
                 <uuid>809919bb-ef5a-4eca-a3ea-d16e47575d1f</uuid>
-                <value>1.449</value>
+                <value>2.762</value>
                 <description>Info: Values of the TX voltage sampling points of the nutation curve</description>
                 <displayedName>Nutation Voltage List</displayedName>
                 <locked>true</locked>
@@ -2621,7 +2658,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_POWER</name>
                 <uuid>e35ca420-08f7-426c-a521-7bd92b7994b1</uuid>
-                <value>0.00525</value>
+                <value>0.01907</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the pulse power amplitude that corresponds to Tx Amplitude and Attenuation</description>
                 <displayedName>TX Power</displayedName>
@@ -2639,7 +2676,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>TX_POWER_INPUT</name>
                 <uuid>70f9d15f-1a81-4940-9ac6-9b688fbe40cb</uuid>
-                <value>Att/Amp</value>
+                <value>Flip Angle</value>
                 <defaultValue>Att/Amp</defaultValue>
                 <description>Select the input parameter to calculate the pulse power amplitude. Warning: calibrate the 90°-pulse to use the Flip Angle</description>
                 <displayedName>TX Power Input</displayedName>
@@ -2694,7 +2731,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_VOLTAGE</name>
                 <uuid>a853cdcd-a18e-4b8d-b8c8-fb29d9d51267</uuid>
-                <value>1.449</value>
+                <value>2.762</value>
                 <defaultValue>0.0</defaultValue>
                 <description>RF voltage amplitude peak-to-peak</description>
                 <displayedName>TX Voltage</displayedName>

@@ -99,6 +99,8 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     private boolean isGradClocked;
     int gradClockNumber = 11;
 
+    private String calibShape = "";
+
 
     public OnepulseGradSlc() {
         addUserParams();
@@ -181,6 +183,8 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
 
         observation_time = getDouble(ACQUISITION_TIME_PER_SCAN);
         isGradClocked = getBoolean(GRAD_CLOCK);
+
+        calibShape = getText(CALIB_GRAD_SHAPE);
     }
 
     // --------------------------------------------------------------------------------------------------------------------------------------------
@@ -248,8 +252,9 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         double spectralWidthPerPixel = getDouble(SPECTRAL_WIDTH_PER_PIXEL);
         spectralWidth = isSW ? spectralWidth : spectralWidthPerPixel * acquisitionMatrixDimension1D;
 
-        spectralWidth = Hardware.getNearestSpectralWidth(spectralWidth);      // get real spectral width from Chameleon
+        spectralWidth = isGradClocked? roundSWToGradClock(spectralWidth, acquisitionMatrixDimension1D) : Hardware.getNearestSpectralWidth(spectralWidth);      // get real spectral width from Chameleon
         double spectralWidthUP = spectralWidth;
+        System.out.println("dwell time " + 1/spectralWidth);
         spectralWidthPerPixel = spectralWidth / acquisitionMatrixDimension1D;
         getParam(SPECTRAL_WIDTH_PER_PIXEL).setValue(spectralWidthPerPixel);
         getParam(SPECTRAL_WIDTH).setValue(spectralWidthUP);
@@ -383,6 +388,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     private void afterRouting() throws Exception {
         Log.debug(getClass(), "------------ AFTER ROUTING -------------");
 
+        getParam(GMAX).setValue(GradientMath.getMaxGradientStrength());
         // -----------------------------------------------
         // enable gradient lines
         // -----------------------------------------------
@@ -410,6 +416,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // -----------------------------------------------
         Table txLengthTable = setSequenceTableValues(Time_tx, Order.Two);
         if(isGradClocked){txLength = ceilToGradClock(txLength, gradClockNumber);}
+        getParam(TX_LENGTH).setValue(txLength);
         txLengthTable.add(txLength);
 
         RFPulse pulseTX = RFPulse.createRFPulse(getSequence(), Tx_att, Tx_amp, Tx_phase, Time_tx, Tx_shape, Tx_shape_phase, Tx_freq_offset, nucleus);
@@ -671,9 +678,9 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // ---------------------------------------------------------------------
         // calculate calibration gradient
         // ---------------------------------------------------------------------
-        String shapeName = getText(CALIB_GRAD_SHAPE);
 
-        ShapeGradient shapeGradient = ShapeGradient.createShapeGradient(getSequence(), shapeName, isGradClocked, Grad_shape_amp_1, Grad_shape_amp_2, Grad_shape_amp_3, Grad_shape_1,
+
+        ShapeGradient shapeGradient = ShapeGradient.createShapeGradient(getSequence(), calibShape, isGradClocked, Grad_shape_amp_1, Grad_shape_amp_2, Grad_shape_amp_3, Grad_shape_1,
                 Grad_shape_2, Grad_shape_3, Time_shapegrad_1, Time_shapegrad_2, Time_shapegrad_3);
         double calibGradAmp = getDouble(CALIB_GRAD_AMP);
         double gradLength1 = getDouble(CALIB_GRAD_LENGTH_1);
@@ -683,29 +690,29 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         double chirpEnd = getDouble(CALIB_GRAD_CHIRP_STOP);
         int nbPointsGrad = getInt(CALIB_GRAD_NB_POINT);
         //double
-        if (shapeName.equalsIgnoreCase("sinc")){
+        if (calibShape.equalsIgnoreCase("sinc")){
             shapeGradient.initSinc(calibGradAmp, nbPointsGrad, gradLength1);
-        } else if (shapeName.equalsIgnoreCase("gaussian")) {
+        } else if (calibShape.equalsIgnoreCase("gaussian")) {
             shapeGradient.initGauss(calibGradAmp, nbPointsGrad, gradLength1);
-        } else if (shapeName.equalsIgnoreCase("chirp")) {
+        } else if (calibShape.equalsIgnoreCase("chirp")) {
             shapeGradient.initChirp(calibGradAmp,nbPointsGrad, gradLength1, chirpStart, chirpEnd);
             System.out.println("gradlength = " + gradLength1);
-        } else if (shapeName.equalsIgnoreCase("trapezoid")) {
+        } else if (calibShape.equalsIgnoreCase("trapezoid")) {
             shapeGradient.initTrapezoid(calibGradAmp, nbPointsGrad, gradLength1, gradLength2, gradLength3);
-        } else if (shapeName.equalsIgnoreCase("triangle")) {
+        } else if (calibShape.equalsIgnoreCase("triangle")) {
             shapeGradient.initTriangle(calibGradAmp, nbPointsGrad, gradLength1, gradLength2);
-        } else if (shapeName.equalsIgnoreCase("None")){
+        } else if (calibShape.equalsIgnoreCase("None")){
             shapeGradient.setNone();
         }
         shapeGradient.safetyCheck(getDouble(CALIB_GRAD_SLEW_RATE_FACTOR));
-        getParam(SLEW_RATE_MAX_SHAPE).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateShape(), 2));
-        getParam(SLEW_RATE_MAX_SYSTEM).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateSystem(), 2));
+        getParam(SLEW_RATE_MAX_SHAPE).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateShape(), 3));
+        getParam(SLEW_RATE_MAX_SYSTEM).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateSystem(), 3));
         if (nb_scan_2d == 1) {
             shapeGradient.setAmplitudeTable();
         } else {
             shapeGradient.setAmplitudeTable2();
         }
-        if (!shapeName.equalsIgnoreCase("None")) {
+        if (!calibShape.equalsIgnoreCase("None")) {
             getParam(CALIB_GRAD_NB_POINT).setValue(shapeGradient.getNbPoints());
         }
         getParam(CALIB_GRAD_LENGTH_EFF_1).setValue(shapeGradient.getGradLength1());
@@ -727,7 +734,9 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         double preDelay = getDouble(CALIB_DELAY_BEFORE_GRAD);
         if (isGradClocked) {preDelay = ceilToGradClock(preDelay, gradClockNumber);}
         setSequenceTableSingleValue(Time_rx, preDelay);
-        setSequenceTableSingleValue(Time_rx_continue, observation_time - preDelay - shapeGradient.getGradObjectLength());
+        double timeRxContinue = observation_time - preDelay - shapeGradient.getGradObjectLength();
+        if (isGradClocked){timeRxContinue = ceilToGradClock(timeRxContinue, gradClockNumber);}
+        setSequenceTableSingleValue(Time_rx_continue, timeRxContinue);
         set(Spectral_width, spectralWidth);
         set(LO_att, Hardware.getLoAttenuation());
 
@@ -756,6 +765,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         //
         // --------------------------------------------------------------------------------------------------------------------------------------------
 
+        
         Events.checkEventShortcut(getSequence());
         // ------------------------------------------
         // calculate delays adapted to current TE & search for incoherence
@@ -779,6 +789,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
             delay1 = te - time1;
             if (isGradClocked){delay1 = ceilToGradClock(delay1, gradClockNumber); }
             time_te_delay_table.add(delay1);
+            getParam(DELAY_ECHO_TIME).setValue(delay1);
         } else {
             if (te < te_min) {
                 te_min = ceilToSubDecimal(te_min, 5);
@@ -786,11 +797,14 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
                 te = te_min;//
             }
             if (nutationType == NutationType.Length) {
+                double delayLocal;
                 for (int i = 0; i < acquisitionMatrixDimension2D; i++) {
-                    time_te_delay_table.add(te - time0 - tx_lengths[i] / 2);
+                    delayLocal = te - time0 - tx_lengths[i] / 2;
+                    if (isGradClocked) {delayLocal = ceilToGradClock(delayLocal, gradClockNumber);}
+                    time_te_delay_table.add(delayLocal);
                 }
             } else {
-                delay1 = te - time1;
+                delay1 = isGradClocked? ceilToGradClock(te-time1, gradClockNumber) : te - time1;
                 time_te_delay_table.add(delay1);
                 getParam(DELAY_ECHO_TIME).setValue(delay1);
             }
@@ -862,6 +876,11 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
             }
         } else {
             double last_delay = tr - time_seq_to_end_spoiler;
+            if (isGradClocked) {
+                last_delay = ceilToGradClock(last_delay, gradClockNumber);
+                tr = time_seq_to_end_spoiler + last_delay;
+                getParam(REPETITION_TIME).setValue(tr);
+            }
             time_last_delay_table.add(last_delay);
         }
 
@@ -881,7 +900,20 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         if (!isMultiplanar) {
             frequency_center_3D_90 = 0;
         }
-        setSequenceTableSingleValue(Tx_freq_offset, frequency_center_3D_90);
+
+        List<Double> off_center_distance_3D_list = getListDouble(CALIB_LOCATIONS);
+        int nbLocations = off_center_distance_3D_list.size();
+        if (nbLocations > 0){
+            double [] frequency_center_3D_90_array = new double[nbLocations];
+            nb_scan_3d = nbLocations;
+            set(Nb_3d, nb_scan_3d);
+            for (int i = 0; i < off_center_distance_3D_list.size(); i++) {
+                frequency_center_3D_90_array[i] = -grad_amp_slice_mTpm * off_center_distance_3D_list.get(i) * (GradientMath.GAMMA);
+            }
+            setSequenceTableValues(Tx_freq_offset, Order.Three, frequency_center_3D_90_array);
+        } else {
+            setSequenceTableSingleValue(Tx_freq_offset, frequency_center_3D_90);
+        }
 
     }
 

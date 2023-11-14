@@ -6,7 +6,7 @@ import rs2d.spinlab.sequence.element.TimeElement;
 
 public enum Events {
     Start
-            (0, "Time1"),
+            (0, S.Time_trigger_delay.name()),
     Pulse
             (5, S.Time_tx.name()),
     Delay
