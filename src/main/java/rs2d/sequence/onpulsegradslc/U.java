@@ -61,7 +61,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(2);
+            param.setValue(3);
             param.setDefaultValue(128);
             return param;
         }
@@ -669,11 +669,11 @@ public enum U implements GeneratorParamEnum {
             param.setDisplayedName("gMax (T/m)");
             param.setDescription("Info: gMax (T/m)");
             param.setCategory(Category.Acquisition);
-            param.setUuid("30cb604f-245f-4c57-b6bc-7f8bc0d89e84");
-            param.setNumberEnum(NumberEnum.Double);
-            param.setMinValue(-1.7976931348623157E308);
-            param.setMaxValue(1.7976931348623157E308);
-            param.setValue(0.09427499999999997);
+            param.setUuid("426cb606-5781-4ecc-90b3-fdfb8ebfcd6d");
+            param.setNumberEnum(NumberEnum.FieldGradient);
+            param.setMinValue(0.0);
+            param.setMaxValue(1.0E7);
+            param.setValue(0.09427500000000001);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1464,7 +1464,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(1.4001111040000003);
+            param.setValue(2.1001666560000003);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1480,7 +1480,7 @@ public enum U implements GeneratorParamEnum {
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
             param.setUuid("fce8797d-e7c2-4278-9c47-28d0beef10ad");
-            param.setValue("Version1.0");
+            param.setValue("Version1.1");
             param.setDefaultValue("");
             return param;
         }
@@ -1987,7 +1987,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(2);
+            param.setValue(3);
             param.setDefaultValue(128);
             return param;
         }

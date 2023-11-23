@@ -44,7 +44,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ACQUISITION_MATRIX_DIMENSION_2D</name>
                 <uuid>6f83f8fd-a03b-47d3-bc26-4728d4b798be</uuid>
-                <value>2</value>
+                <value>3</value>
                 <defaultValue>128</defaultValue>
                 <description>Info: Size of the initial dataset (raw data) in the second dimension</description>
                 <displayedName>Acquisition Matrix 2D</displayedName>
@@ -687,17 +687,17 @@
             <key>GMAX</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>GMAX</name>
-                <uuid>30cb604f-245f-4c57-b6bc-7f8bc0d89e84</uuid>
-                <value>0.09427499999999997</value>
+                <uuid>426cb606-5781-4ecc-90b3-fdfb8ebfcd6d</uuid>
+                <value>0.09427500000000001</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: gMax (T/m)</description>
                 <displayedName>gMax (T/m)</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
-                <numberEnum>Double</numberEnum>
-                <minValue>-1.7976931348623157E308</minValue>
-                <maxValue>1.7976931348623157E308</maxValue>
+                <numberEnum>FieldGradient</numberEnum>
+                <minValue>0.0</minValue>
+                <maxValue>1.0E7</maxValue>
                 <category>Acquisition</category>
             </value>
         </entry>
@@ -2009,7 +2009,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SEQUENCE_TIME</name>
                 <uuid>719b6f50-46b5-4a43-914d-16f9ab9631a6</uuid>
-                <value>1.4001111040000003</value>
+                <value>2.1001666560000003</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Total acquisition time</description>
                 <displayedName>Acquisition Time</displayedName>
@@ -2027,7 +2027,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_VERSION</name>
                 <uuid>fce8797d-e7c2-4278-9c47-28d0beef10ad</uuid>
-                <value>Version1.0</value>
+                <value>Version1.1</value>
                 <defaultValue></defaultValue>
                 <description>Info: Sequence version</description>
                 <displayedName>Sequence Version</displayedName>
@@ -2567,7 +2567,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>USER_MATRIX_DIMENSION_2D</name>
                 <uuid>be07fdb8-b371-4d24-85aa-cd55c25d3fea</uuid>
-                <value>2</value>
+                <value>3</value>
                 <defaultValue>128</defaultValue>
                 <description>Number of repetitions  (user matrix dimension 2D)</description>
                 <displayedName>Matrix 2D</displayedName>
