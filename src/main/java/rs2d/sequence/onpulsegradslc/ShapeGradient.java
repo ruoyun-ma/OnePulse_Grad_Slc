@@ -254,6 +254,25 @@ public class ShapeGradient {
                 break;
         }
     }
+    public void setAmplitudeTable3(){
+        switch (shapeName){
+            case "Sinc":
+            case "Gaussian":
+            case "Chirp":
+                setSequenceTableValues(amplitudeTable1, Order.Two, amplitude, -amplitude, 0.0);
+                break;
+            case "Trapezoid":
+
+                setSequenceTableValues(amplitudeTable1, Order.Two, amplitude, -amplitude, 0.0);
+                setSequenceTableValues(amplitudeTable2, Order.Two, amplitude, -amplitude, 0.0);
+                setSequenceTableValues(amplitudeTable3, Order.Two, amplitude, -amplitude, 0.0);
+                break;
+            case "Triangle":
+                setSequenceTableValues(amplitudeTable1, Order.Two, amplitude, -amplitude, 0.0);
+                setSequenceTableValues(amplitudeTable2, Order.Two, amplitude, -amplitude, 0.0);
+                break;
+        }
+    }
     private void setShape() {
         if (isGradClockGrad) {
             regularizeShapeTableSize();

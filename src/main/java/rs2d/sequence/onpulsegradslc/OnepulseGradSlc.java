@@ -253,9 +253,9 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // 2nd D management
         // -----------------------------------------------
         // MATRIX
-        if (userMatrixDimension2D > 2){
-            userMatrixDimension2D = 2;
-            getParam(USER_MATRIX_DIMENSION_2D).setValue(2);
+        if (userMatrixDimension2D > 3){
+            userMatrixDimension2D = 3;
+            getParam(USER_MATRIX_DIMENSION_2D).setValue(3);
         }
         acquisitionMatrixDimension2D = userMatrixDimension2D;
         nb_scan_2d = userMatrixDimension2D;
@@ -520,8 +520,10 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         getParam(SLEW_RATE_MAX_SYSTEM).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateSystem(), 3));
         if (nb_scan_2d == 1) {
             shapeGradient.setAmplitudeTable();
-        } else {
+        } else if (nb_scan_2d == 2) {
             shapeGradient.setAmplitudeTable2();
+        } else{
+            shapeGradient.setAmplitudeTable3();
         }
         if (!calibShape.equalsIgnoreCase("None")) {
             getParam(CALIB_GRAD_NB_POINT).setValue(shapeGradient.getNbPoints());
@@ -825,7 +827,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     }
 
     public String getVersion() {
-        return "master";
+        return "v1.1";
     }
     //</editor-fold>
 
