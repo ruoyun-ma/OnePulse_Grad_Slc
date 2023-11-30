@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <application>
-    <name>OnePulse_Grad_Slc_v1.1</name>
+    <name>OnePulse_Grad_Slc_v1.2</name>
     <description></description>
     <usage></usage>
     <generatorName>seqdev-temp</generatorName>
@@ -78,7 +78,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ACQUISITION_MATRIX_DIMENSION_3D</name>
                     <uuid>856f1277-41a4-433b-adbc-86dc3e5a0d13</uuid>
-                    <value>1</value>
+                    <value>4</value>
                     <defaultValue>1</defaultValue>
                     <description>Info: Size of the initial dataset (raw data) in the third dimension</description>
                     <displayedName>Acquisition Matrix 3D</displayedName>
@@ -247,7 +247,7 @@
                 <key>CALIB_DELAY_BEFORE_GRAD</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_DELAY_BEFORE_GRAD</name>
-                    <uuid>e85ff0b9-f547-4c71-943b-b8595eee43de</uuid>
+                    <uuid>b3a51bad-74be-4058-a15d-c930337da260</uuid>
                     <value>9.999999999999999E-6</value>
                     <defaultValue>9.999999999999999E-6</defaultValue>
                     <description></description>
@@ -258,6 +258,7 @@
                     <numberEnum>Time</numberEnum>
                     <minValue>4.9999999999999996E-6</minValue>
                     <maxValue>1.0E9</maxValue>
+                    <group>Delay</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -319,7 +320,7 @@
                 <key>CALIB_GRAD_LENGTH_1</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_LENGTH_1</name>
-                    <uuid>0d5d2745-3b99-4dfc-a3ce-bae6be84410a</uuid>
+                    <uuid>6d63ccc7-f827-4100-8e52-52491e901862</uuid>
                     <value>0.08</value>
                     <defaultValue>4.9999999999999996E-6</defaultValue>
                     <description></description>
@@ -330,6 +331,7 @@
                     <numberEnum>Time</numberEnum>
                     <minValue>4.9999999999999996E-6</minValue>
                     <maxValue>1.0E9</maxValue>
+                    <group>Delay</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -337,7 +339,7 @@
                 <key>CALIB_GRAD_LENGTH_2</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_LENGTH_2</name>
-                    <uuid>e420bd14-e4f1-4282-936f-09c978e1517c</uuid>
+                    <uuid>17c952d1-a2af-4ba7-9ea2-47fc8ca957f9</uuid>
                     <value>0.003</value>
                     <defaultValue>4.9999999999999996E-6</defaultValue>
                     <description></description>
@@ -348,6 +350,7 @@
                     <numberEnum>Time</numberEnum>
                     <minValue>4.9999999999999996E-6</minValue>
                     <maxValue>1.0E9</maxValue>
+                    <group>Delay</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -355,7 +358,7 @@
                 <key>CALIB_GRAD_LENGTH_3</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_LENGTH_3</name>
-                    <uuid>08cf61e2-8bbd-4e6f-84b2-e17d066138b3</uuid>
+                    <uuid>5f639be3-2ff9-4d02-9065-d2e5b41eec8a</uuid>
                     <value>0.002</value>
                     <defaultValue>4.9999999999999996E-6</defaultValue>
                     <description></description>
@@ -366,6 +369,7 @@
                     <numberEnum>Time</numberEnum>
                     <minValue>0.0</minValue>
                     <maxValue>1.0E9</maxValue>
+                    <group>Delay</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -484,18 +488,21 @@
                 <key>CALIB_LOCATIONS</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                     <name>CALIB_LOCATIONS</name>
-                    <uuid>49446c8d-a6a8-47d3-b029-a2dd08180416</uuid>
-                    <value>0.01</value>
-                    <value>-0.01</value>
+                    <uuid>7f9c9cbb-db59-4663-8cd3-c63b1fc106eb</uuid>
+                    <value>0.012</value>
+                    <value>0.006</value>
+                    <value>-0.006</value>
+                    <value>-0.012</value>
                     <defaultValue>0.01</defaultValue>
                     <defaultValue>-0.01</defaultValue>
                     <description></description>
                     <displayedName>Calib - Locations</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
-                    <numberEnum>LengthOffset</numberEnum>
+                    <numberEnum>Location</numberEnum>
                     <minValue>-1.7976931348623157E308</minValue>
                     <maxValue>1.7976931348623157E308</maxValue>
+                    <group>Gradient</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -646,7 +653,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ECHO_TIME</name>
                     <uuid>cfd6e656-00a1-4b37-b20b-963156dc7444</uuid>
-                    <value>0.0014049280000000002</value>
+                    <value>0.003985408</value>
                     <defaultValue>0.005</defaultValue>
                     <description>Time between the middle of the excitation RF and the beginning of the reception  (input if 'Use Dead Time' unchecked)</description>
                     <displayedName>Tx-Rx Time</displayedName>
@@ -720,8 +727,8 @@
                 <key>GRADIENT_REFOC_TIME</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>GRADIENT_REFOC_TIME</name>
-                    <uuid>ec897c60-293c-4381-a9e5-e9e9dd23b574</uuid>
-                    <value>1.9999999999999998E-4</value>
+                    <uuid>827972e2-a6fe-4b52-bed1-cdb0d0346c8a</uuid>
+                    <value>5.0E-4</value>
                     <defaultValue>1.9999999999999998E-4</defaultValue>
                     <description>Top time of the slice refocusing gradient</description>
                     <displayedName>Gradient Slice Refoc Duration</displayedName>
@@ -731,6 +738,7 @@
                     <numberEnum>Time</numberEnum>
                     <minValue>0.0</minValue>
                     <maxValue>1.0E9</maxValue>
+                    <group>Delay</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -739,7 +747,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>GRADIENT_RISE_TIME</name>
                     <uuid>2a02a20c-ffc0-4b25-9700-338b38920822</uuid>
-                    <value>2.5E-4</value>
+                    <value>7.999999999999999E-4</value>
                     <defaultValue>9.999999999999999E-5</defaultValue>
                     <description>Rise time of the gradient</description>
                     <displayedName>Gradient Rise Time</displayedName>
@@ -757,7 +765,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                     <name>GRADIENT_SPOILER_ACTIVATE</name>
                     <uuid>ae817834-e929-44f7-aa02-2bc64b1d1f01</uuid>
-                    <value>false</value>
+                    <value>true</value>
                     <defaultValue>false</defaultValue>
                     <description>Enable gradient spoiler</description>
                     <displayedName>Gradient Spoiler Enable</displayedName>
@@ -816,6 +824,25 @@
                     <displayedName>Grad Clock</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
+                    <category>Acquisition</category>
+                </value>
+            </entry>
+            <entry>
+                <key>GRAD_MAX_SEQUENCE</key>
+                <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                    <name>GRAD_MAX_SEQUENCE</name>
+                    <uuid>7919f98f-86fa-4e6a-9b75-f5446dd4fe6b</uuid>
+                    <value>17.850052972101718</value>
+                    <defaultValue>0.0</defaultValue>
+                    <description>Maximum gradient amplitude applied in the sequence (%)</description>
+                    <displayedName>Grad Max</displayedName>
+                    <locked>false</locked>
+                    <lockedToDefault>false</lockedToDefault>
+                    <restrictedToSuggested>false</restrictedToSuggested>
+                    <numberEnum>GradAmp</numberEnum>
+                    <minValue>-100.0</minValue>
+                    <maxValue>100.0</maxValue>
+                    <group>Gradient</group>
                     <category>Acquisition</category>
                 </value>
             </entry>
@@ -1561,7 +1588,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>NUMBER_OF_AVERAGES</name>
                     <uuid>4112f1d5-1da2-4fc8-9801-ca5a3681e4f4</uuid>
-                    <value>1</value>
+                    <value>5</value>
                     <defaultValue>1</defaultValue>
                     <description>Number of average</description>
                     <displayedName>Nex</displayedName>
@@ -1990,7 +2017,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>REPETITION_TIME</name>
                     <uuid>895a8c34-03ef-400d-b6bc-cc43ee7d8620</uuid>
-                    <value>0.7000555520000001</value>
+                    <value>0.7000908640000001</value>
                     <defaultValue>0.2</defaultValue>
                     <description>Repetition Time</description>
                     <displayedName>TR</displayedName>
@@ -2024,11 +2051,11 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SEQUENCE_TIME</name>
                     <uuid>719b6f50-46b5-4a43-914d-16f9ab9631a6</uuid>
-                    <value>2.1001666560000003</value>
+                    <value>42.005451840000006</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Total acquisition time</description>
                     <displayedName>Acquisition Time</displayedName>
-                    <locked>true</locked>
+                    <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
                     <numberEnum>Time</numberEnum>
@@ -2042,7 +2069,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>SEQUENCE_VERSION</name>
                     <uuid>fce8797d-e7c2-4278-9c47-28d0beef10ad</uuid>
-                    <value>Version1.1</value>
+                    <value>Version1.2</value>
                     <defaultValue></defaultValue>
                     <description>Info: Sequence version</description>
                     <displayedName>Sequence Version</displayedName>
@@ -2108,7 +2135,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SLICE_THICKNESS</name>
                     <uuid>dd0ed93b-f314-4806-a057-4a054de13927</uuid>
-                    <value>0.02</value>
+                    <value>0.001</value>
                     <defaultValue>0.005</defaultValue>
                     <description>Slice Thickness</description>
                     <displayedName>Slice Thickness</displayedName>
@@ -2396,7 +2423,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
                     <uuid>4e381691-8b2a-4b50-96c4-76206b85baae</uuid>
-                    <value>1.0552512292196186</value>
+                    <value>1.0758871459331383</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse</description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2415,7 +2442,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
                     <uuid>a9f47542-bf8b-478e-af2d-58ad35a381b1</uuid>
-                    <value>8</value>
+                    <value>20</value>
                     <defaultValue>36</defaultValue>
                     <description>RF pulse attenuation</description>
                     <displayedName>TX Attenuation</displayedName>
@@ -2434,7 +2461,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_GAMMA_B1</name>
                     <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                    <value>24.0</value>
+                    <value>6.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the power in gamma B1 unit</description>
                     <displayedName>TX Gamma B1</displayedName>
@@ -2452,7 +2479,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_LENGTH</name>
                     <uuid>4c648c30-6369-4497-be76-d16537413f36</uuid>
-                    <value>5.160960000000001E-4</value>
+                    <value>0.0020070400000000003</value>
                     <defaultValue>0.3</defaultValue>
                     <description>RF pulse length</description>
                     <displayedName>TX Length</displayedName>
@@ -2471,7 +2498,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_POWER</name>
                     <uuid>e35ca420-08f7-426c-a521-7bd92b7994b1</uuid>
-                    <value>0.01907</value>
+                    <value>0.00127</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the pulse power amplitude that corresponds to Tx Amplitude and Attenuation</description>
                     <displayedName>TX Power</displayedName>
@@ -2544,7 +2571,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_VOLTAGE</name>
                     <uuid>a853cdcd-a18e-4b8d-b8c8-fb29d9d51267</uuid>
-                    <value>2.762</value>
+                    <value>0.711</value>
                     <defaultValue>0.0</defaultValue>
                     <description>RF voltage amplitude peak-to-peak</description>
                     <displayedName>TX Voltage</displayedName>

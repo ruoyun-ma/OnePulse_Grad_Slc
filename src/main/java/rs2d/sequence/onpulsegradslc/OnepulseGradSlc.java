@@ -32,7 +32,7 @@ import static rs2d.sequence.onpulsegradslc.U.*;
 
 public class OnepulseGradSlc extends BaseSequenceGenerator {
 
-    private final String sequenceVersion = "Version1.1";
+    private final String sequenceVersion = "Version1.2";
     public double protonFrequency;
     public double observeFrequency;
     private Nucleus nucleus;
@@ -98,7 +98,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     int gradClockNumber = 11;
 
     private String calibShape = "";
-
+    private double gMaxSeq =0.0;
 
     public OnepulseGradSlc() {
         addUserParams();
@@ -486,6 +486,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
             sliceThickness = slice_thickness_min;
         }
         gradSlice.applyAmplitude();
+        gMaxSeq = Math.abs(gradSlice.getAmplitude()) > gMaxSeq ? Math.abs(gradSlice.getAmplitude()): gMaxSeq;
 
         // ---------------------------------------------------------------------
         // calculate calibration gradient
@@ -531,6 +532,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         getParam(CALIB_GRAD_LENGTH_EFF_1).setValue(shapeGradient.getGradLength1());
         getParam(CALIB_GRAD_LENGTH_EFF_2).setValue(shapeGradient.getGradLength2());
         getParam(CALIB_GRAD_LENGTH_EFF_3).setValue(shapeGradient.getGradLength3());
+        gMaxSeq = calibGradAmp > gMaxSeq ? calibGradAmp : gMaxSeq;
 
         // calculate SLICE_refocusing
         double grad_ref_application_time = isGradClocked? ceilToGradClock(getDouble(GRADIENT_REFOC_TIME), gradClockNumber):getDouble(GRADIENT_REFOC_TIME);
@@ -540,6 +542,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
             gradSliceRefPhase3D.refocalizeGradient(gradSlice, 0.5);
         }
         gradSliceRefPhase3D.applyAmplitude();
+        gMaxSeq = Math.abs(gradSliceRefPhase3D.getAmplitude()) > gMaxSeq ? Math.abs(gradSliceRefPhase3D.getAmplitude()) : gMaxSeq;
 
         // -----------------------------------------------
         // calculate ADC observation time
@@ -566,9 +569,13 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         double grad_spoiler_amp = getDouble(GRADIENT_SPOILER_AMP);
 
         Gradient gradSpoiler = Gradient.createGradient(getSequence(), Grad_amp_spoiler, Time_grad_spoil, Grad_shape_up, Grad_shape_down, Time_grad_spoil_ramp, nucleus);
-        if (getBoolean(GRADIENT_SPOILER_ACTIVATE))
+        if (is_spoiler)
             gradSpoiler.addSpoiler(grad_spoiler_amp);
         gradSpoiler.applyAmplitude();
+
+        if (is_spoiler)
+            gMaxSeq = Math.abs(grad_spoiler_amp) > gMaxSeq ? Math.abs(grad_spoiler_amp) : gMaxSeq;
+        getParam(GRAD_MAX_SEQUENCE).setValue(gMaxSeq);
 
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // TIMING --- TIMING --- TIMING --- TIMING --- TIMING --- TIMING --- TIMING --- TIMING --- TIMING --- TIMING --- TIMING --- TIMING --- TIMING
@@ -678,8 +685,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         }
         time_last_delay_table.add(last_delay);
 
-        double total_acquisition_time = tr * nb_scan_4d * nb_scan_3d * nb_scan_2d * nb_scan_1d;
-        getParam(SEQUENCE_TIME).setValue(total_acquisition_time);
+
         // -----------------------------------------------
         // Phase Reset
         // -----------------------------------------------
@@ -700,6 +706,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
             double [] frequency_center_3D_90_array = new double[nbLocations];
             nb_scan_3d = nbLocations;
             set(Nb_3d, nb_scan_3d);
+            getParam(ACQUISITION_MATRIX_DIMENSION_3D).setValue(nb_scan_3d);
             for (int i = 0; i < off_center_distance_3D_list.size(); i++) {
                 frequency_center_3D_90_array[i] = -grad_amp_slice_mTpm * off_center_distance_3D_list.get(i) * (GradientMath.GAMMA);
             }
@@ -707,6 +714,10 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         } else {
             setSequenceTableSingleValue(Tx_freq_offset, frequency_center_3D_90);
         }
+
+        // calculate total sequence time
+        double total_acquisition_time = tr * nb_scan_4d * nb_scan_3d * nb_scan_2d * nb_scan_1d;
+        getParam(SEQUENCE_TIME).setValue(total_acquisition_time);
 
     }
 
@@ -827,7 +838,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     }
 
     public String getVersion() {
-        return "v1.1";
+        return "v1.2";
     }
     //</editor-fold>
 

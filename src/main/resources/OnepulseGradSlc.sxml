@@ -970,7 +970,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
                 <uuid>bcd9d038-40f9-4305-9e3d-9f6b7e656982</uuid>
-                <value>8</value>
+                <value>20</value>
                 <defaultValue>7</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -1542,7 +1542,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_1d</name>
                 <uuid>1e26d3c6-21d8-444e-896b-3d8852b1cb6a</uuid>
-                <value>1</value>
+                <value>5</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 1D</displayedName>
                 <locked>true</locked>
@@ -1668,7 +1668,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_3d</name>
                 <uuid>d76395ea-86d6-4a27-b50e-9e79c40bba5d</uuid>
-                <value>2</value>
+                <value>4</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 3D</displayedName>
                 <locked>true</locked>
@@ -6849,7 +6849,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>enabled_spoiler</name>
                 <uuid>6090e17c-b8f4-4627-b33e-aeba718de8cb</uuid>
-                <value>false</value>
+                <value>true</value>
                 <defaultValue>true</defaultValue>
                 <description>The state of the element</description>
                 <displayedName>enabled_spoiler</displayedName>
@@ -7921,7 +7921,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>2.8672E-4</list>
+                <list>8.028160000000001E-4</list>
             </value>
         </Entry>
         <Entry>
@@ -7948,7 +7948,7 @@
                 <group>Emission</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>5.160960000000001E-4</list>
+                <list>0.0020070400000000003</list>
             </value>
         </Entry>
         <Entry>
@@ -8121,7 +8121,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.6169067520000001</list>
+                <list>0.6115164160000001</list>
             </value>
         </Entry>
         <Entry>
@@ -8213,8 +8213,10 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>-1307.8962053571427</list>
-                <list>1307.8962053571427</list>
+                <list>-8071.588010204079</list>
+                <list>-4035.7940051020396</list>
+                <list>4035.7940051020396</list>
+                <list>8071.588010204079</list>
             </value>
         </Entry>
         <Entry>
@@ -8378,7 +8380,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>1.0552512292196186</list>
+                <list>1.0758871459331383</list>
             </value>
         </Entry>
         <Entry>
@@ -8409,7 +8411,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>6a6cf2b2-632b-40c1-b6df-509aeef9d5f5</uuid>
+                        <uuid>6bacfa96-aab5-4a0f-a673-ad864add1b2b</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -8423,7 +8425,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>716207b3-8e11-49f1-a2a5-baaae80e49a0</uuid>
+                        <uuid>bf27ea7d-0ecd-44d4-a5ad-c24423263586</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -8437,7 +8439,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>3f44b211-ea35-46db-b58c-a871b404ac36</uuid>
+                        <uuid>198da28f-364e-4ad1-8d9e-5286a4b0a19e</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -8451,7 +8453,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>b6444fe6-9e88-41c4-964c-06f7ddb55b3a</uuid>
+                        <uuid>b2a84ecb-59ef-4510-b0c5-48a08a95340a</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>
@@ -8953,7 +8955,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>2.2937600000000002E-4</list>
+                <list>5.160960000000001E-4</list>
             </value>
         </Entry>
         <Entry>
@@ -8981,7 +8983,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>5.7344000000000005E-5</list>
+                <list>1.5E-4</list>
             </value>
         </Entry>
         <Entry>
@@ -9009,7 +9011,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>5.7344000000000005E-5</list>
+                <list>8.028160000000001E-4</list>
             </value>
         </Entry>
         <Entry>
@@ -9275,7 +9277,7 @@
                 <group>Gradient</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>3.2583430028439655</list>
+                <list>16.757192586054675</list>
             </value>
         </Entry>
         <Entry>
@@ -9420,7 +9422,7 @@
                 <group>Gradient</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>-2.5342667799897507</list>
+                <list>-17.850052972101718</list>
             </value>
         </Entry>
         <Entry>
@@ -9617,7 +9619,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>2.8672E-4</list>
+                <list>8.028160000000001E-4</list>
             </value>
         </Entry>
         <Entry>
