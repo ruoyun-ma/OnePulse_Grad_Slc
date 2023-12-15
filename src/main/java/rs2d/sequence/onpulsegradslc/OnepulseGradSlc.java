@@ -551,6 +551,9 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         if (isGradClocked) {preDelay = ceilToGradClock(preDelay, gradClockNumber);}
         setSequenceTableSingleValue(Time_rx, preDelay);
         double timeRxContinue = observation_time - preDelay - shapeGradient.getGradObjectLength();
+        if (timeRxContinue <= 0){
+            timeRxContinue = minInstructionDelay;
+        }
         if (isGradClocked){timeRxContinue = ceilToGradClock(timeRxContinue, gradClockNumber);}
         setSequenceTableSingleValue(Time_rx_continue, timeRxContinue);
         set(Spectral_width, spectralWidth);
@@ -838,7 +841,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     }
 
     public String getVersion() {
-        return "v1.2";
+        return "v1.3";
     }
     //</editor-fold>
 
