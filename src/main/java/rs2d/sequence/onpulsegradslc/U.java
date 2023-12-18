@@ -61,7 +61,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(3);
+            param.setValue(1);
             param.setDefaultValue(128);
             return param;
         }
@@ -80,7 +80,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(4);
+            param.setValue(1);
             param.setDefaultValue(1);
             return param;
         }
@@ -99,7 +99,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(1);
+            param.setValue(8);
             param.setDefaultValue(1);
             return param;
         }
@@ -422,6 +422,23 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
+    CALIB_GRAD_POLARITIES("CALIB_GRAD_POLARITIES") {
+        public Param build() {
+            TextParam param = new TextParam();
+            param.setName("CALIB_GRAD_POLARITIES");
+            param.setDisplayedName("Calib Grad Polarities");
+            param.setDescription("Choose whether both polarities will be measured, or just one polarity, or both polarities plus a static field scan");
+            param.setGroup(EnumGroup.Gradient);
+            param.setCategory(Category.Acquisition);
+            param.setUuid("5d90002a-9f29-44b4-b016-cfd436bab4aa");
+            param.setValue("Double Polarities");
+            param.setDefaultValue("Single Polarity");
+            param.setSuggestedValues(asList("Single Polarity", "Both Polarities Plus Static Field", "Double Polarities"));
+            param.setRestrictedToSuggested(true);
+            return param;
+        }
+    },
+
     CALIB_GRAD_SHAPE("CALIB_GRAD_SHAPE") {
         public Param build() {
             TextParam param = new TextParam();
@@ -636,7 +653,6 @@ public enum U implements GeneratorParamEnum {
             param.setName("FIELD_OF_VIEW");
             param.setDisplayedName("FOV");
             param.setDescription("Field of view");
-            param.setLocked(true);
             param.setGroup(EnumGroup.Dimension);
             param.setCategory(Category.Acquisition);
             param.setUuid("9e7aefaf-1eb6-488e-b49e-b0a9ed23054d");
@@ -1487,7 +1503,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(42.005451840000006);
+            param.setValue(28.00363456000001);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -2010,7 +2026,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Scan);
             param.setMinValue(0);
             param.setMaxValue(65536);
-            param.setValue(3);
+            param.setValue(1);
             param.setDefaultValue(128);
             return param;
         }

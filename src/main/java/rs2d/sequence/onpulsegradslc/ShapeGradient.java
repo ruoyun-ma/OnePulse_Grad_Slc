@@ -106,6 +106,7 @@ public class ShapeGradient {
     public double getGradLength2(){ return this.timeTable2.get(0).doubleValue();}
     public double getGradLength3(){ return this.timeTable3.get(0).doubleValue();}
     public int getNbPoints(){ return this.nbPoints; }
+    public double getAmplitude(){return this.amplitude; }
     public void initSinc(double amplitude, int nbPoints, double pulseLength ){
         this.setSequenceTableValue(this.timeTable1, pulseLength);
         this.setSequenceTableValue(this.timeTable2, minInstructionDelay);
@@ -215,7 +216,24 @@ public class ShapeGradient {
 
         this.gradObjectLength = timeTable1.get(0).doubleValue() + timeTable2.get(0).doubleValue() +timeTable3.get(0).doubleValue();
     }
-
+    public void setAmplitudeTable(Order order, double ...amplitudeValues){
+        switch (shapeName){
+            case "Sinc":
+            case "Gaussian":
+            case "Chirp":
+                setSequenceTableValues(amplitudeTable1, order, amplitudeValues);
+                break;
+            case "Trapezoid":
+                setSequenceTableValues(amplitudeTable1, order, amplitudeValues);
+                setSequenceTableValues(amplitudeTable2, order, amplitudeValues);
+                setSequenceTableValues(amplitudeTable3, order, amplitudeValues);
+                break;
+            case "Triangle":
+                setSequenceTableValues(amplitudeTable1, order, amplitudeValues);
+                setSequenceTableValues(amplitudeTable2, order, amplitudeValues);
+                break;
+        }
+    }
     public void setAmplitudeTable(){
         switch (shapeName){
             case "Sinc":

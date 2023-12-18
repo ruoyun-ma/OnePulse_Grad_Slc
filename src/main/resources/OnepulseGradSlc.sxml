@@ -1605,7 +1605,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_2d</name>
                 <uuid>91cdd71b-c9b9-46bd-a39e-cdc1c50549c8</uuid>
-                <value>3</value>
+                <value>1</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 2D</displayedName>
                 <locked>true</locked>
@@ -1668,7 +1668,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_3d</name>
                 <uuid>d76395ea-86d6-4a27-b50e-9e79c40bba5d</uuid>
-                <value>4</value>
+                <value>1</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 3D</displayedName>
                 <locked>true</locked>
@@ -1731,7 +1731,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Nb_4d</name>
                 <uuid>f50024e9-77ad-4e93-8bc1-a3ef0516e18c</uuid>
-                <value>1</value>
+                <value>8</value>
                 <defaultValue>1</defaultValue>
                 <displayedName>Nb 4D</displayedName>
                 <locked>true</locked>
@@ -8144,7 +8144,7 @@
                 <name>Tx_freq_offset</name>
                 <description></description>
                 <numberEnum>FrequencyOffset</numberEnum>
-                <order>Three</order>
+                <order>Four</order>
                 <group>Emission</group>
                 <locked>false</locked>
                 <address>-1</address>
@@ -8214,8 +8214,12 @@
                     </params>
                 </generator>
                 <list>-8071.588010204079</list>
+                <list>-8071.588010204079</list>
+                <list>-4035.7940051020396</list>
                 <list>-4035.7940051020396</list>
                 <list>4035.7940051020396</list>
+                <list>4035.7940051020396</list>
+                <list>8071.588010204079</list>
                 <list>8071.588010204079</list>
             </value>
         </Entry>
@@ -8411,7 +8415,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>bc9cdf90-88bf-43bf-a288-a35a207e4c88</uuid>
+                        <uuid>e2697046-49a8-4102-b6e9-bccfbb6226c0</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -8425,7 +8429,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>5be86b7d-c7a1-4d96-8d3b-7add98e660d6</uuid>
+                        <uuid>97df9c15-6c35-4766-a10e-f172d85ca7f7</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -8439,7 +8443,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>e058c8e5-3d30-48fd-8ce1-ff5510a85221</uuid>
+                        <uuid>4b17a179-7f56-4884-94ca-48d44f8bdbf6</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -8453,7 +8457,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>68a9ab72-ca2a-4626-b79f-944a832547f9</uuid>
+                        <uuid>3b59598f-7e3b-4beb-8962-52c4a8385f58</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>
@@ -9655,13 +9659,18 @@
                 <name>Grad_shape_amp_1</name>
                 <description></description>
                 <numberEnum>GradAmp</numberEnum>
-                <order>Two</order>
+                <order>Four</order>
                 <group>Gradient</group>
                 <locked>false</locked>
                 <address>-1</address>
                 <list>2.0</list>
                 <list>-2.0</list>
-                <list>0.0</list>
+                <list>2.0</list>
+                <list>-2.0</list>
+                <list>2.0</list>
+                <list>-2.0</list>
+                <list>2.0</list>
+                <list>-2.0</list>
             </value>
         </Entry>
         <Entry>

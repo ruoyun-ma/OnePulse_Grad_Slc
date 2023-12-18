@@ -70,12 +70,6 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     ;
     PowerInput powerInput;
 
-
-    private double txAmpMin;
-    private double txAmpMax;
-    private double txVoltMin;
-    private double txVoltMax;
-    private double txLengthMin;
     private double txLengthMax;
     private boolean isDelayEcho;
 
@@ -91,6 +85,8 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     private final double txAmpMinResolution = 0.01;
     private final double txVoltMinResolution = 0.01;
     private final double txLengthMinResolution = 128 * Math.pow(10, -9);
+    private int nbCalibLocations;
+    private int nbCalibPolarities;
     private double gradFreq = 78.125 * 11 / (35 * 128) * 1000000;
     private double gradFreq11 = 78.125 / (35 * 128) * 1000000;
 
@@ -253,10 +249,6 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         // 2nd D management
         // -----------------------------------------------
         // MATRIX
-        if (userMatrixDimension2D > 3){
-            userMatrixDimension2D = 3;
-            getParam(USER_MATRIX_DIMENSION_2D).setValue(3);
-        }
         acquisitionMatrixDimension2D = userMatrixDimension2D;
         nb_scan_2d = userMatrixDimension2D;
 
@@ -519,13 +511,19 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         shapeGradient.safetyCheck(getDouble(CALIB_GRAD_SLEW_RATE_FACTOR));
         getParam(SLEW_RATE_MAX_SHAPE).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateShape(), 3));
         getParam(SLEW_RATE_MAX_SYSTEM).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateSystem(), 3));
-        if (nb_scan_2d == 1) {
-            shapeGradient.setAmplitudeTable();
-        } else if (nb_scan_2d == 2) {
-            shapeGradient.setAmplitudeTable2();
-        } else{
-            shapeGradient.setAmplitudeTable3();
+
+        switch (getText(CALIB_GRAD_POLARITIES)){
+            case "Single Polarity":
+                nbCalibPolarities = 1;
+                break;
+            case "Both Polarities Plus Static Field":
+                nbCalibPolarities = 3;
+                break;
+            case "Double Polarities":
+            default:
+                nbCalibPolarities = 2;
         }
+
         if (!calibShape.equalsIgnoreCase("None")) {
             getParam(CALIB_GRAD_NB_POINT).setValue(shapeGradient.getNbPoints());
         }
@@ -703,20 +701,38 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
             frequency_center_3D_90 = 0;
         }
 
+        // ------------------------------------------------------------------
+        // Reorganize gradient table and tx offset table according to CALIB_LOCATIONS and CALIB_GRAD_POLARITIES
+        // ------------------------------------------------------------------
         List<Double> off_center_distance_3D_list = getListDouble(CALIB_LOCATIONS);
-        int nbLocations = off_center_distance_3D_list.size();
-        if (nbLocations > 0){
-            double [] frequency_center_3D_90_array = new double[nbLocations];
-            nb_scan_3d = nbLocations;
-            set(Nb_3d, nb_scan_3d);
-            getParam(ACQUISITION_MATRIX_DIMENSION_3D).setValue(nb_scan_3d);
-            for (int i = 0; i < off_center_distance_3D_list.size(); i++) {
-                frequency_center_3D_90_array[i] = -grad_amp_slice_mTpm * off_center_distance_3D_list.get(i) * (GradientMath.GAMMA);
-            }
-            setSequenceTableValues(Tx_freq_offset, Order.Three, frequency_center_3D_90_array);
-        } else {
-            setSequenceTableSingleValue(Tx_freq_offset, frequency_center_3D_90);
+        nbCalibLocations = off_center_distance_3D_list.size();
+        if (nbCalibLocations == 0){
+            off_center_distance_3D_list.add(off_center_distance_3D);
+            getParam(CALIB_LOCATIONS).setValue(off_center_distance_3D_list);
+            nbCalibLocations = 1;
         }
+        nb_scan_4d = nb_scan_4d * nbCalibLocations * nbCalibPolarities;
+        set(Nb_4d, nb_scan_4d);
+        getParam(ACQUISITION_MATRIX_DIMENSION_4D).setValue(nb_scan_4d);
+
+        double [] frequency_center_3D_90_array = new double[nbCalibLocations*nbCalibPolarities];
+        for (int i = 0; i < nbCalibLocations; i++) {
+            for (int k = 0; k < nbCalibPolarities; k++) {
+                frequency_center_3D_90_array[i * nbCalibPolarities + k] = -grad_amp_slice_mTpm * off_center_distance_3D_list.get(i) * (GradientMath.GAMMA);
+            }
+        }
+        setSequenceTableValues(Tx_freq_offset, Order.Four, frequency_center_3D_90_array);
+
+        double gAmp = shapeGradient.getAmplitude();
+        double[] gAmpTable = new double[nbCalibPolarities * nbCalibLocations];
+        int[] signArray = new int[]{1, -1, 0};
+        for (int i = 0; i < nbCalibLocations; i++) {
+            for (int k = 0; k < nbCalibPolarities; k++) {
+                gAmpTable[i * nbCalibPolarities + k] = gAmp * signArray[k];
+            }
+        }
+        shapeGradient.setAmplitudeTable(Order.Four, gAmpTable);
+
 
         // calculate total sequence time
         double total_acquisition_time = tr * nb_scan_4d * nb_scan_3d * nb_scan_2d * nb_scan_1d;
@@ -841,7 +857,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     }
 
     public String getVersion() {
-        return "v1.3";
+        return "v2.0";
     }
     //</editor-fold>
 

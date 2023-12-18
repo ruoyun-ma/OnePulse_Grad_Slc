@@ -44,7 +44,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ACQUISITION_MATRIX_DIMENSION_2D</name>
                 <uuid>6f83f8fd-a03b-47d3-bc26-4728d4b798be</uuid>
-                <value>3</value>
+                <value>1</value>
                 <defaultValue>128</defaultValue>
                 <description>Info: Size of the initial dataset (raw data) in the second dimension</description>
                 <displayedName>Acquisition Matrix 2D</displayedName>
@@ -63,7 +63,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ACQUISITION_MATRIX_DIMENSION_3D</name>
                 <uuid>856f1277-41a4-433b-adbc-86dc3e5a0d13</uuid>
-                <value>4</value>
+                <value>1</value>
                 <defaultValue>1</defaultValue>
                 <description>Info: Size of the initial dataset (raw data) in the third dimension</description>
                 <displayedName>Acquisition Matrix 3D</displayedName>
@@ -82,7 +82,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ACQUISITION_MATRIX_DIMENSION_4D</name>
                 <uuid>1137b850-50c9-40fe-a531-5881e3c1f39b</uuid>
-                <value>1</value>
+                <value>8</value>
                 <defaultValue>1</defaultValue>
                 <description>Info: Size of raw data in fourth dimension</description>
                 <displayedName>Acquisition Matrix 4D</displayedName>
@@ -431,6 +431,25 @@
             </value>
         </entry>
         <entry>
+            <key>CALIB_GRAD_POLARITIES</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
+                <name>CALIB_GRAD_POLARITIES</name>
+                <uuid>5d90002a-9f29-44b4-b016-cfd436bab4aa</uuid>
+                <value>Double Polarities</value>
+                <defaultValue>Single Polarity</defaultValue>
+                <description>Choose whether both polarities will be measured, or just one polarity, or both polarities plus a static field scan</description>
+                <displayedName>Calib Grad Polarities</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>true</restrictedToSuggested>
+                <suggestedValues>Single Polarity</suggestedValues>
+                <suggestedValues>Both Polarities Plus Static Field</suggestedValues>
+                <suggestedValues>Double Polarities</suggestedValues>
+                <group>Gradient</group>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
             <key>CALIB_GRAD_SHAPE</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>CALIB_GRAD_SHAPE</name>
@@ -661,7 +680,7 @@
                 <defaultValue>0.6</defaultValue>
                 <description>Field of view</description>
                 <displayedName>FOV</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <restrictedToSuggested>false</restrictedToSuggested>
                 <numberEnum>Length</numberEnum>
@@ -2036,7 +2055,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SEQUENCE_TIME</name>
                 <uuid>719b6f50-46b5-4a43-914d-16f9ab9631a6</uuid>
-                <value>42.005451840000006</value>
+                <value>28.00363456000001</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Total acquisition time</description>
                 <displayedName>Acquisition Time</displayedName>
@@ -2594,7 +2613,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>USER_MATRIX_DIMENSION_2D</name>
                 <uuid>be07fdb8-b371-4d24-85aa-cd55c25d3fea</uuid>
-                <value>3</value>
+                <value>1</value>
                 <defaultValue>128</defaultValue>
                 <description>Number of repetitions  (user matrix dimension 2D)</description>
                 <displayedName>Matrix 2D</displayedName>
