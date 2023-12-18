@@ -94,6 +94,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
 
     private String calibShape = "";
     private double gMaxSeq =0.0;
+    private boolean isCrossTerm = false;
 
     public OnepulseGradSlc() {
         addUserParams();
@@ -540,6 +541,19 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         }
         gradSliceRefPhase3D.applyAmplitude();
         gMaxSeq = Math.abs(gradSliceRefPhase3D.getAmplitude()) > gMaxSeq ? Math.abs(gradSliceRefPhase3D.getAmplitude()) : gMaxSeq;
+
+        // -------------------------------------------------------------------------------------------------
+        // calculate PHASE_2D, PHASE_1D
+        // -------------------------------------------------------------------------------------------------
+
+        // enable gradients in P and R axes only for crossterm calib
+        isCrossTerm = getBoolean(CALIB_GRAD_CROSSTERM);
+        set(Grad_enable_phase1d, isCrossTerm);
+        set(Grad_enable_phase2d, isCrossTerm);
+        set(Grad_enable_spoiler_phase1d, isCrossTerm);
+        set(Grad_enable_spoiler_phase2d, isCrossTerm);
+
+        //
 
         // -----------------------------------------------
         // calculate ADC observation time
