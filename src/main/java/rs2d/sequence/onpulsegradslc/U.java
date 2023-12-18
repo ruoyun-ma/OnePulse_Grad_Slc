@@ -300,6 +300,21 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
+    CALIB_GRAD_CROSSTERM("CALIB_GRAD_CROSSTERM") {
+        public Param build() {
+            BooleanParam param = new BooleanParam();
+            param.setName("CALIB_GRAD_CROSSTERM");
+            param.setDisplayedName("Calib Grad CrossTerm");
+            param.setDescription("Enable cross term calibration");
+            param.setGroup(EnumGroup.Gradient);
+            param.setCategory(Category.Acquisition);
+            param.setUuid("8733fdb0-be7b-4cad-8913-d08945b4584b");
+            param.setValue(false);
+            param.setDefaultValue(false);
+            return param;
+        }
+    },
+
     CALIB_GRAD_LENGTH_1("CALIB_GRAD_LENGTH_1") {
         public Param build() {
             NumberParam param = new NumberParam();
@@ -700,6 +715,21 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
+    GRADIENT_ENABLE_REWINDING("GRADIENT_ENABLE_REWINDING") {
+        public Param build() {
+            BooleanParam param = new BooleanParam();
+            param.setName("GRADIENT_ENABLE_REWINDING");
+            param.setDisplayedName("Gradient Rewinding");
+            param.setDescription("Enable gradient rewinding ");
+            param.setGroup(EnumGroup.Gradient);
+            param.setCategory(Category.Acquisition);
+            param.setUuid("4a7efb62-1a71-4f6b-b959-0196723f96de");
+            param.setValue(true);
+            param.setDefaultValue(true);
+            return param;
+        }
+    },
+
     GRADIENT_REFOC_TIME("GRADIENT_REFOC_TIME") {
         public Param build() {
             NumberParam param = new NumberParam();
@@ -762,7 +792,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.GradAmp);
             param.setMinValue(-100.0);
             param.setMaxValue(100.0);
-            param.setValue(0.0);
+            param.setValue(20.0);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -782,6 +812,22 @@ public enum U implements GeneratorParamEnum {
             param.setMaxValue(1.0E9);
             param.setValue(1.5E-4);
             param.setDefaultValue(9.999999999999999E-5);
+            return param;
+        }
+    },
+
+    GRAD_AMP_SPOILER("GRAD_AMP_SPOILER") {
+        public Param build() {
+            ListNumberParam param = new ListNumberParam();
+            param.setName("GRAD_AMP_SPOILER");
+            param.setDisplayedName("Grad Spoiler Amplitude");
+            param.setDescription("Amplitude of spoiler gradient in each axis");
+            param.setGroup(EnumGroup.Gradient);
+            param.setCategory(Category.Acquisition);
+            param.setUuid("07ce9664-bc9a-44f4-82e3-2862d2c1c016");
+            param.setMinValue(-100.0);
+            param.setMaxValue(100.0);
+            param.setNumberEnum(NumberEnum.GradAmp);
             return param;
         }
     },
@@ -812,7 +858,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.GradAmp);
             param.setMinValue(-100.0);
             param.setMaxValue(100.0);
-            param.setValue(14.473015923325717);
+            param.setValue(20.0);
             param.setDefaultValue(0.0);
             return param;
         }

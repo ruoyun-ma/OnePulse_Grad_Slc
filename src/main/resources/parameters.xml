@@ -302,6 +302,21 @@
             </value>
         </entry>
         <entry>
+            <key>CALIB_GRAD_CROSSTERM</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>CALIB_GRAD_CROSSTERM</name>
+                <uuid>8733fdb0-be7b-4cad-8913-d08945b4584b</uuid>
+                <value>false</value>
+                <defaultValue>false</defaultValue>
+                <description>Enable cross term calibration</description>
+                <displayedName>Calib Grad CrossTerm</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Gradient</group>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
             <key>CALIB_GRAD_LENGTH_1</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_LENGTH_1</name>
@@ -728,6 +743,21 @@
             </value>
         </entry>
         <entry>
+            <key>GRADIENT_ENABLE_REWINDING</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>GRADIENT_ENABLE_REWINDING</name>
+                <uuid>4a7efb62-1a71-4f6b-b959-0196723f96de</uuid>
+                <value>true</value>
+                <defaultValue>true</defaultValue>
+                <description>Enable gradient rewinding </description>
+                <displayedName>Gradient Rewinding</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Gradient</group>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
             <key>GRADIENT_REFOC_TIME</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>GRADIENT_REFOC_TIME</name>
@@ -784,7 +814,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>GRADIENT_SPOILER_AMP</name>
                 <uuid>12ee445d-f230-4b6a-af60-83a836aa585b</uuid>
-                <value>0.0</value>
+                <value>20.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Amplitude of the spoiler gradient</description>
                 <displayedName>Gradient Spoiler Amplitude</displayedName>
@@ -818,6 +848,22 @@
             </value>
         </entry>
         <entry>
+            <key>GRAD_AMP_SPOILER</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
+                <name>GRAD_AMP_SPOILER</name>
+                <uuid>07ce9664-bc9a-44f4-82e3-2862d2c1c016</uuid>
+                <description>Amplitude of spoiler gradient in each axis</description>
+                <displayedName>Grad Spoiler Amplitude</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <numberEnum>GradAmp</numberEnum>
+                <minValue>-100.0</minValue>
+                <maxValue>100.0</maxValue>
+                <group>Gradient</group>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
             <key>GRAD_CLOCK</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
                 <name>GRAD_CLOCK</name>
@@ -836,7 +882,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>GRAD_MAX_SEQUENCE</name>
                 <uuid>7919f98f-86fa-4e6a-9b75-f5446dd4fe6b</uuid>
-                <value>14.473015923325717</value>
+                <value>20.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Maximum gradient amplitude applied in the sequence (%)</description>
                 <displayedName>Grad Max</displayedName>

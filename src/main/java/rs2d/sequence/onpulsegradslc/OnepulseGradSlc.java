@@ -11,7 +11,6 @@ import rs2d.commons.log.Log;
 import rs2d.sequence.common.*;
 import rs2d.spinlab.api.Hardware;
 import rs2d.spinlab.api.PowerComputation;
-import rs2d.spinlab.instrument.Instrument;
 import rs2d.spinlab.instrument.util.GradientMath;
 import rs2d.spinlab.sequence.SequenceTool;
 import rs2d.spinlab.sequence.element.TimeElement;
