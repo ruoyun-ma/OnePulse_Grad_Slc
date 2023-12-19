@@ -25,7 +25,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ACQUISITION_MATRIX_DIMENSION_1D</name>
                 <uuid>0798747f-d14e-4aa0-afdf-b4fd7aaf95d4</uuid>
-                <value>8192</value>
+                <value>16384</value>
                 <defaultValue>128</defaultValue>
                 <description>Info: Size of the initial dataset (raw data) in first dimension</description>
                 <displayedName>Acquisition Matrix 1D</displayedName>
@@ -123,7 +123,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ACQUISITION_TIME_PER_SCAN</name>
                 <uuid>c6a83cb4-74f2-486b-bb17-68d8b1f28f3b</uuid>
-                <value>0.080740352</value>
+                <value>0.132120576</value>
                 <defaultValue>1.0</defaultValue>
                 <description>Info: Time during which the signal is sampled by the ADC</description>
                 <displayedName>Observation Time</displayedName>
@@ -252,7 +252,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_AMP</name>
                 <uuid>77cb2ee3-47cf-4a83-81e1-2d333423164b</uuid>
-                <value>2.0</value>
+                <value>40.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description></description>
                 <displayedName>Calib Grad Amplitude</displayedName>
@@ -270,7 +270,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_CHIRP_START</name>
                 <uuid>2327275d-1250-4dc3-aae6-538dcfc45df7</uuid>
-                <value>10.0</value>
+                <value>100.0</value>
                 <defaultValue>10.0</defaultValue>
                 <description>Starting frequency of chirp gradient</description>
                 <displayedName>Calib Grad Chirp Start</displayedName>
@@ -288,7 +288,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_CHIRP_STOP</name>
                 <uuid>bec5ed8b-d3a5-4715-bbeb-cc07ec04fd5f</uuid>
-                <value>600.0</value>
+                <value>10000.0</value>
                 <defaultValue>1000.0</defaultValue>
                 <description>Stop frequency of chirp gradient</description>
                 <displayedName>Calib Grad Chirp Stop</displayedName>
@@ -378,7 +378,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_LENGTH_EFF_1</name>
                 <uuid>13a575aa-8c06-4f8a-a341-b3a94fc6d5a3</uuid>
-                <value>0.12002099200000002</value>
+                <value>0.12000013963636365</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Effective length of first calib shape gradient</description>
                 <displayedName>Calib Grad Length Eff 1</displayedName>
@@ -396,7 +396,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_LENGTH_EFF_2</name>
                 <uuid>b8f6eea7-9eb5-4eaf-9d35-9a987cc386e1</uuid>
-                <value>5.7344000000000005E-5</value>
+                <value>5.2130909090909096E-6</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Effective length of second calib shape gradient</description>
                 <displayedName>Calib Grad Length Eff 2</displayedName>
@@ -414,7 +414,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_LENGTH_EFF_3</name>
                 <uuid>bbd06890-1089-4187-b1a4-7d6be7ad68a8</uuid>
-                <value>5.7344000000000005E-5</value>
+                <value>5.2130909090909096E-6</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Effective length of third calib shape gradient</description>
                 <displayedName>Calib Grad Length Eff 3</displayedName>
@@ -432,7 +432,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_NB_POINT</name>
                 <uuid>48218235-a8bf-4aea-a817-ab50c2ee15d9</uuid>
-                <value>2093</value>
+                <value>23019</value>
                 <defaultValue>0</defaultValue>
                 <description></description>
                 <displayedName>Calib Grad Nb Point</displayedName>
@@ -508,10 +508,10 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="listNumberParam">
                 <name>CALIB_LOCATIONS</name>
                 <uuid>7f9c9cbb-db59-4663-8cd3-c63b1fc106eb</uuid>
-                <value>0.012</value>
-                <value>0.006</value>
-                <value>-0.006</value>
-                <value>-0.012</value>
+                <value>0.02</value>
+                <value>0.01</value>
+                <value>-0.01</value>
+                <value>-0.02</value>
                 <defaultValue>0.01</defaultValue>
                 <defaultValue>-0.01</defaultValue>
                 <description></description>
@@ -653,7 +653,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>DWELL_TIME</name>
                 <uuid>51a26fae-db89-4065-aa74-8bd11708d324</uuid>
-                <value>9.856E-6</value>
+                <value>8.064E-6</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Reception dwell time</description>
                 <displayedName>DW</displayedName>
@@ -672,7 +672,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>ECHO_TIME</name>
                 <uuid>cfd6e656-00a1-4b37-b20b-963156dc7444</uuid>
-                <value>0.003985408</value>
+                <value>0.0039697687272727275</value>
                 <defaultValue>0.005</defaultValue>
                 <description>Time between the middle of the excitation RF and the beginning of the reception  (input if 'Use Dead Time' unchecked)</description>
                 <displayedName>Tx-Rx Time</displayedName>
@@ -710,7 +710,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>FLIP_ANGLE</name>
                 <uuid>84fcfef6-874c-48e8-a621-54d1ada54933</uuid>
-                <value>2.0</value>
+                <value>10.0</value>
                 <defaultValue>30.0</defaultValue>
                 <description>Excitation flip angle</description>
                 <displayedName>Flip Angle</displayedName>
@@ -874,6 +874,27 @@
                 <displayedName>Grad Clock</displayedName>
                 <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
+            <key>GRAD_CLOCK_NUMBER</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>GRAD_CLOCK_NUMBER</name>
+                <uuid>fc5230f7-4f51-4580-9a45-04f6c78eb459</uuid>
+                <value>1</value>
+                <defaultValue>1</defaultValue>
+                <description>Grad clock number, 1 or 11</description>
+                <displayedName>Grad Clock Number (Hardware Limit)</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>true</restrictedToSuggested>
+                <suggestedValues>1</suggestedValues>
+                <suggestedValues>11</suggestedValues>
+                <numberEnum>Integer</numberEnum>
+                <minValue>-2147483648</minValue>
+                <maxValue>2147483647</maxValue>
+                <group>Gradient</group>
                 <category>Acquisition</category>
             </value>
         </entry>
@@ -1638,7 +1659,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>NUMBER_OF_AVERAGES</name>
                 <uuid>4112f1d5-1da2-4fc8-9801-ca5a3681e4f4</uuid>
-                <value>5</value>
+                <value>160</value>
                 <defaultValue>1</defaultValue>
                 <description>Number of average</description>
                 <displayedName>Nex</displayedName>
@@ -2004,7 +2025,7 @@
                 <defaultValue>false</defaultValue>
                 <description>Enable the Phase reset at the beginning of each scan</description>
                 <displayedName>PHASE_RESET</displayedName>
-                <locked>true</locked>
+                <locked>false</locked>
                 <lockedToDefault>false</lockedToDefault>
                 <group>Emission</group>
                 <category>Acquisition</category>
@@ -2067,7 +2088,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>REPETITION_TIME</name>
                 <uuid>895a8c34-03ef-400d-b6bc-cc43ee7d8620</uuid>
-                <value>0.7000908640000001</value>
+                <value>0.500017648</value>
                 <defaultValue>0.2</defaultValue>
                 <description>Repetition Time</description>
                 <displayedName>TR</displayedName>
@@ -2086,7 +2107,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                 <name>SEQUENCE_NAME</name>
                 <uuid>28260898-d184-42f0-bf00-dd522235fd85</uuid>
-                <value>OnePulse_Slc</value>
+                <value>OnePulse_Grad_Slc</value>
                 <defaultValue>OnePulse_Grad_Slc</defaultValue>
                 <description>Info: Name of the sequence</description>
                 <displayedName>Sequence Name</displayedName>
@@ -2149,7 +2170,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SLEW_RATE_MAX_SHAPE</name>
                 <uuid>1ea58ec9-b34b-4b07-ac06-e3e0eff59427</uuid>
-                <value>8.702</value>
+                <value>187.494</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Maximum shape slew rate (T/m/s)</description>
                 <displayedName>Slew Rate Max Shape</displayedName>
@@ -2220,7 +2241,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SPECTRAL_WIDTH</name>
                 <uuid>8494b191-8921-4ba8-ba16-1325b68dbc9d</uuid>
-                <value>101461.03896103895</value>
+                <value>124007.93650793652</value>
                 <defaultValue>12520.0</defaultValue>
                 <description>Receiver bandwidth (SW, BW, bandwidth )</description>
                 <displayedName>BW</displayedName>
@@ -2254,7 +2275,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>SPECTRAL_WIDTH_PER_PIXEL</name>
                 <uuid>f0ebce79-b6ce-41ce-a859-349689ef21d3</uuid>
-                <value>12.3853807325487</value>
+                <value>7.568843781001985</value>
                 <defaultValue>100.0</defaultValue>
                 <description>Bandwidth per point ( FID res)</description>
                 <displayedName>BW/pt</displayedName>
@@ -2473,7 +2494,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_AMP</name>
                 <uuid>4e381691-8b2a-4b50-96c4-76206b85baae</uuid>
-                <value>0.9475169456984012</value>
+                <value>4.601193307807356</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Amplitude of the excitation RF pulse</description>
                 <displayedName>TX Amplitude</displayedName>
@@ -2492,7 +2513,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_ATT</name>
                 <uuid>a9f47542-bf8b-478e-af2d-58ad35a381b1</uuid>
-                <value>22</value>
+                <value>28</value>
                 <defaultValue>36</defaultValue>
                 <description>RF pulse attenuation</description>
                 <displayedName>TX Attenuation</displayedName>
@@ -2511,7 +2532,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_GAMMA_B1</name>
                 <uuid>b97c56b6-2740-41a6-a9cf-f8bd27340c1f</uuid>
-                <value>6.0</value>
+                <value>31.0</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the power in gamma B1 unit</description>
                 <displayedName>TX Gamma B1</displayedName>
@@ -2548,7 +2569,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_POWER</name>
                 <uuid>e35ca420-08f7-426c-a521-7bd92b7994b1</uuid>
-                <value>7.7E-4</value>
+                <value>0.00437</value>
                 <defaultValue>0.0</defaultValue>
                 <description>Info: Display the pulse power amplitude that corresponds to Tx Amplitude and Attenuation</description>
                 <displayedName>TX Power</displayedName>
@@ -2621,7 +2642,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>TX_VOLTAGE</name>
                 <uuid>a853cdcd-a18e-4b8d-b8c8-fb29d9d51267</uuid>
-                <value>0.555</value>
+                <value>1.322</value>
                 <defaultValue>0.0</defaultValue>
                 <description>RF voltage amplitude peak-to-peak</description>
                 <displayedName>TX Voltage</displayedName>
@@ -2640,7 +2661,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>USER_MATRIX_DIMENSION_1D</name>
                 <uuid>7d4b8a01-7a8c-41d0-b6e3-69cbf41c657e</uuid>
-                <value>8192</value>
+                <value>16384</value>
                 <defaultValue>128</defaultValue>
                 <description>Number of points of the FID  (user matrix dimension 1D)</description>
                 <displayedName>Matrix 1D - FID</displayedName>
