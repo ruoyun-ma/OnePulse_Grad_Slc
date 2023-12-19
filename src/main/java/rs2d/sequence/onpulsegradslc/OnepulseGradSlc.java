@@ -32,7 +32,7 @@ import static rs2d.sequence.onpulsegradslc.U.*;
 
 public class OnepulseGradSlc extends BaseSequenceGenerator {
 
-    private final String sequenceVersion = "Version1.2";
+    private final String sequenceVersion = "Version1.4";
     public double protonFrequency;
     public double observeFrequency;
     private Nucleus nucleus;
@@ -95,7 +95,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     private double gradFreq11 = 78.125 / (35 * 128) * 1000000;
 
     private boolean isGradClocked;
-    int gradClockNumber = 11;
+    int gradClockNumber;
 
     private String calibShape = "";
     private double gMaxSeq =0.0;
@@ -170,6 +170,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
 
         observation_time = getDouble(ACQUISITION_TIME_PER_SCAN);
         isGradClocked = getBoolean(GRAD_CLOCK);
+        gradClockNumber = getInt(GRAD_CLOCK_NUMBER);
 
         calibShape = getText(CALIB_GRAD_SHAPE);
     }
@@ -494,6 +495,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
 
         ShapeGradient shapeGradient = ShapeGradient.createShapeGradient(getSequence(), calibShape, isGradClocked, Grad_shape_amp_1, Grad_shape_amp_2, Grad_shape_amp_3, Grad_shape_1,
                 Grad_shape_2, Grad_shape_3, Time_shapegrad_1, Time_shapegrad_2, Time_shapegrad_3);
+        shapeGradient.setGradClockNumber(gradClockNumber);
         double calibGradAmp = getDouble(CALIB_GRAD_AMP);
         double gradLength1 = getDouble(CALIB_GRAD_LENGTH_1);
         double gradLength2 = getDouble(CALIB_GRAD_LENGTH_2);

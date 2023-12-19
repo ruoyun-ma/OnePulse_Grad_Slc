@@ -47,7 +47,7 @@ public class ShapeGradient {
     private double gradFreq11 = 78.125 / (35 * 128) * 1000000;
 
     private boolean isGradClockGrad;
-    int gradClockNumber = 11;
+    int gradClockNumber = 1;
 
     private static double gMax = Math.abs(GradientMath.getMaxGradientStrength());
     Nucleus nucleus = Nucleus.H1;
@@ -68,7 +68,7 @@ public class ShapeGradient {
         this.timeTable3 = timeTable3;
         gMax = Math.abs(GradientMath.getMaxGradientStrength());
         minInstructionDelay = 0.000005;
-        minInstructionDelay = isGradClockGrad ? ceilToGradClock(minInstructionDelay, 11) : minInstructionDelay;
+        minInstructionDelay = isGradClockGrad ? ceilToGradClock(minInstructionDelay, gradClockNumber) : minInstructionDelay;
     }
 
 
@@ -176,6 +176,9 @@ public class ShapeGradient {
         setSequenceTableValue(amplitudeTable3, 0.0);
         this.maxSlewRateShape = 0.0;
 
+    }
+    public void setGradClockNumber(int gradClockNumber){
+        this.gradClockNumber = gradClockNumber;
     }
 
     public void safetyCheck(double minRiseTimeFactor){
