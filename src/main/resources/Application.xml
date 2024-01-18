@@ -138,7 +138,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>ACQUISITION_TIME_PER_SCAN</name>
                     <uuid>c6a83cb4-74f2-486b-bb17-68d8b1f28f3b</uuid>
-                    <value>0.132120576</value>
+                    <value>0.088080384</value>
                     <defaultValue>1.0</defaultValue>
                     <description>Info: Time during which the signal is sampled by the ADC</description>
                     <displayedName>Observation Time</displayedName>
@@ -668,7 +668,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>DWELL_TIME</name>
                     <uuid>51a26fae-db89-4065-aa74-8bd11708d324</uuid>
-                    <value>8.064E-6</value>
+                    <value>5.376E-6</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Reception dwell time</description>
                     <displayedName>DW</displayedName>
@@ -2065,7 +2065,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>RECEIVER_COUNT</name>
                     <uuid>2e92822f-2cc5-4e74-88c2-a4162ab7634a</uuid>
-                    <value>4</value>
+                    <value>1</value>
                     <defaultValue>1</defaultValue>
                     <description>Info: Number of reception channels</description>
                     <displayedName>No. Receivers</displayedName>
@@ -2155,7 +2155,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>SEQUENCE_VERSION</name>
                     <uuid>fce8797d-e7c2-4278-9c47-28d0beef10ad</uuid>
-                    <value>Version1.2</value>
+                    <value>Version1.4</value>
                     <defaultValue></defaultValue>
                     <description>Info: Sequence version</description>
                     <displayedName>Sequence Version</displayedName>
@@ -2256,7 +2256,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SPECTRAL_WIDTH</name>
                     <uuid>8494b191-8921-4ba8-ba16-1325b68dbc9d</uuid>
-                    <value>124007.93650793652</value>
+                    <value>186011.90476190476</value>
                     <defaultValue>12520.0</defaultValue>
                     <description>Receiver bandwidth (SW, BW, bandwidth )</description>
                     <displayedName>BW</displayedName>
@@ -2290,7 +2290,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SPECTRAL_WIDTH_PER_PIXEL</name>
                     <uuid>f0ebce79-b6ce-41ce-a859-349689ef21d3</uuid>
-                    <value>7.568843781001985</value>
+                    <value>11.353265671502976</value>
                     <defaultValue>100.0</defaultValue>
                     <description>Bandwidth per point ( FID res)</description>
                     <displayedName>BW/pt</displayedName>
@@ -2509,7 +2509,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_AMP</name>
                     <uuid>4e381691-8b2a-4b50-96c4-76206b85baae</uuid>
-                    <value>4.601193307807356</value>
+                    <value>5.034605369436707</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Amplitude of the excitation RF pulse</description>
                     <displayedName>TX Amplitude</displayedName>
@@ -2528,7 +2528,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_ATT</name>
                     <uuid>a9f47542-bf8b-478e-af2d-58ad35a381b1</uuid>
-                    <value>28</value>
+                    <value>32</value>
                     <defaultValue>36</defaultValue>
                     <description>RF pulse attenuation</description>
                     <displayedName>TX Attenuation</displayedName>
@@ -2584,7 +2584,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_POWER</name>
                     <uuid>e35ca420-08f7-426c-a521-7bd92b7994b1</uuid>
-                    <value>0.00437</value>
+                    <value>0.00189</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Display the pulse power amplitude that corresponds to Tx Amplitude and Attenuation</description>
                     <displayedName>TX Power</displayedName>
@@ -2657,7 +2657,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>TX_VOLTAGE</name>
                     <uuid>a853cdcd-a18e-4b8d-b8c8-fb29d9d51267</uuid>
-                    <value>1.322</value>
+                    <value>0.87</value>
                     <defaultValue>0.0</defaultValue>
                     <description>RF voltage amplitude peak-to-peak</description>
                     <displayedName>TX Voltage</displayedName>

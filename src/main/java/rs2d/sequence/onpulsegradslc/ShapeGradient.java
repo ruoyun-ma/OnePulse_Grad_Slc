@@ -67,8 +67,6 @@ public class ShapeGradient {
         this.timeTable2 = timeTable2;
         this.timeTable3 = timeTable3;
         gMax = Math.abs(GradientMath.getMaxGradientStrength());
-        minInstructionDelay = 0.000005;
-        minInstructionDelay = isGradClockGrad ? ceilToGradClock(minInstructionDelay, gradClockNumber) : minInstructionDelay;
     }
 
 
@@ -180,6 +178,8 @@ public class ShapeGradient {
     }
     public void setGradClockNumber(int gradClockNumber){
         this.gradClockNumber = gradClockNumber;
+        minInstructionDelay = 0.000005;
+        minInstructionDelay = isGradClockGrad ? ceilToGradClock(minInstructionDelay, gradClockNumber) : minInstructionDelay;
     }
 
     public void safetyCheck(double minRiseTimeFactor){

@@ -1100,7 +1100,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
                 <uuid>bcd9d038-40f9-4305-9e3d-9f6b7e656982</uuid>
-                <value>28</value>
+                <value>32</value>
                 <defaultValue>7</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -2330,7 +2330,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Spectral_width</name>
                 <uuid>0806f790-4ad2-441d-abaf-b1146bd9d765</uuid>
-                <value>124007.93650793651</value>
+                <value>186011.90476190476</value>
                 <defaultValue>12500.0</defaultValue>
                 <displayedName>SW0</displayedName>
                 <locked>true</locked>
@@ -8727,7 +8727,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.3603392698181819</list>
+                <list>0.37243364072727275</list>
             </value>
         </Entry>
         <Entry>
@@ -8988,7 +8988,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>4.601193307807356</list>
+                <list>5.034605369436707</list>
             </value>
         </Entry>
         <Entry>
@@ -10313,7 +10313,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.012099584000000002</list>
+                <list>5.2130909090909096E-6</list>
             </value>
         </Entry>
         <Entry>
