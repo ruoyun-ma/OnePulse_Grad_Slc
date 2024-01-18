@@ -970,7 +970,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Tx_att</name>
                 <uuid>bcd9d038-40f9-4305-9e3d-9f6b7e656982</uuid>
-                <value>28</value>
+                <value>32</value>
                 <defaultValue>7</defaultValue>
                 <displayedName>TxAtt</displayedName>
                 <locked>false</locked>
@@ -2200,7 +2200,7 @@
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>Spectral_width</name>
                 <uuid>0806f790-4ad2-441d-abaf-b1146bd9d765</uuid>
-                <value>124007.93650793651</value>
+                <value>186011.90476190476</value>
                 <defaultValue>12500.0</defaultValue>
                 <displayedName>SW0</displayedName>
                 <locked>true</locked>
@@ -8121,7 +8121,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.3603392698181819</list>
+                <list>0.37243364072727275</list>
             </value>
         </Entry>
         <Entry>
@@ -8380,7 +8380,7 @@
                         <lockedToDefault>false</lockedToDefault>
                     </params>
                 </generator>
-                <list>4.601193307807356</list>
+                <list>5.034605369436707</list>
             </value>
         </Entry>
         <Entry>
@@ -8411,7 +8411,7 @@
                     <name>Gaussian</name>
                     <params xsi:type="numberParam">
                         <name>Nb points</name>
-                        <uuid>40ac4a67-577f-4851-b96b-8231c6668dfa</uuid>
+                        <uuid>e404b498-f45e-41e7-8cc8-3b06a2748b43</uuid>
                         <value>128</value>
                         <defaultValue>64</defaultValue>
                         <description>Number of points</description>
@@ -8425,7 +8425,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Width</name>
-                        <uuid>5a2522c1-e7dd-458b-82a7-eecc19e91ee5</uuid>
+                        <uuid>9b48dadd-703f-4a83-968b-9453ac4b5190</uuid>
                         <value>0.25</value>
                         <defaultValue>0.25</defaultValue>
                         <description>Width of the gaussian</description>
@@ -8439,7 +8439,7 @@
                     </params>
                     <params xsi:type="numberParam">
                         <name>Amplitude</name>
-                        <uuid>4325842c-717c-40bc-9c41-3de56d633783</uuid>
+                        <uuid>b42eaf03-704b-4969-9430-80443e9cf4bc</uuid>
                         <value>100.0</value>
                         <defaultValue>100.0</defaultValue>
                         <description>Amplitude of the gaussian</description>
@@ -8453,7 +8453,7 @@
                     </params>
                     <params xsi:type="booleanParam">
                         <name>Abs</name>
-                        <uuid>782b3a16-6a66-4dda-a7d7-e2d90963b90f</uuid>
+                        <uuid>d8829b18-04d8-48c3-90f0-a00456dde517</uuid>
                         <value>false</value>
                         <defaultValue>false</defaultValue>
                         <description>Absolute value</description>
@@ -9686,7 +9686,7 @@
                 <group>Delay</group>
                 <locked>false</locked>
                 <address>-1</address>
-                <list>0.012099584000000002</list>
+                <list>5.2130909090909096E-6</list>
             </value>
         </Entry>
         <Entry>
