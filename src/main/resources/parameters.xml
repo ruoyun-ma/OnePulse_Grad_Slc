@@ -266,6 +266,59 @@
             </value>
         </entry>
         <entry>
+            <key>CALIB_GRAD_CHIRP_APPLY_GAUSSIAN</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
+                <name>CALIB_GRAD_CHIRP_APPLY_GAUSSIAN</name>
+                <uuid>f9cd3374-a467-4b55-9bf1-a32ff61d63ff</uuid>
+                <value>true</value>
+                <defaultValue>true</defaultValue>
+                <description>Ramp down gradient waveform with the multiplication with a half-gaussian</description>
+                <displayedName>Calib Grad Chirp Apply Gaussian RampDown</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <group>Gradient</group>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
+            <key>CALIB_GRAD_CHIRP_GAUSSIAN_SIGMA</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>CALIB_GRAD_CHIRP_GAUSSIAN_SIGMA</name>
+                <uuid>11ffeadb-5b7e-489e-aef3-62d4c8537bc3</uuid>
+                <value>0.5</value>
+                <defaultValue>0.5</defaultValue>
+                <description>Sigma of gaussian filter if applying half-gaussian ramp down on Chirp gradient</description>
+                <displayedName>Calib Grad Chirp Gaussian Sigma</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <numberEnum>Double</numberEnum>
+                <minValue>-10.0</minValue>
+                <maxValue>10.0</maxValue>
+                <group>Gradient</group>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
+            <key>CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH</key>
+            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
+                <name>CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH</name>
+                <uuid>d40a158f-269a-4f3d-ad2c-39b926324c66</uuid>
+                <value>0.001</value>
+                <defaultValue>0.001</defaultValue>
+                <description>Duration of gaussian rampdown if applied on the Chirp gradient</description>
+                <displayedName>Calib Grad Chirp Rampdown Duration</displayedName>
+                <locked>false</locked>
+                <lockedToDefault>false</lockedToDefault>
+                <restrictedToSuggested>false</restrictedToSuggested>
+                <numberEnum>Time</numberEnum>
+                <minValue>0.0</minValue>
+                <maxValue>3600.0</maxValue>
+                <group>Gradient</group>
+                <category>Acquisition</category>
+            </value>
+        </entry>
+        <entry>
             <key>CALIB_GRAD_CHIRP_START</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                 <name>CALIB_GRAD_CHIRP_START</name>

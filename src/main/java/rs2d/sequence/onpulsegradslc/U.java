@@ -266,6 +266,57 @@ public enum U implements GeneratorParamEnum {
         }
     },
 
+    CALIB_GRAD_CHIRP_APPLY_GAUSSIAN("CALIB_GRAD_CHIRP_APPLY_GAUSSIAN") {
+        public Param build() {
+            BooleanParam param = new BooleanParam();
+            param.setName("CALIB_GRAD_CHIRP_APPLY_GAUSSIAN");
+            param.setDisplayedName("Calib Grad Chirp Apply Gaussian RampDown");
+            param.setDescription("Ramp down gradient waveform with the multiplication with a half-gaussian");
+            param.setGroup(EnumGroup.Gradient);
+            param.setCategory(Category.Acquisition);
+            param.setUuid("f9cd3374-a467-4b55-9bf1-a32ff61d63ff");
+            param.setValue(true);
+            param.setDefaultValue(true);
+            return param;
+        }
+    },
+
+    CALIB_GRAD_CHIRP_GAUSSIAN_SIGMA("CALIB_GRAD_CHIRP_GAUSSIAN_SIGMA") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("CALIB_GRAD_CHIRP_GAUSSIAN_SIGMA");
+            param.setDisplayedName("Calib Grad Chirp Gaussian Sigma");
+            param.setDescription("Sigma of gaussian filter if applying half-gaussian ramp down on Chirp gradient");
+            param.setGroup(EnumGroup.Gradient);
+            param.setCategory(Category.Acquisition);
+            param.setUuid("11ffeadb-5b7e-489e-aef3-62d4c8537bc3");
+            param.setNumberEnum(NumberEnum.Double);
+            param.setMinValue(-10.0);
+            param.setMaxValue(10.0);
+            param.setValue(0.5);
+            param.setDefaultValue(0.5);
+            return param;
+        }
+    },
+
+    CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH("CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH") {
+        public Param build() {
+            NumberParam param = new NumberParam();
+            param.setName("CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH");
+            param.setDisplayedName("Calib Grad Chirp Rampdown Duration");
+            param.setDescription("Duration of gaussian rampdown if applied on the Chirp gradient");
+            param.setGroup(EnumGroup.Gradient);
+            param.setCategory(Category.Acquisition);
+            param.setUuid("d40a158f-269a-4f3d-ad2c-39b926324c66");
+            param.setNumberEnum(NumberEnum.Time);
+            param.setMinValue(0.0);
+            param.setMaxValue(3600.0);
+            param.setValue(0.001);
+            param.setDefaultValue(0.001);
+            return param;
+        }
+    },
+
     CALIB_GRAD_CHIRP_START("CALIB_GRAD_CHIRP_START") {
         public Param build() {
             NumberParam param = new NumberParam();
