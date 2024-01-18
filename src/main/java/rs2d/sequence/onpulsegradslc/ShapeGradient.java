@@ -218,6 +218,28 @@ public class ShapeGradient {
 
         this.gradObjectLength = timeTable1.get(0).doubleValue() + timeTable2.get(0).doubleValue() +timeTable3.get(0).doubleValue();
     }
+    /**
+    multiply the ending part of the chirp gradient with a half-Gaussian, the method has to be called after safetyCheck
+     */
+    public double applyGaussianRampDown(double sigma, double length){
+
+        double gradLength = this.timeTable1.get(0).doubleValue();
+        double rampDownLength = length / 100 * gradLength;
+        int nbPointsRampDown = (int) Math.round(rampDownLength / gradLength * nbPoints);
+        rampDownLength = roundToDecimal((double)nbPointsRampDown / nbPoints * 100,2);
+        List<Double> gauss = halfGaussian(sigma, nbPointsRampDown, true);
+        double newShapeValue;
+        double gCurrent;
+        for (int i = 0; i < nbPointsRampDown; i++){
+            gCurrent = shape1.get(i + nbPoints - nbPointsRampDown).doubleValue();
+            newShapeValue = gCurrent * gauss.get(i);
+
+            shape1.set(i + nbPoints - nbPointsRampDown, newShapeValue);
+        }
+        shape1.fireListChange();
+        return rampDownLength;
+    }
+
 
     public void setAmplitudeTable(){
         switch (shapeName){
@@ -512,7 +534,23 @@ public class ShapeGradient {
         return Collections.max(slewRateList) * gMax / (this.gradLength / nbPoints);
     }
 
+    private List<Double> halfGaussian(double sigma, int nbGaussPoints, boolean rampDown){
+        List<Double> gauss = new ArrayList<>();
+        double value;
+        for (int i = 0; i < nbGaussPoints; i++){
+            value  = Math.exp(-((double)i / nbGaussPoints / sigma) * ((double)i / nbGaussPoints / sigma));
+            if (rampDown){
+                value = 1 - value;
+            }
+            gauss.add(value);
 
+        }
+        if (rampDown){
+            Collections.reverse(gauss);
+        }
+
+        return gauss;
+    }
 
     // ---------------------------------------------------------------
     // ----------------- General Methods----------------------------------------------
@@ -552,6 +590,9 @@ public class ShapeGradient {
      */
     private double ceilToSubDecimal(double numberToBeRounded, double Order) {
         return Math.ceil(numberToBeRounded * Math.pow(10, Order)) / Math.pow(10, Order);
+    }
+    private double roundToDecimal(double numberToBeRounded, double order) {
+        return Math.round(numberToBeRounded * Math.pow(10, order)) / Math.pow(10, order);
     }
     private double ceilToGradClock(double numberToBeRounded, int... factor) {
         double freq = gradFreq;

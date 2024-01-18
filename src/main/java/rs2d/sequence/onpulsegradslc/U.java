@@ -260,21 +260,21 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.GradAmp);
             param.setMinValue(-100.0);
             param.setMaxValue(100.0);
-            param.setValue(40.0);
+            param.setValue(2.0);
             param.setDefaultValue(0.0);
             return param;
         }
     },
 
-    CALIB_GRAD_CHIRP_APPLY_GAUSSIAN("CALIB_GRAD_CHIRP_APPLY_GAUSSIAN") {
+    CALIB_GRAD_CHIRP_APPLY_RAMPDOWN("CALIB_GRAD_CHIRP_APPLY_RAMPDOWN") {
         public Param build() {
             BooleanParam param = new BooleanParam();
-            param.setName("CALIB_GRAD_CHIRP_APPLY_GAUSSIAN");
+            param.setName("CALIB_GRAD_CHIRP_APPLY_RAMPDOWN");
             param.setDisplayedName("Calib Grad Chirp Apply Gaussian RampDown");
             param.setDescription("Ramp down gradient waveform with the multiplication with a half-gaussian");
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
-            param.setUuid("f9cd3374-a467-4b55-9bf1-a32ff61d63ff");
+            param.setUuid("ff096a65-3bc1-412e-a34b-16a64bfecba9");
             param.setValue(true);
             param.setDefaultValue(true);
             return param;
@@ -293,26 +293,26 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Double);
             param.setMinValue(-10.0);
             param.setMaxValue(10.0);
-            param.setValue(0.5);
+            param.setValue(0.4);
             param.setDefaultValue(0.5);
             return param;
         }
     },
 
-    CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH("CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH") {
+    CALIB_GRAD_CHIRP_RAMPDOWN_PERCENTAGE("CALIB_GRAD_CHIRP_RAMPDOWN_PERCENTAGE") {
         public Param build() {
             NumberParam param = new NumberParam();
-            param.setName("CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH");
-            param.setDisplayedName("Calib Grad Chirp Rampdown Duration");
-            param.setDescription("Duration of gaussian rampdown if applied on the Chirp gradient");
+            param.setName("CALIB_GRAD_CHIRP_RAMPDOWN_PERCENTAGE");
+            param.setDisplayedName("Calib Grad Chirp Rampdown Percentage");
+            param.setDescription("Duration of gaussian rampdown if applied on the Chirp gradient compared to the actual gradient duration. Recommend to set a value smaller than 0.5, otherwise the gradient is not ramped down to 0");
             param.setGroup(EnumGroup.Gradient);
             param.setCategory(Category.Acquisition);
-            param.setUuid("d40a158f-269a-4f3d-ad2c-39b926324c66");
-            param.setNumberEnum(NumberEnum.Time);
+            param.setUuid("57dce977-b415-4f1c-99a5-a334050202d9");
+            param.setNumberEnum(NumberEnum.PERCENT);
             param.setMinValue(0.0);
-            param.setMaxValue(3600.0);
-            param.setValue(0.001);
-            param.setDefaultValue(0.001);
+            param.setMaxValue(100.0);
+            param.setValue(5.0);
+            param.setDefaultValue(5.0);
             return param;
         }
     },
@@ -363,7 +363,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(4.9999999999999996E-6);
             param.setMaxValue(1.0E9);
-            param.setValue(0.12);
+            param.setValue(0.08);
             param.setDefaultValue(4.9999999999999996E-6);
             return param;
         }
@@ -416,7 +416,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Time);
             param.setMinValue(0.0);
             param.setMaxValue(1.0E9);
-            param.setValue(0.12000013963636365);
+            param.setValue(0.08000009309090911);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -467,7 +467,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Integer);
             param.setMinValue(0);
             param.setMaxValue(2147483647);
-            param.setValue(23019);
+            param.setValue(15346);
             param.setDefaultValue(0);
             return param;
         }
@@ -867,7 +867,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.GradAmp);
             param.setMinValue(-100.0);
             param.setMaxValue(100.0);
-            param.setValue(40.0);
+            param.setValue(14.646692114405624);
             param.setDefaultValue(0.0);
             return param;
         }
@@ -1573,7 +1573,7 @@ public enum U implements GeneratorParamEnum {
             param.setGroup(EnumGroup.User);
             param.setCategory(Category.Acquisition);
             param.setUuid("fce8797d-e7c2-4278-9c47-28d0beef10ad");
-            param.setValue("Version1.4");
+            param.setValue("Version1.5");
             param.setDefaultValue("");
             return param;
         }
@@ -1605,7 +1605,7 @@ public enum U implements GeneratorParamEnum {
             param.setNumberEnum(NumberEnum.Double);
             param.setMinValue(0.0);
             param.setMaxValue(1.7976931348623157E308);
-            param.setValue(187.494);
+            param.setValue(145.289);
             param.setDefaultValue(0.0);
             return param;
         }

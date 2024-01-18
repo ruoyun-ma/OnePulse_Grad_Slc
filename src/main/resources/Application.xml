@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <application>
-    <name>OnePulse_Grad_Slc_v1.4</name>
+    <name>OnePulse_Grad_Slc_v1.5</name>
     <description></description>
     <usage></usage>
     <generatorName>seqdev-temp</generatorName>
@@ -267,7 +267,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_AMP</name>
                     <uuid>77cb2ee3-47cf-4a83-81e1-2d333423164b</uuid>
-                    <value>40.0</value>
+                    <value>2.0</value>
                     <defaultValue>0.0</defaultValue>
                     <description></description>
                     <displayedName>Calib Grad Amplitude</displayedName>
@@ -281,10 +281,10 @@
                 </value>
             </entry>
             <entry>
-                <key>CALIB_GRAD_CHIRP_APPLY_GAUSSIAN</key>
+                <key>CALIB_GRAD_CHIRP_APPLY_RAMPDOWN</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="booleanParam">
-                    <name>CALIB_GRAD_CHIRP_APPLY_GAUSSIAN</name>
-                    <uuid>f9cd3374-a467-4b55-9bf1-a32ff61d63ff</uuid>
+                    <name>CALIB_GRAD_CHIRP_APPLY_RAMPDOWN</name>
+                    <uuid>ff096a65-3bc1-412e-a34b-16a64bfecba9</uuid>
                     <value>true</value>
                     <defaultValue>true</defaultValue>
                     <description>Ramp down gradient waveform with the multiplication with a half-gaussian</description>
@@ -300,7 +300,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_CHIRP_GAUSSIAN_SIGMA</name>
                     <uuid>11ffeadb-5b7e-489e-aef3-62d4c8537bc3</uuid>
-                    <value>0.5</value>
+                    <value>0.4</value>
                     <defaultValue>0.5</defaultValue>
                     <description>Sigma of gaussian filter if applying half-gaussian ramp down on Chirp gradient</description>
                     <displayedName>Calib Grad Chirp Gaussian Sigma</displayedName>
@@ -315,20 +315,20 @@
                 </value>
             </entry>
             <entry>
-                <key>CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH</key>
+                <key>CALIB_GRAD_CHIRP_RAMPDOWN_PERCENTAGE</key>
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
-                    <name>CALIB_GRAD_CHIRP_RAMPDOWN_LENGTH</name>
-                    <uuid>d40a158f-269a-4f3d-ad2c-39b926324c66</uuid>
-                    <value>0.001</value>
-                    <defaultValue>0.001</defaultValue>
-                    <description>Duration of gaussian rampdown if applied on the Chirp gradient</description>
-                    <displayedName>Calib Grad Chirp Rampdown Duration</displayedName>
+                    <name>CALIB_GRAD_CHIRP_RAMPDOWN_PERCENTAGE</name>
+                    <uuid>57dce977-b415-4f1c-99a5-a334050202d9</uuid>
+                    <value>5.0</value>
+                    <defaultValue>5.0</defaultValue>
+                    <description>Duration of gaussian rampdown if applied on the Chirp gradient compared to the actual gradient duration. Recommend to set a value smaller than 0.5, otherwise the gradient is not ramped down to 0</description>
+                    <displayedName>Calib Grad Chirp Rampdown Percentage</displayedName>
                     <locked>false</locked>
                     <lockedToDefault>false</lockedToDefault>
                     <restrictedToSuggested>false</restrictedToSuggested>
-                    <numberEnum>Time</numberEnum>
+                    <numberEnum>PERCENT</numberEnum>
                     <minValue>0.0</minValue>
-                    <maxValue>3600.0</maxValue>
+                    <maxValue>100.0</maxValue>
                     <group>Gradient</group>
                     <category>Acquisition</category>
                 </value>
@@ -374,7 +374,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_LENGTH_1</name>
                     <uuid>cb0e22df-18a5-4686-b65a-1bd21f7f8c26</uuid>
-                    <value>0.12</value>
+                    <value>0.08</value>
                     <defaultValue>4.9999999999999996E-6</defaultValue>
                     <description></description>
                     <displayedName>Calib Grad Length 1</displayedName>
@@ -431,7 +431,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_LENGTH_EFF_1</name>
                     <uuid>13a575aa-8c06-4f8a-a341-b3a94fc6d5a3</uuid>
-                    <value>0.12000013963636365</value>
+                    <value>0.08000009309090911</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Info: Effective length of first calib shape gradient</description>
                     <displayedName>Calib Grad Length Eff 1</displayedName>
@@ -485,7 +485,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>CALIB_GRAD_NB_POINT</name>
                     <uuid>48218235-a8bf-4aea-a817-ab50c2ee15d9</uuid>
-                    <value>23019</value>
+                    <value>15346</value>
                     <defaultValue>0</defaultValue>
                     <description></description>
                     <displayedName>Calib Grad Nb Point</displayedName>
@@ -906,7 +906,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>GRAD_MAX_SEQUENCE</name>
                     <uuid>7919f98f-86fa-4e6a-9b75-f5446dd4fe6b</uuid>
-                    <value>40.0</value>
+                    <value>14.646692114405624</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Maximum gradient amplitude applied in the sequence (%)</description>
                     <displayedName>Grad Max</displayedName>
@@ -2143,7 +2143,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="textParam">
                     <name>SEQUENCE_VERSION</name>
                     <uuid>fce8797d-e7c2-4278-9c47-28d0beef10ad</uuid>
-                    <value>Version1.4</value>
+                    <value>Version1.5</value>
                     <defaultValue></defaultValue>
                     <description>Info: Sequence version</description>
                     <displayedName>Sequence Version</displayedName>
@@ -2173,7 +2173,7 @@
                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="numberParam">
                     <name>SLEW_RATE_MAX_SHAPE</name>
                     <uuid>1ea58ec9-b34b-4b07-ac06-e3e0eff59427</uuid>
-                    <value>187.494</value>
+                    <value>145.289</value>
                     <defaultValue>0.0</defaultValue>
                     <description>Maximum shape slew rate (T/m/s)</description>
                     <displayedName>Slew Rate Max Shape</displayedName>

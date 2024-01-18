@@ -32,7 +32,7 @@ import static rs2d.sequence.onpulsegradslc.U.*;
 
 public class OnepulseGradSlc extends BaseSequenceGenerator {
 
-    private final String sequenceVersion = "Version1.4";
+    private final String sequenceVersion = "Version1.5";
     public double protonFrequency;
     public double observeFrequency;
     private Nucleus nucleus;
@@ -503,6 +503,14 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         double chirpStart = getDouble(CALIB_GRAD_CHIRP_START);
         double chirpEnd = getDouble(CALIB_GRAD_CHIRP_STOP);
         int nbPointsGrad = getInt(CALIB_GRAD_NB_POINT);
+        boolean applyRampDown = getBoolean(CALIB_GRAD_CHIRP_APPLY_RAMPDOWN);
+        double gaussSigma = getDouble(CALIB_GRAD_CHIRP_GAUSSIAN_SIGMA);
+        double gaussLength = getDouble(CALIB_GRAD_CHIRP_RAMPDOWN_PERCENTAGE);
+        if (gaussLength == 0){
+            applyRampDown = false;
+            getParam(CALIB_GRAD_CHIRP_APPLY_RAMPDOWN).setValue(false);
+        }
+
         //double
         if (calibShape.equalsIgnoreCase("sinc")){
             shapeGradient.initSinc(calibGradAmp, nbPointsGrad, gradLength1);
@@ -521,6 +529,12 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
         shapeGradient.safetyCheck(getDouble(CALIB_GRAD_SLEW_RATE_FACTOR));
         getParam(SLEW_RATE_MAX_SHAPE).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateShape(), 3));
         getParam(SLEW_RATE_MAX_SYSTEM).setValue(ceilToSubDecimal(shapeGradient.getMaxSlewRateSystem(), 3));
+
+        // apply rampdown for chirp
+        if (calibShape.equalsIgnoreCase("chirp")){
+            gaussLength = shapeGradient.applyGaussianRampDown(gaussSigma, gaussLength);
+            getParam(CALIB_GRAD_CHIRP_RAMPDOWN_PERCENTAGE).setValue(gaussLength);
+        }
         if (nb_scan_2d == 1) {
             shapeGradient.setAmplitudeTable();
         } else if (nb_scan_2d == 2) {
@@ -843,7 +857,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     }
 
     public String getVersion() {
-        return "v1.4";
+        return "v1.5";
     }
     //</editor-fold>
 
