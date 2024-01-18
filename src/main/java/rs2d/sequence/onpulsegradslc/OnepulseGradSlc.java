@@ -843,7 +843,7 @@ public class OnepulseGradSlc extends BaseSequenceGenerator {
     }
 
     public String getVersion() {
-        return "v1.3";
+        return "v1.4";
     }
     //</editor-fold>
 
